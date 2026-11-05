@@ -3,6 +3,7 @@ import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ADDomainInfo } from './model/ADDomainInfo';
+import { AIApplicationListItem } from './model/AIApplicationListItem';
 import { AddCopyDatabaseRequestBody } from './model/AddCopyDatabaseRequestBody';
 import { AddLogConfigResponseBody } from './model/AddLogConfigResponseBody';
 import { AddLogConfigs } from './model/AddLogConfigs';
@@ -183,6 +184,9 @@ import { CreateSubscriptionInfoInitializeInfo } from './model/CreateSubscription
 import { CreateSubscriptionRequest } from './model/CreateSubscriptionRequest';
 import { CreateSubscriptionRequestBody } from './model/CreateSubscriptionRequestBody';
 import { CreateSubscriptionResponse } from './model/CreateSubscriptionResponse';
+import { CreateSupabaseApplicationRequest } from './model/CreateSupabaseApplicationRequest';
+import { CreateSupabaseApplicationRequestBody } from './model/CreateSupabaseApplicationRequestBody';
+import { CreateSupabaseApplicationResponse } from './model/CreateSupabaseApplicationResponse';
 import { CreateXelLogDownloadRequest } from './model/CreateXelLogDownloadRequest';
 import { CreateXelLogDownloadRequestBody } from './model/CreateXelLogDownloadRequestBody';
 import { CreateXelLogDownloadResponse } from './model/CreateXelLogDownloadResponse';
@@ -269,6 +273,8 @@ import { DeleteSqlserverDbUserResponse } from './model/DeleteSqlserverDbUserResp
 import { DeleteSubscriptionRequest } from './model/DeleteSubscriptionRequest';
 import { DeleteSubscriptionRequestBody } from './model/DeleteSubscriptionRequestBody';
 import { DeleteSubscriptionResponse } from './model/DeleteSubscriptionResponse';
+import { DeleteSupabaseApplicationRequest } from './model/DeleteSupabaseApplicationRequest';
+import { DeleteSupabaseApplicationResponse } from './model/DeleteSupabaseApplicationResponse';
 import { DetectedProblem } from './model/DetectedProblem';
 import { DiagnosisInstancesInfoResult } from './model/DiagnosisInstancesInfoResult';
 import { DiagnosisItemResult } from './model/DiagnosisItemResult';
@@ -361,6 +367,8 @@ import { JobScheduleInfo } from './model/JobScheduleInfo';
 import { JobScheduleOneTimeOccurrenceInfo } from './model/JobScheduleOneTimeOccurrenceInfo';
 import { LDatastore } from './model/LDatastore';
 import { LinksInfoResponse } from './model/LinksInfoResponse';
+import { ListAiApplicationsRequest } from './model/ListAiApplicationsRequest';
+import { ListAiApplicationsResponse } from './model/ListAiApplicationsResponse';
 import { ListApiVersionNewRequest } from './model/ListApiVersionNewRequest';
 import { ListApiVersionNewResponse } from './model/ListApiVersionNewResponse';
 import { ListApiVersionRequest } from './model/ListApiVersionRequest';
@@ -569,6 +577,10 @@ import { ListSubscriberInstancesResponse } from './model/ListSubscriberInstances
 import { ListSubscriptionInfo } from './model/ListSubscriptionInfo';
 import { ListSubscriptionsRequest } from './model/ListSubscriptionsRequest';
 import { ListSubscriptionsResponse } from './model/ListSubscriptionsResponse';
+import { ListSupabaseApplicationApiKeysRequest } from './model/ListSupabaseApplicationApiKeysRequest';
+import { ListSupabaseApplicationApiKeysResponse } from './model/ListSupabaseApplicationApiKeysResponse';
+import { ListSupabaseApplicationFlavorsRequest } from './model/ListSupabaseApplicationFlavorsRequest';
+import { ListSupabaseApplicationFlavorsResponse } from './model/ListSupabaseApplicationFlavorsResponse';
 import { ListTasksRequest } from './model/ListTasksRequest';
 import { ListTasksResponse } from './model/ListTasksResponse';
 import { ListTopSqlsRequest } from './model/ListTopSqlsRequest';
@@ -613,6 +625,15 @@ import { ModifyPublicationsRequestBody } from './model/ModifyPublicationsRequest
 import { ModifyRdSforMySqlProxyRouteModeRequest } from './model/ModifyRdSforMySqlProxyRouteModeRequest';
 import { ModifyRdSforMySqlProxyRouteModeResponse } from './model/ModifyRdSforMySqlProxyRouteModeResponse';
 import { ModifySubscriptionsRequestBody } from './model/ModifySubscriptionsRequestBody';
+import { ModifySupabaseApplicationAuthConfigRequest } from './model/ModifySupabaseApplicationAuthConfigRequest';
+import { ModifySupabaseApplicationAuthConfigRequestBody } from './model/ModifySupabaseApplicationAuthConfigRequestBody';
+import { ModifySupabaseApplicationAuthConfigResponse } from './model/ModifySupabaseApplicationAuthConfigResponse';
+import { ModifySupabaseApplicationPasswordRequest } from './model/ModifySupabaseApplicationPasswordRequest';
+import { ModifySupabaseApplicationPasswordRequestBody } from './model/ModifySupabaseApplicationPasswordRequestBody';
+import { ModifySupabaseApplicationPasswordResponse } from './model/ModifySupabaseApplicationPasswordResponse';
+import { ModifySupabaseApplicationStorageRequest } from './model/ModifySupabaseApplicationStorageRequest';
+import { ModifySupabaseApplicationStorageRequestBody } from './model/ModifySupabaseApplicationStorageRequestBody';
+import { ModifySupabaseApplicationStorageResponse } from './model/ModifySupabaseApplicationStorageResponse';
 import { MsdtcHostOption } from './model/MsdtcHostOption';
 import { MsdtcHostResult } from './model/MsdtcHostResult';
 import { MultipleDeleteInsReq } from './model/MultipleDeleteInsReq';
@@ -710,6 +731,8 @@ import { ResetConfigurationRequest } from './model/ResetConfigurationRequest';
 import { ResetConfigurationResponse } from './model/ResetConfigurationResponse';
 import { ResetPwdRequest } from './model/ResetPwdRequest';
 import { ResetPwdResponse } from './model/ResetPwdResponse';
+import { ResetSupabaseApplicationApiKeyRequest } from './model/ResetSupabaseApplicationApiKeyRequest';
+import { ResetSupabaseApplicationApiKeyResponse } from './model/ResetSupabaseApplicationApiKeyResponse';
 import { ResetViewSqlStatisticsRequest } from './model/ResetViewSqlStatisticsRequest';
 import { ResetViewSqlStatisticsResponse } from './model/ResetViewSqlStatisticsResponse';
 import { ResizeFlavorObject } from './model/ResizeFlavorObject';
@@ -723,6 +746,8 @@ import { RestartConfiguration } from './model/RestartConfiguration';
 import { RestartDbAgentJobRequest } from './model/RestartDbAgentJobRequest';
 import { RestartDbAgentJobResponse } from './model/RestartDbAgentJobResponse';
 import { RestartPolicy } from './model/RestartPolicy';
+import { RestartSupabaseApplicationRequest } from './model/RestartSupabaseApplicationRequest';
+import { RestartSupabaseApplicationResponse } from './model/RestartSupabaseApplicationResponse';
 import { RestoreDatabaseInfo } from './model/RestoreDatabaseInfo';
 import { RestoreDatabaseInstance } from './model/RestoreDatabaseInstance';
 import { RestoreDatabasesInfo } from './model/RestoreDatabasesInfo';
@@ -933,6 +958,12 @@ import { ShowSqlDiagnosisRequest } from './model/ShowSqlDiagnosisRequest';
 import { ShowSqlDiagnosisResponse } from './model/ShowSqlDiagnosisResponse';
 import { ShowStorageUsedSpaceRequest } from './model/ShowStorageUsedSpaceRequest';
 import { ShowStorageUsedSpaceResponse } from './model/ShowStorageUsedSpaceResponse';
+import { ShowSupabaseApplicationApiKeyValueRequest } from './model/ShowSupabaseApplicationApiKeyValueRequest';
+import { ShowSupabaseApplicationApiKeyValueResponse } from './model/ShowSupabaseApplicationApiKeyValueResponse';
+import { ShowSupabaseApplicationAuthConfigRequest } from './model/ShowSupabaseApplicationAuthConfigRequest';
+import { ShowSupabaseApplicationAuthConfigResponse } from './model/ShowSupabaseApplicationAuthConfigResponse';
+import { ShowSupabaseApplicationRequest } from './model/ShowSupabaseApplicationRequest';
+import { ShowSupabaseApplicationResponse } from './model/ShowSupabaseApplicationResponse';
 import { ShowTaskDetailRequest } from './model/ShowTaskDetailRequest';
 import { ShowTaskDetailResponse } from './model/ShowTaskDetailResponse';
 import { ShowTdeStatusRequest } from './model/ShowTdeStatusRequest';
@@ -986,6 +1017,8 @@ import { StartRecyclePolicyRequest } from './model/StartRecyclePolicyRequest';
 import { StartRecyclePolicyResponse } from './model/StartRecyclePolicyResponse';
 import { StartResizeFlavorActionRequest } from './model/StartResizeFlavorActionRequest';
 import { StartResizeFlavorActionResponse } from './model/StartResizeFlavorActionResponse';
+import { StartSupabaseApplicationRequest } from './model/StartSupabaseApplicationRequest';
+import { StartSupabaseApplicationResponse } from './model/StartSupabaseApplicationResponse';
 import { StartupInstanceRequest } from './model/StartupInstanceRequest';
 import { StartupInstanceResponse } from './model/StartupInstanceResponse';
 import { Statistic } from './model/Statistic';
@@ -995,6 +1028,8 @@ import { StopDatabaseProxyRequest } from './model/StopDatabaseProxyRequest';
 import { StopDatabaseProxyResponse } from './model/StopDatabaseProxyResponse';
 import { StopInstanceRequest } from './model/StopInstanceRequest';
 import { StopInstanceResponse } from './model/StopInstanceResponse';
+import { StopSupabaseApplicationRequest } from './model/StopSupabaseApplicationRequest';
+import { StopSupabaseApplicationResponse } from './model/StopSupabaseApplicationResponse';
 import { Storage } from './model/Storage';
 import { SubTaskInfo } from './model/SubTaskInfo';
 import { Subnet } from './model/Subnet';
@@ -1002,6 +1037,27 @@ import { Subscription4InstanceInfo } from './model/Subscription4InstanceInfo';
 import { Subscription4PublicationInfo } from './model/Subscription4PublicationInfo';
 import { SubscriptionOption } from './model/SubscriptionOption';
 import { SubscriptionOptionsResult } from './model/SubscriptionOptionsResult';
+import { SupabaseApiEmailOAuthProvider } from './model/SupabaseApiEmailOAuthProvider';
+import { SupabaseApiEmailTemplate } from './model/SupabaseApiEmailTemplate';
+import { SupabaseApiGitHubOAuthProvider } from './model/SupabaseApiGitHubOAuthProvider';
+import { SupabaseApiSMTPServer } from './model/SupabaseApiSMTPServer';
+import { SupabaseAppBasicConfig } from './model/SupabaseAppBasicConfig';
+import { SupabaseApplicationApiKeyRecord } from './model/SupabaseApplicationApiKeyRecord';
+import { SupabaseDatastore } from './model/SupabaseDatastore';
+import { SupabaseEmailOAuthProviderReq } from './model/SupabaseEmailOAuthProviderReq';
+import { SupabaseEmailTemplateReq } from './model/SupabaseEmailTemplateReq';
+import { SupabaseExistingInstanceRequest } from './model/SupabaseExistingInstanceRequest';
+import { SupabaseGitHubOAuthProviderReq } from './model/SupabaseGitHubOAuthProviderReq';
+import { SupabaseHaConfig } from './model/SupabaseHaConfig';
+import { SupabaseInstanceCreateRequest } from './model/SupabaseInstanceCreateRequest';
+import { SupabaseMailerItemTemplateReq } from './model/SupabaseMailerItemTemplateReq';
+import { SupabaseManagedInstanceInfo } from './model/SupabaseManagedInstanceInfo';
+import { SupabaseSMTPServerReq } from './model/SupabaseSMTPServerReq';
+import { SupabaseSpecFlavorInfo } from './model/SupabaseSpecFlavorInfo';
+import { SupabaseSpecFlavorInfoAvailabilityZones } from './model/SupabaseSpecFlavorInfoAvailabilityZones';
+import { SupabaseStorageComponentConfig } from './model/SupabaseStorageComponentConfig';
+import { SupabaseStorageComponentInfo } from './model/SupabaseStorageComponentInfo';
+import { SupabaseVolumeConfig } from './model/SupabaseVolumeConfig';
 import { SupportFastRestoreList } from './model/SupportFastRestoreList';
 import { SwitchDbAgentJobRequest } from './model/SwitchDbAgentJobRequest';
 import { SwitchDbAgentJobResponse } from './model/SwitchDbAgentJobResponse';
@@ -1019,6 +1075,12 @@ import { SwitchSqlLimitRequest } from './model/SwitchSqlLimitRequest';
 import { SwitchSqlLimitResponse } from './model/SwitchSqlLimitResponse';
 import { SwitchSslRequest } from './model/SwitchSslRequest';
 import { SwitchSslResponse } from './model/SwitchSslResponse';
+import { SwitchSupabaseApplicationEipBindRequest } from './model/SwitchSupabaseApplicationEipBindRequest';
+import { SwitchSupabaseApplicationEipBindRequestBody } from './model/SwitchSupabaseApplicationEipBindRequestBody';
+import { SwitchSupabaseApplicationEipBindResponse } from './model/SwitchSupabaseApplicationEipBindResponse';
+import { SwitchSupabaseApplicationSslRequest } from './model/SwitchSupabaseApplicationSslRequest';
+import { SwitchSupabaseApplicationSslRequestBody } from './model/SwitchSupabaseApplicationSslRequestBody';
+import { SwitchSupabaseApplicationSslResponse } from './model/SwitchSupabaseApplicationSslResponse';
 import { SyncReplicationMetadataRequest } from './model/SyncReplicationMetadataRequest';
 import { SyncReplicationMetadataResponse } from './model/SyncReplicationMetadataResponse';
 import { Table } from './model/Table';
@@ -8715,6 +8777,391 @@ export class RdsClient {
      */
     public resetViewSqlStatistics(resetViewSqlStatisticsRequest?: ResetViewSqlStatisticsRequest): Promise<ResetViewSqlStatisticsResponse> {
         const options = ParamCreater().resetViewSqlStatistics(resetViewSqlStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建Supabase应用。支持两类路径：
+     * 1) 同时创建托管的PostgreSQL实例（manage_type&#x3D;newly_instance）；
+     * 2) 关联已有PostgreSQL实例（manage_type&#x3D;existed_instance）。
+     * 异步接口，返回job_id（按需）或order_id（包周期）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建Supabase应用
+     * @param {CreateSupabaseApplicationRequestBody} createSupabaseApplicationRequestBody 请求体。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言
+     * @param {string} [xClientToken] 保证客户端请求幂等性的标识。32位UUID格式，72小时内唯一。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createSupabaseApplication(createSupabaseApplicationRequest?: CreateSupabaseApplicationRequest): Promise<CreateSupabaseApplicationResponse> {
+        const options = ParamCreater().createSupabaseApplication(createSupabaseApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除Supabase应用。仅删除应用本身，保留底层PG实例及关联关系。
+     * 注：HTTP无请求体，delete_instance字段不对外暴露，恒为仅删应用。
+     * PG级联删除为反向触发（PG删→自动删关联Supabase）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除Supabase应用
+     * @param {string} applicationId 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSupabaseApplication(deleteSupabaseApplicationRequest?: DeleteSupabaseApplicationRequest): Promise<DeleteSupabaseApplicationResponse> {
+        const options = ParamCreater().deleteSupabaseApplication(deleteSupabaseApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI应用列表，含应用状态和关联PG实例信息。删除应用前通常先调此接口定位目标。支持按type过滤Supabase应用。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AI应用列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {string} [name] 按应用名称查询。
+     * @param {string} [id] 按应用ID查询。
+     * @param {string} [type] 按应用类型查询。Supabase传supabase。
+     * @param {string} [mode] 按部署模式查询。
+     * @param {string} [status] 按状态查询。
+     * @param {string} [managedInstanceId] 按关联PG实例ID查询。
+     * @param {string} [managedInstanceName] 按关联PG实例名称查询。
+     * @param {boolean} [enableSsl] 按是否开启SSL查询。
+     * @param {string} [startCreatedTime] 
+     * @param {string} [endCreatedTime] 
+     * @param {string} [sortKey] 
+     * @param {'desc' | 'asc'} [sortDir] 
+     * @param {number} [offset] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiApplications(listAiApplicationsRequest?: ListAiApplicationsRequest): Promise<ListAiApplicationsResponse> {
+        const options = ParamCreater().listAiApplications(listAiApplicationsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页查询ApiKey元数据。列表不含明文。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Supabase应用ApiKey列表
+     * @param {string} applicationId 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {string} [name] 
+     * @param {string} [id] 
+     * @param {'normal' | 'creating' | 'createfail' | 'deleted'} [status] 
+     * @param {'publishable' | 'secret' | 'anon' | 'service_role'} [type] 
+     * @param {string} [startCreatedTime] 
+     * @param {string} [endCreatedTime] 
+     * @param {'name' | 'status' | 'type' | 'created_user' | 'updated_user' | 'created_time' | 'updated_time'} [sortKey] 
+     * @param {'desc' | 'asc'} [sortDir] 
+     * @param {number} [offset] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSupabaseApplicationApiKeys(listSupabaseApplicationApiKeysRequest?: ListSupabaseApplicationApiKeysRequest): Promise<ListSupabaseApplicationApiKeysResponse> {
+        const options = ParamCreater().listSupabaseApplicationApiKeys(listSupabaseApplicationApiKeysRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用规格，含每个AZ的可售状态和支持版本。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Supabase应用规格列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {string} [version] 
+     * @param {string} [specCode] 
+     * @param {string} [azCode] 
+     * @param {boolean} [isFree] 
+     * @param {'Single'} [mode] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSupabaseApplicationFlavors(listSupabaseApplicationFlavorsRequest?: ListSupabaseApplicationFlavorsRequest): Promise<ListSupabaseApplicationFlavorsResponse> {
+        const options = ParamCreater().listSupabaseApplicationFlavors(listSupabaseApplicationFlavorsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 部分更新：仅更新传入的非空字段，省略字段保留原值（@JsonInclude NON_EMPTY）。
+     * enable_github&#x3D;false时清空github子字段；enable_email_sign_up&#x3D;false时清空smtp_config子字段。
+     * 秘密字段（smtp_pwd、oauth_client_secret）需通过受控方式输入，show不返回故不会回显覆盖。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Supabase应用Auth配置
+     * @param {string} applicationId 
+     * @param {ModifySupabaseApplicationAuthConfigRequestBody} modifySupabaseApplicationAuthConfigRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifySupabaseApplicationAuthConfig(modifySupabaseApplicationAuthConfigRequest?: ModifySupabaseApplicationAuthConfigRequest): Promise<ModifySupabaseApplicationAuthConfigResponse> {
+        const options = ParamCreater().modifySupabaseApplicationAuthConfig(modifySupabaseApplicationAuthConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 可单独修改应用密码或实例密码，但不能同时为空。不修改底层PG其他账号。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Supabase应用密码
+     * @param {string} applicationId 
+     * @param {ModifySupabaseApplicationPasswordRequestBody} modifySupabaseApplicationPasswordRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifySupabaseApplicationPassword(modifySupabaseApplicationPasswordRequest?: ModifySupabaseApplicationPasswordRequest): Promise<ModifySupabaseApplicationPasswordResponse> {
+        const options = ParamCreater().modifySupabaseApplicationPassword(modifySupabaseApplicationPasswordRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * enabled&#x3D;false时bucket_name/ak/sk必须全空；enabled&#x3D;true时全必填。
+     * show不返回sk，故部分更新省略sk即保留。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改Supabase应用Storage配置
+     * @param {string} applicationId 
+     * @param {ModifySupabaseApplicationStorageRequestBody} modifySupabaseApplicationStorageRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifySupabaseApplicationStorage(modifySupabaseApplicationStorageRequest?: ModifySupabaseApplicationStorageRequest): Promise<ModifySupabaseApplicationStorageResponse> {
+        const options = ParamCreater().modifySupabaseApplicationStorage(modifySupabaseApplicationStorageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步重置ApiKey。agent异步动作成功后，旧Key置deleted、新Key置normal，同事务原子切换。
+     * 新Key不沿用旧Key ID。返回job_id，需轮询list_job_info。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置Supabase应用ApiKey
+     * @param {string} applicationId 
+     * @param {string} keyId 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetSupabaseApplicationApiKey(resetSupabaseApplicationApiKeyRequest?: ResetSupabaseApplicationApiKeyRequest): Promise<ResetSupabaseApplicationApiKeyResponse> {
+        const options = ParamCreater().resetSupabaseApplicationApiKey(resetSupabaseApplicationApiKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步重启Supabase应用。返回job_id，需轮询list_job_info。无requestBody。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重启Supabase应用
+     * @param {string} applicationId 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public restartSupabaseApplication(restartSupabaseApplicationRequest?: RestartSupabaseApplicationRequest): Promise<RestartSupabaseApplicationResponse> {
+        const options = ParamCreater().restartSupabaseApplication(restartSupabaseApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Supabase应用详情，含运行状态、关联PG、SSL/EIP/Storage配置等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Supabase应用详情
+     * @param {string} applicationId Supabase应用ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSupabaseApplication(showSupabaseApplicationRequest?: ShowSupabaseApplicationRequest): Promise<ShowSupabaseApplicationResponse> {
+        const options = ParamCreater().showSupabaseApplication(showSupabaseApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 受控查看指定ApiKey的明文值。敏感操作，需明确授权。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Supabase应用ApiKey明文值
+     * @param {string} applicationId 
+     * @param {string} keyId ApiKey ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSupabaseApplicationApiKeyValue(showSupabaseApplicationApiKeyValueRequest?: ShowSupabaseApplicationApiKeyValueRequest): Promise<ShowSupabaseApplicationApiKeyValueResponse> {
+        const options = ParamCreater().showSupabaseApplicationApiKeyValue(showSupabaseApplicationApiKeyValueRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Auth配置。敏感秘密（smtp_pwd、oauth_client_secret）在响应中省略，非脱敏占位。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Supabase应用Auth配置
+     * @param {string} applicationId 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSupabaseApplicationAuthConfig(showSupabaseApplicationAuthConfigRequest?: ShowSupabaseApplicationAuthConfigRequest): Promise<ShowSupabaseApplicationAuthConfigResponse> {
+        const options = ParamCreater().showSupabaseApplicationAuthConfig(showSupabaseApplicationAuthConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步启动Supabase应用。返回job_id，需轮询list_job_info。无requestBody。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 启动Supabase应用
+     * @param {string} applicationId 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startSupabaseApplication(startSupabaseApplicationRequest?: StartSupabaseApplicationRequest): Promise<StartSupabaseApplicationResponse> {
+        const options = ParamCreater().startSupabaseApplication(startSupabaseApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步停止Supabase应用。返回job_id，需轮询list_job_info。无requestBody。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止Supabase应用
+     * @param {string} applicationId 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopSupabaseApplication(stopSupabaseApplicationRequest?: StopSupabaseApplicationRequest): Promise<StopSupabaseApplicationResponse> {
+        const options = ParamCreater().stopSupabaseApplication(stopSupabaseApplicationRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步绑定/解绑EIP。is_bind&#x3D;true时public_ip_id和public_ip_address必填。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定或解绑Supabase应用EIP
+     * @param {string} applicationId 
+     * @param {SwitchSupabaseApplicationEipBindRequestBody} switchSupabaseApplicationEipBindRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchSupabaseApplicationEipBind(switchSupabaseApplicationEipBindRequest?: SwitchSupabaseApplicationEipBindRequest): Promise<SwitchSupabaseApplicationEipBindResponse> {
+        const options = ParamCreater().switchSupabaseApplicationEipBind(switchSupabaseApplicationEipBindRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 异步开关SSL。enable_ssl&#x3D;false时cert_id必须为空；enable_ssl&#x3D;true时cert_id必填。
+     * SSL切换后需手动同步Auth相关URL协议（http&lt;-&gt;https），否则认证可能故障。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或关闭Supabase应用SSL
+     * @param {string} applicationId 
+     * @param {SwitchSupabaseApplicationSslRequestBody} switchSupabaseApplicationSslRequestBody 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public switchSupabaseApplicationSsl(switchSupabaseApplicationSslRequest?: SwitchSupabaseApplicationSslRequest): Promise<SwitchSupabaseApplicationSslResponse> {
+        const options = ParamCreater().switchSupabaseApplicationSsl(switchSupabaseApplicationSslRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -27813,6 +28260,1021 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建Supabase应用。支持两类路径：
+         * 1) 同时创建托管的PostgreSQL实例（manage_type&#x3D;newly_instance）；
+         * 2) 关联已有PostgreSQL实例（manage_type&#x3D;existed_instance）。
+         * 异步接口，返回job_id（按需）或order_id（包周期）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createSupabaseApplication(createSupabaseApplicationRequest?: CreateSupabaseApplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ai-application/supabases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let xLanguage;
+            
+            let xClientToken;
+
+            if (createSupabaseApplicationRequest !== null && createSupabaseApplicationRequest !== undefined) {
+                if (createSupabaseApplicationRequest instanceof CreateSupabaseApplicationRequest) {
+                    body = createSupabaseApplicationRequest.body
+                    xLanguage = createSupabaseApplicationRequest.xLanguage;
+                    xClientToken = createSupabaseApplicationRequest.xClientToken;
+                } else {
+                    body = createSupabaseApplicationRequest['body'];
+                    xLanguage = createSupabaseApplicationRequest['X-Language'];
+                    xClientToken = createSupabaseApplicationRequest['X-Client-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除Supabase应用。仅删除应用本身，保留底层PG实例及关联关系。
+         * 注：HTTP无请求体，delete_instance字段不对外暴露，恒为仅删应用。
+         * PG级联删除为反向触发（PG删→自动删关联Supabase）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSupabaseApplication(deleteSupabaseApplicationRequest?: DeleteSupabaseApplicationRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (deleteSupabaseApplicationRequest !== null && deleteSupabaseApplicationRequest !== undefined) {
+                if (deleteSupabaseApplicationRequest instanceof DeleteSupabaseApplicationRequest) {
+                    applicationId = deleteSupabaseApplicationRequest.applicationId;
+                    xLanguage = deleteSupabaseApplicationRequest.xLanguage;
+                } else {
+                    applicationId = deleteSupabaseApplicationRequest['application_id'];
+                    xLanguage = deleteSupabaseApplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling deleteSupabaseApplication.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI应用列表，含应用状态和关联PG实例信息。删除应用前通常先调此接口定位目标。支持按type过滤Supabase应用。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiApplications(listAiApplicationsRequest?: ListAiApplicationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ai-application/applications",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let name;
+            
+            let id;
+            
+            let type;
+            
+            let mode;
+            
+            let status;
+            
+            let managedInstanceId;
+            
+            let managedInstanceName;
+            
+            let enableSsl;
+            
+            let startCreatedTime;
+            
+            let endCreatedTime;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let offset;
+            
+            let limit;
+
+            if (listAiApplicationsRequest !== null && listAiApplicationsRequest !== undefined) {
+                if (listAiApplicationsRequest instanceof ListAiApplicationsRequest) {
+                    xLanguage = listAiApplicationsRequest.xLanguage;
+                    name = listAiApplicationsRequest.name;
+                    id = listAiApplicationsRequest.id;
+                    type = listAiApplicationsRequest.type;
+                    mode = listAiApplicationsRequest.mode;
+                    status = listAiApplicationsRequest.status;
+                    managedInstanceId = listAiApplicationsRequest.managedInstanceId;
+                    managedInstanceName = listAiApplicationsRequest.managedInstanceName;
+                    enableSsl = listAiApplicationsRequest.enableSsl;
+                    startCreatedTime = listAiApplicationsRequest.startCreatedTime;
+                    endCreatedTime = listAiApplicationsRequest.endCreatedTime;
+                    sortKey = listAiApplicationsRequest.sortKey;
+                    sortDir = listAiApplicationsRequest.sortDir;
+                    offset = listAiApplicationsRequest.offset;
+                    limit = listAiApplicationsRequest.limit;
+                } else {
+                    xLanguage = listAiApplicationsRequest['X-Language'];
+                    name = listAiApplicationsRequest['name'];
+                    id = listAiApplicationsRequest['id'];
+                    type = listAiApplicationsRequest['type'];
+                    mode = listAiApplicationsRequest['mode'];
+                    status = listAiApplicationsRequest['status'];
+                    managedInstanceId = listAiApplicationsRequest['managed_instance_id'];
+                    managedInstanceName = listAiApplicationsRequest['managed_instance_name'];
+                    enableSsl = listAiApplicationsRequest['enable_ssl'];
+                    startCreatedTime = listAiApplicationsRequest['start_created_time'];
+                    endCreatedTime = listAiApplicationsRequest['end_created_time'];
+                    sortKey = listAiApplicationsRequest['sort_key'];
+                    sortDir = listAiApplicationsRequest['sort_dir'];
+                    offset = listAiApplicationsRequest['offset'];
+                    limit = listAiApplicationsRequest['limit'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (mode !== null && mode !== undefined) {
+                localVarQueryParameter['mode'] = mode;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (managedInstanceId !== null && managedInstanceId !== undefined) {
+                localVarQueryParameter['managed_instance_id'] = managedInstanceId;
+            }
+            if (managedInstanceName !== null && managedInstanceName !== undefined) {
+                localVarQueryParameter['managed_instance_name'] = managedInstanceName;
+            }
+            if (enableSsl !== null && enableSsl !== undefined) {
+                localVarQueryParameter['enable_ssl'] = enableSsl;
+            }
+            if (startCreatedTime !== null && startCreatedTime !== undefined) {
+                localVarQueryParameter['start_created_time'] = startCreatedTime;
+            }
+            if (endCreatedTime !== null && endCreatedTime !== undefined) {
+                localVarQueryParameter['end_created_time'] = endCreatedTime;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页查询ApiKey元数据。列表不含明文。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSupabaseApplicationApiKeys(listSupabaseApplicationApiKeysRequest?: ListSupabaseApplicationApiKeysRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/api-keys",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let applicationId;
+            
+            let xLanguage;
+            
+            let name;
+            
+            let id;
+            
+            let status;
+            
+            let type;
+            
+            let startCreatedTime;
+            
+            let endCreatedTime;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let offset;
+            
+            let limit;
+
+            if (listSupabaseApplicationApiKeysRequest !== null && listSupabaseApplicationApiKeysRequest !== undefined) {
+                if (listSupabaseApplicationApiKeysRequest instanceof ListSupabaseApplicationApiKeysRequest) {
+                    applicationId = listSupabaseApplicationApiKeysRequest.applicationId;
+                    xLanguage = listSupabaseApplicationApiKeysRequest.xLanguage;
+                    name = listSupabaseApplicationApiKeysRequest.name;
+                    id = listSupabaseApplicationApiKeysRequest.id;
+                    status = listSupabaseApplicationApiKeysRequest.status;
+                    type = listSupabaseApplicationApiKeysRequest.type;
+                    startCreatedTime = listSupabaseApplicationApiKeysRequest.startCreatedTime;
+                    endCreatedTime = listSupabaseApplicationApiKeysRequest.endCreatedTime;
+                    sortKey = listSupabaseApplicationApiKeysRequest.sortKey;
+                    sortDir = listSupabaseApplicationApiKeysRequest.sortDir;
+                    offset = listSupabaseApplicationApiKeysRequest.offset;
+                    limit = listSupabaseApplicationApiKeysRequest.limit;
+                } else {
+                    applicationId = listSupabaseApplicationApiKeysRequest['application_id'];
+                    xLanguage = listSupabaseApplicationApiKeysRequest['X-Language'];
+                    name = listSupabaseApplicationApiKeysRequest['name'];
+                    id = listSupabaseApplicationApiKeysRequest['id'];
+                    status = listSupabaseApplicationApiKeysRequest['status'];
+                    type = listSupabaseApplicationApiKeysRequest['type'];
+                    startCreatedTime = listSupabaseApplicationApiKeysRequest['start_created_time'];
+                    endCreatedTime = listSupabaseApplicationApiKeysRequest['end_created_time'];
+                    sortKey = listSupabaseApplicationApiKeysRequest['sort_key'];
+                    sortDir = listSupabaseApplicationApiKeysRequest['sort_dir'];
+                    offset = listSupabaseApplicationApiKeysRequest['offset'];
+                    limit = listSupabaseApplicationApiKeysRequest['limit'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling listSupabaseApplicationApiKeys.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (startCreatedTime !== null && startCreatedTime !== undefined) {
+                localVarQueryParameter['start_created_time'] = startCreatedTime;
+            }
+            if (endCreatedTime !== null && endCreatedTime !== undefined) {
+                localVarQueryParameter['end_created_time'] = endCreatedTime;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用规格，含每个AZ的可售状态和支持版本。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSupabaseApplicationFlavors(listSupabaseApplicationFlavorsRequest?: ListSupabaseApplicationFlavorsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ai-application/supabase/flavors",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xLanguage;
+            
+            let version;
+            
+            let specCode;
+            
+            let azCode;
+            
+            let isFree;
+            
+            let mode;
+
+            if (listSupabaseApplicationFlavorsRequest !== null && listSupabaseApplicationFlavorsRequest !== undefined) {
+                if (listSupabaseApplicationFlavorsRequest instanceof ListSupabaseApplicationFlavorsRequest) {
+                    xLanguage = listSupabaseApplicationFlavorsRequest.xLanguage;
+                    version = listSupabaseApplicationFlavorsRequest.version;
+                    specCode = listSupabaseApplicationFlavorsRequest.specCode;
+                    azCode = listSupabaseApplicationFlavorsRequest.azCode;
+                    isFree = listSupabaseApplicationFlavorsRequest.isFree;
+                    mode = listSupabaseApplicationFlavorsRequest.mode;
+                } else {
+                    xLanguage = listSupabaseApplicationFlavorsRequest['X-Language'];
+                    version = listSupabaseApplicationFlavorsRequest['version'];
+                    specCode = listSupabaseApplicationFlavorsRequest['spec_code'];
+                    azCode = listSupabaseApplicationFlavorsRequest['az_code'];
+                    isFree = listSupabaseApplicationFlavorsRequest['is_free'];
+                    mode = listSupabaseApplicationFlavorsRequest['mode'];
+                }
+            }
+
+        
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (specCode !== null && specCode !== undefined) {
+                localVarQueryParameter['spec_code'] = specCode;
+            }
+            if (azCode !== null && azCode !== undefined) {
+                localVarQueryParameter['az_code'] = azCode;
+            }
+            if (isFree !== null && isFree !== undefined) {
+                localVarQueryParameter['is_free'] = isFree;
+            }
+            if (mode !== null && mode !== undefined) {
+                localVarQueryParameter['mode'] = mode;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 部分更新：仅更新传入的非空字段，省略字段保留原值（@JsonInclude NON_EMPTY）。
+         * enable_github&#x3D;false时清空github子字段；enable_email_sign_up&#x3D;false时清空smtp_config子字段。
+         * 秘密字段（smtp_pwd、oauth_client_secret）需通过受控方式输入，show不返回故不会回显覆盖。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifySupabaseApplicationAuthConfig(modifySupabaseApplicationAuthConfigRequest?: ModifySupabaseApplicationAuthConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/auth-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (modifySupabaseApplicationAuthConfigRequest !== null && modifySupabaseApplicationAuthConfigRequest !== undefined) {
+                if (modifySupabaseApplicationAuthConfigRequest instanceof ModifySupabaseApplicationAuthConfigRequest) {
+                    applicationId = modifySupabaseApplicationAuthConfigRequest.applicationId;
+                    body = modifySupabaseApplicationAuthConfigRequest.body
+                    xLanguage = modifySupabaseApplicationAuthConfigRequest.xLanguage;
+                } else {
+                    applicationId = modifySupabaseApplicationAuthConfigRequest['application_id'];
+                    body = modifySupabaseApplicationAuthConfigRequest['body'];
+                    xLanguage = modifySupabaseApplicationAuthConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling modifySupabaseApplicationAuthConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 可单独修改应用密码或实例密码，但不能同时为空。不修改底层PG其他账号。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifySupabaseApplicationPassword(modifySupabaseApplicationPasswordRequest?: ModifySupabaseApplicationPasswordRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/password",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (modifySupabaseApplicationPasswordRequest !== null && modifySupabaseApplicationPasswordRequest !== undefined) {
+                if (modifySupabaseApplicationPasswordRequest instanceof ModifySupabaseApplicationPasswordRequest) {
+                    applicationId = modifySupabaseApplicationPasswordRequest.applicationId;
+                    body = modifySupabaseApplicationPasswordRequest.body
+                    xLanguage = modifySupabaseApplicationPasswordRequest.xLanguage;
+                } else {
+                    applicationId = modifySupabaseApplicationPasswordRequest['application_id'];
+                    body = modifySupabaseApplicationPasswordRequest['body'];
+                    xLanguage = modifySupabaseApplicationPasswordRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling modifySupabaseApplicationPassword.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * enabled&#x3D;false时bucket_name/ak/sk必须全空；enabled&#x3D;true时全必填。
+         * show不返回sk，故部分更新省略sk即保留。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifySupabaseApplicationStorage(modifySupabaseApplicationStorageRequest?: ModifySupabaseApplicationStorageRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/storage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (modifySupabaseApplicationStorageRequest !== null && modifySupabaseApplicationStorageRequest !== undefined) {
+                if (modifySupabaseApplicationStorageRequest instanceof ModifySupabaseApplicationStorageRequest) {
+                    applicationId = modifySupabaseApplicationStorageRequest.applicationId;
+                    body = modifySupabaseApplicationStorageRequest.body
+                    xLanguage = modifySupabaseApplicationStorageRequest.xLanguage;
+                } else {
+                    applicationId = modifySupabaseApplicationStorageRequest['application_id'];
+                    body = modifySupabaseApplicationStorageRequest['body'];
+                    xLanguage = modifySupabaseApplicationStorageRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling modifySupabaseApplicationStorage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步重置ApiKey。agent异步动作成功后，旧Key置deleted、新Key置normal，同事务原子切换。
+         * 新Key不沿用旧Key ID。返回job_id，需轮询list_job_info。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetSupabaseApplicationApiKey(resetSupabaseApplicationApiKeyRequest?: ResetSupabaseApplicationApiKeyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/api-key/{key_id}/reset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let keyId;
+            
+            let xLanguage;
+
+            if (resetSupabaseApplicationApiKeyRequest !== null && resetSupabaseApplicationApiKeyRequest !== undefined) {
+                if (resetSupabaseApplicationApiKeyRequest instanceof ResetSupabaseApplicationApiKeyRequest) {
+                    applicationId = resetSupabaseApplicationApiKeyRequest.applicationId;
+                    keyId = resetSupabaseApplicationApiKeyRequest.keyId;
+                    xLanguage = resetSupabaseApplicationApiKeyRequest.xLanguage;
+                } else {
+                    applicationId = resetSupabaseApplicationApiKeyRequest['application_id'];
+                    keyId = resetSupabaseApplicationApiKeyRequest['key_id'];
+                    xLanguage = resetSupabaseApplicationApiKeyRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling resetSupabaseApplicationApiKey.');
+            }
+            if (keyId === null || keyId === undefined) {
+            throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling resetSupabaseApplicationApiKey.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId,'key_id': keyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步重启Supabase应用。返回job_id，需轮询list_job_info。无requestBody。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        restartSupabaseApplication(restartSupabaseApplicationRequest?: RestartSupabaseApplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ai-application/{application_id}/restart",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (restartSupabaseApplicationRequest !== null && restartSupabaseApplicationRequest !== undefined) {
+                if (restartSupabaseApplicationRequest instanceof RestartSupabaseApplicationRequest) {
+                    applicationId = restartSupabaseApplicationRequest.applicationId;
+                    xLanguage = restartSupabaseApplicationRequest.xLanguage;
+                } else {
+                    applicationId = restartSupabaseApplicationRequest['application_id'];
+                    xLanguage = restartSupabaseApplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling restartSupabaseApplication.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Supabase应用详情，含运行状态、关联PG、SSL/EIP/Storage配置等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSupabaseApplication(showSupabaseApplicationRequest?: ShowSupabaseApplicationRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (showSupabaseApplicationRequest !== null && showSupabaseApplicationRequest !== undefined) {
+                if (showSupabaseApplicationRequest instanceof ShowSupabaseApplicationRequest) {
+                    applicationId = showSupabaseApplicationRequest.applicationId;
+                    xLanguage = showSupabaseApplicationRequest.xLanguage;
+                } else {
+                    applicationId = showSupabaseApplicationRequest['application_id'];
+                    xLanguage = showSupabaseApplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showSupabaseApplication.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 受控查看指定ApiKey的明文值。敏感操作，需明确授权。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSupabaseApplicationApiKeyValue(showSupabaseApplicationApiKeyValueRequest?: ShowSupabaseApplicationApiKeyValueRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/api-key/{key_id}/value",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let keyId;
+            
+            let xLanguage;
+
+            if (showSupabaseApplicationApiKeyValueRequest !== null && showSupabaseApplicationApiKeyValueRequest !== undefined) {
+                if (showSupabaseApplicationApiKeyValueRequest instanceof ShowSupabaseApplicationApiKeyValueRequest) {
+                    applicationId = showSupabaseApplicationApiKeyValueRequest.applicationId;
+                    keyId = showSupabaseApplicationApiKeyValueRequest.keyId;
+                    xLanguage = showSupabaseApplicationApiKeyValueRequest.xLanguage;
+                } else {
+                    applicationId = showSupabaseApplicationApiKeyValueRequest['application_id'];
+                    keyId = showSupabaseApplicationApiKeyValueRequest['key_id'];
+                    xLanguage = showSupabaseApplicationApiKeyValueRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showSupabaseApplicationApiKeyValue.');
+            }
+            if (keyId === null || keyId === undefined) {
+            throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling showSupabaseApplicationApiKeyValue.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId,'key_id': keyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Auth配置。敏感秘密（smtp_pwd、oauth_client_secret）在响应中省略，非脱敏占位。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSupabaseApplicationAuthConfig(showSupabaseApplicationAuthConfigRequest?: ShowSupabaseApplicationAuthConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/auth-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (showSupabaseApplicationAuthConfigRequest !== null && showSupabaseApplicationAuthConfigRequest !== undefined) {
+                if (showSupabaseApplicationAuthConfigRequest instanceof ShowSupabaseApplicationAuthConfigRequest) {
+                    applicationId = showSupabaseApplicationAuthConfigRequest.applicationId;
+                    xLanguage = showSupabaseApplicationAuthConfigRequest.xLanguage;
+                } else {
+                    applicationId = showSupabaseApplicationAuthConfigRequest['application_id'];
+                    xLanguage = showSupabaseApplicationAuthConfigRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showSupabaseApplicationAuthConfig.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步启动Supabase应用。返回job_id，需轮询list_job_info。无requestBody。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        startSupabaseApplication(startSupabaseApplicationRequest?: StartSupabaseApplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ai-application/{application_id}/start",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (startSupabaseApplicationRequest !== null && startSupabaseApplicationRequest !== undefined) {
+                if (startSupabaseApplicationRequest instanceof StartSupabaseApplicationRequest) {
+                    applicationId = startSupabaseApplicationRequest.applicationId;
+                    xLanguage = startSupabaseApplicationRequest.xLanguage;
+                } else {
+                    applicationId = startSupabaseApplicationRequest['application_id'];
+                    xLanguage = startSupabaseApplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling startSupabaseApplication.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步停止Supabase应用。返回job_id，需轮询list_job_info。无requestBody。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopSupabaseApplication(stopSupabaseApplicationRequest?: StopSupabaseApplicationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ai-application/{application_id}/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (stopSupabaseApplicationRequest !== null && stopSupabaseApplicationRequest !== undefined) {
+                if (stopSupabaseApplicationRequest instanceof StopSupabaseApplicationRequest) {
+                    applicationId = stopSupabaseApplicationRequest.applicationId;
+                    xLanguage = stopSupabaseApplicationRequest.xLanguage;
+                } else {
+                    applicationId = stopSupabaseApplicationRequest['application_id'];
+                    xLanguage = stopSupabaseApplicationRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling stopSupabaseApplication.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步绑定/解绑EIP。is_bind&#x3D;true时public_ip_id和public_ip_address必填。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchSupabaseApplicationEipBind(switchSupabaseApplicationEipBindRequest?: SwitchSupabaseApplicationEipBindRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/public-eip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (switchSupabaseApplicationEipBindRequest !== null && switchSupabaseApplicationEipBindRequest !== undefined) {
+                if (switchSupabaseApplicationEipBindRequest instanceof SwitchSupabaseApplicationEipBindRequest) {
+                    applicationId = switchSupabaseApplicationEipBindRequest.applicationId;
+                    body = switchSupabaseApplicationEipBindRequest.body
+                    xLanguage = switchSupabaseApplicationEipBindRequest.xLanguage;
+                } else {
+                    applicationId = switchSupabaseApplicationEipBindRequest['application_id'];
+                    body = switchSupabaseApplicationEipBindRequest['body'];
+                    xLanguage = switchSupabaseApplicationEipBindRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling switchSupabaseApplicationEipBind.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 异步开关SSL。enable_ssl&#x3D;false时cert_id必须为空；enable_ssl&#x3D;true时cert_id必填。
+         * SSL切换后需手动同步Auth相关URL协议（http&lt;-&gt;https），否则认证可能故障。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        switchSupabaseApplicationSsl(switchSupabaseApplicationSslRequest?: SwitchSupabaseApplicationSslRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/ai-application/{application_id}/supabase/switch-ssl",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let applicationId;
+            
+            let xLanguage;
+
+            if (switchSupabaseApplicationSslRequest !== null && switchSupabaseApplicationSslRequest !== undefined) {
+                if (switchSupabaseApplicationSslRequest instanceof SwitchSupabaseApplicationSslRequest) {
+                    applicationId = switchSupabaseApplicationSslRequest.applicationId;
+                    body = switchSupabaseApplicationSslRequest.body
+                    xLanguage = switchSupabaseApplicationSslRequest.xLanguage;
+                } else {
+                    applicationId = switchSupabaseApplicationSslRequest['application_id'];
+                    body = switchSupabaseApplicationSslRequest['body'];
+                    xLanguage = switchSupabaseApplicationSslRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling switchSupabaseApplicationSsl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

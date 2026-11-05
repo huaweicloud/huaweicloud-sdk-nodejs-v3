@@ -16,9 +16,11 @@ export class Virsubnet {
     private 'subnet_cidrs'?: Array<SubnetCidr>;
     public tags?: Array<ResponseTag>;
     private 'extra_dhcp_opts'?: Array<SubnetExtraDhcpOpt>;
+    private 'enable_network_address_usage_metrics'?: boolean;
+    private 'available_ip_address_count'?: number;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    public constructor(id?: string, name?: string, description?: string, dnsNameservers?: Array<string>, zoneId?: string, vpcId?: string, status?: string, projectId?: string, scope?: string, subnetCidrs?: Array<SubnetCidr>, tags?: Array<ResponseTag>, extraDhcpOpts?: Array<SubnetExtraDhcpOpt>, createdAt?: Date, updatedAt?: Date) { 
+    public constructor(id?: string, name?: string, description?: string, dnsNameservers?: Array<string>, zoneId?: string, vpcId?: string, status?: string, projectId?: string, scope?: string, subnetCidrs?: Array<SubnetCidr>, tags?: Array<ResponseTag>, extraDhcpOpts?: Array<SubnetExtraDhcpOpt>, enableNetworkAddressUsageMetrics?: boolean, availableIpAddressCount?: number, createdAt?: Date, updatedAt?: Date) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -31,6 +33,8 @@ export class Virsubnet {
         this['subnet_cidrs'] = subnetCidrs;
         this['tags'] = tags;
         this['extra_dhcp_opts'] = extraDhcpOpts;
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        this['available_ip_address_count'] = availableIpAddressCount;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
     }
@@ -117,6 +121,26 @@ export class Virsubnet {
     }
     public get extraDhcpOpts(): Array<SubnetExtraDhcpOpt> | undefined {
         return this['extra_dhcp_opts'];
+    }
+    public withEnableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean): Virsubnet {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+        return this;
+    }
+    public set enableNetworkAddressUsageMetrics(enableNetworkAddressUsageMetrics: boolean  | undefined) {
+        this['enable_network_address_usage_metrics'] = enableNetworkAddressUsageMetrics;
+    }
+    public get enableNetworkAddressUsageMetrics(): boolean | undefined {
+        return this['enable_network_address_usage_metrics'];
+    }
+    public withAvailableIpAddressCount(availableIpAddressCount: number): Virsubnet {
+        this['available_ip_address_count'] = availableIpAddressCount;
+        return this;
+    }
+    public set availableIpAddressCount(availableIpAddressCount: number  | undefined) {
+        this['available_ip_address_count'] = availableIpAddressCount;
+    }
+    public get availableIpAddressCount(): number | undefined {
+        return this['available_ip_address_count'];
     }
     public withCreatedAt(createdAt: Date): Virsubnet {
         this['created_at'] = createdAt;

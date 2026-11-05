@@ -95,6 +95,7 @@ import { AuthorizeApiToInstanceResponse } from './model/AuthorizeApiToInstanceRe
 import { BackendConfig } from './model/BackendConfig';
 import { BackendConstant } from './model/BackendConstant';
 import { BackendRequestPara } from './model/BackendRequestPara';
+import { BaselineInfo } from './model/BaselineInfo';
 import { BaselineInstance } from './model/BaselineInstance';
 import { BaselineV2 } from './model/BaselineV2';
 import { BasicInfo } from './model/BasicInfo';
@@ -590,6 +591,8 @@ import { InstanceOverviewDTO } from './model/InstanceOverviewDTO';
 import { InstanceOverviewVo } from './model/InstanceOverviewVo';
 import { JobAlarm } from './model/JobAlarm';
 import { JobAndNodeInfo } from './model/JobAndNodeInfo';
+import { JobBaselineInfo } from './model/JobBaselineInfo';
+import { JobBaselineInfoReq } from './model/JobBaselineInfoReq';
 import { JobInfoRequest } from './model/JobInfoRequest';
 import { JobInstance } from './model/JobInstance';
 import { JobLogRequest } from './model/JobLogRequest';
@@ -1005,6 +1008,8 @@ import { SearchDetailV2 } from './model/SearchDetailV2';
 import { SearchDwByTypeRequest } from './model/SearchDwByTypeRequest';
 import { SearchDwByTypeResponse } from './model/SearchDwByTypeResponse';
 import { SearchDwByTypeResultData } from './model/SearchDwByTypeResultData';
+import { SearchFactoryJobBaselineInfoRequest } from './model/SearchFactoryJobBaselineInfoRequest';
+import { SearchFactoryJobBaselineInfoResponse } from './model/SearchFactoryJobBaselineInfoResponse';
 import { SearchFieldsForRelationRequest } from './model/SearchFieldsForRelationRequest';
 import { SearchFieldsForRelationResponse } from './model/SearchFieldsForRelationResponse';
 import { SearchIdByPathRequest } from './model/SearchIdByPathRequest';
@@ -7464,6 +7469,28 @@ export class DataArtsStudioClient {
      */
     public searchDwByType(searchDwByTypeRequest?: SearchDwByTypeRequest): Promise<SearchDwByTypeResponse> {
         const options = ParamCreater().searchDwByType(searchDwByTypeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量查询作业是否为基线任务及关联的基线信息。该接口返回的基线归属信息依赖每日基线实例的生成，在基线实例生成前，返回的基线信息列表为空，需等待基线实例生成后方可获取到完整的基线归属信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量查询作业基线归属信息
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {JobBaselineInfoReq} searchFactoryJobBaselineInfoRequestBody **参数解释**： 批量查询作业基线归属信息的请求体，包含待查询的作业ID列表。 **约束限制**： 必须传入。 **取值范围**： 参考JobBaselineInfoReq数据结构定义。 **默认取值**： 不涉及。
+     * @param {string} [xProjectId] 项目ID，获取方法请参见[项目ID和账号ID](projectid_accountid.xml)。  多project场景采用AK/SK认证的接口请求，则该字段必选。
+     * @param {string} [contentType] 默认值：application/json;charset&#x3D;UTF-8 可选，有Body体的情况下必选，没有Body体则无需填写和校验。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchFactoryJobBaselineInfo(searchFactoryJobBaselineInfoRequest?: SearchFactoryJobBaselineInfoRequest): Promise<SearchFactoryJobBaselineInfoResponse> {
+        const options = ParamCreater().searchFactoryJobBaselineInfo(searchFactoryJobBaselineInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -28450,6 +28477,65 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量查询作业是否为基线任务及关联的基线信息。该接口返回的基线归属信息依赖每日基线实例的生成，在基线实例生成前，返回的基线信息列表为空，需等待基线实例生成后方可获取到完整的基线归属信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchFactoryJobBaselineInfo(searchFactoryJobBaselineInfoRequest?: SearchFactoryJobBaselineInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/factory/aiops/job-baseline-info",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let workspace;
+            
+            let xProjectId;
+            
+            let contentType;
+
+            if (searchFactoryJobBaselineInfoRequest !== null && searchFactoryJobBaselineInfoRequest !== undefined) {
+                if (searchFactoryJobBaselineInfoRequest instanceof SearchFactoryJobBaselineInfoRequest) {
+                    workspace = searchFactoryJobBaselineInfoRequest.workspace;
+                    body = searchFactoryJobBaselineInfoRequest.body
+                    xProjectId = searchFactoryJobBaselineInfoRequest.xProjectId;
+                    contentType = searchFactoryJobBaselineInfoRequest.contentType;
+                } else {
+                    workspace = searchFactoryJobBaselineInfoRequest['workspace'];
+                    body = searchFactoryJobBaselineInfoRequest['body'];
+                    xProjectId = searchFactoryJobBaselineInfoRequest['X-Project-Id'];
+                    contentType = searchFactoryJobBaselineInfoRequest['Content-Type'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (xProjectId !== undefined && xProjectId !== null) {
+                localVarHeaderParameter['X-Project-Id'] = String(xProjectId);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

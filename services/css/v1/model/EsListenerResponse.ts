@@ -5,7 +5,7 @@ export class EsListenerResponse {
     public protocol?: string;
     public id?: string;
     public name?: string;
-    private 'protocol_port'?: string;
+    private 'protocol_port'?: number;
     private 'default_tls_container_ref'?: string;
     private 'client_ca_tls_container_ref'?: string;
     public ipgroup?: EsIpgroupResource;
@@ -23,14 +23,14 @@ export class EsListenerResponse {
         this['name'] = name;
         return this;
     }
-    public withProtocolPort(protocolPort: string): EsListenerResponse {
+    public withProtocolPort(protocolPort: number): EsListenerResponse {
         this['protocol_port'] = protocolPort;
         return this;
     }
-    public set protocolPort(protocolPort: string  | undefined) {
+    public set protocolPort(protocolPort: number  | undefined) {
         this['protocol_port'] = protocolPort;
     }
-    public get protocolPort(): string | undefined {
+    public get protocolPort(): number | undefined {
         return this['protocol_port'];
     }
     public withDefaultTlsContainerRef(defaultTlsContainerRef: string): EsListenerResponse {

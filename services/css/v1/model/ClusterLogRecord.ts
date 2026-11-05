@@ -3,7 +3,7 @@
 export class ClusterLogRecord {
     public id?: string;
     public clusterId?: string;
-    public createAt?: string;
+    public createAt?: number;
     public logPath?: string;
     public status?: string;
     public finishedAt?: number;
@@ -20,7 +20,7 @@ export class ClusterLogRecord {
         this['clusterId'] = clusterId;
         return this;
     }
-    public withCreateAt(createAt: string): ClusterLogRecord {
+    public withCreateAt(createAt: number): ClusterLogRecord {
         this['createAt'] = createAt;
         return this;
     }

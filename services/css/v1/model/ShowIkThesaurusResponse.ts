@@ -11,7 +11,7 @@ export class ShowIkThesaurusResponse extends SdkResponse {
     public staticStopObj?: string;
     public extraMainObj?: string;
     public extraStopObj?: string;
-    public updateTime?: string;
+    public updateTime?: number;
     public updateDetails?: string;
     public clusterId?: string;
     public id?: string;
@@ -54,7 +54,7 @@ export class ShowIkThesaurusResponse extends SdkResponse {
         this['extraStopObj'] = extraStopObj;
         return this;
     }
-    public withUpdateTime(updateTime: string): ShowIkThesaurusResponse {
+    public withUpdateTime(updateTime: number): ShowIkThesaurusResponse {
         this['updateTime'] = updateTime;
         return this;
     }

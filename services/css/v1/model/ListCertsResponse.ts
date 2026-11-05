@@ -3,12 +3,12 @@ import { CertsRecordsDatastore } from './CertsRecordsDatastore';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCertsResponse extends SdkResponse {
-    public certsRecords?: CertsRecordsDatastore;
+    public certsRecords?: Array<CertsRecordsDatastore>;
     public totalSize?: number;
     public constructor() { 
         super();
     }
-    public withCertsRecords(certsRecords: CertsRecordsDatastore): ListCertsResponse {
+    public withCertsRecords(certsRecords: Array<CertsRecordsDatastore>): ListCertsResponse {
         this['certsRecords'] = certsRecords;
         return this;
     }

@@ -11,6 +11,9 @@ import { AccessStatusBody } from './model/AccessStatusBody';
 import { AccessTypeStatistics } from './model/AccessTypeStatistics';
 import { Action } from './model/Action';
 import { ActionStatistics } from './model/ActionStatistics';
+import { AddImagesBody } from './model/AddImagesBody';
+import { AddImagesRequest } from './model/AddImagesRequest';
+import { AddImagesResponse } from './model/AddImagesResponse';
 import { AiAppBasicInfo } from './model/AiAppBasicInfo';
 import { AiAppCreateRequest } from './model/AiAppCreateRequest';
 import { AiAppItem } from './model/AiAppItem';
@@ -23,11 +26,19 @@ import { AiGuardPolicyItem } from './model/AiGuardPolicyItem';
 import { AiGuardRuleAction } from './model/AiGuardRuleAction';
 import { AiGuardRuleItem } from './model/AiGuardRuleItem';
 import { AiGuardTimeLineItem } from './model/AiGuardTimeLineItem';
+import { AiguardAtlasBatchDeleteBody } from './model/AiguardAtlasBatchDeleteBody';
+import { AiguardAtlasBody } from './model/AiguardAtlasBody';
+import { AiguardAtlasUpdateBody } from './model/AiguardAtlasUpdateBody';
 import { AiguardCustomAnswersBatchDeleteBody } from './model/AiguardCustomAnswersBatchDeleteBody';
 import { AiguardCustomAnswersBody } from './model/AiguardCustomAnswersBody';
 import { AiguardCustomAnswersUpdateBody } from './model/AiguardCustomAnswersUpdateBody';
 import { AiguardCustomLlmBody } from './model/AiguardCustomLlmBody';
 import { AiguardCustomLlmUpdateBody } from './model/AiguardCustomLlmUpdateBody';
+import { AiguardCustomRegexBody } from './model/AiguardCustomRegexBody';
+import { AiguardCustomRegexSetBatchDeleteBody } from './model/AiguardCustomRegexSetBatchDeleteBody';
+import { AiguardCustomRegexSetBody } from './model/AiguardCustomRegexSetBody';
+import { AiguardCustomRegexSetUpdateBody } from './model/AiguardCustomRegexSetUpdateBody';
+import { AiguardCustomRegexUpdateBody } from './model/AiguardCustomRegexUpdateBody';
 import { AlertNoticeConfig } from './model/AlertNoticeConfig';
 import { AlertNoticeConfigResponse } from './model/AlertNoticeConfigResponse';
 import { AlterWafProductInfo } from './model/AlterWafProductInfo';
@@ -42,6 +53,8 @@ import { ApplyCertificateToHostRequest } from './model/ApplyCertificateToHostReq
 import { ApplyCertificateToHostRequestBody } from './model/ApplyCertificateToHostRequestBody';
 import { ApplyCertificateToHostResponse } from './model/ApplyCertificateToHostResponse';
 import { AsyncJobReqBody } from './model/AsyncJobReqBody';
+import { AtlasImageItem } from './model/AtlasImageItem';
+import { AtlasItem } from './model/AtlasItem';
 import { AttackActionCountItem } from './model/AttackActionCountItem';
 import { AttackDistributionItem } from './model/AttackDistributionItem';
 import { AttackSubItem } from './model/AttackSubItem';
@@ -87,6 +100,8 @@ import { BatchDeleteAiGuardRuleResponse } from './model/BatchDeleteAiGuardRuleRe
 import { BatchDeleteAlertNoticeConfigBody } from './model/BatchDeleteAlertNoticeConfigBody';
 import { BatchDeleteAlertNoticeConfigRequest } from './model/BatchDeleteAlertNoticeConfigRequest';
 import { BatchDeleteAlertNoticeConfigResponse } from './model/BatchDeleteAlertNoticeConfigResponse';
+import { BatchDeleteAtlasesRequest } from './model/BatchDeleteAtlasesRequest';
+import { BatchDeleteAtlasesResponse } from './model/BatchDeleteAtlasesResponse';
 import { BatchDeleteCompositeHostsRequest } from './model/BatchDeleteCompositeHostsRequest';
 import { BatchDeleteCompositeHostsRequestBody } from './model/BatchDeleteCompositeHostsRequestBody';
 import { BatchDeleteCompositeHostsResponse } from './model/BatchDeleteCompositeHostsResponse';
@@ -94,6 +109,8 @@ import { BatchDeleteCustomAnswersRequest } from './model/BatchDeleteCustomAnswer
 import { BatchDeleteCustomAnswersResponse } from './model/BatchDeleteCustomAnswersResponse';
 import { BatchDeleteCustomLlmRequest } from './model/BatchDeleteCustomLlmRequest';
 import { BatchDeleteCustomLlmResponse } from './model/BatchDeleteCustomLlmResponse';
+import { BatchDeleteCustomRegexSetRequest } from './model/BatchDeleteCustomRegexSetRequest';
+import { BatchDeleteCustomRegexSetResponse } from './model/BatchDeleteCustomRegexSetResponse';
 import { BatchDeletePoliciesRequest } from './model/BatchDeletePoliciesRequest';
 import { BatchDeletePoliciesRequestBody } from './model/BatchDeletePoliciesRequestBody';
 import { BatchDeletePoliciesResponse } from './model/BatchDeletePoliciesResponse';
@@ -221,6 +238,8 @@ import { CreateAnticrawlerRuleResponse } from './model/CreateAnticrawlerRuleResp
 import { CreateAntileakageRuleRequest } from './model/CreateAntileakageRuleRequest';
 import { CreateAntileakageRuleRequestBody } from './model/CreateAntileakageRuleRequestBody';
 import { CreateAntileakageRuleResponse } from './model/CreateAntileakageRuleResponse';
+import { CreateAtlasRequest } from './model/CreateAtlasRequest';
+import { CreateAtlasResponse } from './model/CreateAtlasResponse';
 import { CreateBotMTrafficDetectionConditionRequest } from './model/CreateBotMTrafficDetectionConditionRequest';
 import { CreateBotMTrafficDetectionConditionResponse } from './model/CreateBotMTrafficDetectionConditionResponse';
 import { CreateCcRuleRequest } from './model/CreateCcRuleRequest';
@@ -240,6 +259,10 @@ import { CreateCustomAnswersRequest } from './model/CreateCustomAnswersRequest';
 import { CreateCustomAnswersResponse } from './model/CreateCustomAnswersResponse';
 import { CreateCustomLlmRequest } from './model/CreateCustomLlmRequest';
 import { CreateCustomLlmResponse } from './model/CreateCustomLlmResponse';
+import { CreateCustomRegexRequest } from './model/CreateCustomRegexRequest';
+import { CreateCustomRegexResponse } from './model/CreateCustomRegexResponse';
+import { CreateCustomRegexSetRequest } from './model/CreateCustomRegexSetRequest';
+import { CreateCustomRegexSetResponse } from './model/CreateCustomRegexSetResponse';
 import { CreateCustomRuleRequest } from './model/CreateCustomRuleRequest';
 import { CreateCustomRuleRequestBody } from './model/CreateCustomRuleRequestBody';
 import { CreateCustomRuleResponse } from './model/CreateCustomRuleResponse';
@@ -277,6 +300,8 @@ import { CreatePremiumHostResponse } from './model/CreatePremiumHostResponse';
 import { CreatePrepaidCloudWafRequest } from './model/CreatePrepaidCloudWafRequest';
 import { CreatePrepaidCloudWafRequestBody } from './model/CreatePrepaidCloudWafRequestBody';
 import { CreatePrepaidCloudWafResponse } from './model/CreatePrepaidCloudWafResponse';
+import { CreatePresignedUploadUrlRequest } from './model/CreatePresignedUploadUrlRequest';
+import { CreatePresignedUploadUrlResponse } from './model/CreatePresignedUploadUrlResponse';
 import { CreatePrivacyRuleRequest } from './model/CreatePrivacyRuleRequest';
 import { CreatePrivacyRuleRequestBody } from './model/CreatePrivacyRuleRequestBody';
 import { CreatePrivacyRuleResponse } from './model/CreatePrivacyRuleResponse';
@@ -285,6 +310,8 @@ import { CreatePunishmentRuleRequestBody } from './model/CreatePunishmentRuleReq
 import { CreatePunishmentRuleResponse } from './model/CreatePunishmentRuleResponse';
 import { CreateQuickAccessDomainRequest } from './model/CreateQuickAccessDomainRequest';
 import { CreateQuickAccessDomainResponse } from './model/CreateQuickAccessDomainResponse';
+import { CreateRegexTestRequest } from './model/CreateRegexTestRequest';
+import { CreateRegexTestResponse } from './model/CreateRegexTestResponse';
 import { CreateSecurityReportSubscriptionRequest } from './model/CreateSecurityReportSubscriptionRequest';
 import { CreateSecurityReportSubscriptionRequestBody } from './model/CreateSecurityReportSubscriptionRequestBody';
 import { CreateSecurityReportSubscriptionRequestBodyReportContentSubscription } from './model/CreateSecurityReportSubscriptionRequestBodyReportContentSubscription';
@@ -302,6 +329,8 @@ import { CustomConditions } from './model/CustomConditions';
 import { CustomLlmBatchDeleteBody } from './model/CustomLlmBatchDeleteBody';
 import { CustomLlmItem } from './model/CustomLlmItem';
 import { CustomPage } from './model/CustomPage';
+import { CustomRegexItem } from './model/CustomRegexItem';
+import { CustomRegexSetItem } from './model/CustomRegexSetItem';
 import { CustomRule } from './model/CustomRule';
 import { CustomRuleConditions } from './model/CustomRuleConditions';
 import { DeleteAgencyRequest } from './model/DeleteAgencyRequest';
@@ -321,6 +350,8 @@ import { DeleteAntileakageRuleRequest } from './model/DeleteAntileakageRuleReque
 import { DeleteAntileakageRuleResponse } from './model/DeleteAntileakageRuleResponse';
 import { DeleteAntitamperRuleRequest } from './model/DeleteAntitamperRuleRequest';
 import { DeleteAntitamperRuleResponse } from './model/DeleteAntitamperRuleResponse';
+import { DeleteAtlasRequest } from './model/DeleteAtlasRequest';
+import { DeleteAtlasResponse } from './model/DeleteAtlasResponse';
 import { DeleteBotMTrafficDetectionConditionRequest } from './model/DeleteBotMTrafficDetectionConditionRequest';
 import { DeleteBotMTrafficDetectionConditionResponse } from './model/DeleteBotMTrafficDetectionConditionResponse';
 import { DeleteCcRuleRequest } from './model/DeleteCcRuleRequest';
@@ -333,6 +364,10 @@ import { DeleteCustomAnswersRequest } from './model/DeleteCustomAnswersRequest';
 import { DeleteCustomAnswersResponse } from './model/DeleteCustomAnswersResponse';
 import { DeleteCustomLlmRequest } from './model/DeleteCustomLlmRequest';
 import { DeleteCustomLlmResponse } from './model/DeleteCustomLlmResponse';
+import { DeleteCustomRegexRequest } from './model/DeleteCustomRegexRequest';
+import { DeleteCustomRegexResponse } from './model/DeleteCustomRegexResponse';
+import { DeleteCustomRegexSetRequest } from './model/DeleteCustomRegexSetRequest';
+import { DeleteCustomRegexSetResponse } from './model/DeleteCustomRegexSetResponse';
 import { DeleteCustomRuleRequest } from './model/DeleteCustomRuleRequest';
 import { DeleteCustomRuleResponse } from './model/DeleteCustomRuleResponse';
 import { DeleteGeoipRuleRequest } from './model/DeleteGeoipRuleRequest';
@@ -374,7 +409,9 @@ import { DomainItem } from './model/DomainItem';
 import { EipInfo } from './model/EipInfo';
 import { EventDump } from './model/EventDump';
 import { ExpackProductInfo } from './model/ExpackProductInfo';
+import { FailedAtlas } from './model/FailedAtlas';
 import { FailedCustomAnswers } from './model/FailedCustomAnswers';
+import { FailedCustomRegexSet } from './model/FailedCustomRegexSet';
 import { FailedLlm } from './model/FailedLlm';
 import { Flag } from './model/Flag';
 import { GeOIpItem } from './model/GeOIpItem';
@@ -388,6 +425,10 @@ import { IdHostnameEntry } from './model/IdHostnameEntry';
 import { IdNameEntry } from './model/IdNameEntry';
 import { IgnoreAdvanced } from './model/IgnoreAdvanced';
 import { IgnoreRuleBody } from './model/IgnoreRuleBody';
+import { ImageAddResult } from './model/ImageAddResult';
+import { ImageRemoveResult } from './model/ImageRemoveResult';
+import { ImageUploadItem } from './model/ImageUploadItem';
+import { ImageUploadResult } from './model/ImageUploadResult';
 import { Instance } from './model/Instance';
 import { InstanceInfo } from './model/InstanceInfo';
 import { InstanceTag } from './model/InstanceTag';
@@ -423,6 +464,8 @@ import { ListAntileakageRulesRequest } from './model/ListAntileakageRulesRequest
 import { ListAntileakageRulesResponse } from './model/ListAntileakageRulesResponse';
 import { ListAntitamperRuleRequest } from './model/ListAntitamperRuleRequest';
 import { ListAntitamperRuleResponse } from './model/ListAntitamperRuleResponse';
+import { ListAtlasesRequest } from './model/ListAtlasesRequest';
+import { ListAtlasesResponse } from './model/ListAtlasesResponse';
 import { ListAttackActionTypesRequest } from './model/ListAttackActionTypesRequest';
 import { ListAttackActionTypesResponse } from './model/ListAttackActionTypesResponse';
 import { ListBandwidthTimelineRequest } from './model/ListBandwidthTimelineRequest';
@@ -443,6 +486,10 @@ import { ListCustomLlmRequest } from './model/ListCustomLlmRequest';
 import { ListCustomLlmResponse } from './model/ListCustomLlmResponse';
 import { ListCustomPolicyRulesRequest } from './model/ListCustomPolicyRulesRequest';
 import { ListCustomPolicyRulesResponse } from './model/ListCustomPolicyRulesResponse';
+import { ListCustomRegexRequest } from './model/ListCustomRegexRequest';
+import { ListCustomRegexResponse } from './model/ListCustomRegexResponse';
+import { ListCustomRegexSetRequest } from './model/ListCustomRegexSetRequest';
+import { ListCustomRegexSetResponse } from './model/ListCustomRegexSetResponse';
 import { ListCustomRulesRequest } from './model/ListCustomRulesRequest';
 import { ListCustomRulesResponse } from './model/ListCustomRulesResponse';
 import { ListEventItems } from './model/ListEventItems';
@@ -462,6 +509,8 @@ import { ListIgnorePolicyRulesRequest } from './model/ListIgnorePolicyRulesReque
 import { ListIgnorePolicyRulesResponse } from './model/ListIgnorePolicyRulesResponse';
 import { ListIgnoreRuleRequest } from './model/ListIgnoreRuleRequest';
 import { ListIgnoreRuleResponse } from './model/ListIgnoreRuleResponse';
+import { ListImagesRequest } from './model/ListImagesRequest';
+import { ListImagesResponse } from './model/ListImagesResponse';
 import { ListInstancePoolsRequest } from './model/ListInstancePoolsRequest';
 import { ListInstancePoolsResponse } from './model/ListInstancePoolsResponse';
 import { ListInstanceRequest } from './model/ListInstanceRequest';
@@ -562,11 +611,16 @@ import { PremiumWafInstanceStatusResponse } from './model/PremiumWafInstanceStat
 import { PremiumWafInstances } from './model/PremiumWafInstances';
 import { PremiumWafPoolResponse } from './model/PremiumWafPoolResponse';
 import { PremiumWafServer } from './model/PremiumWafServer';
+import { PresignUploadUrlBody } from './model/PresignUploadUrlBody';
 import { PrivacyResponseBody } from './model/PrivacyResponseBody';
 import { ProtectableResources } from './model/ProtectableResources';
 import { PunishmentInfo } from './model/PunishmentInfo';
 import { ReferencedPolicy } from './model/ReferencedPolicy';
 import { ReferencedRule } from './model/ReferencedRule';
+import { RegexTestRequest } from './model/RegexTestRequest';
+import { RemoveImagesBody } from './model/RemoveImagesBody';
+import { RemoveImagesRequest } from './model/RemoveImagesRequest';
+import { RemoveImagesResponse } from './model/RemoveImagesResponse';
 import { RenameInstanceRequest } from './model/RenameInstanceRequest';
 import { RenameInstanceRequestBody } from './model/RenameInstanceRequestBody';
 import { RenameInstanceResponse } from './model/RenameInstanceResponse';
@@ -640,6 +694,8 @@ import { ShowAntileakageRuleRequest } from './model/ShowAntileakageRuleRequest';
 import { ShowAntileakageRuleResponse } from './model/ShowAntileakageRuleResponse';
 import { ShowAntitamperRuleRequest } from './model/ShowAntitamperRuleRequest';
 import { ShowAntitamperRuleResponse } from './model/ShowAntitamperRuleResponse';
+import { ShowAtlasRequest } from './model/ShowAtlasRequest';
+import { ShowAtlasResponse } from './model/ShowAtlasResponse';
 import { ShowBotMRuleRequest } from './model/ShowBotMRuleRequest';
 import { ShowBotMRuleResponse } from './model/ShowBotMRuleResponse';
 import { ShowCcRuleRequest } from './model/ShowCcRuleRequest';
@@ -654,6 +710,8 @@ import { ShowCustomAnswersRequest } from './model/ShowCustomAnswersRequest';
 import { ShowCustomAnswersResponse } from './model/ShowCustomAnswersResponse';
 import { ShowCustomLlmRequest } from './model/ShowCustomLlmRequest';
 import { ShowCustomLlmResponse } from './model/ShowCustomLlmResponse';
+import { ShowCustomRegexSetRequest } from './model/ShowCustomRegexSetRequest';
+import { ShowCustomRegexSetResponse } from './model/ShowCustomRegexSetResponse';
 import { ShowCustomRuleRequest } from './model/ShowCustomRuleRequest';
 import { ShowCustomRuleResponse } from './model/ShowCustomRuleResponse';
 import { ShowEventItems } from './model/ShowEventItems';
@@ -753,6 +811,8 @@ import { UpdateAnticrawlerRuleTypeResponse } from './model/UpdateAnticrawlerRule
 import { UpdateAntileakageRuleRequest } from './model/UpdateAntileakageRuleRequest';
 import { UpdateAntileakageRuleRequestBody } from './model/UpdateAntileakageRuleRequestBody';
 import { UpdateAntileakageRuleResponse } from './model/UpdateAntileakageRuleResponse';
+import { UpdateAtlasRequest } from './model/UpdateAtlasRequest';
+import { UpdateAtlasResponse } from './model/UpdateAtlasResponse';
 import { UpdateBotMCategoryStatusRequest } from './model/UpdateBotMCategoryStatusRequest';
 import { UpdateBotMCategoryStatusResponse } from './model/UpdateBotMCategoryStatusResponse';
 import { UpdateBotMRuleActionRequest } from './model/UpdateBotMRuleActionRequest';
@@ -780,6 +840,10 @@ import { UpdateCustomAnswersRequest } from './model/UpdateCustomAnswersRequest';
 import { UpdateCustomAnswersResponse } from './model/UpdateCustomAnswersResponse';
 import { UpdateCustomLlmRequest } from './model/UpdateCustomLlmRequest';
 import { UpdateCustomLlmResponse } from './model/UpdateCustomLlmResponse';
+import { UpdateCustomRegexRequest } from './model/UpdateCustomRegexRequest';
+import { UpdateCustomRegexResponse } from './model/UpdateCustomRegexResponse';
+import { UpdateCustomRegexSetRequest } from './model/UpdateCustomRegexSetRequest';
+import { UpdateCustomRegexSetResponse } from './model/UpdateCustomRegexSetResponse';
 import { UpdateCustomRuleRequest } from './model/UpdateCustomRuleRequest';
 import { UpdateCustomRuleRequestBody } from './model/UpdateCustomRuleRequestBody';
 import { UpdateCustomRuleResponse } from './model/UpdateCustomRuleResponse';
@@ -5955,6 +6019,216 @@ export class WafClient {
     }
 
     /**
+     * 加入图库（批量 + 拉取原图真实校验大小/格式 + 置status&#x3D;0 + 逐个返回结果）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 加入图库
+     * @param {string} contentType content-type
+     * @param {string} atlasId 图库ID
+     * @param {AddImagesBody} addImagesRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addImages(addImagesRequest?: AddImagesRequest): Promise<AddImagesResponse> {
+        const options = ParamCreater().addImages(addImagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除图库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除图库
+     * @param {string} contentType content-type
+     * @param {AiguardAtlasBatchDeleteBody} batchDeleteAtlasesRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteAtlases(batchDeleteAtlasesRequest?: BatchDeleteAtlasesRequest): Promise<BatchDeleteAtlasesResponse> {
+        const options = ParamCreater().batchDeleteAtlases(batchDeleteAtlasesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建图库（0&#x3D;白库/豁免/可信样本，1&#x3D;黑库/敏感/拦截样本）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建图库
+     * @param {string} contentType content-type
+     * @param {AiguardAtlasBody} createAtlasRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAtlas(createAtlasRequest?: CreateAtlasRequest): Promise<CreateAtlasResponse> {
+        const options = ParamCreater().createAtlas(createAtlasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量获取OBS PUT预签名上传地址（前端直传图片到OBS，后端不转发二进制；逐项校验、部分成功、保序返回）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量获取预签名上传地址
+     * @param {string} contentType content-type
+     * @param {string} atlasId 图库ID
+     * @param {PresignUploadUrlBody} presignUploadUrlRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPresignedUploadUrl(createPresignedUploadUrlRequest?: CreatePresignedUploadUrlRequest): Promise<CreatePresignedUploadUrlResponse> {
+        const options = ParamCreater().createPresignedUploadUrl(createPresignedUploadUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除图库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除图库
+     * @param {string} atlasId 图库ID
+     * @param {string} [contentType] content-type
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAtlas(deleteAtlasRequest?: DeleteAtlasRequest): Promise<DeleteAtlasResponse> {
+        const options = ParamCreater().deleteAtlas(deleteAtlasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询图库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询图库列表
+     * @param {string} [contentType] content-type
+     * @param {number} [offset] 分页偏移量，默认0
+     * @param {number} [limit] 每页条数，1~100，默认10
+     * @param {string} [name] 图库名称（模糊匹配）
+     * @param {number} [type] 图库类型 0&#x3D;白库 / 1&#x3D;黑库
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAtlases(listAtlasesRequest?: ListAtlasesRequest): Promise<ListAtlasesResponse> {
+        const options = ParamCreater().listAtlases(listAtlasesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询图库图片列表（按status返回缩略图/原图预签名 + status/message）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询图库图片列表
+     * @param {string} atlasId 图库ID
+     * @param {string} [contentType] content-type
+     * @param {number} [offset] 分页偏移量，默认0
+     * @param {number} [limit] 每页条数，1~1000，默认10
+     * @param {string} [name] 图片名称（模糊匹配）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImages(listImagesRequest?: ListImagesRequest): Promise<ListImagesResponse> {
+        const options = ParamCreater().listImages(listImagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 移除图片（批量软删）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移除图片
+     * @param {string} contentType content-type
+     * @param {string} atlasId 图库ID
+     * @param {RemoveImagesBody} removeImagesRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeImages(removeImagesRequest?: RemoveImagesRequest): Promise<RemoveImagesResponse> {
+        const options = ParamCreater().removeImages(removeImagesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询图库详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询图库详情
+     * @param {string} atlasId 图库ID
+     * @param {string} [contentType] content-type
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAtlas(showAtlasRequest?: ShowAtlasRequest): Promise<ShowAtlasResponse> {
+        const options = ParamCreater().showAtlas(showAtlasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新图库（不支持修改type，图库类型创建后不可变更）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新图库
+     * @param {string} contentType content-type
+     * @param {string} atlasId 图库ID
+     * @param {AiguardAtlasUpdateBody} updateAtlasRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAtlas(updateAtlasRequest?: UpdateAtlasRequest): Promise<UpdateAtlasResponse> {
+        const options = ParamCreater().updateAtlas(updateAtlasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 批量删除自定义代答库
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6213,6 +6487,236 @@ export class WafClient {
      */
     public updateCustomLlm(updateCustomLlmRequest?: UpdateCustomLlmRequest): Promise<UpdateCustomLlmResponse> {
         const options = ParamCreater().updateCustomLlm(updateCustomLlmRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除自定义正则库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除自定义正则库
+     * @param {string} contentType 内容类型
+     * @param {AiguardCustomRegexSetBatchDeleteBody} batchDeleteCustomRegexSetRequestBody 批量删除正则库请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteCustomRegexSet(batchDeleteCustomRegexSetRequest?: BatchDeleteCustomRegexSetRequest): Promise<BatchDeleteCustomRegexSetResponse> {
+        const options = ParamCreater().batchDeleteCustomRegexSet(batchDeleteCustomRegexSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 向指定正则库添加正则条目
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加正则
+     * @param {string} contentType 内容类型
+     * @param {string} regexSetId 正则库ID
+     * @param {AiguardCustomRegexBody} createCustomRegexRequestBody 添加正则请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomRegex(createCustomRegexRequest?: CreateCustomRegexRequest): Promise<CreateCustomRegexResponse> {
+        const options = ParamCreater().createCustomRegex(createCustomRegexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建自定义正则库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建自定义正则库
+     * @param {string} contentType 内容类型
+     * @param {AiguardCustomRegexSetBody} createCustomRegexSetRequestBody 创建正则库请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomRegexSet(createCustomRegexSetRequest?: CreateCustomRegexSetRequest): Promise<CreateCustomRegexSetResponse> {
+        const options = ParamCreater().createCustomRegexSet(createCustomRegexSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 拨测正则表达式有效性，校验正则语法及匹配效果（内部转发至引擎PII检测接口）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 正则拨测
+     * @param {string} contentType 内容类型
+     * @param {RegexTestRequest} regexTestRequestBody 正则拨测请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRegexTest(createRegexTestRequest?: CreateRegexTestRequest): Promise<CreateRegexTestResponse> {
+        const options = ParamCreater().createRegexTest(createRegexTestRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除正则条目
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除正则
+     * @param {string} contentType 内容类型
+     * @param {string} regexSetId 正则库ID
+     * @param {string} regexId 正则ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomRegex(deleteCustomRegexRequest?: DeleteCustomRegexRequest): Promise<DeleteCustomRegexResponse> {
+        const options = ParamCreater().deleteCustomRegex(deleteCustomRegexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除自定义正则库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除自定义正则库
+     * @param {string} contentType 内容类型
+     * @param {string} regexSetId 正则库ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCustomRegexSet(deleteCustomRegexSetRequest?: DeleteCustomRegexSetRequest): Promise<DeleteCustomRegexSetResponse> {
+        const options = ParamCreater().deleteCustomRegexSet(deleteCustomRegexSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询正则库下正则列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询正则列表
+     * @param {string} contentType 内容类型
+     * @param {string} regexSetId 正则库ID
+     * @param {string} [name] 正则名称（模糊匹配）
+     * @param {number} [offset] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomRegex(listCustomRegexRequest?: ListCustomRegexRequest): Promise<ListCustomRegexResponse> {
+        const options = ParamCreater().listCustomRegex(listCustomRegexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自定义正则库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自定义正则库列表
+     * @param {string} contentType 内容类型
+     * @param {string} [name] 正则库名称（模糊匹配）
+     * @param {number} [offset] 
+     * @param {number} [limit] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listCustomRegexSet(listCustomRegexSetRequest?: ListCustomRegexSetRequest): Promise<ListCustomRegexSetResponse> {
+        const options = ParamCreater().listCustomRegexSet(listCustomRegexSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自定义正则库详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自定义正则库详情
+     * @param {string} contentType 内容类型
+     * @param {string} regexSetId 正则库ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCustomRegexSet(showCustomRegexSetRequest?: ShowCustomRegexSetRequest): Promise<ShowCustomRegexSetResponse> {
+        const options = ParamCreater().showCustomRegexSet(showCustomRegexSetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新正则条目（仅更新传入的字段，未传字段保持不变）
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新正则
+     * @param {string} contentType 内容类型
+     * @param {string} regexSetId 正则库ID
+     * @param {string} regexId 正则ID
+     * @param {AiguardCustomRegexUpdateBody} updateCustomRegexRequestBody 更新正则请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCustomRegex(updateCustomRegexRequest?: UpdateCustomRegexRequest): Promise<UpdateCustomRegexResponse> {
+        const options = ParamCreater().updateCustomRegex(updateCustomRegexRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新自定义正则库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新自定义正则库
+     * @param {string} contentType 内容类型
+     * @param {string} regexSetId 正则库ID
+     * @param {AiguardCustomRegexSetUpdateBody} updateCustomRegexSetRequestBody 更新正则库请求
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateCustomRegexSet(updateCustomRegexSetRequest?: UpdateCustomRegexSetRequest): Promise<UpdateCustomRegexSetResponse> {
+        const options = ParamCreater().updateCustomRegexSet(updateCustomRegexSetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -20527,6 +21031,527 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 加入图库（批量 + 拉取原图真实校验大小/格式 + 置status&#x3D;0 + 逐个返回结果）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addImages(addImagesRequest?: AddImagesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/atlases/{atlas_id}/images",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let atlasId;
+
+            if (addImagesRequest !== null && addImagesRequest !== undefined) {
+                if (addImagesRequest instanceof AddImagesRequest) {
+                    contentType = addImagesRequest.contentType;
+                    atlasId = addImagesRequest.atlasId;
+                    body = addImagesRequest.body
+                } else {
+                    contentType = addImagesRequest['Content-Type'];
+                    atlasId = addImagesRequest['atlas_id'];
+                    body = addImagesRequest['body'];
+                }
+            }
+
+        
+            if (atlasId === null || atlasId === undefined) {
+            throw new RequiredError('atlasId','Required parameter atlasId was null or undefined when calling addImages.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'atlas_id': atlasId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除图库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteAtlases(batchDeleteAtlasesRequest?: BatchDeleteAtlasesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/atlases/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (batchDeleteAtlasesRequest !== null && batchDeleteAtlasesRequest !== undefined) {
+                if (batchDeleteAtlasesRequest instanceof BatchDeleteAtlasesRequest) {
+                    contentType = batchDeleteAtlasesRequest.contentType;
+                    body = batchDeleteAtlasesRequest.body
+                } else {
+                    contentType = batchDeleteAtlasesRequest['Content-Type'];
+                    body = batchDeleteAtlasesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建图库（0&#x3D;白库/豁免/可信样本，1&#x3D;黑库/敏感/拦截样本）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAtlas(createAtlasRequest?: CreateAtlasRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/atlases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createAtlasRequest !== null && createAtlasRequest !== undefined) {
+                if (createAtlasRequest instanceof CreateAtlasRequest) {
+                    contentType = createAtlasRequest.contentType;
+                    body = createAtlasRequest.body
+                } else {
+                    contentType = createAtlasRequest['Content-Type'];
+                    body = createAtlasRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量获取OBS PUT预签名上传地址（前端直传图片到OBS，后端不转发二进制；逐项校验、部分成功、保序返回）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPresignedUploadUrl(createPresignedUploadUrlRequest?: CreatePresignedUploadUrlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/atlases/{atlas_id}/images/presigned-upload-url",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let atlasId;
+
+            if (createPresignedUploadUrlRequest !== null && createPresignedUploadUrlRequest !== undefined) {
+                if (createPresignedUploadUrlRequest instanceof CreatePresignedUploadUrlRequest) {
+                    contentType = createPresignedUploadUrlRequest.contentType;
+                    atlasId = createPresignedUploadUrlRequest.atlasId;
+                    body = createPresignedUploadUrlRequest.body
+                } else {
+                    contentType = createPresignedUploadUrlRequest['Content-Type'];
+                    atlasId = createPresignedUploadUrlRequest['atlas_id'];
+                    body = createPresignedUploadUrlRequest['body'];
+                }
+            }
+
+        
+            if (atlasId === null || atlasId === undefined) {
+            throw new RequiredError('atlasId','Required parameter atlasId was null or undefined when calling createPresignedUploadUrl.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'atlas_id': atlasId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除图库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAtlas(deleteAtlasRequest?: DeleteAtlasRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/aiguard/atlases/{atlas_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let atlasId;
+            
+            let contentType;
+
+            if (deleteAtlasRequest !== null && deleteAtlasRequest !== undefined) {
+                if (deleteAtlasRequest instanceof DeleteAtlasRequest) {
+                    atlasId = deleteAtlasRequest.atlasId;
+                    contentType = deleteAtlasRequest.contentType;
+                } else {
+                    atlasId = deleteAtlasRequest['atlas_id'];
+                    contentType = deleteAtlasRequest['Content-Type'];
+                }
+            }
+
+        
+            if (atlasId === null || atlasId === undefined) {
+            throw new RequiredError('atlasId','Required parameter atlasId was null or undefined when calling deleteAtlas.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'atlas_id': atlasId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询图库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAtlases(listAtlasesRequest?: ListAtlasesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aiguard/atlases",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+            
+            let type;
+
+            if (listAtlasesRequest !== null && listAtlasesRequest !== undefined) {
+                if (listAtlasesRequest instanceof ListAtlasesRequest) {
+                    contentType = listAtlasesRequest.contentType;
+                    offset = listAtlasesRequest.offset;
+                    limit = listAtlasesRequest.limit;
+                    name = listAtlasesRequest.name;
+                    type = listAtlasesRequest.type;
+                } else {
+                    contentType = listAtlasesRequest['Content-Type'];
+                    offset = listAtlasesRequest['offset'];
+                    limit = listAtlasesRequest['limit'];
+                    name = listAtlasesRequest['name'];
+                    type = listAtlasesRequest['type'];
+                }
+            }
+
+        
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询图库图片列表（按status返回缩略图/原图预签名 + status/message）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImages(listImagesRequest?: ListImagesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aiguard/atlases/{atlas_id}/images",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let atlasId;
+            
+            let contentType;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listImagesRequest !== null && listImagesRequest !== undefined) {
+                if (listImagesRequest instanceof ListImagesRequest) {
+                    atlasId = listImagesRequest.atlasId;
+                    contentType = listImagesRequest.contentType;
+                    offset = listImagesRequest.offset;
+                    limit = listImagesRequest.limit;
+                    name = listImagesRequest.name;
+                } else {
+                    atlasId = listImagesRequest['atlas_id'];
+                    contentType = listImagesRequest['Content-Type'];
+                    offset = listImagesRequest['offset'];
+                    limit = listImagesRequest['limit'];
+                    name = listImagesRequest['name'];
+                }
+            }
+
+        
+            if (atlasId === null || atlasId === undefined) {
+            throw new RequiredError('atlasId','Required parameter atlasId was null or undefined when calling listImages.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'atlas_id': atlasId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 移除图片（批量软删）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeImages(removeImagesRequest?: RemoveImagesRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/aiguard/atlases/{atlas_id}/images",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let atlasId;
+
+            if (removeImagesRequest !== null && removeImagesRequest !== undefined) {
+                if (removeImagesRequest instanceof RemoveImagesRequest) {
+                    contentType = removeImagesRequest.contentType;
+                    atlasId = removeImagesRequest.atlasId;
+                    body = removeImagesRequest.body
+                } else {
+                    contentType = removeImagesRequest['Content-Type'];
+                    atlasId = removeImagesRequest['atlas_id'];
+                    body = removeImagesRequest['body'];
+                }
+            }
+
+        
+            if (atlasId === null || atlasId === undefined) {
+            throw new RequiredError('atlasId','Required parameter atlasId was null or undefined when calling removeImages.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'atlas_id': atlasId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询图库详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAtlas(showAtlasRequest?: ShowAtlasRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aiguard/atlases/{atlas_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let atlasId;
+            
+            let contentType;
+
+            if (showAtlasRequest !== null && showAtlasRequest !== undefined) {
+                if (showAtlasRequest instanceof ShowAtlasRequest) {
+                    atlasId = showAtlasRequest.atlasId;
+                    contentType = showAtlasRequest.contentType;
+                } else {
+                    atlasId = showAtlasRequest['atlas_id'];
+                    contentType = showAtlasRequest['Content-Type'];
+                }
+            }
+
+        
+            if (atlasId === null || atlasId === undefined) {
+            throw new RequiredError('atlasId','Required parameter atlasId was null or undefined when calling showAtlas.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'atlas_id': atlasId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新图库（不支持修改type，图库类型创建后不可变更）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAtlas(updateAtlasRequest?: UpdateAtlasRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/aiguard/atlases/{atlas_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let atlasId;
+
+            if (updateAtlasRequest !== null && updateAtlasRequest !== undefined) {
+                if (updateAtlasRequest instanceof UpdateAtlasRequest) {
+                    contentType = updateAtlasRequest.contentType;
+                    atlasId = updateAtlasRequest.atlasId;
+                    body = updateAtlasRequest.body
+                } else {
+                    contentType = updateAtlasRequest['Content-Type'];
+                    atlasId = updateAtlasRequest['atlas_id'];
+                    body = updateAtlasRequest['body'];
+                }
+            }
+
+        
+            if (atlasId === null || atlasId === undefined) {
+            throw new RequiredError('atlasId','Required parameter atlasId was null or undefined when calling updateAtlas.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'atlas_id': atlasId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 批量删除自定义代答库
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -21144,6 +22169,570 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'llmId': llmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除自定义正则库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeleteCustomRegexSet(batchDeleteCustomRegexSetRequest?: BatchDeleteCustomRegexSetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/batch-delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (batchDeleteCustomRegexSetRequest !== null && batchDeleteCustomRegexSetRequest !== undefined) {
+                if (batchDeleteCustomRegexSetRequest instanceof BatchDeleteCustomRegexSetRequest) {
+                    contentType = batchDeleteCustomRegexSetRequest.contentType;
+                    body = batchDeleteCustomRegexSetRequest.body
+                } else {
+                    contentType = batchDeleteCustomRegexSetRequest['Content-Type'];
+                    body = batchDeleteCustomRegexSetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 向指定正则库添加正则条目
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCustomRegex(createCustomRegexRequest?: CreateCustomRegexRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/{regex_set_id}/regexes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let regexSetId;
+
+            if (createCustomRegexRequest !== null && createCustomRegexRequest !== undefined) {
+                if (createCustomRegexRequest instanceof CreateCustomRegexRequest) {
+                    contentType = createCustomRegexRequest.contentType;
+                    regexSetId = createCustomRegexRequest.regexSetId;
+                    body = createCustomRegexRequest.body
+                } else {
+                    contentType = createCustomRegexRequest['Content-Type'];
+                    regexSetId = createCustomRegexRequest['regex_set_id'];
+                    body = createCustomRegexRequest['body'];
+                }
+            }
+
+        
+            if (regexSetId === null || regexSetId === undefined) {
+            throw new RequiredError('regexSetId','Required parameter regexSetId was null or undefined when calling createCustomRegex.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'regex_set_id': regexSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建自定义正则库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCustomRegexSet(createCustomRegexSetRequest?: CreateCustomRegexSetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createCustomRegexSetRequest !== null && createCustomRegexSetRequest !== undefined) {
+                if (createCustomRegexSetRequest instanceof CreateCustomRegexSetRequest) {
+                    contentType = createCustomRegexSetRequest.contentType;
+                    body = createCustomRegexSetRequest.body
+                } else {
+                    contentType = createCustomRegexSetRequest['Content-Type'];
+                    body = createCustomRegexSetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 拨测正则表达式有效性，校验正则语法及匹配效果（内部转发至引擎PII检测接口）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createRegexTest(createRegexTestRequest?: CreateRegexTestRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/aiguard/regex-test/test",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (createRegexTestRequest !== null && createRegexTestRequest !== undefined) {
+                if (createRegexTestRequest instanceof CreateRegexTestRequest) {
+                    contentType = createRegexTestRequest.contentType;
+                    body = createRegexTestRequest.body
+                } else {
+                    contentType = createRegexTestRequest['Content-Type'];
+                    body = createRegexTestRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除正则条目
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCustomRegex(deleteCustomRegexRequest?: DeleteCustomRegexRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/{regex_set_id}/regexes/{regex_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let regexSetId;
+            
+            let regexId;
+
+            if (deleteCustomRegexRequest !== null && deleteCustomRegexRequest !== undefined) {
+                if (deleteCustomRegexRequest instanceof DeleteCustomRegexRequest) {
+                    contentType = deleteCustomRegexRequest.contentType;
+                    regexSetId = deleteCustomRegexRequest.regexSetId;
+                    regexId = deleteCustomRegexRequest.regexId;
+                } else {
+                    contentType = deleteCustomRegexRequest['Content-Type'];
+                    regexSetId = deleteCustomRegexRequest['regex_set_id'];
+                    regexId = deleteCustomRegexRequest['regex_id'];
+                }
+            }
+
+        
+            if (regexSetId === null || regexSetId === undefined) {
+            throw new RequiredError('regexSetId','Required parameter regexSetId was null or undefined when calling deleteCustomRegex.');
+            }
+            if (regexId === null || regexId === undefined) {
+            throw new RequiredError('regexId','Required parameter regexId was null or undefined when calling deleteCustomRegex.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'regex_set_id': regexSetId,'regex_id': regexId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除自定义正则库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCustomRegexSet(deleteCustomRegexSetRequest?: DeleteCustomRegexSetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/{regex_set_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let regexSetId;
+
+            if (deleteCustomRegexSetRequest !== null && deleteCustomRegexSetRequest !== undefined) {
+                if (deleteCustomRegexSetRequest instanceof DeleteCustomRegexSetRequest) {
+                    contentType = deleteCustomRegexSetRequest.contentType;
+                    regexSetId = deleteCustomRegexSetRequest.regexSetId;
+                } else {
+                    contentType = deleteCustomRegexSetRequest['Content-Type'];
+                    regexSetId = deleteCustomRegexSetRequest['regex_set_id'];
+                }
+            }
+
+        
+            if (regexSetId === null || regexSetId === undefined) {
+            throw new RequiredError('regexSetId','Required parameter regexSetId was null or undefined when calling deleteCustomRegexSet.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'regex_set_id': regexSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询正则库下正则列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCustomRegex(listCustomRegexRequest?: ListCustomRegexRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/{regex_set_id}/regexes",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let regexSetId;
+            
+            let name;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCustomRegexRequest !== null && listCustomRegexRequest !== undefined) {
+                if (listCustomRegexRequest instanceof ListCustomRegexRequest) {
+                    contentType = listCustomRegexRequest.contentType;
+                    regexSetId = listCustomRegexRequest.regexSetId;
+                    name = listCustomRegexRequest.name;
+                    offset = listCustomRegexRequest.offset;
+                    limit = listCustomRegexRequest.limit;
+                } else {
+                    contentType = listCustomRegexRequest['Content-Type'];
+                    regexSetId = listCustomRegexRequest['regex_set_id'];
+                    name = listCustomRegexRequest['name'];
+                    offset = listCustomRegexRequest['offset'];
+                    limit = listCustomRegexRequest['limit'];
+                }
+            }
+
+        
+            if (regexSetId === null || regexSetId === undefined) {
+            throw new RequiredError('regexSetId','Required parameter regexSetId was null or undefined when calling listCustomRegex.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'regex_set_id': regexSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自定义正则库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listCustomRegexSet(listCustomRegexSetRequest?: ListCustomRegexSetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let name;
+            
+            let offset;
+            
+            let limit;
+
+            if (listCustomRegexSetRequest !== null && listCustomRegexSetRequest !== undefined) {
+                if (listCustomRegexSetRequest instanceof ListCustomRegexSetRequest) {
+                    contentType = listCustomRegexSetRequest.contentType;
+                    name = listCustomRegexSetRequest.name;
+                    offset = listCustomRegexSetRequest.offset;
+                    limit = listCustomRegexSetRequest.limit;
+                } else {
+                    contentType = listCustomRegexSetRequest['Content-Type'];
+                    name = listCustomRegexSetRequest['name'];
+                    offset = listCustomRegexSetRequest['offset'];
+                    limit = listCustomRegexSetRequest['limit'];
+                }
+            }
+
+        
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自定义正则库详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCustomRegexSet(showCustomRegexSetRequest?: ShowCustomRegexSetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/{regex_set_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let regexSetId;
+
+            if (showCustomRegexSetRequest !== null && showCustomRegexSetRequest !== undefined) {
+                if (showCustomRegexSetRequest instanceof ShowCustomRegexSetRequest) {
+                    contentType = showCustomRegexSetRequest.contentType;
+                    regexSetId = showCustomRegexSetRequest.regexSetId;
+                } else {
+                    contentType = showCustomRegexSetRequest['Content-Type'];
+                    regexSetId = showCustomRegexSetRequest['regex_set_id'];
+                }
+            }
+
+        
+            if (regexSetId === null || regexSetId === undefined) {
+            throw new RequiredError('regexSetId','Required parameter regexSetId was null or undefined when calling showCustomRegexSet.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'regex_set_id': regexSetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新正则条目（仅更新传入的字段，未传字段保持不变）
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCustomRegex(updateCustomRegexRequest?: UpdateCustomRegexRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/{regex_set_id}/regexes/{regex_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let regexSetId;
+            
+            let regexId;
+
+            if (updateCustomRegexRequest !== null && updateCustomRegexRequest !== undefined) {
+                if (updateCustomRegexRequest instanceof UpdateCustomRegexRequest) {
+                    contentType = updateCustomRegexRequest.contentType;
+                    regexSetId = updateCustomRegexRequest.regexSetId;
+                    regexId = updateCustomRegexRequest.regexId;
+                    body = updateCustomRegexRequest.body
+                } else {
+                    contentType = updateCustomRegexRequest['Content-Type'];
+                    regexSetId = updateCustomRegexRequest['regex_set_id'];
+                    regexId = updateCustomRegexRequest['regex_id'];
+                    body = updateCustomRegexRequest['body'];
+                }
+            }
+
+        
+            if (regexSetId === null || regexSetId === undefined) {
+            throw new RequiredError('regexSetId','Required parameter regexSetId was null or undefined when calling updateCustomRegex.');
+            }
+            if (regexId === null || regexId === undefined) {
+            throw new RequiredError('regexId','Required parameter regexId was null or undefined when calling updateCustomRegex.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'regex_set_id': regexSetId,'regex_id': regexId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新自定义正则库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateCustomRegexSet(updateCustomRegexSetRequest?: UpdateCustomRegexSetRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/aiguard/custom-regex-sets/{regex_set_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let regexSetId;
+
+            if (updateCustomRegexSetRequest !== null && updateCustomRegexSetRequest !== undefined) {
+                if (updateCustomRegexSetRequest instanceof UpdateCustomRegexSetRequest) {
+                    contentType = updateCustomRegexSetRequest.contentType;
+                    regexSetId = updateCustomRegexSetRequest.regexSetId;
+                    body = updateCustomRegexSetRequest.body
+                } else {
+                    contentType = updateCustomRegexSetRequest['Content-Type'];
+                    regexSetId = updateCustomRegexSetRequest['regex_set_id'];
+                    body = updateCustomRegexSetRequest['body'];
+                }
+            }
+
+        
+            if (regexSetId === null || regexSetId === undefined) {
+            throw new RequiredError('regexSetId','Required parameter regexSetId was null or undefined when calling updateCustomRegexSet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'regex_set_id': regexSetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

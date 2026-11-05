@@ -5,6 +5,7 @@ export class EndpointsRes {
     public service?: EndpointsResServiceEnum | string;
     public uri?: string;
     private 'key_pair_names'?: Array<string>;
+    public extensions?: { [key: string]: string; };
     public constructor() { 
     }
     public withDevService(devService: string): EndpointsRes {
@@ -34,6 +35,10 @@ export class EndpointsRes {
     }
     public get keyPairNames(): Array<string> | undefined {
         return this['key_pair_names'];
+    }
+    public withExtensions(extensions: { [key: string]: string; }): EndpointsRes {
+        this['extensions'] = extensions;
+        return this;
     }
 }
 

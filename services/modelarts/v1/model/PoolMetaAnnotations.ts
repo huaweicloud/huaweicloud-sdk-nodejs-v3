@@ -12,6 +12,7 @@ export class PoolMetaAnnotations {
     private 'os.modelarts/flavor.resource.ids'?: string;
     private 'os.modelarts/tms.tags'?: string;
     private 'os.modelarts.pool/scheduler.queue.strategy'?: string;
+    private 'os.modelarts.pool/scheduler.queue.strategy.config'?: string;
     private 'os.modelarts.pool/subpools.count'?: string;
     private 'os.modelarts/tenant.domain.name'?: string;
     private 'os.modelarts.pool/scope.external.dependency.train'?: string;
@@ -126,6 +127,16 @@ export class PoolMetaAnnotations {
     }
     public get osModelartsPoolSchedulerQueueStrategy(): string | undefined {
         return this['os.modelarts.pool/scheduler.queue.strategy'];
+    }
+    public withOsModelartsPoolSchedulerQueueStrategyConfig(osModelartsPoolSchedulerQueueStrategyConfig: string): PoolMetaAnnotations {
+        this['os.modelarts.pool/scheduler.queue.strategy.config'] = osModelartsPoolSchedulerQueueStrategyConfig;
+        return this;
+    }
+    public set osModelartsPoolSchedulerQueueStrategyConfig(osModelartsPoolSchedulerQueueStrategyConfig: string  | undefined) {
+        this['os.modelarts.pool/scheduler.queue.strategy.config'] = osModelartsPoolSchedulerQueueStrategyConfig;
+    }
+    public get osModelartsPoolSchedulerQueueStrategyConfig(): string | undefined {
+        return this['os.modelarts.pool/scheduler.queue.strategy.config'];
     }
     public withOsModelartsPoolSubpoolsCount(osModelartsPoolSubpoolsCount: string): PoolMetaAnnotations {
         this['os.modelarts.pool/subpools.count'] = osModelartsPoolSubpoolsCount;

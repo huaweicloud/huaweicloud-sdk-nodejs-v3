@@ -46,7 +46,6 @@ import { ClusterListTags } from './model/ClusterListTags';
 import { ClusterLogRecord } from './model/ClusterLogRecord';
 import { ClusterVolumeRsp } from './model/ClusterVolumeRsp';
 import { ConfigListRsp } from './model/ConfigListRsp';
-import { Confs } from './model/Confs';
 import { Connections } from './model/Connections';
 import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAgencyResponse } from './model/CreateAgencyResponse';
@@ -138,6 +137,8 @@ import { ListClustersDetailsResponse } from './model/ListClustersDetailsResponse
 import { ListClustersTagsRequest } from './model/ListClustersTagsRequest';
 import { ListClustersTagsResponse } from './model/ListClustersTagsResponse';
 import { ListConfsRequest } from './model/ListConfsRequest';
+import { ListConfsRespConfs } from './model/ListConfsRespConfs';
+import { ListConfsRespConfsSetting } from './model/ListConfsRespConfsSetting';
 import { ListConfsResponse } from './model/ListConfsResponse';
 import { ListDiskTypeRequest } from './model/ListDiskTypeRequest';
 import { ListDiskTypeResponse } from './model/ListDiskTypeResponse';

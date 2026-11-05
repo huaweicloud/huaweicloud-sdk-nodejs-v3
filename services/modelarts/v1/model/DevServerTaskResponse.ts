@@ -7,8 +7,8 @@ export class DevServerTaskResponse {
     public status?: string;
     private 'cloud_server'?: { [key: string]: string; };
     public message?: string;
-    private 'create_at'?: string;
-    private 'update_at'?: string;
+    private 'create_at'?: number;
+    private 'update_at'?: number;
     public constructor() { 
     }
     public withId(id: string): DevServerTaskResponse {
@@ -53,24 +53,24 @@ export class DevServerTaskResponse {
         this['message'] = message;
         return this;
     }
-    public withCreateAt(createAt: string): DevServerTaskResponse {
+    public withCreateAt(createAt: number): DevServerTaskResponse {
         this['create_at'] = createAt;
         return this;
     }
-    public set createAt(createAt: string  | undefined) {
+    public set createAt(createAt: number  | undefined) {
         this['create_at'] = createAt;
     }
-    public get createAt(): string | undefined {
+    public get createAt(): number | undefined {
         return this['create_at'];
     }
-    public withUpdateAt(updateAt: string): DevServerTaskResponse {
+    public withUpdateAt(updateAt: number): DevServerTaskResponse {
         this['update_at'] = updateAt;
         return this;
     }
-    public set updateAt(updateAt: string  | undefined) {
+    public set updateAt(updateAt: number  | undefined) {
         this['update_at'] = updateAt;
     }
-    public get updateAt(): string | undefined {
+    public get updateAt(): number | undefined {
         return this['update_at'];
     }
 }

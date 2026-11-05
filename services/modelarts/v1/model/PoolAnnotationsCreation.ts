@@ -10,6 +10,8 @@ export class PoolAnnotationsCreation {
     private 'os.modelarts/promotion.info'?: string;
     private 'os.modelarts/service.console.url'?: string;
     private 'os.modelarts/order.id'?: string;
+    private 'os.modelarts.pool/scheduler.queue.strategy'?: string;
+    private 'os.modelarts.pool/scheduler.queue.strategy.config'?: string;
     public constructor() { 
     }
     public withOsModelartsDescription(osModelartsDescription: string): PoolAnnotationsCreation {
@@ -101,5 +103,25 @@ export class PoolAnnotationsCreation {
     }
     public get osModelartsOrderId(): string | undefined {
         return this['os.modelarts/order.id'];
+    }
+    public withOsModelartsPoolSchedulerQueueStrategy(osModelartsPoolSchedulerQueueStrategy: string): PoolAnnotationsCreation {
+        this['os.modelarts.pool/scheduler.queue.strategy'] = osModelartsPoolSchedulerQueueStrategy;
+        return this;
+    }
+    public set osModelartsPoolSchedulerQueueStrategy(osModelartsPoolSchedulerQueueStrategy: string  | undefined) {
+        this['os.modelarts.pool/scheduler.queue.strategy'] = osModelartsPoolSchedulerQueueStrategy;
+    }
+    public get osModelartsPoolSchedulerQueueStrategy(): string | undefined {
+        return this['os.modelarts.pool/scheduler.queue.strategy'];
+    }
+    public withOsModelartsPoolSchedulerQueueStrategyConfig(osModelartsPoolSchedulerQueueStrategyConfig: string): PoolAnnotationsCreation {
+        this['os.modelarts.pool/scheduler.queue.strategy.config'] = osModelartsPoolSchedulerQueueStrategyConfig;
+        return this;
+    }
+    public set osModelartsPoolSchedulerQueueStrategyConfig(osModelartsPoolSchedulerQueueStrategyConfig: string  | undefined) {
+        this['os.modelarts.pool/scheduler.queue.strategy.config'] = osModelartsPoolSchedulerQueueStrategyConfig;
+    }
+    public get osModelartsPoolSchedulerQueueStrategyConfig(): string | undefined {
+        return this['os.modelarts.pool/scheduler.queue.strategy.config'];
     }
 }

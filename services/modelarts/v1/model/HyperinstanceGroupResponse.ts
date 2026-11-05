@@ -3,8 +3,8 @@
 export class HyperinstanceGroupResponse {
     public id?: string;
     public name?: string;
-    private 'npu_count_limit'?: string;
-    private 'npu_count'?: string;
+    private 'npu_count_limit'?: number;
+    private 'npu_count'?: number;
     private 'hyperinstance_cluster_id'?: string;
     private 'created_at'?: number;
     private 'updated_at'?: number;
@@ -18,24 +18,24 @@ export class HyperinstanceGroupResponse {
         this['name'] = name;
         return this;
     }
-    public withNpuCountLimit(npuCountLimit: string): HyperinstanceGroupResponse {
+    public withNpuCountLimit(npuCountLimit: number): HyperinstanceGroupResponse {
         this['npu_count_limit'] = npuCountLimit;
         return this;
     }
-    public set npuCountLimit(npuCountLimit: string  | undefined) {
+    public set npuCountLimit(npuCountLimit: number  | undefined) {
         this['npu_count_limit'] = npuCountLimit;
     }
-    public get npuCountLimit(): string | undefined {
+    public get npuCountLimit(): number | undefined {
         return this['npu_count_limit'];
     }
-    public withNpuCount(npuCount: string): HyperinstanceGroupResponse {
+    public withNpuCount(npuCount: number): HyperinstanceGroupResponse {
         this['npu_count'] = npuCount;
         return this;
     }
-    public set npuCount(npuCount: string  | undefined) {
+    public set npuCount(npuCount: number  | undefined) {
         this['npu_count'] = npuCount;
     }
-    public get npuCount(): string | undefined {
+    public get npuCount(): number | undefined {
         return this['npu_count'];
     }
     public withHyperinstanceClusterId(hyperinstanceClusterId: string): HyperinstanceGroupResponse {

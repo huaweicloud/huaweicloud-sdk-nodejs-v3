@@ -4,7 +4,7 @@ export class ListScheduledEventsRequest {
     public workspaceId?: string;
     public state?: Array<ListScheduledEventsRequestStateEnum> | Array<string>;
     public type?: Array<string>;
-    public id?: string;
+    public id?: Array<string>;
     public nodeName?: string;
     public poolName?: string;
     public publishStartTime?: string;
@@ -25,7 +25,7 @@ export class ListScheduledEventsRequest {
         this['type'] = type;
         return this;
     }
-    public withId(id: string): ListScheduledEventsRequest {
+    public withId(id: Array<string>): ListScheduledEventsRequest {
         this['id'] = id;
         return this;
     }

@@ -2,14 +2,14 @@
 
 export class RedeployConfig {
     public type?: RedeployConfigTypeEnum | string;
-    public autoFlow?: RedeployConfigAutoFlowEnum | string;
+    public autoFlow?: boolean;
     public constructor() { 
     }
     public withType(type: RedeployConfigTypeEnum | string): RedeployConfig {
         this['type'] = type;
         return this;
     }
-    public withAutoFlow(autoFlow: RedeployConfigAutoFlowEnum | string): RedeployConfig {
+    public withAutoFlow(autoFlow: boolean): RedeployConfig {
         this['autoFlow'] = autoFlow;
         return this;
     }
@@ -22,12 +22,4 @@ export class RedeployConfig {
 export enum RedeployConfigTypeEnum {
     SOFT = 'SOFT',
     HARD = 'HARD'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum RedeployConfigAutoFlowEnum {
-    TRUE = 'true',
-    FALSE = 'false'
 }

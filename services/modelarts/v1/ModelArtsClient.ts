@@ -11,6 +11,8 @@ import { AffinityOS } from './model/AffinityOS';
 import { AffinityResponse } from './model/AffinityResponse';
 import { AffinityRule } from './model/AffinityRule';
 import { AffinityType } from './model/AffinityType';
+import { AgencyRequest } from './model/AgencyRequest';
+import { AgencyServices } from './model/AgencyServices';
 import { AlgoConfigs } from './model/AlgoConfigs';
 import { Algorithm } from './model/Algorithm';
 import { AlgorithmAdvancedConfig } from './model/AlgorithmAdvancedConfig';
@@ -53,6 +55,7 @@ import { AttachDevServerVolumeResponse } from './model/AttachDevServerVolumeResp
 import { AttachDynamicStorageRequest } from './model/AttachDynamicStorageRequest';
 import { AttachDynamicStorageResponse } from './model/AttachDynamicStorageResponse';
 import { AttachServerVolumeRequest } from './model/AttachServerVolumeRequest';
+import { AuthGrantRequest } from './model/AuthGrantRequest';
 import { AuthRequests } from './model/AuthRequests';
 import { AuthorizationRequest } from './model/AuthorizationRequest';
 import { AuthorizationResponse } from './model/AuthorizationResponse';
@@ -70,6 +73,8 @@ import { BatchBindPoolNodesRequest } from './model/BatchBindPoolNodesRequest';
 import { BatchBindPoolNodesResponse } from './model/BatchBindPoolNodesResponse';
 import { BatchCreatePoolTagsRequest } from './model/BatchCreatePoolTagsRequest';
 import { BatchCreatePoolTagsResponse } from './model/BatchCreatePoolTagsResponse';
+import { BatchCreateServiceOpensRequest } from './model/BatchCreateServiceOpensRequest';
+import { BatchCreateServiceOpensResponse } from './model/BatchCreateServiceOpensResponse';
 import { BatchDeleteInferIntranetConnectionsRequest } from './model/BatchDeleteInferIntranetConnectionsRequest';
 import { BatchDeleteInferIntranetConnectionsResponse } from './model/BatchDeleteInferIntranetConnectionsResponse';
 import { BatchDeleteInferServicesRequest } from './model/BatchDeleteInferServicesRequest';
@@ -166,6 +171,8 @@ import { CreateAlgorithmVersionToGalleryBody } from './model/CreateAlgorithmVers
 import { CreateAlgorithmVersionToGalleryRequest } from './model/CreateAlgorithmVersionToGalleryRequest';
 import { CreateAlgorithmVersionToGalleryResponse } from './model/CreateAlgorithmVersionToGalleryResponse';
 import { CreateApiKeyReq } from './model/CreateApiKeyReq';
+import { CreateAuthGrantRequest } from './model/CreateAuthGrantRequest';
+import { CreateAuthGrantResponse } from './model/CreateAuthGrantResponse';
 import { CreateAuthorizationRequest } from './model/CreateAuthorizationRequest';
 import { CreateAuthorizationResponse } from './model/CreateAuthorizationResponse';
 import { CreateDevServerJobRequest } from './model/CreateDevServerJobRequest';
@@ -357,7 +364,6 @@ import { DumpResponse } from './model/DumpResponse';
 import { ElbConnectionCreateRequest } from './model/ElbConnectionCreateRequest';
 import { ElbConnectionResponse } from './model/ElbConnectionResponse';
 import { ElbConnectionUpdateRequest } from './model/ElbConnectionUpdateRequest';
-import { Endpoints } from './model/Endpoints';
 import { EndpointsReq } from './model/EndpointsReq';
 import { EndpointsRes } from './model/EndpointsRes';
 import { Engine } from './model/Engine';
@@ -369,6 +375,7 @@ import { EventModel } from './model/EventModel';
 import { EventUpdate } from './model/EventUpdate';
 import { EvsVolume } from './model/EvsVolume';
 import { Exec } from './model/Exec';
+import { ExecuteOptions } from './model/ExecuteOptions';
 import { ExecutionAction } from './model/ExecutionAction';
 import { ExecutionActionPolicy } from './model/ExecutionActionPolicy';
 import { ExecutionBrief } from './model/ExecutionBrief';
@@ -604,6 +611,8 @@ import { ListScheduledEventsRequest } from './model/ListScheduledEventsRequest';
 import { ListScheduledEventsResponse } from './model/ListScheduledEventsResponse';
 import { ListSearchAlgorithmsParams } from './model/ListSearchAlgorithmsParams';
 import { ListSearchAlgorithmsSearchAlgoList } from './model/ListSearchAlgorithmsSearchAlgoList';
+import { ListServiceStatusesRequest } from './model/ListServiceStatusesRequest';
+import { ListServiceStatusesResponse } from './model/ListServiceStatusesResponse';
 import { ListTagFilter } from './model/ListTagFilter';
 import { ListTrainingExperimentsRequest } from './model/ListTrainingExperimentsRequest';
 import { ListTrainingExperimentsResponse } from './model/ListTrainingExperimentsResponse';
@@ -683,6 +692,7 @@ import { NodeBatchMigrationRequest } from './model/NodeBatchMigrationRequest';
 import { NodeConfigTemplateMeta } from './model/NodeConfigTemplateMeta';
 import { NodeConfigTemplateSpec } from './model/NodeConfigTemplateSpec';
 import { NodeDriver } from './model/NodeDriver';
+import { NodeEvent } from './model/NodeEvent';
 import { NodeLabels } from './model/NodeLabels';
 import { NodeListMetadata } from './model/NodeListMetadata';
 import { NodeMetadata } from './model/NodeMetadata';
@@ -703,8 +713,22 @@ import { NodeTag } from './model/NodeTag';
 import { NodeVOAnnotations } from './model/NodeVOAnnotations';
 import { NodeconfigMeta } from './model/NodeconfigMeta';
 import { NodeconfigSpec } from './model/NodeconfigSpec';
+import { NodeconfigSpecConfigs } from './model/NodeconfigSpecConfigs';
+import { NodeconfigSpecConfigsCpuManager } from './model/NodeconfigSpecConfigsCpuManager';
+import { NodeconfigSpecConfigsDropCache } from './model/NodeconfigSpecConfigsDropCache';
+import { NodeconfigSpecConfigsImageWarmUp } from './model/NodeconfigSpecConfigsImageWarmUp';
+import { NodeconfigSpecConfigsTransparentHugepage } from './model/NodeconfigSpecConfigsTransparentHugepage';
 import { NodeconfigStatus } from './model/NodeconfigStatus';
+import { NodeconfigStatusConfigsStatus } from './model/NodeconfigStatusConfigsStatus';
+import { NodeconfigStatusConfigsStatusImageWarmUp } from './model/NodeconfigStatusConfigsStatusImageWarmUp';
 import { NodeconfigTemplateItem } from './model/NodeconfigTemplateItem';
+import { NodeconfigUpdate } from './model/NodeconfigUpdate';
+import { NodeconfigUpdateSpec } from './model/NodeconfigUpdateSpec';
+import { NodeconfigUpdateSpecConfigs } from './model/NodeconfigUpdateSpecConfigs';
+import { NodeconfigUpdateSpecConfigsCpuManager } from './model/NodeconfigUpdateSpecConfigsCpuManager';
+import { NodeconfigUpdateSpecConfigsDropCache } from './model/NodeconfigUpdateSpecConfigsDropCache';
+import { NodeconfigUpdateSpecConfigsImageWarmUp } from './model/NodeconfigUpdateSpecConfigsImageWarmUp';
+import { NodeconfigUpdateSpecConfigsTransparentHugepage } from './model/NodeconfigUpdateSpecConfigsTransparentHugepage';
 import { NodeconfigtemplateMetaV2 } from './model/NodeconfigtemplateMetaV2';
 import { NodeconfigtemplatesSpec } from './model/NodeconfigtemplatesSpec';
 import { NodesDeletionRequest } from './model/NodesDeletionRequest';
@@ -738,6 +762,8 @@ import { Parameters } from './model/Parameters';
 import { ParametersConstraint } from './model/ParametersConstraint';
 import { PatchNetworkRequest } from './model/PatchNetworkRequest';
 import { PatchNetworkResponse } from './model/PatchNetworkResponse';
+import { PatchNodeConfigRequest } from './model/PatchNodeConfigRequest';
+import { PatchNodeConfigResponse } from './model/PatchNodeConfigResponse';
 import { PatchNodePoolAnnotations } from './model/PatchNodePoolAnnotations';
 import { PatchNodePoolMetaVO } from './model/PatchNodePoolMetaVO';
 import { PatchNodePoolRequest } from './model/PatchNodePoolRequest';
@@ -913,6 +939,7 @@ import { ServerScaleEvaluation } from './model/ServerScaleEvaluation';
 import { ServerStartRequest } from './model/ServerStartRequest';
 import { ServerTaskLimit } from './model/ServerTaskLimit';
 import { ServerVolume } from './model/ServerVolume';
+import { ServiceBatchOpenRequest } from './model/ServiceBatchOpenRequest';
 import { ServiceCreateRequest } from './model/ServiceCreateRequest';
 import { ServiceCreateRequestTags } from './model/ServiceCreateRequestTags';
 import { ServiceEventResponse } from './model/ServiceEventResponse';
@@ -924,17 +951,21 @@ import { ServiceInvokeUpdateRequest } from './model/ServiceInvokeUpdateRequest';
 import { ServiceItemResponseData } from './model/ServiceItemResponseData';
 import { ServiceLimit } from './model/ServiceLimit';
 import { ServiceLimitResponse } from './model/ServiceLimitResponse';
+import { ServiceOpenItem } from './model/ServiceOpenItem';
 import { ServicePodEventResponse } from './model/ServicePodEventResponse';
 import { ServicePodResponse } from './model/ServicePodResponse';
 import { ServiceResponse } from './model/ServiceResponse';
 import { ServiceSecret } from './model/ServiceSecret';
 import { ServiceSecretResponse } from './model/ServiceSecretResponse';
 import { ServiceSecurityConfig } from './model/ServiceSecurityConfig';
+import { ServiceStatusItem } from './model/ServiceStatusItem';
 import { ServiceUpdateRequest } from './model/ServiceUpdateRequest';
 import { ServiceVersionResponse } from './model/ServiceVersionResponse';
 import { SfsTurboConnectionStatus } from './model/SfsTurboConnectionStatus';
 import { ShowAlgorithmByUuidRequest } from './model/ShowAlgorithmByUuidRequest';
 import { ShowAlgorithmByUuidResponse } from './model/ShowAlgorithmByUuidResponse';
+import { ShowAuthGrantRequest } from './model/ShowAuthGrantRequest';
+import { ShowAuthGrantResponse } from './model/ShowAuthGrantResponse';
 import { ShowAuthmodeDetailRequest } from './model/ShowAuthmodeDetailRequest';
 import { ShowAuthmodeDetailResponse } from './model/ShowAuthmodeDetailResponse';
 import { ShowAutoSearchParamAnalysisResultPathRequest } from './model/ShowAutoSearchParamAnalysisResultPathRequest';
@@ -1223,6 +1254,8 @@ import { ValidateAuthorizationResponse } from './model/ValidateAuthorizationResp
 import { ValidateTrainingJobNameRequest } from './model/ValidateTrainingJobNameRequest';
 import { ValidateTrainingJobNameResponse } from './model/ValidateTrainingJobNameResponse';
 import { Value } from './model/Value';
+import { VerifyAgencyRequest } from './model/VerifyAgencyRequest';
+import { VerifyAgencyResponse } from './model/VerifyAgencyResponse';
 import { ViewWorkspaceResponseGrants } from './model/ViewWorkspaceResponseGrants';
 import { VolumeExtendParams } from './model/VolumeExtendParams';
 import { VolumeGroupConfig } from './model/VolumeGroupConfig';
@@ -1302,10 +1335,9 @@ export class ModelArtsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 计划事件授权
-     * @param {string} eventId **参数解释**：计划事件ID，取值查询计划事件列表接口的event_id字段。 **约束限制**：不涉及。 **取值范围**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，长度小于63 **默认取值**：不涉及。
+     * @param {string} eventId **参数解释**：计划事件ID，取值查询计划事件列表接口的event_id字段。  **约束限制**：不涉及。  **取值范围**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，长度小于63。 **默认取值**：不涉及。
      * @param {EventUpdate} acceptScheduledEventRequestBody **参数解释**：计划事件授权请求body参数。 **约束限制**：不涉及。
      * @param {string} [workspaceId] **参数解释**：工作空间ID，默认值为0，取值于查询workspaces列表的接口的id字段。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，且长度小于63个字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {string} [workspaceId2] **参数解释**：工作空间ID，默认值为0，取值于查询workspaces列表的接口的id字段。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，且长度小于63个字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1436,6 +1468,25 @@ export class ModelArtsClient {
      */
     public batchCreatePoolTags(batchCreatePoolTagsRequest?: BatchCreatePoolTagsRequest): Promise<BatchCreatePoolTagsResponse> {
         const options = ParamCreater().batchCreatePoolTags(batchCreatePoolTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 一键开通依赖服务接口用于一键开通AOM、CCE、CES、SWR-EE等依赖服务。该接口适用于以下场景：当用户首次使用ModelArts服务或需要批量开通相关依赖服务时，可通过此接口一键完成多个依赖服务的开通操作。使用该接口的前提条件是用户已登录系统、具有相应操作权限且账号余额充足。执行一键开通后，系统将自动为用户开通指定的依赖服务，服务开通后即可正常使用。若用户无权限操作、账号余额不足或服务开通失败，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 一键开通依赖服务
+     * @param {ServiceBatchOpenRequest} batchCreateServiceOpensRequestBody 批量开通服务请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateServiceOpens(batchCreateServiceOpensRequest?: BatchCreateServiceOpensRequest): Promise<BatchCreateServiceOpensResponse> {
+        const options = ParamCreater().batchCreateServiceOpens(batchCreateServiceOpensRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1996,6 +2047,25 @@ export class ModelArtsClient {
      */
     public createAlgorithmVersionToGallery(createAlgorithmVersionToGalleryRequest?: CreateAlgorithmVersionToGalleryRequest): Promise<CreateAlgorithmVersionToGalleryResponse> {
         const options = ParamCreater().createAlgorithmVersionToGallery(createAlgorithmVersionToGalleryRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 一键授权或重置授权接口用于一键创建ModelArts委托授权或重置已有委托。该接口适用于以下场景：当用户首次使用ModelArts服务需要开通委托授权时，或当现有委托授权出现异常、过期需要重新配置时，可通过此接口一键完成授权操作。使用该接口的前提条件是用户已登录系统且具有相应的操作权限。执行一键授权后，系统将自动创建委托授权关系；执行重置操作后，原有委托将被替换为新的授权。若用户无权限操作或服务异常，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 一键授权或重置授权
+     * @param {AuthGrantRequest} createAuthGrantRequestBody 授权请求体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAuthGrant(createAuthGrantRequest?: CreateAuthGrantRequest): Promise<CreateAuthGrantResponse> {
+        const options = ParamCreater().createAuthGrant(createAuthGrantRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3563,11 +3633,15 @@ export class ModelArtsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询hyperinstance-group详情列表
+     * @param {number} [limit] **参数解释**：每一页显示实例的数量。 **约束限制**：不涉及。 **取值范围**：[10,20,50]。 **默认取值**：10。
+     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：0。
+     * @param {string} [sortKey] **参数解释**：排序的字段，多个字段使用(“,”)逗号分隔。 **约束限制**：不涉及。 **取值范围**：长度限制为128个字符，支持大小写字母、数字、中划线、下划线和逗号。 **默认取值**：不涉及。
+     * @param {string} [sortDir] **参数解释**：实例排序方式。 **约束限制**：不涉及。 **取值范围**： - ASC：升序 - DESC：降序  **默认取值**：DESC。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listHyperinstanceGroup(listHyperinstanceGroupRequest?: ListHyperinstanceGroupRequest): Promise<ListHyperinstanceGroupResponse> {
-        const options = ParamCreater().listHyperinstanceGroup();
+        const options = ParamCreater().listHyperinstanceGroup(listHyperinstanceGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3601,6 +3675,10 @@ export class ModelArtsClient {
      *
      * @summary 查询超节点的所有子节点
      * @param {string} id **参数解释**：Lite Server超节点实例ID。 **约束限制**：^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {number} [limit] **参数解释**：每一页显示实例的数量。 **约束限制**：不涉及。 **取值范围**：[10,20,50]。 **默认取值**：10。
+     * @param {number} [offset] **参数解释**：分页记录的起始位置偏移量。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：0。
+     * @param {string} [sortKey] **参数解释**：排序的字段，多个字段使用(“,”)逗号分隔。 **约束限制**：不涉及。 **取值范围**：长度限制为128个字符，支持大小写字母、数字、中划线、下划线和逗号。 **默认取值**：不涉及。
+     * @param {string} [sortDir] **参数解释**：实例排序方式。 **约束限制**：不涉及。 **取值范围**： - ASC：升序 - DESC：降序  **默认取值**：DESC。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4246,9 +4324,9 @@ export class ModelArtsClient {
      *
      * @summary 查询计划事件列表
      * @param {string} [workspaceId] **参数解释**：工作空间ID，默认值为0，取值于查询workspaces列表的接口的id字段。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，且长小于63个字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
-     * @param {Array<'inquiring' | 'scheduled' | 'executing' | 'completed' | 'failed' | 'canceled'>} [state] **参数解释**：事件状态。 **约束限制**：不涉及。 **取值范围**：可选择值如下： - inquiring: 待授权, - scheduled: 待执行 - executing: 执行中 - completed: 执行成功 - failed: 执行失败 - canceled: 取消 **默认取值**：不涉及。
+     * @param {Array<'inquiring' | 'scheduled' | 'executing' | 'completed' | 'failed' | 'canceled'>} [state] **参数解释**：事件状态。 **约束限制**：不涉及。 **取值范围**：可选择值如下： - inquiring: 待授权 - scheduled: 待执行 - executing: 执行中 - completed: 执行成功 - failed: 执行失败 - canceled: 取消 **默认取值**：不涉及。
      * @param {Array<string>} [type] **参数解释**：事件类型。 **约束限制**：不涉及。 **取值范围**：可选择值如下： - system-maintenance：系统维护 - localdisk-recovery：本地盘恢复 - node_reboot：节点重启 - operation-request：运维授权 - node_maintenance：超节点维护 - node_redeploy：超节点重部署 - node_localdisk_recovery 超节点本地盘恢复 **默认取值**：不涉及。
-     * @param {string} [id] **参数解释**：计划事件ID，取值查询计划事件列表接口的event_id字段。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，长度小于63。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {Array<string>} [id] **参数解释**：计划事件ID，取值查询计划事件列表接口的event_id字段。 支持批量筛选，批量筛选时传递多个参数，且最多支持100个。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，长度小于63。 **取值范围**：不涉及。 **默认取值**：不涉及。
      * @param {string} [nodeName] **参数解释**：节点名称，取值自节点详情的metadata.name字段。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，小于63个字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
      * @param {string} [poolName] **参数解释**：资源池名称, lite-cluster、standard才具有，取值自资源池详情的metadata.name字段。查询指定standard cluster和lite cluster下节点的计划事件时可传递该参数。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，小于63个字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
      * @param {string} [publishStartTime] **参数解释**：事件发布开始时间,按照时间范围过滤。 **约束限制**：按照ISO8601标准表示，并使用UTC +0时间，格式为yyyy-MM-ddTHH:mm:ssZ。 **取值范围**：不涉及。 **默认取值**：不涉及。
@@ -4263,6 +4341,25 @@ export class ModelArtsClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询依赖服务开通状态接口用于查询AOM、CCE、CES、SWR-EE等依赖服务的开通状态。该接口适用于以下场景：当用户需要确认ModelArts相关依赖服务是否已开通时，可通过此接口批量查询各依赖服务的当前状态。使用该接口的前提条件是用户已登录系统且具有相应的查询权限。查询结果将返回各依赖服务的开通状态（已开通或未开通），若用户无权限查询或服务异常，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询依赖服务开通状态
+     * @param {string} serviceCodes **参数解释**：服务编码列表，逗号分隔，如aom,cce,ces,swr-ee。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServiceStatuses(listServiceStatusesRequest?: ListServiceStatusesRequest): Promise<ListServiceStatusesResponse> {
+        const options = ParamCreater().listServiceStatuses(listServiceStatusesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -4572,6 +4669,26 @@ export class ModelArtsClient {
     }
 
     /**
+     * 更新资源池节点自定义配置接口用于修改资源池节点的个性化设置。该接口适用于以下场景：当资源池节点需要调整资源分配策略、更新性能参数、创建/删除镜像预热任务或变更其他自定义配置时，用户可通过此接口更新指定资源池节点的自定义配置信息。使用该接口的前提条件是资源池节点已存在且用户具有管理员权限。更新操作完成后，资源池节点的自定义配置将被更新并生效，相关变更将被记录以便后续查询。若资源池节点不存在、用户无权限操作或配置参数格式不正确，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新资源池节点自定义配置
+     * @param {string} poolName **参数解释**：池名称。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {NodeconfigUpdate} patchNodeConfigRequestBody **参数解释**：待更新的节点配置。支持镜像预热（image_warm_up）、CPU管理策略（cpu_manager）、缓存清理（drop_cache）、透明大页（transparent_hugepage）等配置项。 **约束限制**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public patchNodeConfig(patchNodeConfigRequest?: PatchNodeConfigRequest): Promise<PatchNodeConfigResponse> {
+        const options = ParamCreater().patchNodeConfig(patchNodeConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新节点池接口用于修改指定节点池的配置信息。该接口适用于以下场景：当需要扩展节点池容量、调整节点规格、优化资源分配或修复节点池配置时，用户可通过此接口更新节点池的相关信息。使用该接口的前提条件是节点池已存在且用户具有管理员权限。更新操作完成后，节点池的配置将被更新，包括节点数量、规格、网络配置等参数。若节点池不存在、用户无权限操作或配置参数错误，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -4762,6 +4879,24 @@ export class ModelArtsClient {
      */
     public showAlgorithmByUuid(showAlgorithmByUuidRequest?: ShowAlgorithmByUuidRequest): Promise<ShowAlgorithmByUuidResponse> {
         const options = ParamCreater().showAlgorithmByUuid(showAlgorithmByUuidRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询委托授权状态接口用于查询ModelArts服务的委托授权是否已开通。该接口适用于以下场景：当用户需要确认是否已开通ModelArts委托授权以进行后续操作（如模型训练、部署等）时，可通过此接口查询当前授权状态。使用该接口的前提条件是用户已登录系统且具有相应的查询权限。查询结果将返回委托授权的当前状态（已开通或未开通），若用户无权限查询或服务异常，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询委托授权状态
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAuthGrant(showAuthGrantRequest?: ShowAuthGrantRequest): Promise<ShowAuthGrantResponse> {
+        const options = ParamCreater().showAuthGrant();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6252,6 +6387,25 @@ export class ModelArtsClient {
     }
 
     /**
+     * 校验当前用户是否有权使用指定委托，仅支持委托给ModelArts服务的委托，通过PDP5的iam:agencies:pass鉴权判定
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 校验委托使用权限
+     * @param {AgencyRequest} verifyAgencyRequestBody 委托校验请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public verifyAgency(verifyAgencyRequest?: VerifyAgencyRequest): Promise<VerifyAgencyResponse> {
+        const options = ParamCreater().verifyAgency(verifyAgencyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 本接口用于在已部署的服务上创建定时扩缩容策略，适用于需要根据业务负载或特定时间自动调整服务实例个数的场景。调用此接口前，确保服务已成功部署并获取了有效的服务ID，并提供详细的扩缩容策略参数，如扩缩容时间、实例个数范围、条件触发器等。创建成功后，系统将根据设定的策略自动调整服务实例个数，确保服务在指定时间内的性能和可用性。如果提供的服务ID无效、参数配置错误或系统资源不足，将返回相应的异常信息，提示用户检查输入数据的有效性或联系技术支持。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -7475,20 +7629,16 @@ export const ParamCreater = function () {
             let eventId;
             
             let workspaceId;
-            
-            let workspaceId2;
 
             if (acceptScheduledEventRequest !== null && acceptScheduledEventRequest !== undefined) {
                 if (acceptScheduledEventRequest instanceof AcceptScheduledEventRequest) {
                     eventId = acceptScheduledEventRequest.eventId;
                     body = acceptScheduledEventRequest.body
                     workspaceId = acceptScheduledEventRequest.workspaceId;
-                    workspaceId2 = acceptScheduledEventRequest.workspaceId2;
                 } else {
                     eventId = acceptScheduledEventRequest['event_id'];
                     body = acceptScheduledEventRequest['body'];
                     workspaceId = acceptScheduledEventRequest['workspaceId'];
-                    workspaceId2 = acceptScheduledEventRequest['workspaceId'];
                 }
             }
 
@@ -7501,9 +7651,6 @@ export const ParamCreater = function () {
             }
             if (workspaceId !== null && workspaceId !== undefined) {
                 localVarQueryParameter['workspaceId'] = workspaceId;
-            }
-            if (workspaceId2 !== null && workspaceId2 !== undefined) {
-                localVarQueryParameter['workspaceId'] = workspaceId2;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -7788,6 +7935,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'pool_name': poolName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 一键开通依赖服务接口用于一键开通AOM、CCE、CES、SWR-EE等依赖服务。该接口适用于以下场景：当用户首次使用ModelArts服务或需要批量开通相关依赖服务时，可通过此接口一键完成多个依赖服务的开通操作。使用该接口的前提条件是用户已登录系统、具有相应操作权限且账号余额充足。执行一键开通后，系统将自动为用户开通指定的依赖服务，服务开通后即可正常使用。若用户无权限操作、账号余额不足或服务开通失败，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateServiceOpens(batchCreateServiceOpensRequest?: BatchCreateServiceOpensRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/services/batch-open",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchCreateServiceOpensRequest !== null && batchCreateServiceOpensRequest !== undefined) {
+                if (batchCreateServiceOpensRequest instanceof BatchCreateServiceOpensRequest) {
+                    body = batchCreateServiceOpensRequest.body
+                } else {
+                    body = batchCreateServiceOpensRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -9032,6 +9217,44 @@ export const ParamCreater = function () {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 一键授权或重置授权接口用于一键创建ModelArts委托授权或重置已有委托。该接口适用于以下场景：当用户首次使用ModelArts服务需要开通委托授权时，或当现有委托授权出现异常、过期需要重新配置时，可通过此接口一键完成授权操作。使用该接口的前提条件是用户已登录系统且具有相应的操作权限。执行一键授权后，系统将自动创建委托授权关系；执行重置操作后，原有委托将被替换为新的授权。若用户无权限操作或服务异常，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAuthGrant(createAuthGrantRequest?: CreateAuthGrantRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/auth/grant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createAuthGrantRequest !== null && createAuthGrantRequest !== undefined) {
+                if (createAuthGrantRequest instanceof CreateAuthGrantRequest) {
+                    body = createAuthGrantRequest.body
+                } else {
+                    body = createAuthGrantRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
@@ -12447,7 +12670,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listHyperinstanceGroup() {
+        listHyperinstanceGroup(listHyperinstanceGroupRequest?: ListHyperinstanceGroupRequest) {
             const options = {
                 method: "GET",
                 url: "/v1/{project_id}/dev-servers/hyperinstance/groups",
@@ -12457,8 +12680,45 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let sortKey;
+            
+            let sortDir;
 
+            if (listHyperinstanceGroupRequest !== null && listHyperinstanceGroupRequest !== undefined) {
+                if (listHyperinstanceGroupRequest instanceof ListHyperinstanceGroupRequest) {
+                    limit = listHyperinstanceGroupRequest.limit;
+                    offset = listHyperinstanceGroupRequest.offset;
+                    sortKey = listHyperinstanceGroupRequest.sortKey;
+                    sortDir = listHyperinstanceGroupRequest.sortDir;
+                } else {
+                    limit = listHyperinstanceGroupRequest['limit'];
+                    offset = listHyperinstanceGroupRequest['offset'];
+                    sortKey = listHyperinstanceGroupRequest['sort_key'];
+                    sortDir = listHyperinstanceGroupRequest['sort_dir'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12516,15 +12776,31 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let id;
+            
+            let limit;
+            
+            let offset;
+            
+            let sortKey;
+            
+            let sortDir;
 
             if (listHyperinstanceServersRequest !== null && listHyperinstanceServersRequest !== undefined) {
                 if (listHyperinstanceServersRequest instanceof ListHyperinstanceServersRequest) {
                     id = listHyperinstanceServersRequest.id;
+                    limit = listHyperinstanceServersRequest.limit;
+                    offset = listHyperinstanceServersRequest.offset;
+                    sortKey = listHyperinstanceServersRequest.sortKey;
+                    sortDir = listHyperinstanceServersRequest.sortDir;
                 } else {
                     id = listHyperinstanceServersRequest['id'];
+                    limit = listHyperinstanceServersRequest['limit'];
+                    offset = listHyperinstanceServersRequest['offset'];
+                    sortKey = listHyperinstanceServersRequest['sort_key'];
+                    sortDir = listHyperinstanceServersRequest['sort_dir'];
                 }
             }
 
@@ -12532,7 +12808,20 @@ export const ParamCreater = function () {
             if (id === null || id === undefined) {
             throw new RequiredError('id','Required parameter id was null or undefined when calling listHyperinstanceServers.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'id': id, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -14535,6 +14824,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询依赖服务开通状态接口用于查询AOM、CCE、CES、SWR-EE等依赖服务的开通状态。该接口适用于以下场景：当用户需要确认ModelArts相关依赖服务是否已开通时，可通过此接口批量查询各依赖服务的当前状态。使用该接口的前提条件是用户已登录系统且具有相应的查询权限。查询结果将返回各依赖服务的开通状态（已开通或未开通），若用户无权限查询或服务异常，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServiceStatuses(listServiceStatusesRequest?: ListServiceStatusesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/services/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let serviceCodes;
+
+            if (listServiceStatusesRequest !== null && listServiceStatusesRequest !== undefined) {
+                if (listServiceStatusesRequest instanceof ListServiceStatusesRequest) {
+                    serviceCodes = listServiceStatusesRequest.serviceCodes;
+                } else {
+                    serviceCodes = listServiceStatusesRequest['service_codes'];
+                }
+            }
+
+        
+            if (serviceCodes === null || serviceCodes === undefined) {
+                throw new RequiredError('serviceCodes','Required parameter serviceCodes was null or undefined when calling listServiceStatuses.');
+            }
+            if (serviceCodes !== null && serviceCodes !== undefined) {
+                localVarQueryParameter['service_codes'] = serviceCodes;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询训练实验列表接口用于获取ModelArts平台上用户已创建的训练实验的列表。
          * 该接口适用于以下场景：当用户需要查看所有或部分训练实验的概要信息，如实验名称、描述、创建时间等时，可以通过此接口查询训练实验列表。使用该接口的前提条件是用户已登录ModelArts平台并具有查看训练实验的权限。查询操作完成后，系统将返回符合条件的训练实验列表。若用户无权限操作或查询条件不合法，接口将返回相应的错误信息。
          * 
@@ -15290,6 +15619,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新资源池节点自定义配置接口用于修改资源池节点的个性化设置。该接口适用于以下场景：当资源池节点需要调整资源分配策略、更新性能参数、创建/删除镜像预热任务或变更其他自定义配置时，用户可通过此接口更新指定资源池节点的自定义配置信息。使用该接口的前提条件是资源池节点已存在且用户具有管理员权限。更新操作完成后，资源池节点的自定义配置将被更新并生效，相关变更将被记录以便后续查询。若资源池节点不存在、用户无权限操作或配置参数格式不正确，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        patchNodeConfig(patchNodeConfigRequest?: PatchNodeConfigRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v2/{project_id}/pools/{pool_name}/node-config",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let poolName;
+
+            if (patchNodeConfigRequest !== null && patchNodeConfigRequest !== undefined) {
+                if (patchNodeConfigRequest instanceof PatchNodeConfigRequest) {
+                    poolName = patchNodeConfigRequest.poolName;
+                    body = patchNodeConfigRequest.body
+                } else {
+                    poolName = patchNodeConfigRequest['pool_name'];
+                    body = patchNodeConfigRequest['body'];
+                }
+            }
+
+        
+            if (poolName === null || poolName === undefined) {
+            throw new RequiredError('poolName','Required parameter poolName was null or undefined when calling patchNodeConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'pool_name': poolName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新节点池接口用于修改指定节点池的配置信息。该接口适用于以下场景：当需要扩展节点池容量、调整节点规格、优化资源分配或修复节点池配置时，用户可通过此接口更新节点池的相关信息。使用该接口的前提条件是节点池已存在且用户具有管理员权限。更新操作完成后，节点池的配置将被更新，包括节点数量、规格、网络配置等参数。若节点池不存在、用户无权限操作或配置参数错误，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -15724,6 +16099,27 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'algorithm_id': algorithmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询委托授权状态接口用于查询ModelArts服务的委托授权是否已开通。该接口适用于以下场景：当用户需要确认是否已开通ModelArts委托授权以进行后续操作（如模型训练、部署等）时，可通过此接口查询当前授权状态。使用该接口的前提条件是用户已登录系统且具有相应的查询权限。查询结果将返回委托授权的当前状态（已开通或未开通），若用户无权限查询或服务异常，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAuthGrant() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/auth/grant",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -18815,6 +19211,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 校验当前用户是否有权使用指定委托，仅支持委托给ModelArts服务的委托，通过PDP5的iam:agencies:pass鉴权判定
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        verifyAgency(verifyAgencyRequest?: VerifyAgencyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/atelier/agency/verify",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (verifyAgencyRequest !== null && verifyAgencyRequest !== undefined) {
+                if (verifyAgencyRequest instanceof VerifyAgencyRequest) {
+                    body = verifyAgencyRequest.body
+                } else {
+                    body = verifyAgencyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

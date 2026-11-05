@@ -1,25 +1,32 @@
+import { ExecuteOptions } from './ExecuteOptions';
+import { NodeEvent } from './NodeEvent';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AcceptScheduledEventResponse extends SdkResponse {
     public id?: string;
     public catalog?: AcceptScheduledEventResponseCatalogEnum | string;
+    public isHyperNode?: string;
     public type?: AcceptScheduledEventResponseTypeEnum | string;
     public description?: string;
     public state?: AcceptScheduledEventResponseStateEnum | string;
-    public instanceType?: AcceptScheduledEventResponseInstanceTypeEnum | string;
-    public instanceId?: string;
-    public nodeName?: string;
-    public poolName?: string;
-    public poolDisplayName?: string;
     public publishTime?: string;
     public startTime?: string;
     public finishTime?: string;
     public notBefore?: string;
     public probeMsg?: string;
-    public jobProgress?: string;
+    public executeOptions?: ExecuteOptions;
     public redeployType?: Array<string>;
+    public autoRecoveryCheckTime?: string;
+    public nodes?: Array<NodeEvent>;
+    public instanceId?: string;
+    public nodeName?: string;
+    public instanceType?: AcceptScheduledEventResponseInstanceTypeEnum | string;
     public underLyingInstanceId?: string;
+    public flavorSupportRedeploy?: boolean;
+    public poolName?: string;
+    public poolDisplayName?: string;
+    public jobProgress?: string;
     private 'X-request-id'?: string;
     public constructor() { 
         super();
@@ -32,6 +39,10 @@ export class AcceptScheduledEventResponse extends SdkResponse {
         this['catalog'] = catalog;
         return this;
     }
+    public withIsHyperNode(isHyperNode: string): AcceptScheduledEventResponse {
+        this['isHyperNode'] = isHyperNode;
+        return this;
+    }
     public withType(type: AcceptScheduledEventResponseTypeEnum | string): AcceptScheduledEventResponse {
         this['type'] = type;
         return this;
@@ -42,26 +53,6 @@ export class AcceptScheduledEventResponse extends SdkResponse {
     }
     public withState(state: AcceptScheduledEventResponseStateEnum | string): AcceptScheduledEventResponse {
         this['state'] = state;
-        return this;
-    }
-    public withInstanceType(instanceType: AcceptScheduledEventResponseInstanceTypeEnum | string): AcceptScheduledEventResponse {
-        this['instanceType'] = instanceType;
-        return this;
-    }
-    public withInstanceId(instanceId: string): AcceptScheduledEventResponse {
-        this['instanceId'] = instanceId;
-        return this;
-    }
-    public withNodeName(nodeName: string): AcceptScheduledEventResponse {
-        this['nodeName'] = nodeName;
-        return this;
-    }
-    public withPoolName(poolName: string): AcceptScheduledEventResponse {
-        this['poolName'] = poolName;
-        return this;
-    }
-    public withPoolDisplayName(poolDisplayName: string): AcceptScheduledEventResponse {
-        this['poolDisplayName'] = poolDisplayName;
         return this;
     }
     public withPublishTime(publishTime: string): AcceptScheduledEventResponse {
@@ -84,16 +75,52 @@ export class AcceptScheduledEventResponse extends SdkResponse {
         this['probeMsg'] = probeMsg;
         return this;
     }
-    public withJobProgress(jobProgress: string): AcceptScheduledEventResponse {
-        this['jobProgress'] = jobProgress;
+    public withExecuteOptions(executeOptions: ExecuteOptions): AcceptScheduledEventResponse {
+        this['executeOptions'] = executeOptions;
         return this;
     }
     public withRedeployType(redeployType: Array<string>): AcceptScheduledEventResponse {
         this['redeployType'] = redeployType;
         return this;
     }
+    public withAutoRecoveryCheckTime(autoRecoveryCheckTime: string): AcceptScheduledEventResponse {
+        this['autoRecoveryCheckTime'] = autoRecoveryCheckTime;
+        return this;
+    }
+    public withNodes(nodes: Array<NodeEvent>): AcceptScheduledEventResponse {
+        this['nodes'] = nodes;
+        return this;
+    }
+    public withInstanceId(instanceId: string): AcceptScheduledEventResponse {
+        this['instanceId'] = instanceId;
+        return this;
+    }
+    public withNodeName(nodeName: string): AcceptScheduledEventResponse {
+        this['nodeName'] = nodeName;
+        return this;
+    }
+    public withInstanceType(instanceType: AcceptScheduledEventResponseInstanceTypeEnum | string): AcceptScheduledEventResponse {
+        this['instanceType'] = instanceType;
+        return this;
+    }
     public withUnderLyingInstanceId(underLyingInstanceId: string): AcceptScheduledEventResponse {
         this['underLyingInstanceId'] = underLyingInstanceId;
+        return this;
+    }
+    public withFlavorSupportRedeploy(flavorSupportRedeploy: boolean): AcceptScheduledEventResponse {
+        this['flavorSupportRedeploy'] = flavorSupportRedeploy;
+        return this;
+    }
+    public withPoolName(poolName: string): AcceptScheduledEventResponse {
+        this['poolName'] = poolName;
+        return this;
+    }
+    public withPoolDisplayName(poolDisplayName: string): AcceptScheduledEventResponse {
+        this['poolDisplayName'] = poolDisplayName;
+        return this;
+    }
+    public withJobProgress(jobProgress: string): AcceptScheduledEventResponse {
+        this['jobProgress'] = jobProgress;
         return this;
     }
     public withXRequestId(xRequestId: string): AcceptScheduledEventResponse {
@@ -139,7 +166,8 @@ export enum AcceptScheduledEventResponseStateEnum {
     EXECUTING = 'executing',
     COMPLETED = 'completed',
     FAILED = 'failed',
-    CANCELED = 'canceled'
+    CANCELED = 'canceled',
+    PART_COMPLETED = 'part-completed'
 }
 /**
     * @export

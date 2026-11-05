@@ -5,6 +5,7 @@ import { NetworkMetadataLabels } from './NetworkMetadataLabels';
 export class NetworkMetadata {
     public name?: string;
     public creationTimestamp?: string;
+    public deletionTimestamp?: string;
     public labels?: NetworkMetadataLabels;
     public annotations?: NetworkMetadataAnnotations;
     public constructor(name?: string, creationTimestamp?: string, labels?: NetworkMetadataLabels) { 
@@ -18,6 +19,10 @@ export class NetworkMetadata {
     }
     public withCreationTimestamp(creationTimestamp: string): NetworkMetadata {
         this['creationTimestamp'] = creationTimestamp;
+        return this;
+    }
+    public withDeletionTimestamp(deletionTimestamp: string): NetworkMetadata {
+        this['deletionTimestamp'] = deletionTimestamp;
         return this;
     }
     public withLabels(labels: NetworkMetadataLabels): NetworkMetadata {

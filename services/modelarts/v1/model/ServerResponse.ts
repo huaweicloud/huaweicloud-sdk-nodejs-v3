@@ -1,5 +1,4 @@
 import { CloudServer } from './CloudServer';
-import { Endpoints } from './Endpoints';
 import { EndpointsRes } from './EndpointsRes';
 import { ServerHpsInfo } from './ServerHpsInfo';
 import { ServerImageResponse } from './ServerImageResponse';
@@ -11,7 +10,6 @@ export class ServerResponse {
     private 'update_at'?: number;
     private 'charging_mode'?: ServerResponseChargingModeEnum | string;
     private 'cloud_server'?: CloudServer;
-    private 'endpoints_response'?: Array<Endpoints>;
     public flavor?: string;
     public id?: string;
     private 'key_pair_name'?: string;
@@ -66,16 +64,6 @@ export class ServerResponse {
     }
     public get cloudServer(): CloudServer | undefined {
         return this['cloud_server'];
-    }
-    public withEndpointsResponse(endpointsResponse: Array<Endpoints>): ServerResponse {
-        this['endpoints_response'] = endpointsResponse;
-        return this;
-    }
-    public set endpointsResponse(endpointsResponse: Array<Endpoints>  | undefined) {
-        this['endpoints_response'] = endpointsResponse;
-    }
-    public get endpointsResponse(): Array<Endpoints> | undefined {
-        return this['endpoints_response'];
     }
     public withFlavor(flavor: string): ServerResponse {
         this['flavor'] = flavor;

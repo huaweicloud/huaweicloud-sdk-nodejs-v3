@@ -1,14 +1,14 @@
-import { Confs } from './Confs';
+import { ListConfsRespConfs } from './ListConfsRespConfs';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListConfsResponse extends SdkResponse {
-    public confs?: Array<Confs>;
+    public confs?: Array<ListConfsRespConfs>;
     public totalSize?: number;
     public constructor() { 
         super();
     }
-    public withConfs(confs: Array<Confs>): ListConfsResponse {
+    public withConfs(confs: Array<ListConfsRespConfs>): ListConfsResponse {
         this['confs'] = confs;
         return this;
     }

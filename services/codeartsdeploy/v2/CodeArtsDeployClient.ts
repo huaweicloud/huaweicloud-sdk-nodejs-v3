@@ -156,6 +156,7 @@ import { PermissionGroupDetail } from './model/PermissionGroupDetail';
 import { PermissionHostDetail } from './model/PermissionHostDetail';
 import { PermissionHostDetailNew } from './model/PermissionHostDetailNew';
 import { PermissionUpdateV2Body } from './model/PermissionUpdateV2Body';
+import { QueryAppLogResult } from './model/QueryAppLogResult';
 import { ShowAppDetailByIdRequest } from './model/ShowAppDetailByIdRequest';
 import { ShowAppDetailByIdResponse } from './model/ShowAppDetailByIdResponse';
 import { ShowDeployTaskDetailRequest } from './model/ShowDeployTaskDetailRequest';
@@ -174,6 +175,8 @@ import { ShowHostDetailRequest } from './model/ShowHostDetailRequest';
 import { ShowHostDetailResponse } from './model/ShowHostDetailResponse';
 import { ShowProjectSuccessRateRequest } from './model/ShowProjectSuccessRateRequest';
 import { ShowProjectSuccessRateResponse } from './model/ShowProjectSuccessRateResponse';
+import { ShowTaskLogsRequest } from './model/ShowTaskLogsRequest';
+import { ShowTaskLogsResponse } from './model/ShowTaskLogsResponse';
 import { StartDeployTaskRequest } from './model/StartDeployTaskRequest';
 import { StartDeployTaskResponse } from './model/StartDeployTaskResponse';
 import { Step } from './model/Step';
@@ -1581,6 +1584,30 @@ export class CodeArtsDeployClient {
      */
     public showProjectSuccessRate(showProjectSuccessRateRequest?: ShowProjectSuccessRateRequest): Promise<ShowProjectSuccessRateResponse> {
         const options = ParamCreater().showProjectSuccessRate(showProjectSuccessRateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询部署记录的执行日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询部署记录的执行日志
+     * @param {string} appId 应用id
+     * @param {string} recordId 部署记录id
+     * @param {string} offset 起始位置，默认0；长度1-19
+     * @param {string} endOffset 结束位置，开始为0；长度1-19
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用：                         application/json;charset&#x3D;utf-8                         application/json
+     * @param {string} [stepId] 步骤id；如果传，则按step查询日志；长度1-60
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTaskLogs(showTaskLogsRequest?: ShowTaskLogsRequest): Promise<ShowTaskLogsResponse> {
+        const options = ParamCreater().showTaskLogs(showTaskLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4975,6 +5002,85 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询部署记录的执行日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTaskLogs(showTaskLogsRequest?: ShowTaskLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/applications/{app_id}/records/{record_id}/logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let appId;
+            
+            let recordId;
+            
+            let offset;
+            
+            let endOffset;
+            
+            let contentType;
+            
+            let stepId;
+
+            if (showTaskLogsRequest !== null && showTaskLogsRequest !== undefined) {
+                if (showTaskLogsRequest instanceof ShowTaskLogsRequest) {
+                    appId = showTaskLogsRequest.appId;
+                    recordId = showTaskLogsRequest.recordId;
+                    offset = showTaskLogsRequest.offset;
+                    endOffset = showTaskLogsRequest.endOffset;
+                    contentType = showTaskLogsRequest.contentType;
+                    stepId = showTaskLogsRequest.stepId;
+                } else {
+                    appId = showTaskLogsRequest['app_id'];
+                    recordId = showTaskLogsRequest['record_id'];
+                    offset = showTaskLogsRequest['offset'];
+                    endOffset = showTaskLogsRequest['end_offset'];
+                    contentType = showTaskLogsRequest['Content-Type'];
+                    stepId = showTaskLogsRequest['step_id'];
+                }
+            }
+
+        
+            if (appId === null || appId === undefined) {
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showTaskLogs.');
+            }
+            if (recordId === null || recordId === undefined) {
+            throw new RequiredError('recordId','Required parameter recordId was null or undefined when calling showTaskLogs.');
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling showTaskLogs.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (endOffset === null || endOffset === undefined) {
+                throw new RequiredError('endOffset','Required parameter endOffset was null or undefined when calling showTaskLogs.');
+            }
+            if (endOffset !== null && endOffset !== undefined) {
+                localVarQueryParameter['end_offset'] = endOffset;
+            }
+            if (stepId !== null && stepId !== undefined) {
+                localVarQueryParameter['step_id'] = stepId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'app_id': appId,'record_id': recordId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -3,6 +3,7 @@
 export class UpdateYmlsReqEditModify {
     private 'elasticsearch.yml'?: object;
     private 'kibana.yml'?: object;
+    private 'system.config'?: object;
     public constructor() { 
     }
     public withElasticsearchYml(elasticsearchYml: object): UpdateYmlsReqEditModify {
@@ -24,5 +25,15 @@ export class UpdateYmlsReqEditModify {
     }
     public get kibanaYml(): object | undefined {
         return this['kibana.yml'];
+    }
+    public withSystemConfig(systemConfig: object): UpdateYmlsReqEditModify {
+        this['system.config'] = systemConfig;
+        return this;
+    }
+    public set systemConfig(systemConfig: object  | undefined) {
+        this['system.config'] = systemConfig;
+    }
+    public get systemConfig(): object | undefined {
+        return this['system.config'];
     }
 }
