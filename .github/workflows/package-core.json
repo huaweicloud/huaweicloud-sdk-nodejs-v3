@@ -26,7 +26,8 @@
     "log4js": "^6.3.0",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
-    "ramda": "^0.27.1"
+    "ramda": "^0.27.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/parser": "^7.19.1",
