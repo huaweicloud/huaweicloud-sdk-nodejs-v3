@@ -1,10 +1,11 @@
+import { InnodbLockWaitsInfo } from './InnodbLockWaitsInfo';
 import { InnodbTrxInfo } from './InnodbTrxInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowWaitingLocksSnapshotResponse extends SdkResponse {
     public trx?: Array<InnodbTrxInfo>;
-    private 'lock_waits_infos'?: Array<object>;
+    private 'lock_waits_infos'?: Array<InnodbLockWaitsInfo>;
     private 'wait_lock_count'?: number;
     private 'hold_lock_count'?: number;
     private 'time_greater_than_count'?: number;
@@ -16,14 +17,14 @@ export class ShowWaitingLocksSnapshotResponse extends SdkResponse {
         this['trx'] = trx;
         return this;
     }
-    public withLockWaitsInfos(lockWaitsInfos: Array<object>): ShowWaitingLocksSnapshotResponse {
+    public withLockWaitsInfos(lockWaitsInfos: Array<InnodbLockWaitsInfo>): ShowWaitingLocksSnapshotResponse {
         this['lock_waits_infos'] = lockWaitsInfos;
         return this;
     }
-    public set lockWaitsInfos(lockWaitsInfos: Array<object>  | undefined) {
+    public set lockWaitsInfos(lockWaitsInfos: Array<InnodbLockWaitsInfo>  | undefined) {
         this['lock_waits_infos'] = lockWaitsInfos;
     }
-    public get lockWaitsInfos(): Array<object> | undefined {
+    public get lockWaitsInfos(): Array<InnodbLockWaitsInfo> | undefined {
         return this['lock_waits_infos'];
     }
     public withWaitLockCount(waitLockCount: number): ShowWaitingLocksSnapshotResponse {

@@ -1,6 +1,5 @@
 import { ChargeInfo } from './ChargeInfo';
 import { SupabaseDatastore } from './SupabaseDatastore';
-import { SupabaseHaConfig } from './SupabaseHaConfig';
 import { SupabaseVolumeConfig } from './SupabaseVolumeConfig';
 import { TagWithKeyValue } from './TagWithKeyValue';
 
@@ -11,7 +10,6 @@ export class SupabaseInstanceCreateRequest {
     private 'flavor_ref'?: string;
     public volume?: SupabaseVolumeConfig;
     private 'availability_zone'?: string;
-    public ha?: SupabaseHaConfig;
     private 'configuration_id'?: string;
     public port?: number;
     private 'security_group_id'?: string;
@@ -19,13 +17,12 @@ export class SupabaseInstanceCreateRequest {
     private 'data_vip'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<TagWithKeyValue>;
-    public constructor(datastore?: SupabaseDatastore, chargeInfo?: ChargeInfo, flavorRef?: string, volume?: SupabaseVolumeConfig, availabilityZone?: string, ha?: SupabaseHaConfig, securityGroupId?: string, password?: string, enterpriseProjectId?: string) { 
+    public constructor(datastore?: SupabaseDatastore, chargeInfo?: ChargeInfo, flavorRef?: string, volume?: SupabaseVolumeConfig, availabilityZone?: string, securityGroupId?: string, password?: string, enterpriseProjectId?: string) { 
         this['datastore'] = datastore;
         this['charge_info'] = chargeInfo;
         this['flavor_ref'] = flavorRef;
         this['volume'] = volume;
         this['availability_zone'] = availabilityZone;
-        this['ha'] = ha;
         this['security_group_id'] = securityGroupId;
         this['password'] = password;
         this['enterprise_project_id'] = enterpriseProjectId;
@@ -67,10 +64,6 @@ export class SupabaseInstanceCreateRequest {
     }
     public get availabilityZone(): string | undefined {
         return this['availability_zone'];
-    }
-    public withHa(ha: SupabaseHaConfig): SupabaseInstanceCreateRequest {
-        this['ha'] = ha;
-        return this;
     }
     public withConfigurationId(configurationId: string): SupabaseInstanceCreateRequest {
         this['configuration_id'] = configurationId;

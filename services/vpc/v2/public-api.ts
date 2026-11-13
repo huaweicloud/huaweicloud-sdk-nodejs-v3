@@ -142,6 +142,8 @@ export * from './model/ListSubnetsByTagsResponse';
 export * from './model/ListSubnetsRequest';
 export * from './model/ListSubnetsResponse';
 export * from './model/ListTag';
+export * from './model/ListVpcPeeringInfosRequest';
+export * from './model/ListVpcPeeringInfosResponse';
 export * from './model/ListVpcPeeringsRequest';
 export * from './model/ListVpcPeeringsResponse';
 export * from './model/ListVpcRoutesRequest';

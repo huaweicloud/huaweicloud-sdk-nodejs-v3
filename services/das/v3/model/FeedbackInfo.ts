@@ -1,7 +1,7 @@
 
 
 export class FeedbackInfo {
-    public id?: string;
+    public id?: number;
     private 'project_id'?: string;
     private 'message_id'?: string;
     private 'feedback_grade'?: string;
@@ -10,7 +10,7 @@ export class FeedbackInfo {
     private 'gmt_modified'?: number;
     public constructor() { 
     }
-    public withId(id: string): FeedbackInfo {
+    public withId(id: number): FeedbackInfo {
         this['id'] = id;
         return this;
     }

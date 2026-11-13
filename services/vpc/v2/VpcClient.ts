@@ -144,6 +144,8 @@ import { ListSubnetsByTagsResponse } from './model/ListSubnetsByTagsResponse';
 import { ListSubnetsRequest } from './model/ListSubnetsRequest';
 import { ListSubnetsResponse } from './model/ListSubnetsResponse';
 import { ListTag } from './model/ListTag';
+import { ListVpcPeeringInfosRequest } from './model/ListVpcPeeringInfosRequest';
+import { ListVpcPeeringInfosResponse } from './model/ListVpcPeeringInfosResponse';
 import { ListVpcPeeringsRequest } from './model/ListVpcPeeringsRequest';
 import { ListVpcPeeringsResponse } from './model/ListVpcPeeringsResponse';
 import { ListVpcRoutesRequest } from './model/ListVpcRoutesRequest';
@@ -1111,6 +1113,31 @@ export class VpcClient {
      */
     public listSubnetsByTags(listSubnetsByTagsRequest?: ListSubnetsByTagsRequest): Promise<ListSubnetsByTagsResponse> {
         const options = ParamCreater().listSubnetsByTags(listSubnetsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当您的对等连接创建成功后，您可以通过该接口查询所有对等连接信息，包括对等连接的名称、两端vpc的信息等
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询对等连接信息列表
+     * @param {Array<string>} [id] **参数解释**： 对等连接的资源ID，填写后按照ID进行过滤，支持传入多个ID过滤。 **取值范围**： 不涉及。
+     * @param {number} [limit] **参数解释**： 每页返回的资源个数。 **取值范围**： 0~2000。
+     * @param {string} [marker] **参数解释**： 分页查询起始的资源ID，为空时查询第一页。 **取值范围**： 对等连接的资源ID。
+     * @param {Array<string>} [name] **参数解释**： 对等连接的名称，填写后按照名称进行过滤，支持传入多个名称过滤。 **取值范围**： 不涉及。
+     * @param {'PENDING_ACCEPTANCE' | 'REJECTED' | 'EXPIRED' | 'DELETED' | 'ACTIVE'} [status] **参数解释**： 对等连接的状态，填写后按照状态进行过滤。 **取值范围**： - PENDING_ACCEPTANCE：等待接受 - REJECTED：已拒绝。 - EXPIRED：已过期。 - DELETED：已删除。 - ACTIVE：生效的。
+     * @param {string} [tenantId] **参数解释**： 对等连接的项目ID，填写后按照项目ID进行过滤。 **取值范围**： 不涉及。
+     * @param {Array<string>} [vpcId] **参数解释**： 对等连接两端的VPC ID，填写后按照VPC ID进行过滤，支持传入多个ID过滤。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVpcPeeringInfos(listVpcPeeringInfosRequest?: ListVpcPeeringInfosRequest): Promise<ListVpcPeeringInfosResponse> {
+        const options = ParamCreater().listVpcPeeringInfos(listVpcPeeringInfosRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4524,6 +4551,85 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当您的对等连接创建成功后，您可以通过该接口查询所有对等连接信息，包括对等连接的名称、两端vpc的信息等
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVpcPeeringInfos(listVpcPeeringInfosRequest?: ListVpcPeeringInfosRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/vpc/peering-infos",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let limit;
+            
+            let marker;
+            
+            let name;
+            
+            let status;
+            
+            let tenantId;
+            
+            let vpcId;
+
+            if (listVpcPeeringInfosRequest !== null && listVpcPeeringInfosRequest !== undefined) {
+                if (listVpcPeeringInfosRequest instanceof ListVpcPeeringInfosRequest) {
+                    id = listVpcPeeringInfosRequest.id;
+                    limit = listVpcPeeringInfosRequest.limit;
+                    marker = listVpcPeeringInfosRequest.marker;
+                    name = listVpcPeeringInfosRequest.name;
+                    status = listVpcPeeringInfosRequest.status;
+                    tenantId = listVpcPeeringInfosRequest.tenantId;
+                    vpcId = listVpcPeeringInfosRequest.vpcId;
+                } else {
+                    id = listVpcPeeringInfosRequest['id'];
+                    limit = listVpcPeeringInfosRequest['limit'];
+                    marker = listVpcPeeringInfosRequest['marker'];
+                    name = listVpcPeeringInfosRequest['name'];
+                    status = listVpcPeeringInfosRequest['status'];
+                    tenantId = listVpcPeeringInfosRequest['tenant_id'];
+                    vpcId = listVpcPeeringInfosRequest['vpc_id'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

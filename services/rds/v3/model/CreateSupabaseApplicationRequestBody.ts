@@ -141,8 +141,7 @@ export class CreateSupabaseApplicationRequestBody {
     * @enum {string}
     */
 export enum CreateSupabaseApplicationRequestBodyModeEnum {
-    SINGLE = 'Single',
-    HA = 'Ha'
+    SINGLE = 'Single'
 }
 /**
     * @export

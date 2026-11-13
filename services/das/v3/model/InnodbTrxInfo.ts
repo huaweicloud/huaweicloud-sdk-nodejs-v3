@@ -1,3 +1,4 @@
+import { InnodbLock } from './InnodbLock';
 
 
 export class InnodbTrxInfo {
@@ -20,6 +21,13 @@ export class InnodbTrxInfo {
     private 'trx_rows_modified'?: string;
     private 'trx_concurrency_tickets'?: string;
     private 'trx_isolation_level'?: string;
+    private 'trx_unique_checks'?: string;
+    private 'trx_foreign_key_checks'?: string;
+    private 'trx_last_foreign_key_error'?: string;
+    private 'trx_adaptive_hash_latched'?: string;
+    private 'trx_adaptive_hash_timeout'?: string;
+    private 'wait_locks'?: Array<InnodbLock>;
+    private 'hold_locks'?: Array<InnodbLock>;
     public constructor() { 
     }
     public withTrxId(trxId: string): InnodbTrxInfo {
@@ -211,5 +219,75 @@ export class InnodbTrxInfo {
     }
     public get trxIsolationLevel(): string | undefined {
         return this['trx_isolation_level'];
+    }
+    public withTrxUniqueChecks(trxUniqueChecks: string): InnodbTrxInfo {
+        this['trx_unique_checks'] = trxUniqueChecks;
+        return this;
+    }
+    public set trxUniqueChecks(trxUniqueChecks: string  | undefined) {
+        this['trx_unique_checks'] = trxUniqueChecks;
+    }
+    public get trxUniqueChecks(): string | undefined {
+        return this['trx_unique_checks'];
+    }
+    public withTrxForeignKeyChecks(trxForeignKeyChecks: string): InnodbTrxInfo {
+        this['trx_foreign_key_checks'] = trxForeignKeyChecks;
+        return this;
+    }
+    public set trxForeignKeyChecks(trxForeignKeyChecks: string  | undefined) {
+        this['trx_foreign_key_checks'] = trxForeignKeyChecks;
+    }
+    public get trxForeignKeyChecks(): string | undefined {
+        return this['trx_foreign_key_checks'];
+    }
+    public withTrxLastForeignKeyError(trxLastForeignKeyError: string): InnodbTrxInfo {
+        this['trx_last_foreign_key_error'] = trxLastForeignKeyError;
+        return this;
+    }
+    public set trxLastForeignKeyError(trxLastForeignKeyError: string  | undefined) {
+        this['trx_last_foreign_key_error'] = trxLastForeignKeyError;
+    }
+    public get trxLastForeignKeyError(): string | undefined {
+        return this['trx_last_foreign_key_error'];
+    }
+    public withTrxAdaptiveHashLatched(trxAdaptiveHashLatched: string): InnodbTrxInfo {
+        this['trx_adaptive_hash_latched'] = trxAdaptiveHashLatched;
+        return this;
+    }
+    public set trxAdaptiveHashLatched(trxAdaptiveHashLatched: string  | undefined) {
+        this['trx_adaptive_hash_latched'] = trxAdaptiveHashLatched;
+    }
+    public get trxAdaptiveHashLatched(): string | undefined {
+        return this['trx_adaptive_hash_latched'];
+    }
+    public withTrxAdaptiveHashTimeout(trxAdaptiveHashTimeout: string): InnodbTrxInfo {
+        this['trx_adaptive_hash_timeout'] = trxAdaptiveHashTimeout;
+        return this;
+    }
+    public set trxAdaptiveHashTimeout(trxAdaptiveHashTimeout: string  | undefined) {
+        this['trx_adaptive_hash_timeout'] = trxAdaptiveHashTimeout;
+    }
+    public get trxAdaptiveHashTimeout(): string | undefined {
+        return this['trx_adaptive_hash_timeout'];
+    }
+    public withWaitLocks(waitLocks: Array<InnodbLock>): InnodbTrxInfo {
+        this['wait_locks'] = waitLocks;
+        return this;
+    }
+    public set waitLocks(waitLocks: Array<InnodbLock>  | undefined) {
+        this['wait_locks'] = waitLocks;
+    }
+    public get waitLocks(): Array<InnodbLock> | undefined {
+        return this['wait_locks'];
+    }
+    public withHoldLocks(holdLocks: Array<InnodbLock>): InnodbTrxInfo {
+        this['hold_locks'] = holdLocks;
+        return this;
+    }
+    public set holdLocks(holdLocks: Array<InnodbLock>  | undefined) {
+        this['hold_locks'] = holdLocks;
+    }
+    public get holdLocks(): Array<InnodbLock> | undefined {
+        return this['hold_locks'];
     }
 }

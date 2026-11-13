@@ -2,7 +2,8 @@
 
 export class ChangeQuotaNewRequestBody {
     private 'open_num'?: number;
-    public constructor() { 
+    public constructor(openNum?: number) { 
+        this['open_num'] = openNum;
     }
     public withOpenNum(openNum: number): ChangeQuotaNewRequestBody {
         this['open_num'] = openNum;

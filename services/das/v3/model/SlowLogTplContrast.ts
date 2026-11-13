@@ -1,32 +1,32 @@
-import { SlowSqlTemplate } from './SlowSqlTemplate';
+import { SlowSqlTplTemplate } from './SlowSqlTplTemplate';
 
 
 export class SlowLogTplContrast {
-    private 'template_of_pre_day'?: Array<SlowSqlTemplate>;
-    private 'template_of_cur_day'?: Array<SlowSqlTemplate>;
+    private 'template_of_pre_day'?: Array<SlowSqlTplTemplate>;
+    private 'template_of_cur_day'?: Array<SlowSqlTplTemplate>;
     private 'execute_time_increase'?: boolean;
     private 'lock_wait_increase'?: boolean;
     private 'new_template'?: boolean;
     public constructor() { 
     }
-    public withTemplateOfPreDay(templateOfPreDay: Array<SlowSqlTemplate>): SlowLogTplContrast {
+    public withTemplateOfPreDay(templateOfPreDay: Array<SlowSqlTplTemplate>): SlowLogTplContrast {
         this['template_of_pre_day'] = templateOfPreDay;
         return this;
     }
-    public set templateOfPreDay(templateOfPreDay: Array<SlowSqlTemplate>  | undefined) {
+    public set templateOfPreDay(templateOfPreDay: Array<SlowSqlTplTemplate>  | undefined) {
         this['template_of_pre_day'] = templateOfPreDay;
     }
-    public get templateOfPreDay(): Array<SlowSqlTemplate> | undefined {
+    public get templateOfPreDay(): Array<SlowSqlTplTemplate> | undefined {
         return this['template_of_pre_day'];
     }
-    public withTemplateOfCurDay(templateOfCurDay: Array<SlowSqlTemplate>): SlowLogTplContrast {
+    public withTemplateOfCurDay(templateOfCurDay: Array<SlowSqlTplTemplate>): SlowLogTplContrast {
         this['template_of_cur_day'] = templateOfCurDay;
         return this;
     }
-    public set templateOfCurDay(templateOfCurDay: Array<SlowSqlTemplate>  | undefined) {
+    public set templateOfCurDay(templateOfCurDay: Array<SlowSqlTplTemplate>  | undefined) {
         this['template_of_cur_day'] = templateOfCurDay;
     }
-    public get templateOfCurDay(): Array<SlowSqlTemplate> | undefined {
+    public get templateOfCurDay(): Array<SlowSqlTplTemplate> | undefined {
         return this['template_of_cur_day'];
     }
     public withExecuteTimeIncrease(executeTimeIncrease: boolean): SlowLogTplContrast {

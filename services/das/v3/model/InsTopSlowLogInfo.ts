@@ -4,7 +4,7 @@ export class InsTopSlowLogInfo {
     private 'template_id'?: string;
     public template?: string;
     public databases?: Array<string>;
-    public time?: number;
+    public times?: number;
     private 'avg_query_time'?: number;
     private 'max_query_time'?: number;
     private 'avg_rows_examined'?: number;
@@ -32,8 +32,8 @@ export class InsTopSlowLogInfo {
         this['databases'] = databases;
         return this;
     }
-    public withTime(time: number): InsTopSlowLogInfo {
-        this['time'] = time;
+    public withTimes(times: number): InsTopSlowLogInfo {
+        this['times'] = times;
         return this;
     }
     public withAvgQueryTime(avgQueryTime: number): InsTopSlowLogInfo {

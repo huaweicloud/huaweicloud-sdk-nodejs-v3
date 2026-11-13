@@ -16477,7 +16477,7 @@ export const ParamCreater = function () {
         switchLoggerReplicaAvailabilityZones(switchLoggerReplicaAvailabilityZonesRequest?: SwitchLoggerReplicaAvailabilityZonesRequest) {
             const options = {
                 method: "GET",
-                url: "/v3/{project_id}/instances/{instance_id}/switch-logger-replica/availability_zones",
+                url: "/v3/{project_id}/instances/{instance_id}/switch-logger-replica/availability-zones",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

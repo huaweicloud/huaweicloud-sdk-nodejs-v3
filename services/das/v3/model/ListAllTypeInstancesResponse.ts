@@ -1,19 +1,25 @@
+import { DasCommonInstanceDto } from './DasCommonInstanceDto';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAllTypeInstancesResponse extends SdkResponse {
-    private 'entry_names'?: Array<string>;
+    public instances?: Array<DasCommonInstanceDto>;
+    private 'total_count'?: number;
     public constructor() { 
         super();
     }
-    public withEntryNames(entryNames: Array<string>): ListAllTypeInstancesResponse {
-        this['entry_names'] = entryNames;
+    public withInstances(instances: Array<DasCommonInstanceDto>): ListAllTypeInstancesResponse {
+        this['instances'] = instances;
         return this;
     }
-    public set entryNames(entryNames: Array<string>  | undefined) {
-        this['entry_names'] = entryNames;
+    public withTotalCount(totalCount: number): ListAllTypeInstancesResponse {
+        this['total_count'] = totalCount;
+        return this;
     }
-    public get entryNames(): Array<string> | undefined {
-        return this['entry_names'];
+    public set totalCount(totalCount: number  | undefined) {
+        this['total_count'] = totalCount;
+    }
+    public get totalCount(): number | undefined {
+        return this['total_count'];
     }
 }

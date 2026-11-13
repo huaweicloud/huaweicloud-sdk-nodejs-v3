@@ -1046,7 +1046,6 @@ export * from './model/SupabaseEmailOAuthProviderReq';
 export * from './model/SupabaseEmailTemplateReq';
 export * from './model/SupabaseExistingInstanceRequest';
 export * from './model/SupabaseGitHubOAuthProviderReq';
-export * from './model/SupabaseHaConfig';
 export * from './model/SupabaseInstanceCreateRequest';
 export * from './model/SupabaseMailerItemTemplateReq';
 export * from './model/SupabaseManagedInstanceInfo';

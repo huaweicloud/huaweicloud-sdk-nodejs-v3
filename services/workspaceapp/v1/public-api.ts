@@ -18,6 +18,7 @@ export * from './model/AppServerTaskStatus';
 export * from './model/AppSession';
 export * from './model/AppStateEnum';
 export * from './model/AppTypeEnum';
+export * from './model/ApsJobResourceInfo';
 export * from './model/AssignShareFolderReq';
 export * from './model/AssignUserFolderReq';
 export * from './model/Assignment';

@@ -1,12 +1,12 @@
+import { ApsJobResourceInfo } from './ApsJobResourceInfo';
 import { JobDetailStatus } from './JobDetailStatus';
-import { JobResourceInfo } from './JobResourceInfo';
 import { JobType } from './JobType';
 
 
 export class SubJobDetailInfo {
     public id?: string;
     private 'job_type'?: JobType;
-    private 'job_resource_info'?: JobResourceInfo;
+    private 'job_resource_info'?: ApsJobResourceInfo;
     private 'begin_time'?: Date;
     private 'end_time'?: Date;
     public status?: JobDetailStatus;
@@ -30,14 +30,14 @@ export class SubJobDetailInfo {
     public get jobType(): JobType | undefined {
         return this['job_type'];
     }
-    public withJobResourceInfo(jobResourceInfo: JobResourceInfo): SubJobDetailInfo {
+    public withJobResourceInfo(jobResourceInfo: ApsJobResourceInfo): SubJobDetailInfo {
         this['job_resource_info'] = jobResourceInfo;
         return this;
     }
-    public set jobResourceInfo(jobResourceInfo: JobResourceInfo  | undefined) {
+    public set jobResourceInfo(jobResourceInfo: ApsJobResourceInfo  | undefined) {
         this['job_resource_info'] = jobResourceInfo;
     }
-    public get jobResourceInfo(): JobResourceInfo | undefined {
+    public get jobResourceInfo(): ApsJobResourceInfo | undefined {
         return this['job_resource_info'];
     }
     public withBeginTime(beginTime: Date): SubJobDetailInfo {

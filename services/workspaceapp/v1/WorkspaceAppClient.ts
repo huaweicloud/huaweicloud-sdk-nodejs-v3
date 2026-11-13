@@ -21,6 +21,7 @@ import { AppServerTaskStatus } from './model/AppServerTaskStatus';
 import { AppSession } from './model/AppSession';
 import { AppStateEnum } from './model/AppStateEnum';
 import { AppTypeEnum } from './model/AppTypeEnum';
+import { ApsJobResourceInfo } from './model/ApsJobResourceInfo';
 import { AssignShareFolderReq } from './model/AssignShareFolderReq';
 import { AssignUserFolderReq } from './model/AssignUserFolderReq';
 import { Assignment } from './model/Assignment';

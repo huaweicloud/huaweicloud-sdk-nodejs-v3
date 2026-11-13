@@ -51,6 +51,10 @@ import { BatchCreateSubNetworkInterfaceResponse } from './model/BatchCreateSubNe
 import { BatchCreateSubNetworkInterfaceTagsRequest } from './model/BatchCreateSubNetworkInterfaceTagsRequest';
 import { BatchCreateSubNetworkInterfaceTagsRequestBody } from './model/BatchCreateSubNetworkInterfaceTagsRequestBody';
 import { BatchCreateSubNetworkInterfaceTagsResponse } from './model/BatchCreateSubNetworkInterfaceTagsResponse';
+import { BatchCreateTrafficMirrorFilterRuleOption } from './model/BatchCreateTrafficMirrorFilterRuleOption';
+import { BatchCreateTrafficMirrorFilterRulesRequest } from './model/BatchCreateTrafficMirrorFilterRulesRequest';
+import { BatchCreateTrafficMirrorFilterRulesRequestBody } from './model/BatchCreateTrafficMirrorFilterRulesRequestBody';
+import { BatchCreateTrafficMirrorFilterRulesResponse } from './model/BatchCreateTrafficMirrorFilterRulesResponse';
 import { BatchDeleteClouddcnSubnetsTagsRequest } from './model/BatchDeleteClouddcnSubnetsTagsRequest';
 import { BatchDeleteClouddcnSubnetsTagsResponse } from './model/BatchDeleteClouddcnSubnetsTagsResponse';
 import { BatchDeleteFirewallTagsRequest } from './model/BatchDeleteFirewallTagsRequest';
@@ -209,6 +213,8 @@ import { ListPortsByTagsRequestBody } from './model/ListPortsByTagsRequestBody';
 import { ListPortsByTagsResponse } from './model/ListPortsByTagsResponse';
 import { ListPortsRequest } from './model/ListPortsRequest';
 import { ListPortsResponse } from './model/ListPortsResponse';
+import { ListResourceAssociationsRequest } from './model/ListResourceAssociationsRequest';
+import { ListResourceAssociationsResponse } from './model/ListResourceAssociationsResponse';
 import { ListResourceResp } from './model/ListResourceResp';
 import { ListResourcesByTagsRequestBody } from './model/ListResourcesByTagsRequestBody';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
@@ -258,6 +264,7 @@ import { RemoveSourcesFromTrafficMirrorSessionResponse } from './model/RemoveSou
 import { RemoveVpcExtendCidrRequest } from './model/RemoveVpcExtendCidrRequest';
 import { RemoveVpcExtendCidrRequestBody } from './model/RemoveVpcExtendCidrRequestBody';
 import { RemoveVpcExtendCidrResponse } from './model/RemoveVpcExtendCidrResponse';
+import { ResourceAssociation } from './model/ResourceAssociation';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourceTags } from './model/ResourceTags';
 import { ResponseTag } from './model/ResponseTag';
@@ -509,6 +516,26 @@ export class VpcClient {
      */
     public batchCreateSubNetworkInterfaceTags(batchCreateSubNetworkInterfaceTagsRequest?: BatchCreateSubNetworkInterfaceTagsRequest): Promise<BatchCreateSubNetworkInterfaceTagsResponse> {
         const options = ParamCreater().batchCreateSubNetworkInterfaceTags(batchCreateSubNetworkInterfaceTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量创建流量镜像筛选规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建流量镜像筛选规则
+     * @param {string} trafficMirrorFilterId 流量镜像筛选条件ID
+     * @param {BatchCreateTrafficMirrorFilterRulesRequestBody} batchCreateTrafficMirrorFilterRulesRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreateTrafficMirrorFilterRules(batchCreateTrafficMirrorFilterRulesRequest?: BatchCreateTrafficMirrorFilterRulesRequest): Promise<BatchCreateTrafficMirrorFilterRulesResponse> {
+        const options = ParamCreater().batchCreateTrafficMirrorFilterRules(batchCreateTrafficMirrorFilterRulesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1036,6 +1063,30 @@ export class VpcClient {
      */
     public listPortsByTags(listPortsByTagsRequest?: ListPortsByTagsRequest): Promise<ListPortsByTagsResponse> {
         const options = ParamCreater().listPortsByTags(listPortsByTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 网卡等资源可以关联高阶服务的资源实例，如ELB，您可以通过此接口查询资源关联的实例信息列表，包括资源和实例的类型、ID和所属的项目ID。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源关联的实例信息列表
+     * @param {Array<string>} [resourceId] **参数解释**： 资源ID，填写后按照ID进行过滤，支持传入多个ID过滤。 **取值范围**： 弹性网卡/辅助弹性网卡的资源ID。
+     * @param {Array<string>} [resourceType] **参数解释**： 资源的类型，填写后按照资源类型进行过滤，支持传入多个资源类型过滤。 **取值范围**： - port：弹性网卡。 - subeni：辅助弹性网卡。
+     * @param {string} [resourceProjectId] **参数解释**： 资源所属的项目ID，填写后按照项目ID进行过滤。 **取值范围**： 不涉及。
+     * @param {Array<string>} [instanceId] **参数解释**： 实例ID，填写后按照ID进行过滤，支持传入多个ID过滤。 **取值范围**： ELB实例的ID。
+     * @param {Array<string>} [instanceType] **参数解释**： 实例的类型，填写后按照实例类型进行过滤，支持传入多个实例类型过滤。 **取值范围**： - ELB：ELB实例。
+     * @param {string} [instanceProjectId] **参数解释**： 实例所属的项目ID，填写后按照项目ID进行过滤。 **取值范围**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourceAssociations(listResourceAssociationsRequest?: ListResourceAssociationsRequest): Promise<ListResourceAssociationsResponse> {
+        const options = ParamCreater().listResourceAssociations(listResourceAssociationsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2949,6 +3000,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量创建流量镜像筛选规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreateTrafficMirrorFilterRules(batchCreateTrafficMirrorFilterRulesRequest?: BatchCreateTrafficMirrorFilterRulesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/traffic-mirror-filters/{traffic_mirror_filter_id}/traffic-mirror-filter-rules/batch-create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let trafficMirrorFilterId;
+
+            if (batchCreateTrafficMirrorFilterRulesRequest !== null && batchCreateTrafficMirrorFilterRulesRequest !== undefined) {
+                if (batchCreateTrafficMirrorFilterRulesRequest instanceof BatchCreateTrafficMirrorFilterRulesRequest) {
+                    trafficMirrorFilterId = batchCreateTrafficMirrorFilterRulesRequest.trafficMirrorFilterId;
+                    body = batchCreateTrafficMirrorFilterRulesRequest.body
+                } else {
+                    trafficMirrorFilterId = batchCreateTrafficMirrorFilterRulesRequest['traffic_mirror_filter_id'];
+                    body = batchCreateTrafficMirrorFilterRulesRequest['body'];
+                }
+            }
+
+        
+            if (trafficMirrorFilterId === null || trafficMirrorFilterId === undefined) {
+            throw new RequiredError('trafficMirrorFilterId','Required parameter trafficMirrorFilterId was null or undefined when calling batchCreateTrafficMirrorFilterRules.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'traffic_mirror_filter_id': trafficMirrorFilterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定的端口资源实例批量删除标签。
          * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
          * 
@@ -4104,6 +4201,78 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 网卡等资源可以关联高阶服务的资源实例，如ELB，您可以通过此接口查询资源关联的实例信息列表，包括资源和实例的类型、ID和所属的项目ID。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourceAssociations(listResourceAssociationsRequest?: ListResourceAssociationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/resource-associations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceId;
+            
+            let resourceType;
+            
+            let resourceProjectId;
+            
+            let instanceId;
+            
+            let instanceType;
+            
+            let instanceProjectId;
+
+            if (listResourceAssociationsRequest !== null && listResourceAssociationsRequest !== undefined) {
+                if (listResourceAssociationsRequest instanceof ListResourceAssociationsRequest) {
+                    resourceId = listResourceAssociationsRequest.resourceId;
+                    resourceType = listResourceAssociationsRequest.resourceType;
+                    resourceProjectId = listResourceAssociationsRequest.resourceProjectId;
+                    instanceId = listResourceAssociationsRequest.instanceId;
+                    instanceType = listResourceAssociationsRequest.instanceType;
+                    instanceProjectId = listResourceAssociationsRequest.instanceProjectId;
+                } else {
+                    resourceId = listResourceAssociationsRequest['resource_id'];
+                    resourceType = listResourceAssociationsRequest['resource_type'];
+                    resourceProjectId = listResourceAssociationsRequest['resource_project_id'];
+                    instanceId = listResourceAssociationsRequest['instance_id'];
+                    instanceType = listResourceAssociationsRequest['instance_type'];
+                    instanceProjectId = listResourceAssociationsRequest['instance_project_id'];
+                }
+            }
+
+        
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+            if (resourceProjectId !== null && resourceProjectId !== undefined) {
+                localVarQueryParameter['resource_project_id'] = resourceProjectId;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceType !== null && instanceType !== undefined) {
+                localVarQueryParameter['instance_type'] = instanceType;
+            }
+            if (instanceProjectId !== null && instanceProjectId !== undefined) {
+                localVarQueryParameter['instance_project_id'] = instanceProjectId;
+            }
+
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;

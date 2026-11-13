@@ -1048,7 +1048,6 @@ import { SupabaseEmailOAuthProviderReq } from './model/SupabaseEmailOAuthProvide
 import { SupabaseEmailTemplateReq } from './model/SupabaseEmailTemplateReq';
 import { SupabaseExistingInstanceRequest } from './model/SupabaseExistingInstanceRequest';
 import { SupabaseGitHubOAuthProviderReq } from './model/SupabaseGitHubOAuthProviderReq';
-import { SupabaseHaConfig } from './model/SupabaseHaConfig';
 import { SupabaseInstanceCreateRequest } from './model/SupabaseInstanceCreateRequest';
 import { SupabaseMailerItemTemplateReq } from './model/SupabaseMailerItemTemplateReq';
 import { SupabaseManagedInstanceInfo } from './model/SupabaseManagedInstanceInfo';
