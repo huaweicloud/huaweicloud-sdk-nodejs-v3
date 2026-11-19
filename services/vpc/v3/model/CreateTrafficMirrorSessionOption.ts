@@ -12,10 +12,9 @@ export class CreateTrafficMirrorSessionOption {
     public priority?: number;
     public enabled?: string;
     public type?: string;
-    public constructor(name?: string, trafficMirrorFilterId?: string, trafficMirrorSources?: Array<string>, trafficMirrorTargetId?: string, trafficMirrorTargetType?: string, priority?: number) { 
+    public constructor(name?: string, trafficMirrorFilterId?: string, trafficMirrorTargetId?: string, trafficMirrorTargetType?: string, priority?: number) { 
         this['name'] = name;
         this['traffic_mirror_filter_id'] = trafficMirrorFilterId;
-        this['traffic_mirror_sources'] = trafficMirrorSources;
         this['traffic_mirror_target_id'] = trafficMirrorTargetId;
         this['traffic_mirror_target_type'] = trafficMirrorTargetType;
         this['priority'] = priority;

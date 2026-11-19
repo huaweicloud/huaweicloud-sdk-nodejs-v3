@@ -39,6 +39,7 @@ export * from './model/ChangePasswordV5Request';
 export * from './model/ChangePasswordV5Response';
 export * from './model/Condition';
 export * from './model/ConditionKey';
+export * from './model/CreateAccessKeyReqBody';
 export * from './model/CreateAccessKeyV5Request';
 export * from './model/CreateAccessKeyV5Response';
 export * from './model/CreateAgencyReqBody';

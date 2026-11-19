@@ -3,6 +3,7 @@
 export class CustomerUpgradeDatabaseVersionReqNew {
     private 'is_delayed'?: boolean;
     private 'second_switch'?: boolean;
+    private 'support_rollback'?: boolean;
     public constructor() { 
     }
     public withIsDelayed(isDelayed: boolean): CustomerUpgradeDatabaseVersionReqNew {
@@ -24,5 +25,15 @@ export class CustomerUpgradeDatabaseVersionReqNew {
     }
     public get secondSwitch(): boolean | undefined {
         return this['second_switch'];
+    }
+    public withSupportRollback(supportRollback: boolean): CustomerUpgradeDatabaseVersionReqNew {
+        this['support_rollback'] = supportRollback;
+        return this;
+    }
+    public set supportRollback(supportRollback: boolean  | undefined) {
+        this['support_rollback'] = supportRollback;
+    }
+    public get supportRollback(): boolean | undefined {
+        return this['support_rollback'];
     }
 }

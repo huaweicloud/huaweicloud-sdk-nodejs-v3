@@ -42,6 +42,8 @@ export class FlavorExtraSpec {
     private 'info:gpus'?: string;
     private 'info:asic_accelerators'?: string;
     private 'info:features'?: string;
+    private 'hw:cpu_policy'?: string;
+    private 'hw:cpu_threads'?: string;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): FlavorExtraSpec {
@@ -453,5 +455,25 @@ export class FlavorExtraSpec {
     }
     public get infoFeatures(): string | undefined {
         return this['info:features'];
+    }
+    public withHwCpuPolicy(hwCpuPolicy: string): FlavorExtraSpec {
+        this['hw:cpu_policy'] = hwCpuPolicy;
+        return this;
+    }
+    public set hwCpuPolicy(hwCpuPolicy: string  | undefined) {
+        this['hw:cpu_policy'] = hwCpuPolicy;
+    }
+    public get hwCpuPolicy(): string | undefined {
+        return this['hw:cpu_policy'];
+    }
+    public withHwCpuThreads(hwCpuThreads: string): FlavorExtraSpec {
+        this['hw:cpu_threads'] = hwCpuThreads;
+        return this;
+    }
+    public set hwCpuThreads(hwCpuThreads: string  | undefined) {
+        this['hw:cpu_threads'] = hwCpuThreads;
+    }
+    public get hwCpuThreads(): string | undefined {
+        return this['hw:cpu_threads'];
     }
 }

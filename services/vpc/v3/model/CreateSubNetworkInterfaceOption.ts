@@ -1,4 +1,5 @@
 import { AllowedAddressPair } from './AllowedAddressPair';
+import { ResourceTag } from './ResourceTag';
 
 
 export class CreateSubNetworkInterfaceOption {
@@ -12,6 +13,7 @@ export class CreateSubNetworkInterfaceOption {
     private 'security_groups'?: Array<string>;
     private 'project_id'?: string;
     private 'allowed_address_pairs'?: Array<AllowedAddressPair>;
+    public tags?: Array<ResourceTag>;
     public constructor(virsubnetId?: string, parentId?: string) { 
         this['virsubnet_id'] = virsubnetId;
         this['parent_id'] = parentId;
@@ -109,5 +111,9 @@ export class CreateSubNetworkInterfaceOption {
     }
     public get allowedAddressPairs(): Array<AllowedAddressPair> | undefined {
         return this['allowed_address_pairs'];
+    }
+    public withTags(tags: Array<ResourceTag>): CreateSubNetworkInterfaceOption {
+        this['tags'] = tags;
+        return this;
     }
 }

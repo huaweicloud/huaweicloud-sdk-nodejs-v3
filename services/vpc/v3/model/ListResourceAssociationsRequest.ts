@@ -7,6 +7,8 @@ export class ListResourceAssociationsRequest {
     private 'instance_id'?: Array<string>;
     private 'instance_type'?: Array<string>;
     private 'instance_project_id'?: string;
+    public limit?: number;
+    public marker?: string;
     public constructor() { 
     }
     public withResourceId(resourceId: Array<string>): ListResourceAssociationsRequest {
@@ -68,5 +70,13 @@ export class ListResourceAssociationsRequest {
     }
     public get instanceProjectId(): string | undefined {
         return this['instance_project_id'];
+    }
+    public withLimit(limit: number): ListResourceAssociationsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListResourceAssociationsRequest {
+        this['marker'] = marker;
+        return this;
     }
 }

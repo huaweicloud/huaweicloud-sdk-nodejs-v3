@@ -1,15 +1,10 @@
 
 
 export class ListAlarmWhiteListHostDetailRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
     private 'rule_id'?: string;
     public constructor(ruleId?: string) { 
         this['rule_id'] = ruleId;
-    }
-    public withRegion(region: string): ListAlarmWhiteListHostDetailRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListAlarmWhiteListHostDetailRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

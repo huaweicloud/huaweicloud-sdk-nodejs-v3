@@ -4,9 +4,8 @@ export class ShowHostAssetManualCollectStatusRequest {
     private 'enterprise_project_id'?: string;
     public type?: string;
     private 'host_id'?: string;
-    public constructor(type?: string, hostId?: string) { 
+    public constructor(type?: string) { 
         this['type'] = type;
-        this['host_id'] = hostId;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowHostAssetManualCollectStatusRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

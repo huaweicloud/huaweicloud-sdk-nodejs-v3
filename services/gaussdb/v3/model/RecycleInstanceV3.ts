@@ -10,8 +10,6 @@ export class RecycleInstanceV3 {
     private 'pay_model'?: string;
     private 'create_at'?: number;
     private 'deleted_at'?: number;
-    private 'volume_type'?: string;
-    private 'volume_size'?: string;
     private 'data_vip'?: string;
     private 'data_vip_ipv6'?: string;
     private 'enterprise_project_id'?: string;
@@ -19,6 +17,7 @@ export class RecycleInstanceV3 {
     private 'backup_level'?: string;
     private 'recycle_backup_id'?: string;
     private 'recycle_status'?: string;
+    private 'retention_days'?: number;
     private 'recycle_backups'?: Array<RecycleBackupV3>;
     public constructor() { 
     }
@@ -90,26 +89,6 @@ export class RecycleInstanceV3 {
     public get deletedAt(): number | undefined {
         return this['deleted_at'];
     }
-    public withVolumeType(volumeType: string): RecycleInstanceV3 {
-        this['volume_type'] = volumeType;
-        return this;
-    }
-    public set volumeType(volumeType: string  | undefined) {
-        this['volume_type'] = volumeType;
-    }
-    public get volumeType(): string | undefined {
-        return this['volume_type'];
-    }
-    public withVolumeSize(volumeSize: string): RecycleInstanceV3 {
-        this['volume_size'] = volumeSize;
-        return this;
-    }
-    public set volumeSize(volumeSize: string  | undefined) {
-        this['volume_size'] = volumeSize;
-    }
-    public get volumeSize(): string | undefined {
-        return this['volume_size'];
-    }
     public withDataVip(dataVip: string): RecycleInstanceV3 {
         this['data_vip'] = dataVip;
         return this;
@@ -179,6 +158,16 @@ export class RecycleInstanceV3 {
     }
     public get recycleStatus(): string | undefined {
         return this['recycle_status'];
+    }
+    public withRetentionDays(retentionDays: number): RecycleInstanceV3 {
+        this['retention_days'] = retentionDays;
+        return this;
+    }
+    public set retentionDays(retentionDays: number  | undefined) {
+        this['retention_days'] = retentionDays;
+    }
+    public get retentionDays(): number | undefined {
+        return this['retention_days'];
     }
     public withRecycleBackups(recycleBackups: Array<RecycleBackupV3>): RecycleInstanceV3 {
         this['recycle_backups'] = recycleBackups;

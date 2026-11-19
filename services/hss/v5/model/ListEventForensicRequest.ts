@@ -6,8 +6,7 @@ export class ListEventForensicRequest {
     private 'event_id'?: string;
     private 'occur_time'?: number;
     public category?: string;
-    public constructor(eventType?: number, eventId?: string, occurTime?: number) { 
-        this['event_type'] = eventType;
+    public constructor(eventId?: string, occurTime?: number) { 
         this['event_id'] = eventId;
         this['occur_time'] = occurTime;
     }

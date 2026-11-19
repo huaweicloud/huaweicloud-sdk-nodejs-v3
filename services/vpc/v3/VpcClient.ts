@@ -1082,6 +1082,8 @@ export class VpcClient {
      * @param {Array<string>} [instanceId] **参数解释**： 实例ID，填写后按照ID进行过滤，支持传入多个ID过滤。 **取值范围**： ELB实例的ID。
      * @param {Array<string>} [instanceType] **参数解释**： 实例的类型，填写后按照实例类型进行过滤，支持传入多个实例类型过滤。 **取值范围**： - ELB：ELB实例。
      * @param {string} [instanceProjectId] **参数解释**： 实例所属的项目ID，填写后按照项目ID进行过滤。 **取值范围**： 不涉及。
+     * @param {number} [limit] **参数解释**： 每页返回的个数。 **取值范围**： 0-2000。
+     * @param {string} [marker] **参数解释**： 分页查询起始的资源ID，为空时查询第一页。 **取值范围**： 带“-”的标准UUID格式。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1183,6 +1185,16 @@ export class VpcClient {
      * @param {Array<string>} [vpcId] 功能说明：辅助弹性网卡所属的VPC_ID，支持多ID过滤 使用场景：过滤单个或多个VPC下的辅助弹性网卡信息
      * @param {Array<string>} [description] 功能说明：辅助弹性网卡的描述信息，支持多个同时过滤 使用场景：通过描述信息过滤辅助弹性网卡
      * @param {Array<string>} [parentId] 功能说明：辅助弹性网卡的宿主网卡的ID，支持多ID过滤 使用场景：过滤单个或多个宿主网卡下存在的辅助弹性网卡
+     * @param {boolean} [enableEip] **参数解释**： 辅助弹性网卡是否关联EIP，可以通过此字段过滤辅助弹性网卡，不支持传入多个值进行过滤。 **取值范围**：   - true：辅助弹性网卡已关联EIP   - false：辅助弹性网卡未关联EIP **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [scope] **参数解释**： 辅助弹性网卡所在站点的公网出口信息，可以通过此字段过滤辅助弹性网卡。 **取值范围**： 不涉及。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {Array<string>} [securityGroups] **参数解释**： 辅助弹性网卡关联的安全组ID，可以通过此字段过滤辅助弹性网卡，支持传入多个安全组ID过滤。[获取方式请参见[查询安全组列表](vpc_apiv3_0011.xml)。](tag:hws,hws_hk,hws_test) **取值范围**： 不涉及。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {string} [enterpriseProjectId] **参数解释**： 辅助弹性网卡所属企业项目的ID。可以使用该字段过滤某个企业项目下的辅助弹性网卡。 **取值范围**： - 最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。 - 若需要查询当前用户所有企业项目绑定的辅助弹性网卡，请传参all_granted_eps。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {Array<string>} [parentDeviceId] **参数解释**： 辅助弹性网卡的宿主网卡所属的设备ID，可以通过此字段过滤辅助弹性网卡，支持传入多个ID过滤。 **取值范围**： 不涉及。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {Array<number>} [vlanId] **参数解释**： 辅助弹性网卡的VLAN ID，可以通过此字段过滤辅助弹性网卡，支持传入多个VLAN ID过滤。 **取值范围**： 1-4094。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {Array<string>} [state] **参数解释**： 辅助弹性网卡的状态，可以通过此字段过滤辅助弹性网卡，支持传入多个状态过滤。 **取值范围**： NORMAL：过滤出已挂载在弹性网卡上的辅助弹性网卡 UNBOUND：过滤出未挂载在弹性网卡上的辅助弹性网卡 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {Array<string>} [ipv6IpAddress] **参数解释**： 辅助弹性网卡的IPv6地址，可以通过此字段过滤辅助弹性网卡，支持传入多个IP地址过滤。 **取值范围**： 不涉及。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {Array<string>} [instanceId] **参数解释**： 辅助弹性网卡所属云服务实例的ID，例如RDS实例的ID，可以通过此字段过滤辅助弹性网卡，支持传入多个ID过滤。 **取值范围**： 不涉及。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
+     * @param {Array<string>} [instanceType] **参数解释**： 辅助弹性网卡所属云服务实例的类型，例如“RDS”，可以通过此字段过滤辅助弹性网卡，支持传入多个实例类型过滤。 **取值范围**： 不涉及。 **约束限制**： 不涉及。 **默认取值**： 不涉及。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4234,6 +4246,10 @@ export const ParamCreater = function () {
             let instanceType;
             
             let instanceProjectId;
+            
+            let limit;
+            
+            let marker;
 
             if (listResourceAssociationsRequest !== null && listResourceAssociationsRequest !== undefined) {
                 if (listResourceAssociationsRequest instanceof ListResourceAssociationsRequest) {
@@ -4243,6 +4259,8 @@ export const ParamCreater = function () {
                     instanceId = listResourceAssociationsRequest.instanceId;
                     instanceType = listResourceAssociationsRequest.instanceType;
                     instanceProjectId = listResourceAssociationsRequest.instanceProjectId;
+                    limit = listResourceAssociationsRequest.limit;
+                    marker = listResourceAssociationsRequest.marker;
                 } else {
                     resourceId = listResourceAssociationsRequest['resource_id'];
                     resourceType = listResourceAssociationsRequest['resource_type'];
@@ -4250,6 +4268,8 @@ export const ParamCreater = function () {
                     instanceId = listResourceAssociationsRequest['instance_id'];
                     instanceType = listResourceAssociationsRequest['instance_type'];
                     instanceProjectId = listResourceAssociationsRequest['instance_project_id'];
+                    limit = listResourceAssociationsRequest['limit'];
+                    marker = listResourceAssociationsRequest['marker'];
                 }
             }
 
@@ -4271,6 +4291,12 @@ export const ParamCreater = function () {
             }
             if (instanceProjectId !== null && instanceProjectId !== undefined) {
                 localVarQueryParameter['instance_project_id'] = instanceProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4533,6 +4559,26 @@ export const ParamCreater = function () {
             let description;
             
             let parentId;
+            
+            let enableEip;
+            
+            let scope;
+            
+            let securityGroups;
+            
+            let enterpriseProjectId;
+            
+            let parentDeviceId;
+            
+            let vlanId;
+            
+            let state;
+            
+            let ipv6IpAddress;
+            
+            let instanceId;
+            
+            let instanceType;
 
             if (listSubNetworkInterfacesRequest !== null && listSubNetworkInterfacesRequest !== undefined) {
                 if (listSubNetworkInterfacesRequest instanceof ListSubNetworkInterfacesRequest) {
@@ -4545,6 +4591,16 @@ export const ParamCreater = function () {
                     vpcId = listSubNetworkInterfacesRequest.vpcId;
                     description = listSubNetworkInterfacesRequest.description;
                     parentId = listSubNetworkInterfacesRequest.parentId;
+                    enableEip = listSubNetworkInterfacesRequest.enableEip;
+                    scope = listSubNetworkInterfacesRequest.scope;
+                    securityGroups = listSubNetworkInterfacesRequest.securityGroups;
+                    enterpriseProjectId = listSubNetworkInterfacesRequest.enterpriseProjectId;
+                    parentDeviceId = listSubNetworkInterfacesRequest.parentDeviceId;
+                    vlanId = listSubNetworkInterfacesRequest.vlanId;
+                    state = listSubNetworkInterfacesRequest.state;
+                    ipv6IpAddress = listSubNetworkInterfacesRequest.ipv6IpAddress;
+                    instanceId = listSubNetworkInterfacesRequest.instanceId;
+                    instanceType = listSubNetworkInterfacesRequest.instanceType;
                 } else {
                     limit = listSubNetworkInterfacesRequest['limit'];
                     marker = listSubNetworkInterfacesRequest['marker'];
@@ -4555,6 +4611,16 @@ export const ParamCreater = function () {
                     vpcId = listSubNetworkInterfacesRequest['vpc_id'];
                     description = listSubNetworkInterfacesRequest['description'];
                     parentId = listSubNetworkInterfacesRequest['parent_id'];
+                    enableEip = listSubNetworkInterfacesRequest['enable_eip'];
+                    scope = listSubNetworkInterfacesRequest['scope'];
+                    securityGroups = listSubNetworkInterfacesRequest['security_groups'];
+                    enterpriseProjectId = listSubNetworkInterfacesRequest['enterprise_project_id'];
+                    parentDeviceId = listSubNetworkInterfacesRequest['parent_device_id'];
+                    vlanId = listSubNetworkInterfacesRequest['vlan_id'];
+                    state = listSubNetworkInterfacesRequest['state'];
+                    ipv6IpAddress = listSubNetworkInterfacesRequest['ipv6_ip_address'];
+                    instanceId = listSubNetworkInterfacesRequest['instance_id'];
+                    instanceType = listSubNetworkInterfacesRequest['instance_type'];
                 }
             }
 
@@ -4585,6 +4651,36 @@ export const ParamCreater = function () {
             }
             if (parentId !== null && parentId !== undefined) {
                 localVarQueryParameter['parent_id'] = parentId;
+            }
+            if (enableEip !== null && enableEip !== undefined) {
+                localVarQueryParameter['enable_eip'] = enableEip;
+            }
+            if (scope !== null && scope !== undefined) {
+                localVarQueryParameter['scope'] = scope;
+            }
+            if (securityGroups !== null && securityGroups !== undefined) {
+                localVarQueryParameter['security_groups'] = securityGroups;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (parentDeviceId !== null && parentDeviceId !== undefined) {
+                localVarQueryParameter['parent_device_id'] = parentDeviceId;
+            }
+            if (vlanId !== null && vlanId !== undefined) {
+                localVarQueryParameter['vlan_id'] = vlanId;
+            }
+            if (state !== null && state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+            if (ipv6IpAddress !== null && ipv6IpAddress !== undefined) {
+                localVarQueryParameter['ipv6_ip_address'] = ipv6IpAddress;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+            if (instanceType !== null && instanceType !== undefined) {
+                localVarQueryParameter['instance_type'] = instanceType;
             }
 
             options.queryParams = localVarQueryParameter;

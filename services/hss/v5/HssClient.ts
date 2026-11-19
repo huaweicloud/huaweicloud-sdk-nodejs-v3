@@ -50,6 +50,9 @@ import { AddRegistryRequestBody } from './model/AddRegistryRequestBody';
 import { AddRegistryResponse } from './model/AddRegistryResponse';
 import { AddSecurityCheckPolicyGroupRequest } from './model/AddSecurityCheckPolicyGroupRequest';
 import { AddSecurityCheckPolicyGroupResponse } from './model/AddSecurityCheckPolicyGroupResponse';
+import { AddSecurityReportRequest } from './model/AddSecurityReportRequest';
+import { AddSecurityReportRequestInfo } from './model/AddSecurityReportRequestInfo';
+import { AddSecurityReportResponse } from './model/AddSecurityReportResponse';
 import { AddSystemUserWhiteListRequest } from './model/AddSystemUserWhiteListRequest';
 import { AddSystemUserWhiteListRequestInfo } from './model/AddSystemUserWhiteListRequestInfo';
 import { AddSystemUserWhiteListResponse } from './model/AddSystemUserWhiteListResponse';
@@ -64,14 +67,21 @@ import { AgentStatus } from './model/AgentStatus';
 import { AgentStatusInfo } from './model/AgentStatusInfo';
 import { AgentStatusRes } from './model/AgentStatusRes';
 import { AgentVersion } from './model/AgentVersion';
+import { AgentVersionRes } from './model/AgentVersionRes';
 import { AgentVersionResponseInfo } from './model/AgentVersionResponseInfo';
+import { AiAgentPolicy } from './model/AiAgentPolicy';
 import { AiDescriptionRes } from './model/AiDescriptionRes';
 import { AiEnabledReqM } from './model/AiEnabledReqM';
 import { AiEnabledRes } from './model/AiEnabledRes';
+import { AiInstancesRequestCondition } from './model/AiInstancesRequestCondition';
 import { AiIsDefaultRes } from './model/AiIsDefaultRes';
 import { AiIsExclusiveRes } from './model/AiIsExclusiveRes';
+import { AiOverviewDataList } from './model/AiOverviewDataList';
+import { AiOverviewDimensionStats } from './model/AiOverviewDimensionStats';
+import { AiOverviewSourceInfo } from './model/AiOverviewSourceInfo';
 import { AiPolicyDescriptionReq } from './model/AiPolicyDescriptionReq';
 import { AiPolicyDescriptionRes } from './model/AiPolicyDescriptionRes';
+import { AiPolicyGroupEnabledRes } from './model/AiPolicyGroupEnabledRes';
 import { AiPolicyGroupIdReqM } from './model/AiPolicyGroupIdReqM';
 import { AiPolicyGroupIdRes } from './model/AiPolicyGroupIdRes';
 import { AiPolicyGroupInfo } from './model/AiPolicyGroupInfo';
@@ -84,7 +94,10 @@ import { AiPolicyInfo } from './model/AiPolicyInfo';
 import { AiPolicyList } from './model/AiPolicyList';
 import { AiPolicyNameReqM } from './model/AiPolicyNameReqM';
 import { AiPolicyNameRes } from './model/AiPolicyNameRes';
+import { AiSessionsRequestCondition } from './model/AiSessionsRequestCondition';
 import { AlarmRiskInfo } from './model/AlarmRiskInfo';
+import { AlarmRiskNumRes } from './model/AlarmRiskNumRes';
+import { AlarmTotalNumRes } from './model/AlarmTotalNumRes';
 import { AlarmWhiteListRequestInfo } from './model/AlarmWhiteListRequestInfo';
 import { AlarmWhiteListResponseInfo } from './model/AlarmWhiteListResponseInfo';
 import { AntiViruOperateType } from './model/AntiViruOperateType';
@@ -101,6 +114,8 @@ import { AntivirusEventType } from './model/AntivirusEventType';
 import { AntivirusResultDetailInfo } from './model/AntivirusResultDetailInfo';
 import { AppChangeResponseInfo } from './model/AppChangeResponseInfo';
 import { AppName } from './model/AppName';
+import { AppNameRes } from './model/AppNameRes';
+import { AppPathRes } from './model/AppPathRes';
 import { AppPolicyInfoList } from './model/AppPolicyInfoList';
 import { AppResponseInfo } from './model/AppResponseInfo';
 import { AppStatisticResponseInfo } from './model/AppStatisticResponseInfo';
@@ -113,6 +128,7 @@ import { AppWhitelistPolicyProcessExtendResponseInfo } from './model/AppWhitelis
 import { AppWhitelistPolicyProcessResponseInfo } from './model/AppWhitelistPolicyProcessResponseInfo';
 import { AppWhitelistPolicyResponseInfo } from './model/AppWhitelistPolicyResponseInfo';
 import { AppliedHostListDataList } from './model/AppliedHostListDataList';
+import { AssetRiskNumRes } from './model/AssetRiskNumRes';
 import { AssetValue } from './model/AssetValue';
 import { AssetValueHostNumInfo } from './model/AssetValueHostNumInfo';
 import { AssetValueRes } from './model/AssetValueRes';
@@ -156,6 +172,7 @@ import { BackupTriggerPropertiesRequestInfo1 } from './model/BackupTriggerProper
 import { BackupTriggerRequestInfo } from './model/BackupTriggerRequestInfo';
 import { BackupTriggerRequestInfo1 } from './model/BackupTriggerRequestInfo1';
 import { BackupVaultInfo } from './model/BackupVaultInfo';
+import { BaselineRiskNumRes } from './model/BaselineRiskNumRes';
 import { BaselineWhiteListsResponseInfo } from './model/BaselineWhiteListsResponseInfo';
 import { BatchAddAccountsRequest } from './model/BatchAddAccountsRequest';
 import { BatchAddAccountsRequestInfo } from './model/BatchAddAccountsRequestInfo';
@@ -184,6 +201,9 @@ import { BatchExportSWRBaselineInfoRequestInfo } from './model/BatchExportSWRBas
 import { BatchGetLabelRequestBody } from './model/BatchGetLabelRequestBody';
 import { BatchModifyPortStatusRequest } from './model/BatchModifyPortStatusRequest';
 import { BatchModifyPortStatusResponse } from './model/BatchModifyPortStatusResponse';
+import { BatchRegisterDefenderPluginRequest } from './model/BatchRegisterDefenderPluginRequest';
+import { BatchRegisterDefenderPluginRequestBody } from './model/BatchRegisterDefenderPluginRequestBody';
+import { BatchRegisterDefenderPluginResponse } from './model/BatchRegisterDefenderPluginResponse';
 import { BatchScanLocalImageRequest } from './model/BatchScanLocalImageRequest';
 import { BatchScanLocalImageResponse } from './model/BatchScanLocalImageResponse';
 import { BatchScanPrivateImageRequestInfo } from './model/BatchScanPrivateImageRequestInfo';
@@ -205,6 +225,12 @@ import { BatchUpdateHostResourceRequestBody } from './model/BatchUpdateHostResou
 import { BatchUpdateHostResourceResponse } from './model/BatchUpdateHostResourceResponse';
 import { BatchUpgradeAgentDaemonsetRequest } from './model/BatchUpgradeAgentDaemonsetRequest';
 import { BatchUpgradeAgentDaemonsetResponse } from './model/BatchUpgradeAgentDaemonsetResponse';
+import { BatchUploadFilesRequest } from './model/BatchUploadFilesRequest';
+import { BatchUploadFilesRequestBody } from './model/BatchUploadFilesRequestBody';
+import { BatchUploadFilesResponse } from './model/BatchUploadFilesResponse';
+import { BatchUploadFilesResponseInfoFailFileInfo } from './model/BatchUploadFilesResponseInfoFailFileInfo';
+import { BatchUploadFilesResponseInfoSuccessFileInfo } from './model/BatchUploadFilesResponseInfoSuccessFileInfo';
+import { BeginTimeRes } from './model/BeginTimeRes';
 import { BindAgentPolicyRequest } from './model/BindAgentPolicyRequest';
 import { BindAgentPolicyRequestInfo } from './model/BindAgentPolicyRequestInfo';
 import { BindAgentPolicyResponse } from './model/BindAgentPolicyResponse';
@@ -289,6 +315,9 @@ import { ChangePolicyGroupRequestInfo } from './model/ChangePolicyGroupRequestIn
 import { ChangePolicyGroupResponse } from './model/ChangePolicyGroupResponse';
 import { ChangePolicySwitchStatusRequest } from './model/ChangePolicySwitchStatusRequest';
 import { ChangePolicySwitchStatusResponse } from './model/ChangePolicySwitchStatusResponse';
+import { ChangeSecurityReportRequest } from './model/ChangeSecurityReportRequest';
+import { ChangeSecurityReportRequestInfo } from './model/ChangeSecurityReportRequestInfo';
+import { ChangeSecurityReportResponse } from './model/ChangeSecurityReportResponse';
 import { ChangeSensitiveInfoRequest } from './model/ChangeSensitiveInfoRequest';
 import { ChangeSensitiveInfoRequestInfo } from './model/ChangeSensitiveInfoRequestInfo';
 import { ChangeSensitiveInfoResponse } from './model/ChangeSensitiveInfoResponse';
@@ -331,6 +360,7 @@ import { ClusterEventResponseInfo } from './model/ClusterEventResponseInfo';
 import { ClusterId } from './model/ClusterId';
 import { ClusterIdRes } from './model/ClusterIdRes';
 import { ClusterImageResponseInfo } from './model/ClusterImageResponseInfo';
+import { ClusterInfo } from './model/ClusterInfo';
 import { ClusterInfoResponse } from './model/ClusterInfoResponse';
 import { ClusterInfoResponseDsInfo } from './model/ClusterInfoResponseDsInfo';
 import { ClusterInfoResponseRegistryInfo } from './model/ClusterInfoResponseRegistryInfo';
@@ -367,8 +397,10 @@ import { ContainerImageInfo } from './model/ContainerImageInfo';
 import { ContainerImageLogResponseInfo } from './model/ContainerImageLogResponseInfo';
 import { ContainerMountInfo } from './model/ContainerMountInfo';
 import { ContainerName } from './model/ContainerName';
+import { ContainerNameRes } from './model/ContainerNameRes';
 import { ContainerNodeInfo } from './model/ContainerNodeInfo';
 import { ContainerPortInfo } from './model/ContainerPortInfo';
+import { ContainerRiskInfo } from './model/ContainerRiskInfo';
 import { ContainerStatus } from './model/ContainerStatus';
 import { ContentReqM } from './model/ContentReqM';
 import { ContentRes } from './model/ContentRes';
@@ -446,6 +478,7 @@ import { CreateWebTamperProtectionConfigRequestBody } from './model/CreateWebTam
 import { CreateWebTamperProtectionConfigRequestBodyContainerWtpInfo } from './model/CreateWebTamperProtectionConfigRequestBodyContainerWtpInfo';
 import { CreateWebTamperProtectionConfigRequestBodyQuotaInfo } from './model/CreateWebTamperProtectionConfigRequestBodyQuotaInfo';
 import { CreateWebTamperProtectionConfigResponse } from './model/CreateWebTamperProtectionConfigResponse';
+import { CriticalVulNumRes } from './model/CriticalVulNumRes';
 import { CustomRuleConfigRequestInfo } from './model/CustomRuleConfigRequestInfo';
 import { CustomRuleValueInfo } from './model/CustomRuleValueInfo';
 import { CveInfo } from './model/CveInfo';
@@ -454,8 +487,10 @@ import { CycleImageScanPolicyReqInfoRegistryInfo } from './model/CycleImageScanP
 import { DaemonSetInfo } from './model/DaemonSetInfo';
 import { DaemonsetYamlResponseInfoDsInfo } from './model/DaemonsetYamlResponseInfoDsInfo';
 import { DaemonsetYamlResponseInfoResourceInfo } from './model/DaemonsetYamlResponseInfoResourceInfo';
+import { DecoyPortBasePortStruct } from './model/DecoyPortBasePortStruct';
 import { DefaultReport } from './model/DefaultReport';
 import { DelIsolatedFileRequestInfo } from './model/DelIsolatedFileRequestInfo';
+import { DelegatedAccountResponseInfo } from './model/DelegatedAccountResponseInfo';
 import { DeleteAccountRequest } from './model/DeleteAccountRequest';
 import { DeleteAccountRequestInfo } from './model/DeleteAccountRequestInfo';
 import { DeleteAccountResponse } from './model/DeleteAccountResponse';
@@ -520,6 +555,9 @@ import { DeleteSecurityCheckPolicyGroupResponse } from './model/DeleteSecurityCh
 import { DeleteSecurityGroupPolicyRequest } from './model/DeleteSecurityGroupPolicyRequest';
 import { DeleteSecurityGroupPolicyRequestBody } from './model/DeleteSecurityGroupPolicyRequestBody';
 import { DeleteSecurityGroupPolicyResponse } from './model/DeleteSecurityGroupPolicyResponse';
+import { DeleteSecurityReportRequest } from './model/DeleteSecurityReportRequest';
+import { DeleteSecurityReportRequestInfo } from './model/DeleteSecurityReportRequestInfo';
+import { DeleteSecurityReportResponse } from './model/DeleteSecurityReportResponse';
 import { DeleteVulWhiteListBody } from './model/DeleteVulWhiteListBody';
 import { DeleteVulWhiteListRequest } from './model/DeleteVulWhiteListRequest';
 import { DeleteVulWhiteListResponse } from './model/DeleteVulWhiteListResponse';
@@ -532,6 +570,8 @@ import { DeployTemplateInfoScheduleInfo } from './model/DeployTemplateInfoSchedu
 import { Description } from './model/Description';
 import { DetailIsUsedRes } from './model/DetailIsUsedRes';
 import { Dictionary } from './model/Dictionary';
+import { DisplayNameReq } from './model/DisplayNameReq';
+import { DisplayNameRes } from './model/DisplayNameRes';
 import { DownloadAssetFileRequest } from './model/DownloadAssetFileRequest';
 import { DownloadAssetFileRequestBody } from './model/DownloadAssetFileRequestBody';
 import { DownloadAssetFileResponse } from './model/DownloadAssetFileResponse';
@@ -541,6 +581,7 @@ import { EffectHostNum } from './model/EffectHostNum';
 import { EnableM } from './model/EnableM';
 import { EnableTrustServiceRequest } from './model/EnableTrustServiceRequest';
 import { EnableTrustServiceResponse } from './model/EnableTrustServiceResponse';
+import { EndTimeRes2 } from './model/EndTimeRes2';
 import { EnterpriseProjectId } from './model/EnterpriseProjectId';
 import { EnterpriseProjectName } from './model/EnterpriseProjectName';
 import { ErrorInfo } from './model/ErrorInfo';
@@ -580,6 +621,9 @@ import { ExportAntiVirusResultResponse } from './model/ExportAntiVirusResultResp
 import { ExportBaselineRequestBody } from './model/ExportBaselineRequestBody';
 import { ExportBaselineSecurityCheckReportRequest } from './model/ExportBaselineSecurityCheckReportRequest';
 import { ExportBaselineSecurityCheckReportResponse } from './model/ExportBaselineSecurityCheckReportResponse';
+import { ExportCommonInterfaceRequest } from './model/ExportCommonInterfaceRequest';
+import { ExportCommonInterfaceRequestBody } from './model/ExportCommonInterfaceRequestBody';
+import { ExportCommonInterfaceResponse } from './model/ExportCommonInterfaceResponse';
 import { ExportContainerListRequest } from './model/ExportContainerListRequest';
 import { ExportContainerListRequestBody } from './model/ExportContainerListRequestBody';
 import { ExportContainerListRequestBodyCreateTime } from './model/ExportContainerListRequestBodyCreateTime';
@@ -603,9 +647,13 @@ import { ExportTaskInfoRequest } from './model/ExportTaskInfoRequest';
 import { ExportTaskInfoRequestBody } from './model/ExportTaskInfoRequestBody';
 import { ExportTaskInfoRequestBodyOperationalReportData } from './model/ExportTaskInfoRequestBodyOperationalReportData';
 import { ExportTaskInfoResponse } from './model/ExportTaskInfoResponse';
+import { ExportTypeReq } from './model/ExportTypeReq';
 import { ExportVulHandleHistoryRequest } from './model/ExportVulHandleHistoryRequest';
 import { ExportVulHandleHistoryRequestBody } from './model/ExportVulHandleHistoryRequestBody';
 import { ExportVulHandleHistoryResponse } from './model/ExportVulHandleHistoryResponse';
+import { ExportVulReportRequest } from './model/ExportVulReportRequest';
+import { ExportVulReportRequestInfo } from './model/ExportVulReportRequestInfo';
+import { ExportVulReportResponse } from './model/ExportVulReportResponse';
 import { ExportVulRequestBody } from './model/ExportVulRequestBody';
 import { ExportVulsRequest } from './model/ExportVulsRequest';
 import { ExportVulsResponse } from './model/ExportVulsResponse';
@@ -638,6 +686,7 @@ import { GlobalVulInfo } from './model/GlobalVulInfo';
 import { GroupId } from './model/GroupId';
 import { GroupIdRes } from './model/GroupIdRes';
 import { GroupName } from './model/GroupName';
+import { GroupNameRes } from './model/GroupNameRes';
 import { HandleAffectBaselineInfo } from './model/HandleAffectBaselineInfo';
 import { HandleAntiVirusResultRequest } from './model/HandleAntiVirusResultRequest';
 import { HandleAntiVirusResultResponse } from './model/HandleAntiVirusResultResponse';
@@ -654,7 +703,9 @@ import { Hash } from './model/Hash';
 import { HashTypeReqM } from './model/HashTypeReqM';
 import { HashTypeRes } from './model/HashTypeRes';
 import { HistoryHandleMethod } from './model/HistoryHandleMethod';
+import { HistoryPeriodInfo } from './model/HistoryPeriodInfo';
 import { HoneyForensicInfo } from './model/HoneyForensicInfo';
+import { HoneypotEventResponseInfo } from './model/HoneypotEventResponseInfo';
 import { HoneypotPortPolicyContent } from './model/HoneypotPortPolicyContent';
 import { HoneypotPortPolicyContentPortsList } from './model/HoneypotPortPolicyContentPortsList';
 import { Host } from './model/Host';
@@ -670,6 +721,7 @@ import { HostNum } from './model/HostNum';
 import { HostNumRes } from './model/HostNumRes';
 import { HostProtectHistoryResponseInfo } from './model/HostProtectHistoryResponseInfo';
 import { HostRaspProtectHistoryResponseInfo } from './model/HostRaspProtectHistoryResponseInfo';
+import { HostRiskInfo } from './model/HostRiskInfo';
 import { HostRiskNumInfoResponseInfo } from './model/HostRiskNumInfoResponseInfo';
 import { HostRiskResponseInfo } from './model/HostRiskResponseInfo';
 import { HostStatus } from './model/HostStatus';
@@ -678,6 +730,7 @@ import { HostStatusRes } from './model/HostStatusRes';
 import { HostTagInfoList } from './model/HostTagInfoList';
 import { HostTagValuesInfo } from './model/HostTagValuesInfo';
 import { HostTaskStatus } from './model/HostTaskStatus';
+import { HostUpgradeResponseInfo } from './model/HostUpgradeResponseInfo';
 import { HostVaultInfo } from './model/HostVaultInfo';
 import { HostVaultInfoDefaultVault } from './model/HostVaultInfoDefaultVault';
 import { HostVaultInfoVaults } from './model/HostVaultInfoVaults';
@@ -695,6 +748,7 @@ import { IacRequestInfo } from './model/IacRequestInfo';
 import { IacScanRequestInfo } from './model/IacScanRequestInfo';
 import { IdArray } from './model/IdArray';
 import { IgnoreDir } from './model/IgnoreDir';
+import { IgnoreHostResponseInfo } from './model/IgnoreHostResponseInfo';
 import { ImageAppResponseInfo } from './model/ImageAppResponseInfo';
 import { ImageAppsInfo } from './model/ImageAppsInfo';
 import { ImageBasicImageInfo } from './model/ImageBasicImageInfo';
@@ -726,6 +780,13 @@ import { ImageWhiteListDetailResponseInfo } from './model/ImageWhiteListDetailRe
 import { ImageWhiteListDetailResponseInfoCves } from './model/ImageWhiteListDetailResponseInfoCves';
 import { ImageWhiteListDetailResponseInfoImageInfo } from './model/ImageWhiteListDetailResponseInfoImageInfo';
 import { ImageWhiteListDetailResponseInfoQueryInfo } from './model/ImageWhiteListDetailResponseInfoQueryInfo';
+import { InstallAgentRequest } from './model/InstallAgentRequest';
+import { InstallAgentResponse } from './model/InstallAgentResponse';
+import { InstalledInstanceAgentListRequest } from './model/InstalledInstanceAgentListRequest';
+import { InstalledInstanceAgentListResponse } from './model/InstalledInstanceAgentListResponse';
+import { IntrusionInfoRes } from './model/IntrusionInfoRes';
+import { IntrusionSubscriptionReq } from './model/IntrusionSubscriptionReq';
+import { IntrusionSubscriptionRes } from './model/IntrusionSubscriptionRes';
 import { Invalidate } from './model/Invalidate';
 import { IsIntercept } from './model/IsIntercept';
 import { IsParent } from './model/IsParent';
@@ -773,12 +834,20 @@ import { ListAiComponentDetailRequest } from './model/ListAiComponentDetailReque
 import { ListAiComponentDetailResponse } from './model/ListAiComponentDetailResponse';
 import { ListAiComponentStatisticsRequest } from './model/ListAiComponentStatisticsRequest';
 import { ListAiComponentStatisticsResponse } from './model/ListAiComponentStatisticsResponse';
+import { ListAiInstancesRequest } from './model/ListAiInstancesRequest';
+import { ListAiInstancesRequestBody } from './model/ListAiInstancesRequestBody';
+import { ListAiInstancesResponse } from './model/ListAiInstancesResponse';
+import { ListAiInstancesResponseBodyData } from './model/ListAiInstancesResponseBodyData';
 import { ListAiPoliciesRequest } from './model/ListAiPoliciesRequest';
 import { ListAiPoliciesResponse } from './model/ListAiPoliciesResponse';
 import { ListAiPolicyDetailRequest } from './model/ListAiPolicyDetailRequest';
 import { ListAiPolicyDetailResponse } from './model/ListAiPolicyDetailResponse';
 import { ListAiPolicyGroupsRequest } from './model/ListAiPolicyGroupsRequest';
 import { ListAiPolicyGroupsResponse } from './model/ListAiPolicyGroupsResponse';
+import { ListAiSessionsRequest } from './model/ListAiSessionsRequest';
+import { ListAiSessionsRequestBody } from './model/ListAiSessionsRequestBody';
+import { ListAiSessionsResponse } from './model/ListAiSessionsResponse';
+import { ListAiSessionsResponseBodyData } from './model/ListAiSessionsResponseBodyData';
 import { ListAlarmConfigRequest } from './model/ListAlarmConfigRequest';
 import { ListAlarmConfigResponse } from './model/ListAlarmConfigResponse';
 import { ListAlarmWhiteListHostDetailRequest } from './model/ListAlarmWhiteListHostDetailRequest';
@@ -843,8 +912,8 @@ import { ListBlockedIpRequest } from './model/ListBlockedIpRequest';
 import { ListBlockedIpResponse } from './model/ListBlockedIpResponse';
 import { ListCceClusterConfigRequest } from './model/ListCceClusterConfigRequest';
 import { ListCceClusterConfigResponse } from './model/ListCceClusterConfigResponse';
-import { ListCceClusterDetectRiskRequest } from './model/ListCceClusterDetectRiskRequest';
-import { ListCceClusterDetectRiskResponse } from './model/ListCceClusterDetectRiskResponse';
+import { ListCceClusterDetectRisk2Request } from './model/ListCceClusterDetectRisk2Request';
+import { ListCceClusterDetectRisk2Response } from './model/ListCceClusterDetectRisk2Response';
 import { ListCceNodesLabelRequest } from './model/ListCceNodesLabelRequest';
 import { ListCceNodesLabelResponse } from './model/ListCceNodesLabelResponse';
 import { ListCheckFeatureRuleRequest } from './model/ListCheckFeatureRuleRequest';
@@ -916,6 +985,11 @@ import { ListDecoyPortAvailableHostRequest } from './model/ListDecoyPortAvailabl
 import { ListDecoyPortAvailableHostResponse } from './model/ListDecoyPortAvailableHostResponse';
 import { ListDecoyPortPolicyRequest } from './model/ListDecoyPortPolicyRequest';
 import { ListDecoyPortPolicyResponse } from './model/ListDecoyPortPolicyResponse';
+import { ListDefenderPluginsRequest } from './model/ListDefenderPluginsRequest';
+import { ListDefenderPluginsResponse } from './model/ListDefenderPluginsResponse';
+import { ListDefenderPluginsResponseBodyData } from './model/ListDefenderPluginsResponseBodyData';
+import { ListDelegatedAccountsRequest } from './model/ListDelegatedAccountsRequest';
+import { ListDelegatedAccountsResponse } from './model/ListDelegatedAccountsResponse';
 import { ListDictionariesRequest } from './model/ListDictionariesRequest';
 import { ListDictionariesResponse } from './model/ListDictionariesResponse';
 import { ListDockerPluginsRequest } from './model/ListDockerPluginsRequest';
@@ -960,6 +1034,10 @@ import { ListHandleAffectBaselineRequestBodyCheckRuleList } from './model/ListHa
 import { ListHandleAffectBaselineResponse } from './model/ListHandleAffectBaselineResponse';
 import { ListHandleVulsRequest } from './model/ListHandleVulsRequest';
 import { ListHandleVulsResponse } from './model/ListHandleVulsResponse';
+import { ListHistoryPeriodRequest } from './model/ListHistoryPeriodRequest';
+import { ListHistoryPeriodResponse } from './model/ListHistoryPeriodResponse';
+import { ListHoneypotEventsRequest } from './model/ListHoneypotEventsRequest';
+import { ListHoneypotEventsResponse } from './model/ListHoneypotEventsResponse';
 import { ListHostCheckRulesRequest } from './model/ListHostCheckRulesRequest';
 import { ListHostCheckRulesResponse } from './model/ListHostCheckRulesResponse';
 import { ListHostGroupsRequest } from './model/ListHostGroupsRequest';
@@ -974,6 +1052,8 @@ import { ListHostVulsRequest } from './model/ListHostVulsRequest';
 import { ListHostVulsResponse } from './model/ListHostVulsResponse';
 import { ListHostsRiskRequest } from './model/ListHostsRiskRequest';
 import { ListHostsRiskResponse } from './model/ListHostsRiskResponse';
+import { ListHostsUpgradeRequest } from './model/ListHostsUpgradeRequest';
+import { ListHostsUpgradeResponse } from './model/ListHostsUpgradeResponse';
 import { ListIacFileRiskPathsRequest } from './model/ListIacFileRiskPathsRequest';
 import { ListIacFileRiskPathsResponse } from './model/ListIacFileRiskPathsResponse';
 import { ListIacFileRiskPathsResponseInfoDataList } from './model/ListIacFileRiskPathsResponseInfoDataList';
@@ -983,6 +1063,8 @@ import { ListIacFileRisksResponseInfoDataList } from './model/ListIacFileRisksRe
 import { ListIacFilesRequest } from './model/ListIacFilesRequest';
 import { ListIacFilesResponse } from './model/ListIacFilesResponse';
 import { ListIacFilesResponseInfoDataList } from './model/ListIacFilesResponseInfoDataList';
+import { ListIgnoreHostsRequest } from './model/ListIgnoreHostsRequest';
+import { ListIgnoreHostsResponse } from './model/ListIgnoreHostsResponse';
 import { ListImageAppsRequest } from './model/ListImageAppsRequest';
 import { ListImageAppsResponse } from './model/ListImageAppsResponse';
 import { ListImageBasicImageRequest } from './model/ListImageBasicImageRequest';
@@ -1007,6 +1089,8 @@ import { ListImageRiskConfigRulesRequest } from './model/ListImageRiskConfigRule
 import { ListImageRiskConfigRulesResponse } from './model/ListImageRiskConfigRulesResponse';
 import { ListImageRiskConfigsRequest } from './model/ListImageRiskConfigsRequest';
 import { ListImageRiskConfigsResponse } from './model/ListImageRiskConfigsResponse';
+import { ListImageScanOverviewRequest } from './model/ListImageScanOverviewRequest';
+import { ListImageScanOverviewResponse } from './model/ListImageScanOverviewResponse';
 import { ListImageScanPolicyRequest } from './model/ListImageScanPolicyRequest';
 import { ListImageScanPolicyResponse } from './model/ListImageScanPolicyResponse';
 import { ListImageScanTaskRequest } from './model/ListImageScanTaskRequest';
@@ -1021,6 +1105,8 @@ import { ListImageWeakPwdUsersRequest } from './model/ListImageWeakPwdUsersReque
 import { ListImageWeakPwdUsersResponse } from './model/ListImageWeakPwdUsersResponse';
 import { ListImageWhiteListsRequest } from './model/ListImageWhiteListsRequest';
 import { ListImageWhiteListsResponse } from './model/ListImageWhiteListsResponse';
+import { ListInstanceProtectionsRequest } from './model/ListInstanceProtectionsRequest';
+import { ListInstanceProtectionsResponse } from './model/ListInstanceProtectionsResponse';
 import { ListIsolatedFileRequest } from './model/ListIsolatedFileRequest';
 import { ListIsolatedFileResponse } from './model/ListIsolatedFileResponse';
 import { ListJarPackageHostInfoRequest } from './model/ListJarPackageHostInfoRequest';
@@ -1059,6 +1145,8 @@ import { ListLocalImageContainersRequest } from './model/ListLocalImageContainer
 import { ListLocalImageContainersResponse } from './model/ListLocalImageContainersResponse';
 import { ListLocalImageHostsRequest } from './model/ListLocalImageHostsRequest';
 import { ListLocalImageHostsResponse } from './model/ListLocalImageHostsResponse';
+import { ListLocalImageVulRequest } from './model/ListLocalImageVulRequest';
+import { ListLocalImageVulResponse } from './model/ListLocalImageVulResponse';
 import { ListLockedStatusRequest } from './model/ListLockedStatusRequest';
 import { ListLockedStatusResponse } from './model/ListLockedStatusResponse';
 import { ListLoginCommonIpRequest } from './model/ListLoginCommonIpRequest';
@@ -1093,6 +1181,8 @@ import { ListPluginsRequest } from './model/ListPluginsRequest';
 import { ListPluginsResponse } from './model/ListPluginsResponse';
 import { ListPoliciesRequest } from './model/ListPoliciesRequest';
 import { ListPoliciesResponse } from './model/ListPoliciesResponse';
+import { ListPolicyGroupDetailRequest } from './model/ListPolicyGroupDetailRequest';
+import { ListPolicyGroupDetailResponse } from './model/ListPolicyGroupDetailResponse';
 import { ListPolicyGroupRequest } from './model/ListPolicyGroupRequest';
 import { ListPolicyGroupResponse } from './model/ListPolicyGroupResponse';
 import { ListPortHostRequest } from './model/ListPortHostRequest';
@@ -1106,6 +1196,8 @@ import { ListProcessStatisticsRequest } from './model/ListProcessStatisticsReque
 import { ListProcessStatisticsResponse } from './model/ListProcessStatisticsResponse';
 import { ListProcessesHostRequest } from './model/ListProcessesHostRequest';
 import { ListProcessesHostResponse } from './model/ListProcessesHostResponse';
+import { ListProcessesRequest } from './model/ListProcessesRequest';
+import { ListProcessesResponse } from './model/ListProcessesResponse';
 import { ListProjectConfigsRequest } from './model/ListProjectConfigsRequest';
 import { ListProjectConfigsRequestBody } from './model/ListProjectConfigsRequestBody';
 import { ListProjectConfigsResponse } from './model/ListProjectConfigsResponse';
@@ -1125,6 +1217,8 @@ import { ListRansomwareProtectionNodesRequest } from './model/ListRansomwareProt
 import { ListRansomwareProtectionNodesResponse } from './model/ListRansomwareProtectionNodesResponse';
 import { ListRaspEventsRequest } from './model/ListRaspEventsRequest';
 import { ListRaspEventsResponse } from './model/ListRaspEventsResponse';
+import { ListRaspPatchesRequest } from './model/ListRaspPatchesRequest';
+import { ListRaspPatchesResponse } from './model/ListRaspPatchesResponse';
 import { ListRaspPoliciesRequest } from './model/ListRaspPoliciesRequest';
 import { ListRaspPoliciesResponse } from './model/ListRaspPoliciesResponse';
 import { ListRegistryImagesRequest } from './model/ListRegistryImagesRequest';
@@ -1149,6 +1243,10 @@ import { ListSameEventsRequest } from './model/ListSameEventsRequest';
 import { ListSameEventsResponse } from './model/ListSameEventsResponse';
 import { ListSecurityCheckClusterReportsRequest } from './model/ListSecurityCheckClusterReportsRequest';
 import { ListSecurityCheckClusterReportsResponse } from './model/ListSecurityCheckClusterReportsResponse';
+import { ListSecurityCheckHostResultRequest } from './model/ListSecurityCheckHostResultRequest';
+import { ListSecurityCheckHostResultResponse } from './model/ListSecurityCheckHostResultResponse';
+import { ListSecurityCheckPolicyGroupHostsRequest } from './model/ListSecurityCheckPolicyGroupHostsRequest';
+import { ListSecurityCheckPolicyGroupHostsResponse } from './model/ListSecurityCheckPolicyGroupHostsResponse';
 import { ListSecurityCheckPolicyGroupRequest } from './model/ListSecurityCheckPolicyGroupRequest';
 import { ListSecurityCheckPolicyGroupResponse } from './model/ListSecurityCheckPolicyGroupResponse';
 import { ListSecurityEventsRequest } from './model/ListSecurityEventsRequest';
@@ -1214,6 +1312,10 @@ import { ListVulContainersRequest } from './model/ListVulContainersRequest';
 import { ListVulContainersResponse } from './model/ListVulContainersResponse';
 import { ListVulHandleHistoryRequest } from './model/ListVulHandleHistoryRequest';
 import { ListVulHandleHistoryResponse } from './model/ListVulHandleHistoryResponse';
+import { ListVulHandleTaskDetailRequest } from './model/ListVulHandleTaskDetailRequest';
+import { ListVulHandleTaskDetailResponse } from './model/ListVulHandleTaskDetailResponse';
+import { ListVulHandleTaskRequest } from './model/ListVulHandleTaskRequest';
+import { ListVulHandleTaskResponse } from './model/ListVulHandleTaskResponse';
 import { ListVulHostAppsRequest } from './model/ListVulHostAppsRequest';
 import { ListVulHostAppsResponse } from './model/ListVulHostAppsResponse';
 import { ListVulHostBackupsRequest } from './model/ListVulHostBackupsRequest';
@@ -1297,6 +1399,10 @@ import { LoginUserName } from './model/LoginUserName';
 import { LoginWhiteIpResponseInfo } from './model/LoginWhiteIpResponseInfo';
 import { LoginWhiteListRequestInfo } from './model/LoginWhiteListRequestInfo';
 import { LoginWhiteListResponseInfo } from './model/LoginWhiteListResponseInfo';
+import { LogoIdReq } from './model/LogoIdReq';
+import { LogoIdRes } from './model/LogoIdRes';
+import { LogoTypeReq } from './model/LogoTypeReq';
+import { LogoTypeRes } from './model/LogoTypeRes';
 import { MaliciousNum } from './model/MaliciousNum';
 import { MalwareName } from './model/MalwareName';
 import { MalwareType } from './model/MalwareType';
@@ -1331,6 +1437,7 @@ import { MultiCloudClusterIdInfo } from './model/MultiCloudClusterIdInfo';
 import { MultiCloudClusterInfo } from './model/MultiCloudClusterInfo';
 import { MultiCloudClusterSyncStatusRequestBody } from './model/MultiCloudClusterSyncStatusRequestBody';
 import { MultiValueTagInfo } from './model/MultiValueTagInfo';
+import { MultipartFile } from './model/MultipartFile';
 import { NetworkNodeInfo } from './model/NetworkNodeInfo';
 import { NetworkPolicyBody } from './model/NetworkPolicyBody';
 import { NextStartTime } from './model/NextStartTime';
@@ -1359,6 +1466,9 @@ import { OsType } from './model/OsType';
 import { OsTypeRes } from './model/OsTypeRes';
 import { OsVersion } from './model/OsVersion';
 import { OsVersionRes } from './model/OsVersionRes';
+import { OverviewInfoRes } from './model/OverviewInfoRes';
+import { OverviewSubscriptionReq } from './model/OverviewSubscriptionReq';
+import { OverviewSubscriptionRes } from './model/OverviewSubscriptionRes';
 import { ParentProcessEgid } from './model/ParentProcessEgid';
 import { ParentProcessEuid } from './model/ParentProcessEuid';
 import { ParentProcessGid } from './model/ParentProcessGid';
@@ -1406,6 +1516,7 @@ import { ProcessHash } from './model/ProcessHash';
 import { ProcessName } from './model/ProcessName';
 import { ProcessPath } from './model/ProcessPath';
 import { ProcessPid } from './model/ProcessPid';
+import { ProcessResponseInfo } from './model/ProcessResponseInfo';
 import { ProcessStartTime } from './model/ProcessStartTime';
 import { ProcessStatisticResponseInfo } from './model/ProcessStatisticResponseInfo';
 import { ProcessUid } from './model/ProcessUid';
@@ -1421,6 +1532,9 @@ import { ProtectInfoConfigInfo } from './model/ProtectInfoConfigInfo';
 import { ProtectInfoCoverAreaInfo } from './model/ProtectInfoCoverAreaInfo';
 import { ProtectInfoQuotaInfo } from './model/ProtectInfoQuotaInfo';
 import { ProtectStatus } from './model/ProtectStatus';
+import { ProtectStatusStatistics } from './model/ProtectStatusStatistics';
+import { ProtectionContainerInfo } from './model/ProtectionContainerInfo';
+import { ProtectionEnabledTypes } from './model/ProtectionEnabledTypes';
 import { ProtectionInfoRequestInfo } from './model/ProtectionInfoRequestInfo';
 import { ProtectionObjectRes } from './model/ProtectionObjectRes';
 import { ProtectionPolicyInfo } from './model/ProtectionPolicyInfo';
@@ -1432,9 +1546,12 @@ import { PublicIp } from './model/PublicIp';
 import { PublicIpRes } from './model/PublicIpRes';
 import { PwdPolicyInfoResponseInfo } from './model/PwdPolicyInfoResponseInfo';
 import { QueryVpcCondition } from './model/QueryVpcCondition';
+import { QuotaHostStatistics } from './model/QuotaHostStatistics';
 import { QuotaResourcesResponseInfo } from './model/QuotaResourcesResponseInfo';
 import { QuotaStatisticsInfo } from './model/QuotaStatisticsInfo';
 import { QuotaStatisticsResponseInfo } from './model/QuotaStatisticsResponseInfo';
+import { RaspCveInfo } from './model/RaspCveInfo';
+import { RaspPatchInfo } from './model/RaspPatchInfo';
 import { RaspProtectHistoryResponseInfo } from './model/RaspProtectHistoryResponseInfo';
 import { RaspProtectStatus } from './model/RaspProtectStatus';
 import { RecentTime } from './model/RecentTime';
@@ -1461,11 +1578,17 @@ import { RemoveSystemUserWhiteListRequestInfo } from './model/RemoveSystemUserWh
 import { RemoveSystemUserWhiteListResponse } from './model/RemoveSystemUserWhiteListResponse';
 import { RepairPriorityListInfo } from './model/RepairPriorityListInfo';
 import { ReportCategory } from './model/ReportCategory';
+import { ReportCategoryRes } from './model/ReportCategoryRes';
 import { ReportCreateTime } from './model/ReportCreateTime';
 import { ReportId } from './model/ReportId';
+import { ReportIdReq } from './model/ReportIdReq';
+import { ReportIdRes } from './model/ReportIdRes';
 import { ReportName } from './model/ReportName';
+import { ReportNameReq } from './model/ReportNameReq';
+import { ReportNameRes } from './model/ReportNameRes';
 import { ReportStatus } from './model/ReportStatus';
 import { ReportSubId } from './model/ReportSubId';
+import { ReportSubIdRes } from './model/ReportSubIdRes';
 import { RescanVulScanTaskRequestInfo } from './model/RescanVulScanTaskRequestInfo';
 import { ResourceIdsRequestInfo } from './model/ResourceIdsRequestInfo';
 import { ResourceInfo } from './model/ResourceInfo';
@@ -1533,6 +1656,9 @@ import { ScanPeriodDate } from './model/ScanPeriodDate';
 import { ScanProgress } from './model/ScanProgress';
 import { ScanTime } from './model/ScanTime';
 import { ScanType } from './model/ScanType';
+import { ScansInfoRes } from './model/ScansInfoRes';
+import { ScansSubscriptionReq } from './model/ScansSubscriptionReq';
+import { ScansSubscriptionRes } from './model/ScansSubscriptionRes';
 import { Scope } from './model/Scope';
 import { SecurityCheckClusterReports } from './model/SecurityCheckClusterReports';
 import { SecurityCheckConfigRequestInfo } from './model/SecurityCheckConfigRequestInfo';
@@ -1541,6 +1667,7 @@ import { SecurityCheckHostInfoResponseInfo } from './model/SecurityCheckHostInfo
 import { SecurityCheckHostResultResponseInfo } from './model/SecurityCheckHostResultResponseInfo';
 import { SecurityCheckInfoResponseInfo } from './model/SecurityCheckInfoResponseInfo';
 import { SecurityCheckPolicyDetailInfoResponseInfo } from './model/SecurityCheckPolicyDetailInfoResponseInfo';
+import { SecurityCheckPolicyGroupHostInfo } from './model/SecurityCheckPolicyGroupHostInfo';
 import { SecurityCheckPolicyGroupInfoResponseInfo } from './model/SecurityCheckPolicyGroupInfoResponseInfo';
 import { SecurityCheckPolicyInfoResponseInfo } from './model/SecurityCheckPolicyInfoResponseInfo';
 import { SecurityCheckRiskEventInfo } from './model/SecurityCheckRiskEventInfo';
@@ -1567,11 +1694,14 @@ import { SendSecurityReportRequest } from './model/SendSecurityReportRequest';
 import { SendSecurityReportRequestInfo } from './model/SendSecurityReportRequestInfo';
 import { SendSecurityReportResponse } from './model/SendSecurityReportResponse';
 import { SendingPeriod } from './model/SendingPeriod';
+import { SendingPeriodReq } from './model/SendingPeriodReq';
+import { SendingPeriodRes } from './model/SendingPeriodRes';
 import { ServerAppStatusResponseInfo } from './model/ServerAppStatusResponseInfo';
 import { ServerGroupItem } from './model/ServerGroupItem';
 import { ServerlessAssetBaseInfo } from './model/ServerlessAssetBaseInfo';
 import { ServerlessCronJobInfo } from './model/ServerlessCronJobInfo';
 import { ServerlessDeploymentInfo } from './model/ServerlessDeploymentInfo';
+import { ServerlessInstanceInfo } from './model/ServerlessInstanceInfo';
 import { ServerlessJobInfo } from './model/ServerlessJobInfo';
 import { ServerlessPodInfo } from './model/ServerlessPodInfo';
 import { ServerlessStatefulSetInfo } from './model/ServerlessStatefulSetInfo';
@@ -1588,6 +1718,9 @@ import { SetProtectDirSwitchRequestInfo } from './model/SetProtectDirSwitchReque
 import { SetRaspSwitchRequest } from './model/SetRaspSwitchRequest';
 import { SetRaspSwitchRequestInfo } from './model/SetRaspSwitchRequestInfo';
 import { SetRaspSwitchResponse } from './model/SetRaspSwitchResponse';
+import { SetRemindersConfigRequest } from './model/SetRemindersConfigRequest';
+import { SetRemindersConfigRequestInfo } from './model/SetRemindersConfigRequestInfo';
+import { SetRemindersConfigResponse } from './model/SetRemindersConfigResponse';
 import { SetRemoteBackupInfoRequest } from './model/SetRemoteBackupInfoRequest';
 import { SetRemoteBackupInfoRequestInfo } from './model/SetRemoteBackupInfoRequestInfo';
 import { SetRemoteBackupInfoResponse } from './model/SetRemoteBackupInfoResponse';
@@ -1598,6 +1731,8 @@ import { SetWtpProtectionStatusInfoRequest } from './model/SetWtpProtectionStatu
 import { SetWtpProtectionStatusInfoResponse } from './model/SetWtpProtectionStatusInfoResponse';
 import { SetWtpProtectionStatusRequestInfo } from './model/SetWtpProtectionStatusRequestInfo';
 import { Severity } from './model/Severity';
+import { SeverityLevelRes } from './model/SeverityLevelRes';
+import { SeverityRes } from './model/SeverityRes';
 import { ShowAccountTopRequest } from './model/ShowAccountTopRequest';
 import { ShowAccountTopResponse } from './model/ShowAccountTopResponse';
 import { ShowAgentAddressRequest } from './model/ShowAgentAddressRequest';
@@ -1610,6 +1745,12 @@ import { ShowAgentStatisticsRequest } from './model/ShowAgentStatisticsRequest';
 import { ShowAgentStatisticsResponse } from './model/ShowAgentStatisticsResponse';
 import { ShowAgentStatisticsStatusRequest } from './model/ShowAgentStatisticsStatusRequest';
 import { ShowAgentStatisticsStatusResponse } from './model/ShowAgentStatisticsStatusResponse';
+import { ShowAiFeatureStatusRequest } from './model/ShowAiFeatureStatusRequest';
+import { ShowAiFeatureStatusResponse } from './model/ShowAiFeatureStatusResponse';
+import { ShowAiFirewallConfigRequest } from './model/ShowAiFirewallConfigRequest';
+import { ShowAiFirewallConfigResponse } from './model/ShowAiFirewallConfigResponse';
+import { ShowAiOverviewStatisticsRequest } from './model/ShowAiOverviewStatisticsRequest';
+import { ShowAiOverviewStatisticsResponse } from './model/ShowAiOverviewStatisticsResponse';
 import { ShowAntivirusFreeQuotaRequest } from './model/ShowAntivirusFreeQuotaRequest';
 import { ShowAntivirusFreeQuotaResponse } from './model/ShowAntivirusFreeQuotaResponse';
 import { ShowAntivirusPayPerScanStatusRequest } from './model/ShowAntivirusPayPerScanStatusRequest';
@@ -1630,6 +1771,8 @@ import { ShowBackupInfoByBackupIdRequest } from './model/ShowBackupInfoByBackupI
 import { ShowBackupInfoByBackupIdResponse } from './model/ShowBackupInfoByBackupIdResponse';
 import { ShowBackupPolicyInfoRequest } from './model/ShowBackupPolicyInfoRequest';
 import { ShowBackupPolicyInfoResponse } from './model/ShowBackupPolicyInfoResponse';
+import { ShowBackupsStatisticsRequest } from './model/ShowBackupsStatisticsRequest';
+import { ShowBackupsStatisticsResponse } from './model/ShowBackupsStatisticsResponse';
 import { ShowBaselineDirectoryInfo } from './model/ShowBaselineDirectoryInfo';
 import { ShowBaselineDirectoryInfoDataList } from './model/ShowBaselineDirectoryInfoDataList';
 import { ShowBaselineDirectoryRequest } from './model/ShowBaselineDirectoryRequest';
@@ -1670,16 +1813,22 @@ import { ShowDecoyPortHostListRequest } from './model/ShowDecoyPortHostListReque
 import { ShowDecoyPortHostListResponse } from './model/ShowDecoyPortHostListResponse';
 import { ShowDecoyPortPolicyDetailsRequest } from './model/ShowDecoyPortPolicyDetailsRequest';
 import { ShowDecoyPortPolicyDetailsResponse } from './model/ShowDecoyPortPolicyDetailsResponse';
+import { ShowDecoyPortStatisticsRequest } from './model/ShowDecoyPortStatisticsRequest';
+import { ShowDecoyPortStatisticsResponse } from './model/ShowDecoyPortStatisticsResponse';
 import { ShowDefaultSecurityCheckPolicyDetailsRequest } from './model/ShowDefaultSecurityCheckPolicyDetailsRequest';
 import { ShowDefaultSecurityCheckPolicyDetailsResponse } from './model/ShowDefaultSecurityCheckPolicyDetailsResponse';
 import { ShowDefaultSecurityCheckPolicyRequest } from './model/ShowDefaultSecurityCheckPolicyRequest';
 import { ShowDefaultSecurityCheckPolicyResponse } from './model/ShowDefaultSecurityCheckPolicyResponse';
+import { ShowDefenderPluginManualCommandRequest } from './model/ShowDefenderPluginManualCommandRequest';
+import { ShowDefenderPluginManualCommandResponse } from './model/ShowDefenderPluginManualCommandResponse';
 import { ShowEndpointStatusRequest } from './model/ShowEndpointStatusRequest';
 import { ShowEndpointStatusResponse } from './model/ShowEndpointStatusResponse';
 import { ShowEventAttackTagRequest } from './model/ShowEventAttackTagRequest';
 import { ShowEventAttackTagResponse } from './model/ShowEventAttackTagResponse';
 import { ShowEventSeverityRequest } from './model/ShowEventSeverityRequest';
 import { ShowEventSeverityResponse } from './model/ShowEventSeverityResponse';
+import { ShowEventStatisticsRequest } from './model/ShowEventStatisticsRequest';
+import { ShowEventStatisticsResponse } from './model/ShowEventStatisticsResponse';
 import { ShowExportTaskRequest } from './model/ShowExportTaskRequest';
 import { ShowExportTaskResponse } from './model/ShowExportTaskResponse';
 import { ShowExtendedWeakPasswordRequest } from './model/ShowExtendedWeakPasswordRequest';
@@ -1690,6 +1839,8 @@ import { ShowFilePathWhiteListsRequest } from './model/ShowFilePathWhiteListsReq
 import { ShowFilePathWhiteListsResponse } from './model/ShowFilePathWhiteListsResponse';
 import { ShowFileStatisticRequest } from './model/ShowFileStatisticRequest';
 import { ShowFileStatisticResponse } from './model/ShowFileStatisticResponse';
+import { ShowHoneypotEventStatisticsRequest } from './model/ShowHoneypotEventStatisticsRequest';
+import { ShowHoneypotEventStatisticsResponse } from './model/ShowHoneypotEventStatisticsResponse';
 import { ShowHostAssetManualCollectStatusRequest } from './model/ShowHostAssetManualCollectStatusRequest';
 import { ShowHostAssetManualCollectStatusResponse } from './model/ShowHostAssetManualCollectStatusResponse';
 import { ShowHostProtectionStatusRequest } from './model/ShowHostProtectionStatusRequest';
@@ -1752,6 +1903,9 @@ import { ShowPageNoticesInfo } from './model/ShowPageNoticesInfo';
 import { ShowPageNoticesRequest } from './model/ShowPageNoticesRequest';
 import { ShowPageNoticesResponse } from './model/ShowPageNoticesResponse';
 import { ShowPeriodResponseInfo } from './model/ShowPeriodResponseInfo';
+import { ShowPolicyDetailRequest } from './model/ShowPolicyDetailRequest';
+import { ShowPolicyDetailResponse } from './model/ShowPolicyDetailResponse';
+import { ShowPolicyDetailResponseInfo } from './model/ShowPolicyDetailResponseInfo';
 import { ShowPolicySwitchStatusRequest } from './model/ShowPolicySwitchStatusRequest';
 import { ShowPolicySwitchStatusResponse } from './model/ShowPolicySwitchStatusResponse';
 import { ShowPortTopRequest } from './model/ShowPortTopRequest';
@@ -1762,7 +1916,13 @@ import { ShowProductdataOfferingInfosRequest } from './model/ShowProductdataOffe
 import { ShowProductdataOfferingInfosResponse } from './model/ShowProductdataOfferingInfosResponse';
 import { ShowProtectStatisticsRequest } from './model/ShowProtectStatisticsRequest';
 import { ShowProtectStatisticsResponse } from './model/ShowProtectStatisticsResponse';
+import { ShowProtectionStatisticsRequest } from './model/ShowProtectionStatisticsRequest';
+import { ShowProtectionStatisticsResponse } from './model/ShowProtectionStatisticsResponse';
+import { ShowProtectionStatusStatisticsRequest } from './model/ShowProtectionStatusStatisticsRequest';
+import { ShowProtectionStatusStatisticsResponse } from './model/ShowProtectionStatusStatisticsResponse';
 import { ShowPwdDirectoryInfo } from './model/ShowPwdDirectoryInfo';
+import { ShowQuotaHostStatisticsRequest } from './model/ShowQuotaHostStatisticsRequest';
+import { ShowQuotaHostStatisticsResponse } from './model/ShowQuotaHostStatisticsResponse';
 import { ShowQuotaStatisticsInfoRequest } from './model/ShowQuotaStatisticsInfoRequest';
 import { ShowQuotaStatisticsInfoResponse } from './model/ShowQuotaStatisticsInfoResponse';
 import { ShowRaspPolicyDetailRequest } from './model/ShowRaspPolicyDetailRequest';
@@ -1773,6 +1933,8 @@ import { ShowRaspServerDetailRequest } from './model/ShowRaspServerDetailRequest
 import { ShowRaspServerDetailResponse } from './model/ShowRaspServerDetailResponse';
 import { ShowRemoteBackupHostInfoRequest } from './model/ShowRemoteBackupHostInfoRequest';
 import { ShowRemoteBackupHostInfoResponse } from './model/ShowRemoteBackupHostInfoResponse';
+import { ShowReportSubscriptionRequest } from './model/ShowReportSubscriptionRequest';
+import { ShowReportSubscriptionResponse } from './model/ShowReportSubscriptionResponse';
 import { ShowResourceQuotasRequest } from './model/ShowResourceQuotasRequest';
 import { ShowResourceQuotasResponse } from './model/ShowResourceQuotasResponse';
 import { ShowRiskConfigDetailRequest } from './model/ShowRiskConfigDetailRequest';
@@ -1789,20 +1951,46 @@ import { ShowSecurityCheckConfigRequest } from './model/ShowSecurityCheckConfigR
 import { ShowSecurityCheckConfigResponse } from './model/ShowSecurityCheckConfigResponse';
 import { ShowSecurityCheckHostReportRequest } from './model/ShowSecurityCheckHostReportRequest';
 import { ShowSecurityCheckHostReportResponse } from './model/ShowSecurityCheckHostReportResponse';
+import { ShowSecurityCheckOverviewRequest } from './model/ShowSecurityCheckOverviewRequest';
+import { ShowSecurityCheckOverviewResponse } from './model/ShowSecurityCheckOverviewResponse';
+import { ShowSecurityCheckStatisticRequest } from './model/ShowSecurityCheckStatisticRequest';
+import { ShowSecurityCheckStatisticResponse } from './model/ShowSecurityCheckStatisticResponse';
+import { ShowSecurityReportLogoRequest } from './model/ShowSecurityReportLogoRequest';
+import { ShowSecurityReportLogoResponse } from './model/ShowSecurityReportLogoResponse';
+import { ShowSecurityReportRequest } from './model/ShowSecurityReportRequest';
+import { ShowSecurityReportResponse } from './model/ShowSecurityReportResponse';
+import { ShowSecurityRiskRequest } from './model/ShowSecurityRiskRequest';
+import { ShowSecurityRiskResponse } from './model/ShowSecurityRiskResponse';
+import { ShowSecurityScoreRequest } from './model/ShowSecurityScoreRequest';
+import { ShowSecurityScoreResponse } from './model/ShowSecurityScoreResponse';
+import { ShowServerlessVulStatisticsRequest } from './model/ShowServerlessVulStatisticsRequest';
+import { ShowServerlessVulStatisticsResponse } from './model/ShowServerlessVulStatisticsResponse';
 import { ShowSingleBackupPolicyInfoRequest } from './model/ShowSingleBackupPolicyInfoRequest';
 import { ShowSingleBackupPolicyInfoResponse } from './model/ShowSingleBackupPolicyInfoResponse';
 import { ShowSoftwareTopRequest } from './model/ShowSoftwareTopRequest';
 import { ShowSoftwareTopResponse } from './model/ShowSoftwareTopResponse';
+import { ShowStatisticsRequest } from './model/ShowStatisticsRequest';
+import { ShowStatisticsResponse } from './model/ShowStatisticsResponse';
 import { ShowSwitchesStatusRequest } from './model/ShowSwitchesStatusRequest';
 import { ShowSwitchesStatusResponse } from './model/ShowSwitchesStatusResponse';
 import { ShowTaskStatisticsRequest } from './model/ShowTaskStatisticsRequest';
 import { ShowTaskStatisticsResponse } from './model/ShowTaskStatisticsResponse';
+import { ShowTemplateRequest } from './model/ShowTemplateRequest';
+import { ShowTemplateResponse } from './model/ShowTemplateResponse';
+import { ShowTrialsStatisticsRequest } from './model/ShowTrialsStatisticsRequest';
+import { ShowTrialsStatisticsResponse } from './model/ShowTrialsStatisticsResponse';
+import { ShowVersionNewServiceRequest } from './model/ShowVersionNewServiceRequest';
+import { ShowVersionNewServiceResponse } from './model/ShowVersionNewServiceResponse';
 import { ShowVersionRequest } from './model/ShowVersionRequest';
 import { ShowVersionResponse } from './model/ShowVersionResponse';
+import { ShowVulAffectInfoRequest } from './model/ShowVulAffectInfoRequest';
+import { ShowVulAffectInfoResponse } from './model/ShowVulAffectInfoResponse';
 import { ShowVulAffectedStaticsRequest } from './model/ShowVulAffectedStaticsRequest';
 import { ShowVulAffectedStaticsResponse } from './model/ShowVulAffectedStaticsResponse';
 import { ShowVulBackupStatisticsRequest } from './model/ShowVulBackupStatisticsRequest';
 import { ShowVulBackupStatisticsResponse } from './model/ShowVulBackupStatisticsResponse';
+import { ShowVulIndividualStatisticsRequest } from './model/ShowVulIndividualStatisticsRequest';
+import { ShowVulIndividualStatisticsResponse } from './model/ShowVulIndividualStatisticsResponse';
 import { ShowVulReportDataRequest } from './model/ShowVulReportDataRequest';
 import { ShowVulReportDataResponse } from './model/ShowVulReportDataResponse';
 import { ShowVulReportDataResponseInfoCveList } from './model/ShowVulReportDataResponseInfoCveList';
@@ -1815,6 +2003,8 @@ import { ShowVulScanPolicyResponse } from './model/ShowVulScanPolicyResponse';
 import { ShowVulScanTaskEstimatedTimeRequest } from './model/ShowVulScanTaskEstimatedTimeRequest';
 import { ShowVulScanTaskEstimatedTimeRequestInfo } from './model/ShowVulScanTaskEstimatedTimeRequestInfo';
 import { ShowVulScanTaskEstimatedTimeResponse } from './model/ShowVulScanTaskEstimatedTimeResponse';
+import { ShowVulScanTaskStatisticsRequest } from './model/ShowVulScanTaskStatisticsRequest';
+import { ShowVulScanTaskStatisticsResponse } from './model/ShowVulScanTaskStatisticsResponse';
 import { ShowVulStaticsRequest } from './model/ShowVulStaticsRequest';
 import { ShowVulStaticsResponse } from './model/ShowVulStaticsResponse';
 import { ShowVulTaskStatisticsRequest } from './model/ShowVulTaskStatisticsRequest';
@@ -1850,6 +2040,9 @@ import { StartProtectionRequest } from './model/StartProtectionRequest';
 import { StartProtectionResponse } from './model/StartProtectionResponse';
 import { StartTime } from './model/StartTime';
 import { StartType } from './model/StartType';
+import { StatPeriod } from './model/StatPeriod';
+import { StatPeriodReq } from './model/StatPeriodReq';
+import { StatPeriodRes } from './model/StatPeriodRes';
 import { StopImageScanTaskRequest } from './model/StopImageScanTaskRequest';
 import { StopImageScanTaskResponse } from './model/StopImageScanTaskResponse';
 import { StopManualSecurityCheckRequest } from './model/StopManualSecurityCheckRequest';
@@ -1858,6 +2051,8 @@ import { StopPluginRequest } from './model/StopPluginRequest';
 import { StopPluginResponse } from './model/StopPluginResponse';
 import { StopProtectionRequest } from './model/StopProtectionRequest';
 import { StopProtectionResponse } from './model/StopProtectionResponse';
+import { SubscriptionTypeReq } from './model/SubscriptionTypeReq';
+import { SubscriptionTypeRes } from './model/SubscriptionTypeRes';
 import { SuspiciousNum } from './model/SuspiciousNum';
 import { SwitchAntivirusTaskRequest } from './model/SwitchAntivirusTaskRequest';
 import { SwitchAntivirusTaskRequestInfo } from './model/SwitchAntivirusTaskRequestInfo';
@@ -1913,10 +2108,14 @@ import { TaskId } from './model/TaskId';
 import { TaskIdRes } from './model/TaskIdRes';
 import { TaskName } from './model/TaskName';
 import { TaskStatus } from './model/TaskStatus';
+import { TimeRes } from './model/TimeRes';
 import { TimezoneOffset } from './model/TimezoneOffset';
 import { TimingRangeConfigInfo } from './model/TimingRangeConfigInfo';
 import { TimingRangeConfigRequestInfo } from './model/TimingRangeConfigRequestInfo';
+import { TopicUrnReq } from './model/TopicUrnReq';
+import { TopicUrnRes } from './model/TopicUrnRes';
 import { TotalNum } from './model/TotalNum';
+import { TrendRiskInfo } from './model/TrendRiskInfo';
 import { TrustNum } from './model/TrustNum';
 import { TrustProcessInfo } from './model/TrustProcessInfo';
 import { TwoFactorLoginHostResponseInfo } from './model/TwoFactorLoginHostResponseInfo';
@@ -1925,8 +2124,16 @@ import { UninstallAgentsRequestInfo } from './model/UninstallAgentsRequestInfo';
 import { UninstallAgentsResponse } from './model/UninstallAgentsResponse';
 import { UnknownNum } from './model/UnknownNum';
 import { UnprotectHostNum } from './model/UnprotectHostNum';
+import { UnprotectedNumRes } from './model/UnprotectedNumRes';
 import { UpdateAgentDaemonsetRequest } from './model/UpdateAgentDaemonsetRequest';
 import { UpdateAgentDaemonsetResponse } from './model/UpdateAgentDaemonsetResponse';
+import { UpdateAiFirewallConfigRequest } from './model/UpdateAiFirewallConfigRequest';
+import { UpdateAiFirewallConfigRequestBody } from './model/UpdateAiFirewallConfigRequestBody';
+import { UpdateAiFirewallConfigResponse } from './model/UpdateAiFirewallConfigResponse';
+import { UpdateAiInstanceProtectionRequest } from './model/UpdateAiInstanceProtectionRequest';
+import { UpdateAiInstanceProtectionRequestBody } from './model/UpdateAiInstanceProtectionRequestBody';
+import { UpdateAiInstanceProtectionResponse } from './model/UpdateAiInstanceProtectionResponse';
+import { UpdateAiInstanceProtectionResultItem } from './model/UpdateAiInstanceProtectionResultItem';
 import { UpdateAiPolicyDetailRequest } from './model/UpdateAiPolicyDetailRequest';
 import { UpdateAiPolicyDetailRequestInfo } from './model/UpdateAiPolicyDetailRequestInfo';
 import { UpdateAiPolicyDetailResponse } from './model/UpdateAiPolicyDetailResponse';
@@ -1971,6 +2178,9 @@ import { UpdateSecurityCheckPolicyGroupResponse } from './model/UpdateSecurityCh
 import { UpdateSecurityGroupPolicyRequest } from './model/UpdateSecurityGroupPolicyRequest';
 import { UpdateSecurityGroupPolicyRequestBody } from './model/UpdateSecurityGroupPolicyRequestBody';
 import { UpdateSecurityGroupPolicyResponse } from './model/UpdateSecurityGroupPolicyResponse';
+import { UpdateSnapshotPolicyRequest } from './model/UpdateSnapshotPolicyRequest';
+import { UpdateSnapshotPolicyRequestBody } from './model/UpdateSnapshotPolicyRequestBody';
+import { UpdateSnapshotPolicyResponse } from './model/UpdateSnapshotPolicyResponse';
 import { UpdateSystemUserWhiteListRequest } from './model/UpdateSystemUserWhiteListRequest';
 import { UpdateSystemUserWhiteListRequestInfo } from './model/UpdateSystemUserWhiteListRequestInfo';
 import { UpdateSystemUserWhiteListResponse } from './model/UpdateSystemUserWhiteListResponse';
@@ -2016,6 +2226,8 @@ import { VulAffectedStatisticsResponseInfoDisabledOperateTypes } from './model/V
 import { VulBackupStatisticsRequestInfo } from './model/VulBackupStatisticsRequestInfo';
 import { VulContainerInfo } from './model/VulContainerInfo';
 import { VulCveInfo } from './model/VulCveInfo';
+import { VulHandleTaskDetailResponseInfo } from './model/VulHandleTaskDetailResponseInfo';
+import { VulHandleTaskResponseInfo } from './model/VulHandleTaskResponseInfo';
 import { VulHostAppsResponseInfoDataList } from './model/VulHostAppsResponseInfoDataList';
 import { VulHostAppsResponseInfoPaths } from './model/VulHostAppsResponseInfoPaths';
 import { VulHostBackupsResponseInfoDataList } from './model/VulHostBackupsResponseInfoDataList';
@@ -2032,12 +2244,16 @@ import { VulRepairFailedDetailInfo } from './model/VulRepairFailedDetailInfo';
 import { VulRepoImageInfo } from './model/VulRepoImageInfo';
 import { VulRepoImagesTagInfo } from './model/VulRepoImagesTagInfo';
 import { VulReportRequestBody } from './model/VulReportRequestBody';
+import { VulRiskNumRes } from './model/VulRiskNumRes';
 import { VulScanPolicyResponseInfoTime } from './model/VulScanPolicyResponseInfoTime';
 import { VulScanTaskHostInfo } from './model/VulScanTaskHostInfo';
 import { VulScanTaskHostInfoFailedReasons } from './model/VulScanTaskHostInfoFailedReasons';
 import { VulScanTaskHostInfoScanVulList } from './model/VulScanTaskHostInfoScanVulList';
 import { VulScanTaskHostInfoVulScanDetails } from './model/VulScanTaskHostInfoVulScanDetails';
 import { VulScanTaskInfo } from './model/VulScanTaskInfo';
+import { VulScanTaskStatisticsResponseInfoLastScanTask } from './model/VulScanTaskStatisticsResponseInfoLastScanTask';
+import { VulScanTaskStatisticsResponseInfoLastScanTaskRiskyHostNum } from './model/VulScanTaskStatisticsResponseInfoLastScanTaskRiskyHostNum';
+import { VulTotalNumRes } from './model/VulTotalNumRes';
 import { VulUrgentResponseInfoCveList } from './model/VulUrgentResponseInfoCveList';
 import { VulUrgentResponseInfoDataList } from './model/VulUrgentResponseInfoDataList';
 import { VulUrgentResponseInfoDisabledOperateTypes } from './model/VulUrgentResponseInfoDisabledOperateTypes';
@@ -2079,6 +2295,7 @@ import { WhetherPaidTask } from './model/WhetherPaidTask';
 import { WhetherUsingQuota } from './model/WhetherUsingQuota';
 import { WhiteImageInfo } from './model/WhiteImageInfo';
 import { WindowsVulDetailInfo } from './model/WindowsVulDetailInfo';
+import { WorkLoadInfo } from './model/WorkLoadInfo';
 import { Workload } from './model/Workload';
 import { WtpBackupHostResponseInfo } from './model/WtpBackupHostResponseInfo';
 import { WtpProtectDirResponseInfo } from './model/WtpProtectDirResponseInfo';
@@ -2256,7 +2473,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除标签
-     * @param {string} resourceType **参数解释**: 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss **约束限制**: 不涉及 **取值范围**: - hss：hss **默认取值**: 不涉及 
+     * @param {string} resourceType **参数解释**: 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss **约束限制**: 不涉及 **取值范围**: - hss：hss  **默认取值**: 不涉及 
      * @param {string} resourceId **参数解释**: 资源ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {BatchDeleteTagsRequestInfo} [batchDeleteTagsRequestBody] **参数解释**: 需要批量删除标签的标签列表 **约束限制**: 不涉及 **取值范围**: 不涉及 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
@@ -2264,27 +2481,6 @@ export class HssClient {
      */
     public batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest): Promise<BatchDeleteTagsResponse> {
         const options = ParamCreater().batchDeleteTags(batchDeleteTagsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 修改开放端口状态。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 修改开放端口状态
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {ListPortStatusRequestInfo} batchModifyPortStatusRequestBody **参数解释**: 修改开放端口状态请求体 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchModifyPortStatus(batchModifyPortStatusRequest?: BatchModifyPortStatusRequest): Promise<BatchModifyPortStatusResponse> {
-        const options = ParamCreater().batchModifyPortStatus(batchModifyPortStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2520,27 +2716,6 @@ export class HssClient {
     }
 
     /**
-     * 创建全局资产扫描任务。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建全局资产扫描任务
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {CreateGlobalAssetScanTaskRequestInfo} createGlobalAssetScanTaskRequestBody **参数解释**: 创建全局资产扫描任务请求参数 **约束限制**: 不涉及 **取值范围**: 不涉及 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createGlobalAssetScanTask(createGlobalAssetScanTaskRequest?: CreateGlobalAssetScanTaskRequest): Promise<CreateGlobalAssetScanTaskResponse> {
-        const options = ParamCreater().createGlobalAssetScanTask(createGlobalAssetScanTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 创建安全组策略(云原生网络模型)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2749,28 +2924,6 @@ export class HssClient {
     }
 
     /**
-     * 导出资产指纹信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 导出资产指纹信息
-     * @param {string} assetType **参数解释**: 资产指纹类型 **约束限制**: 不涉及 **取值范围**: - users         ：账号 - auto_launch   ：自启动项 - database      ：数据库 - jar_package   ：中间件 - port          ：开放端口 - process       ：进程 - web_cms       ：web应用 - web_framework ：web框架 - web_service   ：web服务 - web_site      ：web站点 - app           ：软件 - kernel_module ：内核模块  **默认取值**: 不涉及 
-     * @param {string} category **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host     ：主机 - container：容器  **默认取值**: host 
-     * @param {DownloadAssetFileRequestBody} downloadAssetFileRequestBody **参数解释**: \&quot;导出数据的表头字段列表\&quot; **约束限制**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public downloadAssetFile(downloadAssetFileRequest?: DownloadAssetFileRequest): Promise<DownloadAssetFileResponse> {
-        const options = ParamCreater().downloadAssetFile(downloadAssetFileRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 下载告警源文件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2848,8 +3001,8 @@ export class HssClient {
      * @param {number} [offset] **参数解释**： 偏移量：指定返回记录的开始位置 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {number} [limit] **参数解释**： 每页显示个数 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {number} [exportSize] **参数解释**： 导出数量 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
-     * @param {number} [eventType] **参数解释**： 事件类型 **约束限制**： 不涉及 **取值范围**： - 1001：通用恶意软件 - 1002：病毒 - 1003：蠕虫 - 1004：木马 - 1005：僵尸网络 - 1006：后门 - 1010：Rootkit - 1011：勒索软件 - 1012：黑客工具 - 1015：Webshell - 1016：挖矿 - 1017：反弹Shell - 2001：一般漏洞利用 - 2012：远程代码执行 - 2047：Redis漏洞利用 - 2048：Hadoop漏洞利用 - 2049：MySQL漏洞利用 - 3002：文件提权 - 3003：进程提权 - 3004：关键文件变更 - 3005：文件/目录变更 - 3007：进程异常行为 - 3015：高危命令执行 - 3018：异常Shell - 3027：Crontab可疑任务 - 3029：系统安全防护被禁用 - 3030：备份删除 - 3031：异常注册表操作 - 3036：容器镜像阻断 - 4002：暴力破解 - 4004：异常登录 - 4006：非法系统账号 - 4014：用户账号添加 - 4020：用户密码窃取 - 6002：端口扫描 - 6003：主机扫描 - 13001：Kubernetes事件删除 - 13002：Pod异常行为 - 13003：枚举用户信息 - 13004：绑定集群用户角色 - 11001：高级威胁事件  **默认取值**： 不涉及
-     * @param {Array<number>} [eventTypes] **参数解释**： 事件类型 **约束限制**： 不涉及 **取值范围**： - 1001：通用恶意软件 - 1002：病毒 - 1003：蠕虫 - 1004：木马 - 1005：僵尸网络 - 1006：后门 - 1010：Rootkit - 1011：勒索软件 - 1012：黑客工具 - 1015：Webshell - 1016：挖矿 - 1017：反弹Shell - 2001：一般漏洞利用 - 2012：远程代码执行 - 2047：Redis漏洞利用 - 2048：Hadoop漏洞利用 - 2049：MySQL漏洞利用 - 3002：文件提权 - 3003：进程提权 - 3004：关键文件变更 - 3005：文件/目录变更 - 3007：进程异常行为 - 3015：高危命令执行 - 3018：异常Shell - 3027：Crontab可疑任务 - 3029：系统安全防护被禁用 - 3030：备份删除 - 3031：异常注册表操作 - 3036：容器镜像阻断 - 4002：暴力破解 - 4004：异常登录 - 4006：非法系统账号 - 4014：用户账号添加 - 4020：用户密码窃取 - 6002：端口扫描 - 6003：主机扫描 - 13001：Kubernetes事件删除 - 13002：Pod异常行为 - 13003：枚举用户信息 - 13004：绑定集群用户角色 - 11001：高级威胁事件  **默认取值**： 不涉及
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
+     * @param {Array<number>} [eventTypes] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: - unhandled：未处理 - handled：已处理  **默认取值**: 不涉及 
      * @param {string} [severity] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {number} [beginTime] **参数解释**： 自定义查询时间，与查询时间范围天数互斥，查询时间段的起始时间，毫秒级时间戳，end_time减去begin_time小于等于2天，与查询时间范围天数互斥 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
@@ -2862,7 +3015,7 @@ export class HssClient {
      * @param {string} [attCk] **参数解释**: ATT&amp;CK攻击阶段 **约束限制**: 不涉及 **取值范围**: - Reconnaissance：侦察 - Initial Access：初始访问 - Execution：执行 - Persistence：持久化 - Privilege Escalation：权限提升 - Defense Evasion：防御绕过 - Credential Access：凭据访问 - Command and Control：命令与控制 - Impact：影响破坏  **默认取值**: 不涉及 
      * @param {string} [eventName] **参数解释**： 告警名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及
      * @param {Array<string>} [eventIdList] **参数解释**： 告警id集合 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 \&quot;\&quot;
-     * @param {boolean} [autoBlock] **参数解释**： 是否自动阻断告警 **约束限制**： 不涉及 **取值范围**： - true：自动阻断告警 - false：不自动阻断告警 **默认取值**： 不涉及 
+     * @param {boolean} [autoBlock] **参数解释**： 是否自动阻断告警 **约束限制**： 不涉及 **取值范围**： - true：自动阻断告警 - false：不自动阻断告警  **默认取值**： 不涉及 
      * @param {string} [clusterId] **参数解释**: 集群ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**： 服务器公网IP **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
@@ -2927,65 +3080,6 @@ export class HssClient {
     }
 
     /**
-     * 查询AI组件详细信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary AI组件详细信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具  **默认取值**: 不涉及
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [serverName] **参数解释**: category&#x3D;&#x3D;host时 表示服务器名称 category&#x3D;&#x3D;container时 表示节点名称 category&#x3D;&#x3D;serverless时 表示实例名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} [serverIp] **参数解释**: category&#x3D;&#x3D;host时 表示服务器IP地址 category&#x3D;&#x3D;container时 表示节点IP地址 category&#x3D;&#x3D;serverless时 表示实例IP地址 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [aiApplication] **参数解释**: AI应用名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [aiTool] **参数解释**: AI工具名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [type] **参数解释**: AI应用类型 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
-     * @param {string} [version] **参数解释**: AI版本 **约束限制**: 不涉及 **取值范围**: 字符长度0-32位 **默认取值**: 不涉及 
-     * @param {string} [installationPath] **参数解释**: 安装路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
-     * @param {number} [firstScanTime] **参数解释**: 首次扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [latestScanTime] **参数解释**: 最近扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
-     * @param {string} [containerName] **参数解释**: 容器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} [containerId] **参数解释**: 容器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [imageName] **参数解释**: 镜像名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest): Promise<ListAiComponentDetailResponse> {
-        const options = ParamCreater().listAiComponentDetail(listAiComponentDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询AI组件统计信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询AI组件统计信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具  **默认取值**: 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [aiComponentName] **参数解释**： AI组件对应类型的名称 **取值范围**： 字符长度1-256位 **约束限制**: 不涉及 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest): Promise<ListAiComponentStatisticsResponse> {
-        const options = ParamCreater().listAiComponentStatistics(listAiComponentStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询告警白名单列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2994,7 +3088,7 @@ export class HssClient {
      * @param {string} [region] Region ID
      * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
      * @param {string} [hash] 事件白名单SHA256
-     * @param {number} [eventType] 事件类型，包含如下:   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {number} [offset] 偏移量：指定返回记录的开始位置
      * @param {number} [limit] 每页显示个数
      * @param {*} [options] Override http request option.
@@ -3016,177 +3110,12 @@ export class HssClient {
      *
      * @summary 查询告警白名单生详情
      * @param {string} ruleId **参数解释**： 规则ID **约束限制**： 必填 **取值范围**： 字符长度1-36位 **默认取值**： 不涉及 
-     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest?: ListAlarmWhiteListHostDetailRequest): Promise<ListAlarmWhiteListHostDetailResponse> {
         const options = ParamCreater().listAlarmWhiteListHostDetail(listAlarmWhiteListHostDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取软件信息的历史变动记录。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取软件信息的历史变动记录
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 主机id **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 主机ip **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 主机名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [appName] **参数解释**: 软件名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [variationType] **参数解释**: 变更类型 **约束限制**: 不涉及 **取值范围**: - add：新建 - delete：删除 - modify：修改  **默认取值**: 不涉及 
-     * @param {string} [sortKey] **参数解释**: 排序的key值，目前只支持按照recent_scan_time排序，按照recent_scan_time排序时，根据sort_dir的值决定升序还是降序 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [sortDir] **参数解释**: 排序方式，默认为降序，当sort_key为按照recent_scan_time排序时，根据当前值决定升序还是降序，当sort_key为其他值时均为降序 **约束限制**: 不涉及 **取值范围**: - asc：升序 - desc：降序  **默认取值**: 不涉及 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [startTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAppChangeHistories(listAppChangeHistoriesRequest?: ListAppChangeHistoriesRequest): Promise<ListAppChangeHistoriesResponse> {
-        const options = ParamCreater().listAppChangeHistories(listAppChangeHistoriesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询软件列表，支持通过软件名称查询对应的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询软件列表
-     * @param {string} category **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
-     * @param {string} [appName] **参数解释**: 软件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAppStatistics(listAppStatisticsRequest?: ListAppStatisticsRequest): Promise<ListAppStatisticsResponse> {
-        const options = ParamCreater().listAppStatistics(listAppStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询软件的服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询软件的服务器列表
-     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [appName] **参数解释**: 软件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [version] **参数解释**: 软件版本号 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [installDir] **参数解释**: 安装目录 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: boolean类型 **取值范围**: 不涉及 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listApps(listAppsRequest?: ListAppsRequest): Promise<ListAppsResponse> {
-        const options = ParamCreater().listApps(listAppsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取自启动项的历史变动记录。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取自启动项的历史变动记录
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [autoLaunchName] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {number} [type] **参数解释**: 自启动项类型 **约束限制**: 不涉及 **取值范围**: - 0：自启动服务 - 1：定时任务 - 2：预加载动态库 - 3：Run注册表键 - 4：开机启动文件夹  **默认取值**: 不涉及 
-     * @param {string} [variationType] **参数解释**: 变更类型 **约束限制**: 不涉及 **取值范围**: - add：新建 - delete：删除 - modify：修改  **默认取值**: 不涉及 
-     * @param {string} [sortKey] **参数解释**: 排序的key值，目前只支持按照recent_scan_time排序，按照recent_scan_time排序时，根据sort_dir的值决定升序还是降序 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [sortDir] **参数解释**: 排序方式，默认为降序，当sort_key为按照recent_scan_time排序时，根据当前值决定升序还是降序，当sort_key为其他值时均为降序 **约束限制**: 不涉及 **取值范围**: - asc：升序 - desc：降序  **默认取值**: 不涉及 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [startTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAutoLaunchChangeHistories(listAutoLaunchChangeHistoriesRequest?: ListAutoLaunchChangeHistoriesRequest): Promise<ListAutoLaunchChangeHistoriesResponse> {
-        const options = ParamCreater().listAutoLaunchChangeHistories(listAutoLaunchChangeHistoriesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询自启动信息，支持通过传入自启动名称查询启动类型和服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询自启动项信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [name] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [type] **参数解释**: 自启动项类型 **约束限制**: 不涉及 **取值范围**: - 0：自启动服务 - 1：定时任务 - 2：预加载动态库 - 3：Run注册表键 - 4：开机启动文件夹  **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAutoLaunchStatistics(listAutoLaunchStatisticsRequest?: ListAutoLaunchStatisticsRequest): Promise<ListAutoLaunchStatisticsResponse> {
-        const options = ParamCreater().listAutoLaunchStatistics(listAutoLaunchStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询自启动项的服务列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询自启动项的服务列表
-     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [name] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [type] **参数解释**: 自启动项类型 **约束限制**: 不涉及 **取值范围**: - 0：自启动服务 - 1：定时任务 - 2：预加载动态库 - 3：Run注册表键 - 4：开机启动文件夹  **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAutoLaunchs(listAutoLaunchsRequest?: ListAutoLaunchsRequest): Promise<ListAutoLaunchsResponse> {
-        const options = ParamCreater().listAutoLaunchs(listAutoLaunchsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3248,12 +3177,12 @@ export class HssClient {
      *
      * @summary 批量获取容器集群风险信息
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {CCEClusterIdListRequestBody} [listCceClusterDetectRiskRequestBody] 集群id列表
+     * @param {CCEClusterIdListRequestBody} [listCceClusterDetectRiskRequestBody] 批量获取容器集群风险信息请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listCceClusterDetectRisk(listCceClusterDetectRiskRequest?: ListCceClusterDetectRiskRequest): Promise<ListCceClusterDetectRiskResponse> {
-        const options = ParamCreater().listCceClusterDetectRisk(listCceClusterDetectRiskRequest);
+    public listCceClusterDetectRisk2(listCceClusterDetectRisk2Request?: ListCceClusterDetectRisk2Request): Promise<ListCceClusterDetectRisk2Response> {
+        const options = ParamCreater().listCceClusterDetectRisk2(listCceClusterDetectRisk2Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3680,7 +3609,7 @@ export class HssClient {
      * @param {number} [offset] **参数解释**: 指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 取值0-2000000  **默认取值**: 0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200  **默认取值**: 10 
      * @param {string} [hostName] **参数解释**: 节点名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位  **默认取值**: 不涉及 
-     * @param {string} [agentStatus] **参数解释**: Agent状态 **约束限制**: 不涉及 **取值范围**: 包含如下6种。 - installed ：已安装。 - not_installed ：未安装。 - online ：在线。 - offline ：离线。 - install_failed ：安装失败。 - installing ：安装中。 **默认取值**: 不涉及 
+     * @param {string} [agentStatus] **参数解释**: Agent状态 **约束限制**: 不涉及 **取值范围**: 包含如下6种。 - installed ：已安装。 - not_installed ：未安装。 - online ：在线。 - offline ：离线。 - install_failed ：安装失败。 - installing ：安装中。  **默认取值**: 不涉及 
      * @param {string} [protectStatus] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: 包含如下2种。   - closed：关闭   - opened：开启  **默认取值**: 不涉及 
      * @param {string} [containerTags] **参数解释**: 用来识别cce节点或者自建节点的标签 **约束限制**: 不涉及 **取值范围**: 包含如下3种。   - cce：cce节点   - self：自建节点   - other：其他节点  **默认取值**: 不涉及 
      * @param {string} [version] **参数解释**: 查询是否是容器节点 **约束限制**: 不涉及 **取值范围**: - hss.version.null：无。 - hss.version.basic：基础版。 - hss.version.advanced：专业版。 - hss.version.enterprise：企业版。 - hss.version.premium：旗舰版。 - hss.version.wtp：网页防篡改版。 - hss.version.container.enterprise：容器版。  **默认取值**: 不涉及 
@@ -3707,7 +3636,7 @@ export class HssClient {
      * @param {string} [containerName] **参数解释**: 容器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {string} [podName] **参数解释**: 所属Pod名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {string} [imageName] **参数解释**: 镜像名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {boolean} [clusterContainer] **参数解释**: 是否是集群纳管的容器 **约束限制**: 不涉及 **取值范围**:   - true：是集群纳管的容器。   - false：不是集群纳管的容器。 **默认取值**: false 
+     * @param {boolean} [clusterContainer] **参数解释**: 是否是集群纳管的容器 **约束限制**: 不涉及 **取值范围**:   - true：是集群纳管的容器。   - false：不是集群纳管的容器。  **默认取值**: false 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 取值0-2000000 **默认取值**: 0 
      * @param {*} [options] Override http request option.
@@ -3769,6 +3698,27 @@ export class HssClient {
     }
 
     /**
+     * 查询已委托账号树形结构
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询已委托账号树形结构
+     * @param {string} [xSecurityToken] 如果正在使用临时安全凭据，则此header是必需的，该值是临时安全凭据的安全令牌（会话令牌）。
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {boolean} [refresh] **参数解释**: 是否强制从organization同步组织信息 **约束限制**: 不涉及 **取值范围**: - true：强制从organization同步组织信息 - false：使用本地缓存的组织信息  **默认取值**: false 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDelegatedAccounts(listDelegatedAccountsRequest?: ListDelegatedAccountsRequest): Promise<ListDelegatedAccountsResponse> {
+        const options = ParamCreater().listDelegatedAccounts(listDelegatedAccountsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询插件列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3781,7 +3731,7 @@ export class HssClient {
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [groupId] 服务器组的唯一标识ID
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产 **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {string} [agentStatus] **参数解释**： 客户端状态 **约束限制**： 不涉及 **取值范围**： 字符长度1-256位  **默认取值**： 不涉及 
@@ -3848,7 +3798,7 @@ export class HssClient {
      * @param {string} [privateIp] **参数解释**： 服务器私有IP **约束限制**： 不涉及 **取值范围**： 字符长度1-256位 **默认取值**： 不涉及 
      * @param {string} [publicIp] **参数解释**： 服务器公网IP **约束限制**： 不涉及 **取值范围**： 字符长度1-256位 **默认取值**： 不涉及 
      * @param {string} [containerName] **参数解释**： 容器实例名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-512位 **默认取值**： 不涉及 
-     * @param {number} [eventType] **参数解释**: 事件类型 **约束限制**: 不涉及 **取值范围**: - 1001：通用恶意软件 - 1002：病毒 - 1003：蠕虫 - 1004：木马 - 1005：僵尸网络 - 1006：后门 - 1010：Rootkit - 1011：勒索软件 - 1012：黑客工具 - 1015：Webshell - 1016：挖矿 - 1017：反弹Shell - 2001：一般漏洞利用 - 2012：远程代码执行 - 2047：Redis漏洞利用 - 2048：Hadoop漏洞利用 - 2049：MySQL漏洞利用 - 3002：文件提权 - 3003：进程提权 - 3004：关键文件变更 - 3005：文件/目录变更 - 3007：进程异常行为 - 3015：高危命令执行 - 3018：异常Shell - 3026：crontab提权 - 3027：Crontab可疑任务 - 3029：系统安全防护被禁用 - 3030：备份删除 - 3031：异常注册表操作 - 3036：容器镜像阻断 - 4002：暴力破解 - 4004：异常登录 - 4006：非法系统账号 - 4014：用户账号添加 - 4020：用户密码窃取 - 6002：端口扫描 - 6003：主机扫描 - 13001：Kubernetes事件删除 - 13002：Pod异常行为 - 13003：枚举用户信息 - 13004：绑定集群用户角色  **默认取值**: 不涉及 
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: - unhandled：未处理 - handled：已处理  **默认取值**: 不涉及 
      * @param {string} [severity] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {Array<string>} [severityList] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
@@ -3874,11 +3824,11 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询具体事件的调查取证信息
-     * @param {number} eventType **参数解释**： 事件类型 **约束限制**： 不涉及 **取值范围**： - 1001：通用恶意软件 - 1002：病毒 - 1003：蠕虫 - 1004：木马 - 1005：僵尸网络 - 1006：后门 - 1010：Rootkit - 1011：勒索软件 - 1012：黑客工具 - 1015：Webshell - 1016：挖矿 - 1017：反弹Shell - 2001：一般漏洞利用 - 2012：远程代码执行 - 2047：Redis漏洞利用 - 2048：Hadoop漏洞利用 - 2049：MySQL漏洞利用 - 3002：文件提权 - 3003：进程提权 - 3004：关键文件变更 - 3005：文件/目录变更 - 3007：进程异常行为 - 3015：高危命令执行 - 3018：异常Shell - 3027：Crontab可疑任务 - 3029：系统安全防护被禁用 - 3030：备份删除 - 3031：异常注册表操作 - 3036：容器镜像阻断 - 4002：暴力破解 - 4004：异常登录 - 4006：非法系统账号 - 4014：用户账号添加 - 4020：用户密码窃取 - 6002：端口扫描 - 6003：主机扫描 - 13001：Kubernetes事件删除 - 13002：Pod异常行为 - 13003：枚举用户信息 - 13004：绑定集群用户角色 - 11001：高级威胁事件  **默认取值**： 不涉及
      * @param {string} eventId **参数解释**： 事件编号 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及
      * @param {number} occurTime **参数解释**： 事件发生时间 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [category] **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host：主机安全事件 - container：容器安全事件 - serverless：serverless场景安全事件 **默认取值**: 不涉及 
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
+     * @param {string} [category] **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host：主机安全事件 - container：容器安全事件 - serverless：serverless场景安全事件  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3899,7 +3849,7 @@ export class HssClient {
      * @summary 查询事件支持的处理类型
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [eventType] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3928,7 +3878,7 @@ export class HssClient {
      * @param {string} [hostId] 服务器ID
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [containerName] 容器实例名称
-     * @param {number} [eventType] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
      * @param {string} [severity] 威胁等级，包含如下:   - Security ：安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {*} [options] Override http request option.
@@ -3949,7 +3899,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询事件类型统计列表
-     * @param {string} category **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host : 主机安全事件 - container : 容器安全事件 - serverless : serverless场景安全事件 **默认取值**: 不涉及 
+     * @param {string} category **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host : 主机安全事件 - container : 容器安全事件 - serverless : serverless场景安全事件  **默认取值**: 不涉及 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
@@ -3981,18 +3931,38 @@ export class HssClient {
     }
 
     /**
-     * 查询资产全局扫描任务状态。
+     * 查询已忽略的服务器列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询资产全局扫描任务状态
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
+     * @summary 查询已忽略的服务器列表
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [version] **参数解释**： 主机开通的版本 **约束限制**: 不涉及 **取值范围**： 包含如下7种输入。 - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。 - hss.version.container.wtp：容器网页防篡改增值项。  **默认取值**: 不涉及
+     * @param {string} [agentStatus] **参数解释**： Agent状态 **约束限制**: 不涉及 **取值范围**： - installed：已安装 - not_installed：未安装 - online：在线 - offline：离线 - install_failed：安装失败 - installing：安装中  **默认取值**: 不涉及 
+     * @param {string} [detectResult] **参数解释**: 检测结果 **约束限制**: 不涉及 **取值范围**: 包含如下4种： - undetected：未检测 - clean：无风险 - risk：有风险 - scanning：检测中  **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostStatus] **参数解释**: 主机状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种： - ACTIVE：正在运行 - SHUTOFF：关机 - BUILDING：创建中 - ERROR：故障  **默认取值**: 不涉及 
+     * @param {string} [osType] **参数解释**: 操作系统类型。 **约束限制**: 不涉及 **取值范围**: - Linux：Linux操作系统。 - Windows：Windows操作系统。  **默认取值**: 无 
+     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [ipAddr] **参数解释**: 公网或私网IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [protectStatus] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: 包含如下3种： - closed：关闭 - opened：开启 - protection_exception：防护异常  **默认取值**: 不涉及 
+     * @param {string} [groupId] **参数解释**: 服务器组的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [groupName] **参数解释**: 服务器组名称。 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 无 
+     * @param {string} [policyGroupId] **参数解释**: 策略组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [policyGroupName] **参数解释**: 策略组名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。  **默认取值**: 不涉及
+     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**: 不涉及 
+     * @param {string} [label] **参数解释**: 服务器标签，格式为\&quot;key:value\&quot; **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {boolean} [hasIntrusion] **参数解释**: 存在告警事件 **约束限制**: 不涉及 **取值范围**: true或者false **默认取值**: 不涉及 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listGlobalAssetScanTask(listGlobalAssetScanTaskRequest?: ListGlobalAssetScanTaskRequest): Promise<ListGlobalAssetScanTaskResponse> {
-        const options = ParamCreater().listGlobalAssetScanTask(listGlobalAssetScanTaskRequest);
+    public listIgnoreHosts(listIgnoreHostsRequest?: ListIgnoreHostsRequest): Promise<ListIgnoreHostsResponse> {
+        const options = ParamCreater().listIgnoreHosts(listIgnoreHostsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4025,77 +3995,6 @@ export class HssClient {
      */
     public listIsolatedFile(listIsolatedFileRequest?: ListIsolatedFileRequest): Promise<ListIsolatedFileResponse> {
         const options = ParamCreater().listIsolatedFile(listIsolatedFileRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定中间件的服务器列表，通过传入中间件名称参数，返回对应的中间件服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定中间件的服务器列表
-     * @param {string} fileName **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listJarPackageHostInfo(listJarPackageHostInfoRequest?: ListJarPackageHostInfoRequest): Promise<ListJarPackageHostInfoResponse> {
-        const options = ParamCreater().listJarPackageHostInfo(listJarPackageHostInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定主机的中间件信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定主机的中间件信息
-     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [fileName] **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listJarPackageInfo(listJarPackageInfoRequest?: ListJarPackageInfoRequest): Promise<ListJarPackageInfoResponse> {
-        const options = ParamCreater().listJarPackageInfo(listJarPackageInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询中间件列表，支持通过中间件名称查询对应的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询中间件列表
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [fileName] **参数解释**: 中间件文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listJarPackageStatistics(listJarPackageStatisticsRequest?: ListJarPackageStatisticsRequest): Promise<ListJarPackageStatisticsResponse> {
-        const options = ParamCreater().listJarPackageStatistics(listJarPackageStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4240,74 +4139,6 @@ export class HssClient {
      */
     public listK8sStatefulSets(listK8sStatefulSetsRequest?: ListK8sStatefulSetsRequest): Promise<ListK8sStatefulSetsResponse> {
         const options = ParamCreater().listK8sStatefulSets(listK8sStatefulSetsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定内核模块的服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定内核模块的服务器列表
-     * @param {string} name **参数解释**: 内核模块名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listKernelModuleHostInfo(listKernelModuleHostInfoRequest?: ListKernelModuleHostInfoRequest): Promise<ListKernelModuleHostInfoResponse> {
-        const options = ParamCreater().listKernelModuleHostInfo(listKernelModuleHostInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定主机的内核模块信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定主机的内核模块信息
-     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [name] **参数解释**: 内核模块名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listKernelModuleInfo(listKernelModuleInfoRequest?: ListKernelModuleInfoRequest): Promise<ListKernelModuleInfoResponse> {
-        const options = ParamCreater().listKernelModuleInfo(listKernelModuleInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询内核模块的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询内核模块的统计信息
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [name] **参数解释**: 内核模块名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listKernelModuleStatistics(listKernelModuleStatisticsRequest?: ListKernelModuleStatisticsRequest): Promise<ListKernelModuleStatisticsResponse> {
-        const options = ParamCreater().listKernelModuleStatistics(listKernelModuleStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4496,128 +4327,26 @@ export class HssClient {
     }
 
     /**
-     * 查询具备该端口的主机/容器的服务器列表。
+     * 查询主机或容器上的进程列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询指定开放端口的服务器列表
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {number} port **参数解释**: 端口号 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值65535（TCP/UDP标准端口范围） **默认取值**: 不涉及 
+     * @summary 查询进程列表
+     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [user] **参数解释**: 进程启动用户 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [path] **参数解释**: 进程可执行文件路径 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [launchParams] **参数解释**: 进程启动参数 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器 - serverless：无服务器  **默认取值**: host 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [type] **参数解释**: 端口类型 **约束限制**: 不涉及 **取值范围**: TCP、UDP **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPortHost(listPortHostRequest?: ListPortHostRequest): Promise<ListPortHostResponse> {
-        const options = ParamCreater().listPortHost(listPortHostRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询开放端口列表，支持通过传入端口或协议类型查询服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询开放端口统计信息
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
-     * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc：正序   - desc：倒序  **默认取值**: 正序排序 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [port] **参数解释**: 端口号，该字段用来进行精确匹配 **约束限制**: 与port_string同时使用的话，二者有包含关系则按精确匹配，无包含关系则结果为空 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
-     * @param {string} [portString] **参数解释**: 端口字符串，该字段用来进行模糊匹配 **约束限制**: 与port同时使用的话，二者有包含关系则按精确匹配，无包含关系则结果为空 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
-     * @param {string} [type] **参数解释**: 端口类型 **约束限制**: 不涉及 **取值范围**: - UDP - UDP6 - TCP - TCP6  **默认取值**: 不涉及 
-     * @param {string} [status] **参数解释**: 端口状态 **约束限制**: 不涉及 **取值范围**: - danger: 危险端口 - normal: 正常端口 - unknown: 无已知危险的端口  **默认取值**: 不涉及 
-     * @param {string} [sortKey] **参数解释**: 排序的key值，目前支持按照端口号port排序 **约束限制**: 不涉及 **取值范围**: - port: 端口号  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPortStatistics(listPortStatisticsRequest?: ListPortStatisticsRequest): Promise<ListPortStatisticsResponse> {
-        const options = ParamCreater().listPortStatistics(listPortStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询单服务器的开放端口列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询单服务器的开放端口列表
-     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 主机IP **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {number} [port] **参数解释**: 端口号 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
-     * @param {string} [type] **参数解释**: 端口类型：目前包括TCP，UDP两种 **约束限制**: 不涉及 **取值范围**: - TCP: TCP类型的端口 - UDP: UDP类型的端口 **默认取值**: 不涉及 
-     * @param {string} [status] **参数解释**: 端口状态 **约束限制**: 不涉及 **取值范围**: - danger: 危险端口 - unknown: 无已知危险的端口  **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度0-256位 **默认取值**: 0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [category] **参数解释**: 类别，默认为host **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器 **默认取值**: host 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPorts(listPortsRequest?: ListPortsRequest): Promise<ListPortsResponse> {
-        const options = ParamCreater().listPorts(listPortsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询进程列表，通过传入进程路径参数查询对应的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询进程统计信息
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
-     * @param {string} [path] **参数解释** : 可执行进程路径 **约束限制** : 不涉及 **取值范围** : 字符长度1-256位 **默认取值** : 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listProcessStatistics(listProcessStatisticsRequest?: ListProcessStatisticsRequest): Promise<ListProcessStatisticsResponse> {
-        const options = ParamCreater().listProcessStatistics(listProcessStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 具备该进程的主机/容器的服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定进程的服务器列表
-     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
-     * @param {string} [hostName] 主机名称
-     * @param {string} [hostIp] 主机ip
-     * @param {string} [path] 进程可执行文件路径
-     * @param {string} [category] 类型，默认为host，包含如下： - host：主机 - container：容器
-     * @param {number} [limit] 每页显示数量
-     * @param {number} [offset] 偏移量：指定返回记录的开始位置
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listProcessesHost(listProcessesHostRequest?: ListProcessesHostRequest): Promise<ListProcessesHostResponse> {
-        const options = ParamCreater().listProcessesHost(listProcessesHostRequest);
+    public listProcesses(listProcessesRequest?: ListProcessesRequest): Promise<ListProcessesResponse> {
+        const options = ParamCreater().listProcesses(listProcessesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4751,7 +4480,7 @@ export class HssClient {
      * @summary 查询某告警事件关联的相关告警
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 必填 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
      * @param {string} eventId **参数解释**： 事件编号 **约束限制**： 必填 **取值范围**： 字符长度1-256位 **默认取值**： 不涉及 
      * @param {number} occurTime **参数解释**: 事件发生时间 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
@@ -4774,7 +4503,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询单个资源的资源标签
-     * @param {string} resourceType **参数解释**: 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss **约束限制**: 不涉及 **取值范围**: - hss：hss **默认取值**: 不涉及 
+     * @param {string} resourceType **参数解释**: 由标签管理服务定义的资源类别，企业主机安全服务调用此接口时资源类别为hss **约束限制**: 不涉及 **取值范围**: - hss：hss  **默认取值**: 不涉及 
      * @param {string} resourceId **参数解释**: 资源ID **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4830,7 +4559,7 @@ export class HssClient {
      * @param {string} [containerName] **参数解释**： 容器实例名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-512位 **默认取值**： 不涉及 
      * @param {number} [offset] **参数解释**: 偏移量，指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 最小值10，最大值1000 **默认取值**: 10 
-     * @param {Array<number>} [eventTypes] **参数解释**: 事件类型 **约束限制**: 不涉及 **取值范围**: - 1001：通用恶意软件 - 1002：病毒 - 1003：蠕虫 - 1004：木马 - 1005：僵尸网络 - 1006：后门 - 1010：Rootkit - 1011：勒索软件 - 1012：黑客工具 - 1015：Webshell - 1016：挖矿 - 1017：反弹Shell - 2001：一般漏洞利用 - 2012：远程代码执行 - 2047：Redis漏洞利用 - 2048：Hadoop漏洞利用 - 2049：MySQL漏洞利用 - 3002：文件提权 - 3003：进程提权 - 3004：关键文件变更 - 3005：文件/目录变更 - 3007：进程异常行为 - 3015：高危命令执行 - 3018：异常Shell - 3026：crontab提权 - 3027：Crontab可疑任务 - 3029：系统安全防护被禁用 - 3030：备份删除 - 3031：异常注册表操作 - 3036：容器镜像阻断 - 4002：暴力破解 - 4004：异常登录 - 4006：非法系统账号 - 4014：用户账号添加 - 4020：用户密码窃取 - 6002：端口扫描 - 6003：主机扫描 - 13001：Kubernetes事件删除 - 13002：Pod异常行为 - 13003：枚举用户信息 - 13004：绑定集群用户角色  **默认取值**: 不涉及 
+     * @param {Array<number>} [eventTypes] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: - unhandled：未处理 - handled：已处理  **默认取值**: 不涉及 
      * @param {string} [severity] **参数解释**: 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {string} [beginTime] **参数解释**： 自定义查询时间，开始时间 **约束限制**： 不涉及 **取值范围**： 字符长度13位 **默认取值**： 不涉及 
@@ -4842,7 +4571,7 @@ export class HssClient {
      * @param {Array<string>} [tagList] 事件标签列表，例如:[\&quot;热点事件\&quot;]
      * @param {string} [attCk] **参数解释**: ATT&amp;CK攻击阶段 **约束限制**: 不涉及 **取值范围**: - Reconnaissance：侦察 - Initial Access：初始访问 - Execution：执行 - Persistence：持久化 - Privilege Escalation：权限提升 - Defense Evasion：防御绕过 - Credential Access：凭据访问 - Command and Control：命令与控制 - Impact：影响破坏  **默认取值**: 不涉及 
      * @param {string} [eventName] **参数解释**： 告警名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
-     * @param {boolean} [autoBlock] **参数解释**： 是否自动阻断告警 **约束限制**： 不涉及 **取值范围**： - true：自动阻断告警 - false：不自动阻断告警 **默认取值**： 不涉及 
+     * @param {boolean} [autoBlock] **参数解释**： 是否自动阻断告警 **约束限制**： 不涉及 **取值范围**： - true：自动阻断告警 - false：不自动阻断告警  **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4964,284 +4693,6 @@ export class HssClient {
     }
 
     /**
-     * 获取账户变动历史记录信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 获取账户变动历史信息
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [userName] **参数解释**: 用户名 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位  **默认取值**: 不涉及 
-     * @param {boolean} [rootPermission] **参数解释**: 是否有root权限 **约束限制**: 不涉及 **取值范围**: true: 具有root权限 false: 不具有root权限  **默认取值**: 不涉及 
-     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位  **默认取值**: 不涉及 
-     * @param {string} [changeType] **参数解释**: 账号变更类型 **约束限制**: 不涉及 **取值范围**: - ADD ：添加 - DELETE ：删除 - MODIFY ： 修改  **默认取值**: 不涉及 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200  **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值10000  **默认取值**: 不涉及 
-     * @param {number} [startTime] **参数解释**: 变更开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 取值0-4070880000000  **默认取值**: 不涉及 
-     * @param {number} [endTime] **参数解释**: 变更结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 取值0-4070880000000  **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listUserChangeHistories(listUserChangeHistoriesRequest?: ListUserChangeHistoriesRequest): Promise<ListUserChangeHistoriesResponse> {
-        const options = ParamCreater().listUserChangeHistories(listUserChangeHistoriesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询账号信息列表，支持通过传入账号名称参数查询对应的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询账号信息列表
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [userName] **参数解释**: 用于筛选指定名称的账号统计数据（支持模糊匹配） **约束限制**: 符合Windows文件命名规则，不包含中文标点符号 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listUserStatistics(listUserStatisticsRequest?: ListUserStatisticsRequest): Promise<ListUserStatisticsResponse> {
-        const options = ParamCreater().listUserStatistics(listUserStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询账号的服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询账号的服务器列表
-     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [userName] **参数解释**: 账号名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-32位 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {boolean} [loginPermission] **参数解释**: 是否允许登录 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
-     * @param {boolean} [rootPermission] **参数解释**: 是否有root权限 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
-     * @param {string} [userGroup] **参数解释**: 是否是主机用户组 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listUsers(listUsersRequest?: ListUsersRequest): Promise<ListUsersResponse> {
-        const options = ParamCreater().listUsers(listUsersRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Web服务、Web应用、数据库的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Web服务、Web应用、数据库的统计信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库  **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [name] **参数解释**: web应用，web服务或数据库名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebAppAndServiceStatistics(listWebAppAndServiceStatisticsRequest?: ListWebAppAndServiceStatisticsRequest): Promise<ListWebAppAndServiceStatisticsResponse> {
-        const options = ParamCreater().listWebAppAndServiceStatistics(listWebAppAndServiceStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定Web服务、Web应用、数据库的服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定Web服务、Web应用、数据库的服务器列表
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库  **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [name] **参数解释**: web应用，web服务或数据库名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称(可选)，可让用户根据主机名字搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {string} [hostId] **参数解释**: 服务器id(可选)，可让用户根据主机id搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器ip(可选)，可让用户根据主机ip搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {string} [version] **参数解释**: web应用，web服务或数据库版本，可让用户根据版本搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {string} [installDir] **参数解释**: web应用，web服务或数据库安装目录，可让用户根据安装目录搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebAppAndServices(listWebAppAndServicesRequest?: ListWebAppAndServicesRequest): Promise<ListWebAppAndServicesResponse> {
-        const options = ParamCreater().listWebAppAndServices(listWebAppAndServicesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定Web框架的服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定Web框架的服务器列表
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [fileName] **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebFrameworkHostInfo(listWebFrameworkHostInfoRequest?: ListWebFrameworkHostInfoRequest): Promise<ListWebFrameworkHostInfoResponse> {
-        const options = ParamCreater().listWebFrameworkHostInfo(listWebFrameworkHostInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定主机的Web框架信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定主机的Web框架信息
-     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [fileName] **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebFrameworkInfo(listWebFrameworkInfoRequest?: ListWebFrameworkInfoRequest): Promise<ListWebFrameworkInfoResponse> {
-        const options = ParamCreater().listWebFrameworkInfo(listWebFrameworkInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Web框架的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Web框架的统计信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [fileName] **参数解释**: 框架文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebFrameworkStatistics(listWebFrameworkStatisticsRequest?: ListWebFrameworkStatisticsRequest): Promise<ListWebFrameworkStatisticsResponse> {
-        const options = ParamCreater().listWebFrameworkStatistics(listWebFrameworkStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定Web站点的服务器列表。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定Web站点的服务器列表
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} domain **参数解释**: 域名 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
-     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebSiteHostInfo(listWebSiteHostInfoRequest?: ListWebSiteHostInfoRequest): Promise<ListWebSiteHostInfoResponse> {
-        const options = ParamCreater().listWebSiteHostInfo(listWebSiteHostInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询指定主机的Web站点信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询指定主机的Web站点信息
-     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [domain] **参数解释**: 域名 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebSiteInfo(listWebSiteInfoRequest?: ListWebSiteInfoRequest): Promise<ListWebSiteInfoResponse> {
-        const options = ParamCreater().listWebSiteInfo(listWebSiteInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询Web站点的服务器数。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询Web站点的统计信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [domain] **参数解释**: 域名 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWebSiteStatistics(listWebSiteStatisticsRequest?: ListWebSiteStatisticsRequest): Promise<ListWebSiteStatisticsResponse> {
-        const options = ParamCreater().listWebSiteStatistics(listWebSiteStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询集群下某一命名空间下的工作负载。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5345,27 +4796,6 @@ export class HssClient {
     }
 
     /**
-     * 采集单主机资产指纹。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 采集单主机资产指纹
-     * @param {string} type **参数解释**： 资产类型 **约束限制**： 不涉及 **取值范围**： - web-app：web应用 - web-service：web服务 - web-framework：web框架 - web-site：web站点 - midware：中间件 - database：数据库 - kernel-module：内核模块  **默认取值**： 不涉及
-     * @param {string} hostId **参数解释**： 主机ID **约束限制**： 不涉及 **取值范围**： 字符长度1-256位 **默认取值**： 不涉及
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runHostAssetManualCollect(runHostAssetManualCollectRequest?: RunHostAssetManualCollectRequest): Promise<RunHostAssetManualCollectResponse> {
-        const options = ParamCreater().runHostAssetManualCollect(runHostAssetManualCollectRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 设置提示信息配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5378,44 +4808,6 @@ export class HssClient {
      */
     public setMalwareReminders(setMalwareRemindersRequest?: SetMalwareRemindersRequest): Promise<SetMalwareRemindersResponse> {
         const options = ParamCreater().setMalwareReminders(setMalwareRemindersRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-账户Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-账户Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAccountTop(showAccountTopRequest?: ShowAccountTopRequest): Promise<ShowAccountTopResponse> {
-        const options = ParamCreater().showAccountTop(showAccountTopRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-资产状态-主机Agent状态。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-资产状态-主机Agent状态
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAgentStatisticsStatus(showAgentStatisticsStatusRequest?: ShowAgentStatisticsStatusRequest): Promise<ShowAgentStatisticsStatusResponse> {
-        const options = ParamCreater().showAgentStatisticsStatus(showAgentStatisticsStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5437,46 +4829,6 @@ export class HssClient {
      */
     public showAppRaspSwitchStatus(showAppRaspSwitchStatusRequest?: ShowAppRaspSwitchStatusRequest): Promise<ShowAppRaspSwitchStatusResponse> {
         const options = ParamCreater().showAppRaspSwitchStatus(showAppRaspSwitchStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产统计信息，账号、端口、进程等。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 统计资产信息数量
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAssetStatistic(showAssetStatisticRequest?: ShowAssetStatisticRequest): Promise<ShowAssetStatisticResponse> {
-        const options = ParamCreater().showAssetStatistic(showAssetStatisticRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-自启动项Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-自启动项Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showAutoLaunchTop(showAutoLaunchTopRequest?: ShowAutoLaunchTopRequest): Promise<ShowAutoLaunchTopResponse> {
-        const options = ParamCreater().showAutoLaunchTop(showAutoLaunchTopRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5524,27 +4876,6 @@ export class HssClient {
     }
 
     /**
-     * 呈现某一端口详细信息，如本地端口：80，类型：TCP，危险程度：正常，端口描述：常用于SSH(SecureShell)-远程登录协议，用于安全登录文件传输（SCP，SFTP）及端口重新定向。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询某一端口的描述信息
-     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产  **默认取值**: host 
-     * @param {number} port **参数解释**: 端口号 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showCommonPort(showCommonPortRequest?: ShowCommonPortRequest): Promise<ShowCommonPortResponse> {
-        const options = ParamCreater().showCommonPort(showCommonPortRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询容器集群网络的网络信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5576,25 +4907,6 @@ export class HssClient {
      */
     public showContainerNodeStatistics(showContainerNodeStatisticsRequest?: ShowContainerNodeStatisticsRequest): Promise<ShowContainerNodeStatisticsResponse> {
         const options = ParamCreater().showContainerNodeStatistics(showContainerNodeStatisticsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-资产状态-容器节点防护状态。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-资产状态-容器节点防护状态
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showContainerProtectionStatus(showContainerProtectionStatusRequest?: ShowContainerProtectionStatusRequest): Promise<ShowContainerProtectionStatusResponse> {
-        const options = ParamCreater().showContainerProtectionStatus(showContainerProtectionStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5669,6 +4981,25 @@ export class HssClient {
     }
 
     /**
+     * 查询诱饵端口主机统计
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询诱饵端口主机统计
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDecoyPortStatistics(showDecoyPortStatisticsRequest?: ShowDecoyPortStatisticsRequest): Promise<ShowDecoyPortStatisticsResponse> {
+        const options = ParamCreater().showDecoyPortStatistics(showDecoyPortStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询攻击标识分布统计列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -5683,7 +5014,7 @@ export class HssClient {
      * @param {string} [privateIp] **参数解释**： 服务器私有IP **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
      * @param {string} [publicIp] **参数解释**： 服务器公网IP **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
      * @param {string} [containerName] **参数解释**： 容器实例名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-512位 **默认取值**： 不涉及 
-     * @param {number} [eventType] **参数解释**: 事件类型 **约束限制**: 不涉及 **取值范围**: - 1001：通用恶意软件 - 1002：病毒 - 1003：蠕虫 - 1004：木马 - 1005：僵尸网络 - 1006：后门 - 1010：Rootkit - 1011：勒索软件 - 1012：黑客工具 - 1015：Webshell - 1016：挖矿 - 1017：反弹Shell - 2001：一般漏洞利用 - 2012：远程代码执行 - 2047：Redis漏洞利用 - 2048：Hadoop漏洞利用 - 2049：MySQL漏洞利用 - 3002：文件提权 - 3003：进程提权 - 3004：关键文件变更 - 3005：文件/目录变更 - 3007：进程异常行为 - 3015：高危命令执行 - 3018：异常Shell - 3026：crontab提权 - 3027：Crontab可疑任务 - 3029：系统安全防护被禁用 - 3030：备份删除 - 3031：异常注册表操作 - 3036：容器镜像阻断 - 4002：暴力破解 - 4004：异常登录 - 4006：非法系统账号 - 4014：用户账号添加 - 4020：用户密码窃取 - 6002：端口扫描 - 6003：主机扫描 - 13001：Kubernetes事件删除 - 13002：Pod异常行为 - 13003：枚举用户信息 - 13004：绑定集群用户角色  **默认取值**: 不涉及 
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {string} [handleStatus] **参数解释**： 处置状态 **约束限制**: 不涉及 **取值范围**: - unhandled：未处理 - handled：已处理  **默认取值**: 不涉及 
      * @param {string} [severity] **参数解释**： 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
      * @param {Array<string>} [severityList] **参数解释**： 威胁等级 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危 - Critical：危急  **默认取值**: 不涉及 
@@ -5710,7 +5041,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询威胁等级统计列表
-     * @param {string} category **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host : 主机安全事件 - container : 容器安全事件 - serverless : serverless场景安全事件 **默认取值**: 不涉及 
+     * @param {string} category **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host : 主机安全事件 - container : 容器安全事件 - serverless : serverless场景安全事件  **默认取值**: 不涉及 
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
@@ -5721,7 +5052,7 @@ export class HssClient {
      * @param {string} [privateIp] 服务器私有IP
      * @param {string} [publicIp] 服务器公网IP
      * @param {string} [containerName] 容器实例名称
-     * @param {number} [eventType] 事件类型，包含如下:   - 1001 : 通用恶意软件   - 1002 : 病毒   - 1003 : 蠕虫   - 1004 : 木马   - 1005 : 僵尸网络   - 1006 : 后门   - 1010 : Rootkit   - 1011 : 勒索软件   - 1012 ：黑客工具   - 1015 : Webshell   - 1016 : 挖矿   - 1017 : 反弹Shell   - 2001 : 一般漏洞利用   - 2012 : 远程代码执行   - 2047 : Redis漏洞利用   - 2048 : Hadoop漏洞利用   - 2049 : MySQL漏洞利用   - 3002 : 文件提权   - 3003 : 进程提权   - 3004 : 关键文件变更   - 3005 : 文件/目录变更   - 3007 : 进程异常行为   - 3015 : 高危命令执行   - 3018 : 异常Shell   - 3027 : Crontab可疑任务   - 3029 ：系统安全防护被禁用   - 3030 ：备份删除   - 3031 ：异常注册表操作   - 3036 : 容器镜像阻断   - 4002 : 暴力破解   - 4004 : 异常登录   - 4006 : 非法系统账号   - 4014 : 用户账号添加   - 4020 : 用户密码窃取   - 6002 : 端口扫描   - 6003 : 主机扫描   - 13001 : Kubernetes事件删除   - 13002 : Pod异常行为   - 13003 : 枚举用户信息   - 13004 : 绑定集群用户角色
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {string} [handleStatus] 处置状态，包含如下:   - unhandled ：未处理   - handled : 已处理
      * @param {string} [severity] 威胁等级，包含如下:   - Security ：安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {Array<string>} [severityList] 威胁等级，包含如下:   - Security ：安全   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
@@ -5735,6 +5066,46 @@ export class HssClient {
      */
     public showEventSeverity(showEventSeverityRequest?: ShowEventSeverityRequest): Promise<ShowEventSeverityResponse> {
         const options = ParamCreater().showEventSeverity(showEventSeverityRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询告警事件统计
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询告警事件统计
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [lastDays] **参数解释**: 查询时间范围天数 **约束限制**: 与begin_time、end_time互斥，不可同时传参，优先按last_days筛选 **取值范围**: 最小值1，最大值90（支持查询近90天内任务） **默认取值**: 不涉及 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {string} [category] **参数解释**: 事件类别 **约束限制**: 不涉及 **取值范围**: - host：主机安全事件 - container：容器安全事件 - serverless：serverless - ai：AI Defender  **默认取值**: host 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [containerName] **参数解释**: 容器实例名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
+     * @param {Array<string>} [eventTypes] **参数解释**: 事件大类列表 **约束限制**: 不涉及 **取值范围**: 1-50个事件类型 **默认取值**: 不涉及 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理  **默认取值**: 不涉及 
+     * @param {string} [severity] 威胁等级，包含如下:   - Security：安全   - Low：低危   - Medium：中危   - High：高危   - Critical：危急
+     * @param {Array<string>} [eventClassIds] 事件标识，包含如下: - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - crontab_0001：crontab脚本提权 - crontab_0002：恶意路径提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Office创建可执行文件 - hips_0018：带宏Office文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命  **默认取值**: 不涉及 
+     * @param {string} [attackTag] 攻击标识，包含如下：   - attack_success : 攻击成功   - attack_attempt : 攻击尝试   - attack_blocked : 攻击被阻断   - abnormal_behavior : 异常行为   - collapsible_host : 主机失陷   - system_vulnerability : 系统脆弱性
+     * @param {string} [attCk] **参数解释**： ATT&amp;CK攻击阶段 **约束限制**: 不涉及 **取值范围**: - Reconnaissance：侦察 - Initial Access：初始访问 - Execution：执行 - Persistence：持久化 - Privilege Escalation：权限提升 - Defense Evasion：防御绕过 - Credential Access：凭据访问 - Command and Control：命令与控制 - Impact：影响破坏  **默认取值**: 不涉及 
+     * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**: 不涉及 
+     * @param {Array<string>} [tagList] **参数解释**: 事件标签 **约束限制**: 不涉及 **取值范围**: 1-20个标签 **默认取值**: 不涉及 
+     * @param {string} [eventName] 告警名称
+     * @param {string} [source] **参数解释**: 来源 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showEventStatistics(showEventStatisticsRequest?: ShowEventStatisticsRequest): Promise<ShowEventStatisticsResponse> {
+        const options = ParamCreater().showEventStatistics(showEventStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5763,57 +5134,20 @@ export class HssClient {
     }
 
     /**
-     * 查询单主机资产指纹采集状态。
+     * 查询蜜罐事件统计
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询单主机资产指纹采集状态
-     * @param {string} type **参数解释**： 资产类型 **约束限制**： 不涉及 **取值范围**： - web-app：web应用 - web-service：web服务 - web-framework：web框架 - web-site：web站点 - midware：中间件 - database：数据库 - kernel-module：内核模块  **默认取值**： 不涉及
-     * @param {string} hostId **参数解释**： 主机ID **约束限制**： 不涉及 **取值范围**： 字符长度1-256位 **默认取值**： 不涉及
+     * @summary 查询蜜罐事件统计
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [beginTime] 开始时间，13位时间戳
+     * @param {number} [endTime] 结束时间，13位时间戳
+     * @param {number} [lastDays] 查询时间范围天数，与自定义查询时间begin_time，end_time互斥
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showHostAssetManualCollectStatus(showHostAssetManualCollectStatusRequest?: ShowHostAssetManualCollectStatusRequest): Promise<ShowHostAssetManualCollectStatusResponse> {
-        const options = ParamCreater().showHostAssetManualCollectStatus(showHostAssetManualCollectStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-资产状态-Agent状态。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-资产状态-Agent状态
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showHostProtectionStatus(showHostProtectionStatusRequest?: ShowHostProtectionStatusRequest): Promise<ShowHostProtectionStatusResponse> {
-        const options = ParamCreater().showHostProtectionStatus(showHostProtectionStatusRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-jar包Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-jar包Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJarPackageTop(showJarPackageTopRequest?: ShowJarPackageTopRequest): Promise<ShowJarPackageTopResponse> {
-        const options = ParamCreater().showJarPackageTop(showJarPackageTopRequest);
+    public showHoneypotEventStatistics(showHoneypotEventStatisticsRequest?: ShowHoneypotEventStatisticsRequest): Promise<ShowHoneypotEventStatisticsResponse> {
+        const options = ParamCreater().showHoneypotEventStatistics(showHoneypotEventStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5854,25 +5188,6 @@ export class HssClient {
      */
     public showK8sPodDetail(showK8sPodDetailRequest?: ShowK8sPodDetailRequest): Promise<ShowK8sPodDetailResponse> {
         const options = ParamCreater().showK8sPodDetail(showK8sPodDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-内核模块Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-内核模块Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showKernelModuleTop(showKernelModuleTopRequest?: ShowKernelModuleTopRequest): Promise<ShowKernelModuleTopResponse> {
-        const options = ParamCreater().showKernelModuleTop(showKernelModuleTopRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5980,25 +5295,6 @@ export class HssClient {
     }
 
     /**
-     * 资产管理-概览-资产状态-操作系统统计信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-资产状态-操作系统统计信息
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showOsStatisticsInfo(showOsStatisticsInfoRequest?: ShowOsStatisticsInfoRequest): Promise<ShowOsStatisticsInfoResponse> {
-        const options = ParamCreater().showOsStatisticsInfo(showOsStatisticsInfoRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 获取页面通知信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6011,63 +5307,6 @@ export class HssClient {
      */
     public showPageNotices(showPageNoticesRequest?: ShowPageNoticesRequest): Promise<ShowPageNoticesResponse> {
         const options = ParamCreater().showPageNotices(showPageNoticesRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-端口Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-端口Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPortTop(showPortTopRequest?: ShowPortTopRequest): Promise<ShowPortTopResponse> {
-        const options = ParamCreater().showPortTop(showPortTopRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-进程Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-进程Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showProcessTop(showProcessTopRequest?: ShowProcessTopRequest): Promise<ShowProcessTopResponse> {
-        const options = ParamCreater().showProcessTop(showProcessTopRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-资产状态-防护配额统计信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-资产状态-防护配额统计信息
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showQuotaStatisticsInfo(showQuotaStatisticsInfoRequest?: ShowQuotaStatisticsInfoRequest): Promise<ShowQuotaStatisticsInfoResponse> {
-        const options = ParamCreater().showQuotaStatisticsInfo(showQuotaStatisticsInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6131,83 +5370,6 @@ export class HssClient {
      */
     public showRaspServerDetail(showRaspServerDetailRequest?: ShowRaspServerDetailRequest): Promise<ShowRaspServerDetailResponse> {
         const options = ParamCreater().showRaspServerDetail(showRaspServerDetailRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-软件Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-软件Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSoftwareTop(showSoftwareTopRequest?: ShowSoftwareTopRequest): Promise<ShowSoftwareTopResponse> {
-        const options = ParamCreater().showSoftwareTop(showSoftwareTopRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-Web应用TOP5/Web服务TOP5。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-WebAppAndServiceTop
-     * @param {string} catalogue **参数解释**: web类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showWebAppAndServiceTop(showWebAppAndServiceTopRequest?: ShowWebAppAndServiceTopRequest): Promise<ShowWebAppAndServiceTopResponse> {
-        const options = ParamCreater().showWebAppAndServiceTop(showWebAppAndServiceTopRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-Web框架Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-Web框架Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showWebFrameworkTop(showWebFrameworkTopRequest?: ShowWebFrameworkTopRequest): Promise<ShowWebFrameworkTopResponse> {
-        const options = ParamCreater().showWebFrameworkTop(showWebFrameworkTopRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 资产管理-概览-Web站点Top。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 资产管理-概览-Web站点Top
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showWebSiteTop(showWebSiteTopRequest?: ShowWebSiteTopRequest): Promise<ShowWebSiteTopResponse> {
-        const options = ParamCreater().showWebSiteTop(showWebSiteTopRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -6440,27 +5602,6 @@ export class HssClient {
     }
 
     /**
-     * 编辑告警白名单主机相关信息
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 编辑告警白名单生效主机
-     * @param {UpdateAlarmWhiteListRequestInfo} updateAlarmWhiteListHostRequestBody 修改告警白名单生效主机 
-     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
-     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest): Promise<UpdateAlarmWhiteListHostResponse> {
-        const options = ParamCreater().updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 容器集群网络更新配置策略。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6566,11 +5707,286 @@ export class HssClient {
     }
 
     /**
+     * 查询Serverless资产列表--接口已废弃
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Serverless资产列表--接口已废弃
+     * @param {string} category **参数解释**： 资产维度 **约束限制**： 不涉及 **取值范围**： - container: 容器维度 - pod: pod实例维度  **默认取值**： container
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**： 每页显示数量，默认10 **约束限制**： 不涉及 **取值范围**： 整数取值[10,200] **默认取值**： 10 
+     * @param {number} [offset] **参数解释**： 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0 **约束限制**： 不涉及 **取值范围**： 取值[0,2000000] **默认取值**： 0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServerlessAsset(listServerlessAssetRequest?: ListServerlessAssetRequest): Promise<ListServerlessAssetResponse> {
+        const options = ParamCreater().listServerlessAsset(listServerlessAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Serverless资产详细信息--接口已废弃
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Serverless资产详细信息--接口已废弃
+     * @param {string} category **参数解释**： 资产维度 **约束限制**： 不涉及 **取值范围**： - container : 容器维度  **默认取值**： container
+     * @param {string} assetId **参数解释**: 资产ID，基于参数category决定维度（比如category&#x3D;container时，asset_id为容器id） **约束限制**： 不涉及 **取值范围**: 字符长度0-255位 **默认取值**： 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServerlessAssetDetail(listServerlessAssetDetailRequest?: ListServerlessAssetDetailRequest): Promise<ListServerlessAssetDetailResponse> {
+        const options = ParamCreater().listServerlessAssetDetail(listServerlessAssetDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI智能体列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AI智能体列表
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {ListAiInstancesRequestBody} [listAiInstancesRequestBody] 过滤参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiInstances(listAiInstancesRequest?: ListAiInstancesRequest): Promise<ListAiInstancesResponse> {
+        const options = ParamCreater().listAiInstances(listAiInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI会话列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AI会话列表
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {ListAiSessionsRequestBody} [listAiSessionsRequestBody] 过滤参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiSessions(listAiSessionsRequest?: ListAiSessionsRequest): Promise<ListAiSessionsResponse> {
+        const options = ParamCreater().listAiSessions(listAiSessionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询智能体卫士插件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询智能体卫士插件列表
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [agentStatus] **参数解释**： Agent状态 **约束限制**: 不涉及 **取值范围**： - installed：已安装 - not_installed：未安装 - online：在线 - offline：离线 - install_failed：安装失败 - installing：安装中  **默认取值**: 不涉及 
+     * @param {'not_installed' | 'install_failed' | 'online' | 'offline' | 'installing'} [defenderStatus] **参数解释**： 智能体卫士插件状态过滤 **约束限制**： 不涉及 **取值范围**： - not_installed：未安装 - install_failed：安装失败 - online：在线 - offline：离线 - installing：安装中  **默认取值**： 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDefenderPlugins(listDefenderPluginsRequest?: ListDefenderPluginsRequest): Promise<ListDefenderPluginsResponse> {
+        const options = ParamCreater().listDefenderPlugins(listDefenderPluginsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询大模型防火墙配置信息，包括防火墙AK、SK和应用ID。当未配置时返回空配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询大模型防火墙配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAiFirewallConfig(showAiFirewallConfigRequest?: ShowAiFirewallConfigRequest): Promise<ShowAiFirewallConfigResponse> {
+        const options = ParamCreater().showAiFirewallConfig();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * AI Defender概览统计。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary AI Defender概览统计
+     * @param {number} beginTime **参数解释**: 开始时间，13位毫秒时间戳 **约束限制**: 需小于等于end_time **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} endTime **参数解释**: 结束时间，13位毫秒时间戳 **约束限制**: 需大于等于begin_time **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {'alarm' | 'risk' | 'source'} [type] **参数解释**: 查询类型（不传时返回全部数据） **约束限制**: 不涉及 **取值范围**: - alarm：告警数量统计 - risk：风险数量统计 - source：智能体防护信息  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAiOverviewStatistics(showAiOverviewStatisticsRequest?: ShowAiOverviewStatisticsRequest): Promise<ShowAiOverviewStatisticsResponse> {
+        const options = ParamCreater().showAiOverviewStatistics(showAiOverviewStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取智能体卫士插件手动操作命令（安装/卸载），通过opt区分操作类型
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取智能体卫士插件手动操作命令（安装/卸载）
+     * @param {'install' | 'uninstall'} opt **参数解释**： 操作类型 **约束限制**： 必填 **取值范围**： - install：安装 - uninstall：卸载  **默认取值**： 不涉及 
+     * @param {'OpenClaw' | 'SelfDevelopedClaw'} agentType **参数解释**： 智能体类型，用于区分OpenClaw和自研Claw **约束限制**： 必填 **取值范围**： - OpenClaw：OpenClaw - SelfDevelopedClaw：自研claw  **默认取值**： OpenClaw 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {'public' | 'internal'} [network] **参数解释**： 网络类型，用于指定返回的命令中使用的下载地址和服务端地址的网络类型 **约束限制**： 非必填 **取值范围**： - public：公网 - internal：内网  **默认取值**： internal 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDefenderPluginManualCommand(showDefenderPluginManualCommandRequest?: ShowDefenderPluginManualCommandRequest): Promise<ShowDefenderPluginManualCommandResponse> {
+        const options = ParamCreater().showDefenderPluginManualCommand(showDefenderPluginManualCommandRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 配置大模型防火墙，包括防火墙AK、SK和应用ID。SK加密存储，AK明文存储。
+     * 当三个参数都为空时，删除已有配置。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 配置大模型防火墙
+     * @param {UpdateAiFirewallConfigRequestBody} updateAiFirewallConfigRequestBody 大模型防火墙配置请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAiFirewallConfig(updateAiFirewallConfigRequest?: UpdateAiFirewallConfigRequest): Promise<UpdateAiFirewallConfigResponse> {
+        const options = ParamCreater().updateAiFirewallConfig(updateAiFirewallConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量操作智能体卫士插件（安装/卸载），通过opt区分操作类型，异步下发指令
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量操作智能体卫士插件
+     * @param {BatchRegisterDefenderPluginRequestBody} batchRegisterDefenderPluginRequestBody **参数解释**: 批量操作智能体卫士插件的请求体 **约束限制**: 必填 **取值范围**: 不涉及 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchRegisterDefenderPlugin(batchRegisterDefenderPluginRequest?: BatchRegisterDefenderPluginRequest): Promise<BatchRegisterDefenderPluginResponse> {
+        const options = ParamCreater().batchRegisterDefenderPlugin(batchRegisterDefenderPluginRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI组件统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AI组件统计信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具 - service：服务  **默认取值**: 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [aiComponentName] **参数解释**： AI组件对应类型的名称 **取值范围**： 字符长度1-256位 **约束限制**: 不涉及 **默认取值**: 不涉及         
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest): Promise<ListAiComponentStatisticsResponse> {
+        const options = ParamCreater().listAiComponentStatistics(listAiComponentStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI Defender各产品特性的开关状态，包括AI Defender白名单开关、AgentArts开关、OfficeAce开关和OpenClaw开关。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询AI特性开关状态
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAiFeatureStatus(showAiFeatureStatusRequest?: ShowAiFeatureStatusRequest): Promise<ShowAiFeatureStatusResponse> {
+        const options = ParamCreater().showAiFeatureStatus(showAiFeatureStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开启或关闭智能体的安全防护。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开启或关闭智能体的安全防护
+     * @param {UpdateAiInstanceProtectionRequestBody} updateAiInstanceProtectionRequestBody 修改OpenClaw防护状态请求体
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAiInstanceProtection(updateAiInstanceProtectionRequest?: UpdateAiInstanceProtectionRequest): Promise<UpdateAiInstanceProtectionResponse> {
+        const options = ParamCreater().updateAiInstanceProtection(updateAiInstanceProtectionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * Agent绑定策略ID。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary Agent绑定策略ID，当前仅西南-贵阳一支持
+     * @summary Agent绑定策略ID，当前仅西南-贵阳一、北京四支持
      * @param {BindAgentPolicyRequestInfo} bindAgentPolicyRequestBody Agent绑定策略请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6589,7 +6005,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 复制策略组，当前仅西南-贵阳一支持
+     * @summary 复制策略组，当前仅西南-贵阳一、北京四支持
      * @param {CopyAiPolicyGroupRequestInfo} copyAiPolicyGroupRequestBody 复制策略组请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6608,7 +6024,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除策略组，当前仅西南-贵阳一支持
+     * @summary 删除策略组，当前仅西南-贵阳一、北京四支持
      * @param {DeleteAiPolicyGroupsRequestInfo} deleteAiPolicyGroupsRequestBody 删除策略组 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6627,7 +6043,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询策略列表，当前仅西南-贵阳一支持
+     * @summary 查询策略列表，当前仅西南-贵阳一、北京四支持
      * @param {string} policyGroupId **参数解释**： 策略组ID **约束限制**： 不涉及 **取值范围**： 字符长度1-20位 **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6646,7 +6062,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询策略详情，当前仅西南-贵阳一支持
+     * @summary 查询策略详情，当前仅西南-贵阳一、北京四支持
      * @param {string} policyId **参数解释**： 策略组ID **约束限制**： 必填 **取值范围**： 最小值0，最大值9223372036854775807 **默认取值**： 不涉及 
      * @param {string} policyName **参数解释**： 策略名称 **约束限制**： 必填 **取值范围**： - 0: 意图行为一致性检测 - 1: 命令执行控制 - 2: 文件访问控制 - 3: 敏感信息检测 - 4: 角色限定  **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
@@ -6666,7 +6082,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询策略组列表，当前仅西南-贵阳一支持
+     * @summary 查询策略组列表，当前仅西南-贵阳一、北京四支持
      * @param {string} [groupId] **参数解释**: 策略组ID **约束限制**: 不涉及 **取值范围**: 字符长度1-20位 **默认取值**: 不涉及 
      * @param {string} [groupName] **参数解释**： 策略组名称 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
      * @param {string} [protectionObject] **参数解释**： 防护对象 **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
@@ -6690,7 +6106,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 启用、停用策略，当前仅西南-贵阳一支持
+     * @summary 启用、停用策略，当前仅西南-贵阳一、北京四支持
      * @param {ResumePauseAiPoliciesRequestInfo} resumePauseAiPoliciesRequestBody 启用、停用策略请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6709,7 +6125,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 启用、停用策略组，当前仅西南-贵阳一支持
+     * @summary 启用、停用策略组，当前仅西南-贵阳一、北京四支持
      * @param {ResumePauseAiPolicyGroupsRequestInfo} resumePauseAiPolicyGroupsRequestBody 启用、停用策略组请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6728,7 +6144,7 @@ export class HssClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改策略详情，当前仅西南-贵阳一支持
+     * @summary 修改策略详情，当前仅西南-贵阳一、北京四支持
      * @param {UpdateAiPolicyDetailRequestInfo} updateAiPolicyDetailRequestBody 修改策略详情 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -6877,10 +6293,10 @@ export class HssClient {
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
-     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
-     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理  **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命  **默认取值**: 不涉及 
      * @param {string} [severities] 威胁等级，包含如下:   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产 **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {string} [malwareName] 病毒名称
      * @param {string} [filePath] 文件路径
      * @param {number} [exportSize] 导出条数
@@ -6955,7 +6371,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询付费病毒查杀服务器列表
-     * @param {string} startType **参数解释**: 启动类型 **约束限制**: 不涉及 **取值范围**: - now ：立即启动 - period : 周期启动 **默认取值**: 不涉及 
+     * @param {string} startType **参数解释**: 启动类型 **约束限制**: 不涉及 **取值范围**: - now ：立即启动 - period : 周期启动  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -6987,7 +6403,7 @@ export class HssClient {
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 必填 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [policyName] 策略名称
-     * @param {string} [scanType] **参数解释**: 任务类型 **约束限制**: 不涉及 **取值范围**: - quick ：快速扫描 - full：全盘扫描 - custom : 自定义扫描 **默认取值**: 不涉及 
+     * @param {string} [scanType] **参数解释**: 任务类型 **约束限制**: 不涉及 **取值范围**: - quick ：快速扫描 - full：全盘扫描 - custom : 自定义扫描  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7012,10 +6428,10 @@ export class HssClient {
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
-     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
-     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理  **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命  **默认取值**: 不涉及 
      * @param {string} [severities] 威胁等级，包含如下:   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产 **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {string} [malwareName] 病毒名称
      * @param {string} [filePath] 文件路径
      * @param {string} [fileHash] **参数解释**： 文件hash，当前为sha256 **约束限制**： 需为合法的SHA256哈希值 **取值范围**： 字符长度64位 **默认取值**： 不涉及 
@@ -7049,11 +6465,11 @@ export class HssClient {
      * @param {number} [lastDays] **参数解释**: 查询时间范围天数 **约束限制**: 与begin_time、end_time互斥，不可同时传参，优先按last_days筛选 **取值范围**: 最小值1，最大值90（支持查询近90天内任务） **默认取值**: 不涉及 
      * @param {string} [beginTime] **参数解释**： 自定义筛选任务的开始时间（任务启动时间≥该时间） **约束限制**： 与last_days互斥，需与end_time同时传参，格式需合法 **取值范围**： UTC时区，格式为YYYY-MM-DD HH:MM:SS **默认取值**： 不涉及 
      * @param {string} [endTime] **参数解释**： 自定义筛选任务的结束时间（任务启动时间≤该时间） **约束限制**： 与last_days互斥，需与begin_time同时传参，且需大于等于begin_time **取值范围**： UTC时区，格式为YYYY-MM-DD HH:MM:SS **默认取值**： 不涉及 
-     * @param {string} [taskStatus] **参数解释**: 任务状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种   - scanning：扫描中   - cancel：已取消   - fail：扫描失败   - finish：已完成 **默认取值**: 不涉及 
+     * @param {string} [taskStatus] **参数解释**: 任务状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种   - scanning：扫描中   - cancel：已取消   - fail：扫描失败   - finish：已完成  **默认取值**: 不涉及 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
-     * @param {Array<string>} [hostTaskStatus] 服务器扫描状态， **参数解释**： 服务器扫描状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种   - scanning ：扫描中   - success ：扫描成功   - fail ：扫描失败   - cancel ：取消扫描 **默认取值**: 不涉及 
+     * @param {Array<string>} [hostTaskStatus] 服务器扫描状态， **参数解释**： 服务器扫描状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种   - scanning ：扫描中   - success ：扫描成功   - fail ：扫描失败   - cancel ：取消扫描  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7380,7 +6796,7 @@ export class HssClient {
      * @param {string} [policyName] 策略名称
      * @param {string} [learningStatus] **策略学习状态**： 策略学习状态 **约束限制**: 不涉及 **取值范围**: - effecting：学习完成，策略生效 - learned：学习完成，待确认 - learning：学习中 - pause：暂停 - abnormal：学习异常  **默认取值**: 不涉及 
      * @param {boolean} [applyStatus] **策略学习状态**： 策略应用状态 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产 **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [osType] **参数解释**: 操作系统类型。 **约束限制**: 不涉及 **取值范围**: - Linux：Linux操作系统。 - Windows：Windows操作系统。  **默认取值**: 无 
@@ -7522,6 +6938,1206 @@ export class HssClient {
      */
     public switchAppWhitelistPolicyLearnStatus(switchAppWhitelistPolicyLearnStatusRequest?: SwitchAppWhitelistPolicyLearnStatusRequest): Promise<SwitchAppWhitelistPolicyLearnStatusResponse> {
         const options = ParamCreater().switchAppWhitelistPolicyLearnStatus(switchAppWhitelistPolicyLearnStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改开放端口状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改开放端口状态
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {ListPortStatusRequestInfo} batchModifyPortStatusRequestBody **参数解释**: 修改开放端口状态请求体 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchModifyPortStatus(batchModifyPortStatusRequest?: BatchModifyPortStatusRequest): Promise<BatchModifyPortStatusResponse> {
+        const options = ParamCreater().batchModifyPortStatus(batchModifyPortStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建全局资产扫描任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建全局资产扫描任务
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {CreateGlobalAssetScanTaskRequestInfo} createGlobalAssetScanTaskRequestBody **参数解释**: 创建全局资产扫描任务请求参数 **约束限制**: 不涉及 **取值范围**: 不涉及 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createGlobalAssetScanTask(createGlobalAssetScanTaskRequest?: CreateGlobalAssetScanTaskRequest): Promise<CreateGlobalAssetScanTaskResponse> {
+        const options = ParamCreater().createGlobalAssetScanTask(createGlobalAssetScanTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 导出资产指纹信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出资产指纹信息
+     * @param {string} assetType **参数解释**: 资产指纹类型 **约束限制**: 不涉及 **取值范围**: - users         ：账号 - auto_launch   ：自启动项 - database      ：数据库 - jar_package   ：中间件 - port          ：开放端口 - process       ：进程 - web_cms       ：web应用 - web_framework ：web框架 - web_service   ：web服务 - web_site      ：web站点 - app           ：软件 - kernel_module ：内核模块  **默认取值**: 不涉及 
+     * @param {string} category **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host     ：主机 - container：容器  **默认取值**: host 
+     * @param {DownloadAssetFileRequestBody} downloadAssetFileRequestBody **参数解释**: \&quot;导出数据的表头字段列表\&quot; **约束限制**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public downloadAssetFile(downloadAssetFileRequest?: DownloadAssetFileRequest): Promise<DownloadAssetFileResponse> {
+        const options = ParamCreater().downloadAssetFile(downloadAssetFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询AI组件详细信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary AI组件详细信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} catalogue **参数解释**: AI组件类别 **约束限制**: 不涉及 **取值范围**: - app：应用 - tool：工具 - service：服务  **默认取值**: 不涉及
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [serverName] **参数解释**: category&#x3D;&#x3D;host时 表示服务器名称 category&#x3D;&#x3D;container时 表示节点名称 category&#x3D;&#x3D;serverless时 表示实例名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {string} [serverIp] **参数解释**: category&#x3D;&#x3D;host时 表示服务器IP地址 category&#x3D;&#x3D;container时 表示节点IP地址 category&#x3D;&#x3D;serverless时 表示实例IP地址 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [aiApplication] **参数解释**: AI应用名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [aiTool] **参数解释**: AI工具名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [type] **参数解释**: AI应用类型 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
+     * @param {string} [version] **参数解释**: AI版本 **约束限制**: 不涉及 **取值范围**: 字符长度0-32位 **默认取值**: 不涉及 
+     * @param {string} [installationPath] **参数解释**: 安装路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
+     * @param {number} [firstScanTime] **参数解释**: 首次扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [latestScanTime] **参数解释**: 最近扫描时间，时间单位毫秒（ms） **约束限制**: 不涉及 **取值范围**: 取值0-9223372036854775807 **默认取值**: 不涉及 
+     * @param {string} [containerName] **参数解释**: 容器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {string} [containerId] **参数解释**: 容器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [imageName] **参数解释**: 镜像名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest): Promise<ListAiComponentDetailResponse> {
+        const options = ParamCreater().listAiComponentDetail(listAiComponentDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取软件信息的历史变动记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取软件信息的历史变动记录
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostId] **参数解释**: 主机id **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 主机ip **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 主机名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [appName] **参数解释**: 软件名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [variationType] **参数解释**: 变更类型 **约束限制**: 不涉及 **取值范围**: - add：新建 - delete：删除 - modify：修改  **默认取值**: 不涉及 
+     * @param {string} [sortKey] **参数解释**: 排序的key值，目前只支持按照recent_scan_time排序，按照recent_scan_time排序时，根据sort_dir的值决定升序还是降序 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [sortDir] **参数解释**: 排序方式，默认为降序，当sort_key为按照recent_scan_time排序时，根据当前值决定升序还是降序，当sort_key为其他值时均为降序 **约束限制**: 不涉及 **取值范围**: - asc：升序 - desc：降序  **默认取值**: 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [startTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppChangeHistories(listAppChangeHistoriesRequest?: ListAppChangeHistoriesRequest): Promise<ListAppChangeHistoriesResponse> {
+        const options = ParamCreater().listAppChangeHistories(listAppChangeHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询软件列表，支持通过软件名称查询对应的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询软件列表
+     * @param {string} category **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
+     * @param {string} [appName] **参数解释**: 软件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAppStatistics(listAppStatisticsRequest?: ListAppStatisticsRequest): Promise<ListAppStatisticsResponse> {
+        const options = ParamCreater().listAppStatistics(listAppStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询软件的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询软件的服务器列表
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [appName] **参数解释**: 软件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [version] **参数解释**: 软件版本号 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [installDir] **参数解释**: 安装目录 **约束限制**: 不涉及 **取值范围**: 字符长度0-512位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: boolean类型 **取值范围**: 不涉及 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApps(listAppsRequest?: ListAppsRequest): Promise<ListAppsResponse> {
+        const options = ParamCreater().listApps(listAppsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取自启动项的历史变动记录。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取自启动项的历史变动记录
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [autoLaunchName] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {number} [type] **参数解释**: 自启动项类型 **约束限制**: 不涉及 **取值范围**: - 0：自启动服务 - 1：定时任务 - 2：预加载动态库 - 3：Run注册表键 - 4：开机启动文件夹  **默认取值**: 不涉及 
+     * @param {string} [variationType] **参数解释**: 变更类型 **约束限制**: 不涉及 **取值范围**: - add：新建 - delete：删除 - modify：修改  **默认取值**: 不涉及 
+     * @param {string} [sortKey] **参数解释**: 排序的key值，目前只支持按照recent_scan_time排序，按照recent_scan_time排序时，根据sort_dir的值决定升序还是降序 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [sortDir] **参数解释**: 排序方式，默认为降序，当sort_key为按照recent_scan_time排序时，根据当前值决定升序还是降序，当sort_key为其他值时均为降序 **约束限制**: 不涉及 **取值范围**: - asc：升序 - desc：降序  **默认取值**: 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [startTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutoLaunchChangeHistories(listAutoLaunchChangeHistoriesRequest?: ListAutoLaunchChangeHistoriesRequest): Promise<ListAutoLaunchChangeHistoriesResponse> {
+        const options = ParamCreater().listAutoLaunchChangeHistories(listAutoLaunchChangeHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自启动信息，支持通过传入自启动名称查询启动类型和服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自启动项信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [name] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [type] **参数解释**: 自启动项类型 **约束限制**: 不涉及 **取值范围**: - 0：自启动服务 - 1：定时任务 - 2：预加载动态库 - 3：Run注册表键 - 4：开机启动文件夹  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutoLaunchStatistics(listAutoLaunchStatisticsRequest?: ListAutoLaunchStatisticsRequest): Promise<ListAutoLaunchStatisticsResponse> {
+        const options = ParamCreater().listAutoLaunchStatistics(listAutoLaunchStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询自启动项的服务列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询自启动项的服务列表
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [name] **参数解释**: 自启动项名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [type] **参数解释**: 自启动项类型 **约束限制**: 不涉及 **取值范围**: - 0：自启动服务 - 1：定时任务 - 2：预加载动态库 - 3：Run注册表键 - 4：开机启动文件夹  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAutoLaunchs(listAutoLaunchsRequest?: ListAutoLaunchsRequest): Promise<ListAutoLaunchsResponse> {
+        const options = ParamCreater().listAutoLaunchs(listAutoLaunchsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资产全局扫描任务状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资产全局扫描任务状态
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listGlobalAssetScanTask(listGlobalAssetScanTaskRequest?: ListGlobalAssetScanTaskRequest): Promise<ListGlobalAssetScanTaskResponse> {
+        const options = ParamCreater().listGlobalAssetScanTask(listGlobalAssetScanTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定中间件的服务器列表，通过传入中间件名称参数，返回对应的中间件服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定中间件的服务器列表
+     * @param {string} fileName **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJarPackageHostInfo(listJarPackageHostInfoRequest?: ListJarPackageHostInfoRequest): Promise<ListJarPackageHostInfoResponse> {
+        const options = ParamCreater().listJarPackageHostInfo(listJarPackageHostInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定主机的中间件信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定主机的中间件信息
+     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [fileName] **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJarPackageInfo(listJarPackageInfoRequest?: ListJarPackageInfoRequest): Promise<ListJarPackageInfoResponse> {
+        const options = ParamCreater().listJarPackageInfo(listJarPackageInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询中间件列表，支持通过中间件名称查询对应的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询中间件列表
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [fileName] **参数解释**: 中间件文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listJarPackageStatistics(listJarPackageStatisticsRequest?: ListJarPackageStatisticsRequest): Promise<ListJarPackageStatisticsResponse> {
+        const options = ParamCreater().listJarPackageStatistics(listJarPackageStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定内核模块的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定内核模块的服务器列表
+     * @param {string} name **参数解释**: 内核模块名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKernelModuleHostInfo(listKernelModuleHostInfoRequest?: ListKernelModuleHostInfoRequest): Promise<ListKernelModuleHostInfoResponse> {
+        const options = ParamCreater().listKernelModuleHostInfo(listKernelModuleHostInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定主机的内核模块信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定主机的内核模块信息
+     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [name] **参数解释**: 内核模块名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKernelModuleInfo(listKernelModuleInfoRequest?: ListKernelModuleInfoRequest): Promise<ListKernelModuleInfoResponse> {
+        const options = ParamCreater().listKernelModuleInfo(listKernelModuleInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询内核模块的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询内核模块的统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [name] **参数解释**: 内核模块名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listKernelModuleStatistics(listKernelModuleStatisticsRequest?: ListKernelModuleStatisticsRequest): Promise<ListKernelModuleStatisticsResponse> {
+        const options = ParamCreater().listKernelModuleStatistics(listKernelModuleStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询具备该端口的主机/容器的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定开放端口的服务器列表
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {number} port **参数解释**: 端口号 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值65535（TCP/UDP标准端口范围） **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [type] **参数解释**: 端口类型 **约束限制**: 不涉及 **取值范围**: TCP、UDP **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPortHost(listPortHostRequest?: ListPortHostRequest): Promise<ListPortHostResponse> {
+        const options = ParamCreater().listPortHost(listPortHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询开放端口列表，支持通过传入端口或协议类型查询服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询开放端口统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
+     * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc：正序   - desc：倒序  **默认取值**: 正序排序 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [port] **参数解释**: 端口号，该字段用来进行精确匹配 **约束限制**: 与port_string同时使用的话，二者有包含关系则按精确匹配，无包含关系则结果为空 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
+     * @param {string} [portString] **参数解释**: 端口字符串，该字段用来进行模糊匹配 **约束限制**: 与port同时使用的话，二者有包含关系则按精确匹配，无包含关系则结果为空 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
+     * @param {string} [type] **参数解释**: 端口类型 **约束限制**: 不涉及 **取值范围**: - UDP - UDP6 - TCP - TCP6  **默认取值**: 不涉及 
+     * @param {string} [status] **参数解释**: 端口状态 **约束限制**: 不涉及 **取值范围**: - danger: 危险端口 - normal: 正常端口 - unknown: 无已知危险的端口  **默认取值**: 不涉及 
+     * @param {string} [sortKey] **参数解释**: 排序的key值，目前支持按照端口号port排序 **约束限制**: 不涉及 **取值范围**: - port: 端口号  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPortStatistics(listPortStatisticsRequest?: ListPortStatisticsRequest): Promise<ListPortStatisticsResponse> {
+        const options = ParamCreater().listPortStatistics(listPortStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询单服务器的开放端口列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询单服务器的开放端口列表
+     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 主机IP **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {number} [port] **参数解释**: 端口号 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
+     * @param {string} [type] **参数解释**: 端口类型：目前包括TCP，UDP两种 **约束限制**: 不涉及 **取值范围**: - TCP: TCP类型的端口 - UDP: UDP类型的端口  **默认取值**: 不涉及 
+     * @param {string} [status] **参数解释**: 端口状态 **约束限制**: 不涉及 **取值范围**: - danger: 危险端口 - unknown: 无已知危险的端口  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 主机所属的企业项目ID。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。 **约束限制**: 开通企业项目功能后才需要配置企业项目。 **取值范围**: 字符长度0-256位 **默认取值**: 0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [category] **参数解释**: 类别，默认为host **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: host 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPorts(listPortsRequest?: ListPortsRequest): Promise<ListPortsResponse> {
+        const options = ParamCreater().listPorts(listPortsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询进程列表，通过传入进程路径参数查询对应的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询进程统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
+     * @param {string} [path] **参数解释** : 可执行进程路径 **约束限制** : 不涉及 **取值范围** : 字符长度1-256位 **默认取值** : 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProcessStatistics(listProcessStatisticsRequest?: ListProcessStatisticsRequest): Promise<ListProcessStatisticsResponse> {
+        const options = ParamCreater().listProcessStatistics(listProcessStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 具备该进程的主机/容器的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定进程的服务器列表
+     * @param {string} [enterpriseProjectId] 主机所属的企业项目ID。 开通企业项目功能后才需要配置企业项目。 企业项目ID默认取值为“0”，表示默认企业项目。如果需要查询所有企业项目下的主机，请传参“all_granted_eps”。如果您只有某个企业项目的权限，则需要传递该企业项目ID，查询该企业项目下的主机，否则会因权限不足而报错。
+     * @param {string} [hostName] 主机名称
+     * @param {string} [hostIp] 主机ip
+     * @param {string} [path] 进程可执行文件路径
+     * @param {string} [category] 类型，默认为host，包含如下： - host：主机 - container：容器
+     * @param {number} [limit] 每页显示数量
+     * @param {number} [offset] 偏移量：指定返回记录的开始位置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProcessesHost(listProcessesHostRequest?: ListProcessesHostRequest): Promise<ListProcessesHostResponse> {
+        const options = ParamCreater().listProcessesHost(listProcessesHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取账户变动历史记录信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取账户变动历史信息
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [userName] **参数解释**: 用户名 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位  **默认取值**: 不涉及 
+     * @param {boolean} [rootPermission] **参数解释**: 是否有root权限 **约束限制**: 不涉及 **取值范围**: true: 具有root权限 false: 不具有root权限  **默认取值**: 不涉及 
+     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位  **默认取值**: 不涉及 
+     * @param {string} [changeType] **参数解释**: 账号变更类型 **约束限制**: 不涉及 **取值范围**: - ADD ：添加 - DELETE ：删除 - MODIFY ： 修改  **默认取值**: 不涉及 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200  **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值10000  **默认取值**: 不涉及 
+     * @param {number} [startTime] **参数解释**: 变更开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 取值0-4070880000000  **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 变更结束时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 取值0-4070880000000  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUserChangeHistories(listUserChangeHistoriesRequest?: ListUserChangeHistoriesRequest): Promise<ListUserChangeHistoriesResponse> {
+        const options = ParamCreater().listUserChangeHistories(listUserChangeHistoriesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询账号信息列表，支持通过传入账号名称参数查询对应的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询账号信息列表
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [userName] **参数解释**: 用于筛选指定名称的账号统计数据（支持模糊匹配） **约束限制**: 符合Windows文件命名规则，不包含中文标点符号 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUserStatistics(listUserStatisticsRequest?: ListUserStatisticsRequest): Promise<ListUserStatisticsResponse> {
+        const options = ParamCreater().listUserStatistics(listUserStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询账号的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询账号的服务器列表
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [userName] **参数解释**: 账号名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-32位 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {boolean} [loginPermission] **参数解释**: 是否允许登录 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
+     * @param {boolean} [rootPermission] **参数解释**: 是否有root权限 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
+     * @param {string} [userGroup] **参数解释**: 是否是主机用户组 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器  **默认取值**: 不涉及 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配 **约束限制**: 不涉及 **取值范围**: - true：是 - false：否  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listUsers(listUsersRequest?: ListUsersRequest): Promise<ListUsersResponse> {
+        const options = ParamCreater().listUsers(listUsersRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Web服务、Web应用、数据库的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Web服务、Web应用、数据库的统计信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [name] **参数解释**: web应用，web服务或数据库名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebAppAndServiceStatistics(listWebAppAndServiceStatisticsRequest?: ListWebAppAndServiceStatisticsRequest): Promise<ListWebAppAndServiceStatisticsResponse> {
+        const options = ParamCreater().listWebAppAndServiceStatistics(listWebAppAndServiceStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定Web服务、Web应用、数据库的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定Web服务、Web应用、数据库的服务器列表
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} catalogue **参数解释**: 资产类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [name] **参数解释**: web应用，web服务或数据库名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称(可选)，可让用户根据主机名字搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器id(可选)，可让用户根据主机id搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器ip(可选)，可让用户根据主机ip搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {string} [version] **参数解释**: web应用，web服务或数据库版本，可让用户根据版本搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {string} [installDir] **参数解释**: web应用，web服务或数据库安装目录，可让用户根据安装目录搜索 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebAppAndServices(listWebAppAndServicesRequest?: ListWebAppAndServicesRequest): Promise<ListWebAppAndServicesResponse> {
+        const options = ParamCreater().listWebAppAndServices(listWebAppAndServicesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定Web框架的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定Web框架的服务器列表
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [fileName] **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebFrameworkHostInfo(listWebFrameworkHostInfoRequest?: ListWebFrameworkHostInfoRequest): Promise<ListWebFrameworkHostInfoResponse> {
+        const options = ParamCreater().listWebFrameworkHostInfo(listWebFrameworkHostInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定主机的Web框架信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定主机的Web框架信息
+     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [fileName] **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebFrameworkInfo(listWebFrameworkInfoRequest?: ListWebFrameworkInfoRequest): Promise<ListWebFrameworkInfoResponse> {
+        const options = ParamCreater().listWebFrameworkInfo(listWebFrameworkInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Web框架的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Web框架的统计信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [fileName] **参数解释**: 框架文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebFrameworkStatistics(listWebFrameworkStatisticsRequest?: ListWebFrameworkStatisticsRequest): Promise<ListWebFrameworkStatisticsResponse> {
+        const options = ParamCreater().listWebFrameworkStatistics(listWebFrameworkStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定Web站点的服务器列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定Web站点的服务器列表
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} domain **参数解释**: 域名 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度0-64 **默认取值**: 不涉及 
+     * @param {boolean} [partMatch] **参数解释**: 是否模糊匹配，默认false表示精确匹配 **约束限制**: 不涉及 **取值范围**: - true：模糊匹配 - false：精确匹配  **默认取值**: false 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebSiteHostInfo(listWebSiteHostInfoRequest?: ListWebSiteHostInfoRequest): Promise<ListWebSiteHostInfoResponse> {
+        const options = ParamCreater().listWebSiteHostInfo(listWebSiteHostInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定主机的Web站点信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定主机的Web站点信息
+     * @param {string} hostId **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [domain] **参数解释**: 域名 **约束限制**: 不涉及 **取值范围**: 字符长度1-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebSiteInfo(listWebSiteInfoRequest?: ListWebSiteInfoRequest): Promise<ListWebSiteInfoResponse> {
+        const options = ParamCreater().listWebSiteInfo(listWebSiteInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Web站点的服务器数。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Web站点的统计信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [domain] **参数解释**: 域名 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWebSiteStatistics(listWebSiteStatisticsRequest?: ListWebSiteStatisticsRequest): Promise<ListWebSiteStatisticsResponse> {
+        const options = ParamCreater().listWebSiteStatistics(listWebSiteStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 采集单主机资产指纹。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 采集单主机资产指纹
+     * @param {string} type **参数解释**： 资产类型 **约束限制**： 不涉及 **取值范围**： 包含如下11种： - web-app：web应用 - web-service：web服务 - web-framework：web框架 - web-site：web站点 - midware：中间件 - database：数据库 - kernel-module：内核模块 - software：软件 - account：账户 - ai-app：AI应用 - ai-tool：AI工具  **默认取值**： 不涉及
+     * @param {string} hostId **参数解释**： 主机ID **约束限制**： 不涉及 **取值范围**： 字符长度1-256位 **默认取值**： 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runHostAssetManualCollect(runHostAssetManualCollectRequest?: RunHostAssetManualCollectRequest): Promise<RunHostAssetManualCollectResponse> {
+        const options = ParamCreater().runHostAssetManualCollect(runHostAssetManualCollectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-账户Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-账户Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAccountTop(showAccountTopRequest?: ShowAccountTopRequest): Promise<ShowAccountTopResponse> {
+        const options = ParamCreater().showAccountTop(showAccountTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-资产状态-主机Agent状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-资产状态-主机Agent状态
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAgentStatisticsStatus(showAgentStatisticsStatusRequest?: ShowAgentStatisticsStatusRequest): Promise<ShowAgentStatisticsStatusResponse> {
+        const options = ParamCreater().showAgentStatisticsStatus(showAgentStatisticsStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产统计信息，账号、端口、进程等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 统计资产信息数量
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssetStatistic(showAssetStatisticRequest?: ShowAssetStatisticRequest): Promise<ShowAssetStatisticResponse> {
+        const options = ParamCreater().showAssetStatistic(showAssetStatisticRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-自启动项Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-自启动项Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAutoLaunchTop(showAutoLaunchTopRequest?: ShowAutoLaunchTopRequest): Promise<ShowAutoLaunchTopResponse> {
+        const options = ParamCreater().showAutoLaunchTop(showAutoLaunchTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 呈现某一端口详细信息，如本地端口：80，类型：TCP，危险程度：正常，端口描述：常用于SSH(SecureShell)-远程登录协议，用于安全登录文件传输（SCP，SFTP）及端口重新定向。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询某一端口的描述信息
+     * @param {string} category **参数解释**: 资产类别 **约束限制**: 不涉及 **取值范围**: - host：主机资产 - container：容器资产 - serverless：Serverless安全场景  **默认取值**: host 
+     * @param {number} port **参数解释**: 端口号 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值65535 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showCommonPort(showCommonPortRequest?: ShowCommonPortRequest): Promise<ShowCommonPortResponse> {
+        const options = ParamCreater().showCommonPort(showCommonPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-资产状态-容器节点防护状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-资产状态-容器节点防护状态
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showContainerProtectionStatus(showContainerProtectionStatusRequest?: ShowContainerProtectionStatusRequest): Promise<ShowContainerProtectionStatusResponse> {
+        const options = ParamCreater().showContainerProtectionStatus(showContainerProtectionStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 单主机资产指纹采集状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 单主机资产指纹采集状态
+     * @param {string} type **参数解释**： 资产类型 **约束限制**： 不涉及 **取值范围**： 包含如下11种： - web-app：web应用 - web-service：web服务 - web-framework：web框架 - web-site：web站点 - midware：中间件 - database：数据库 - kernel-module：内核模块 - software：软件 - account：账户 - ai-app：AI应用 - ai-tool：AI工具  **默认取值**： 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHostAssetManualCollectStatus(showHostAssetManualCollectStatusRequest?: ShowHostAssetManualCollectStatusRequest): Promise<ShowHostAssetManualCollectStatusResponse> {
+        const options = ParamCreater().showHostAssetManualCollectStatus(showHostAssetManualCollectStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-资产状态-Agent状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-资产状态-Agent状态
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showHostProtectionStatus(showHostProtectionStatusRequest?: ShowHostProtectionStatusRequest): Promise<ShowHostProtectionStatusResponse> {
+        const options = ParamCreater().showHostProtectionStatus(showHostProtectionStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-jar包Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-jar包Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJarPackageTop(showJarPackageTopRequest?: ShowJarPackageTopRequest): Promise<ShowJarPackageTopResponse> {
+        const options = ParamCreater().showJarPackageTop(showJarPackageTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-内核模块Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-内核模块Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKernelModuleTop(showKernelModuleTopRequest?: ShowKernelModuleTopRequest): Promise<ShowKernelModuleTopResponse> {
+        const options = ParamCreater().showKernelModuleTop(showKernelModuleTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-资产状态-操作系统统计信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-资产状态-操作系统统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOsStatisticsInfo(showOsStatisticsInfoRequest?: ShowOsStatisticsInfoRequest): Promise<ShowOsStatisticsInfoResponse> {
+        const options = ParamCreater().showOsStatisticsInfo(showOsStatisticsInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-端口Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-端口Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPortTop(showPortTopRequest?: ShowPortTopRequest): Promise<ShowPortTopResponse> {
+        const options = ParamCreater().showPortTop(showPortTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-进程Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-进程Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProcessTop(showProcessTopRequest?: ShowProcessTopRequest): Promise<ShowProcessTopResponse> {
+        const options = ParamCreater().showProcessTop(showProcessTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-资产状态-防护配额统计信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-资产状态-防护配额统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuotaStatisticsInfo(showQuotaStatisticsInfoRequest?: ShowQuotaStatisticsInfoRequest): Promise<ShowQuotaStatisticsInfoResponse> {
+        const options = ParamCreater().showQuotaStatisticsInfo(showQuotaStatisticsInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-软件Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-软件Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSoftwareTop(showSoftwareTopRequest?: ShowSoftwareTopRequest): Promise<ShowSoftwareTopResponse> {
+        const options = ParamCreater().showSoftwareTop(showSoftwareTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-Web应用TOP5/Web服务TOP5。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-WebAppAndServiceTop
+     * @param {string} catalogue **参数解释**: web类型 **约束限制**: 不涉及 **取值范围**: - web_cms：web应用 - web_service：web服务 - database：数据库  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWebAppAndServiceTop(showWebAppAndServiceTopRequest?: ShowWebAppAndServiceTopRequest): Promise<ShowWebAppAndServiceTopResponse> {
+        const options = ParamCreater().showWebAppAndServiceTop(showWebAppAndServiceTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-Web框架Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-Web框架Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWebFrameworkTop(showWebFrameworkTopRequest?: ShowWebFrameworkTopRequest): Promise<ShowWebFrameworkTopResponse> {
+        const options = ParamCreater().showWebFrameworkTop(showWebFrameworkTopRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 资产管理-概览-Web站点Top。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 资产管理-概览-Web站点Top
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWebSiteTop(showWebSiteTopRequest?: ShowWebSiteTopRequest): Promise<ShowWebSiteTopResponse> {
+        const options = ParamCreater().showWebSiteTop(showWebSiteTopRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7908,11 +8524,11 @@ export class HssClient {
      *
      * @summary 查询指定安全配置项的检查项列表
      * @param {string} checkName **参数解释**: 配置检查（基线）的名称，例如SSH、CentOS 7、Windows **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准 **默认取值**: 不涉及 
+     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [resultType] **参数解释**: 结果类型 **约束限制**: 不涉及 **取值范围**: - safe : 已通过 - unhandled : 未通过，且未忽略的 - ignored : 未通过，且已忽略的 **默认取值**: unhandled 
+     * @param {string} [resultType] **参数解释**: 结果类型 **约束限制**: 不涉及 **取值范围**: - safe : 已通过 - unhandled : 未通过，且未忽略的 - ignored : 未通过，且已忽略的  **默认取值**: unhandled 
      * @param {string} [checkRuleName] **参数解释**: 检查项（检查规则）名称，支持模糊匹配 **约束限制**: 不涉及 **取值范围**: 字符长度0-2048位 **默认取值**: 不涉及 
-     * @param {string} [severity] **参数解释**: 风险等级 **约束限制**: 不涉及 **取值范围**: - Security : 安全 - Low : 低危 - Medium : 中危 - High : 高危 - Critical : 危急 **默认取值**: 不涉及 
+     * @param {string} [severity] **参数解释**: 风险等级 **约束限制**: 不涉及 **取值范围**: - Security : 安全 - Low : 低危 - Medium : 中危 - High : 高危 - Critical : 危急  **默认取值**: 不涉及 
      * @param {string} [hostId] **参数解释**: 主机ID，不赋值时，查租户所有主机 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
@@ -7935,7 +8551,7 @@ export class HssClient {
      *
      * @summary 查询指定安全配置项的受影响服务器列表
      * @param {string} checkName **参数解释**: 配置检查（基线）的名称，例如SSH、CentOS 7、Windows **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准 **默认取值**: 不涉及 
+     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP地址 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
@@ -7962,8 +8578,8 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [checkName] **参数解释**: 配置检查（基线）的名称，例如SSH、CentOS 7、Windows **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {string} [groupId] **参数解释**: 策略组ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [severity] **参数解释**: 风险等级 **约束限制**: 不涉及 **取值范围**: - Security : 安全 - Low : 低危 - Medium : 中危 - High : 高危 **默认取值**: 不涉及 
-     * @param {string} [standard] **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准 **默认取值**: 不涉及 
+     * @param {string} [severity] **参数解释**: 风险等级 **约束限制**: 不涉及 **取值范围**: - Security : 安全 - Low : 低危 - Medium : 中危 - High : 高危  **默认取值**: 不涉及 
+     * @param {string} [standard] **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准  **默认取值**: 不涉及 
      * @param {string} [hostId] **参数解释**: 主机id **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
@@ -7993,6 +8609,28 @@ export class HssClient {
      */
     public listSecurityCheckPolicyGroup(listSecurityCheckPolicyGroupRequest?: ListSecurityCheckPolicyGroupRequest): Promise<ListSecurityCheckPolicyGroupResponse> {
         const options = ParamCreater().listSecurityCheckPolicyGroup(listSecurityCheckPolicyGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询配置检测策略组关联的主机信息列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询配置检测策略组关联的主机信息列表
+     * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
+     * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 必填 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} groupId **参数解释** 策略组ID **约束限制** 不涉及 **取值范围** 字符长度1-128位 **默认取值** 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityCheckPolicyGroupHosts(listSecurityCheckPolicyGroupHostsRequest?: ListSecurityCheckPolicyGroupHostsRequest): Promise<ListSecurityCheckPolicyGroupHostsResponse> {
+        const options = ParamCreater().listSecurityCheckPolicyGroupHosts(listSecurityCheckPolicyGroupHostsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -8157,7 +8795,7 @@ export class HssClient {
      * @param {string} checkName **参数解释**: 配置检查（基线）的名称，例如SSH、CentOS 7、Windows **约束限制**: 不涉及 **取值范围**: 字符长度0-255位 **默认取值**: 不涉及
      * @param {string} checkType **参数解释**:  配置检查（基线）的类型,Linux系统支持的基线一般check_type和check_name相同,例如SSH、CentOS 7。 Windows系统支持的基线一般check_type和check_name不相同，例如check_name为Windows的配置检查（基线），它的check_type包含Windows Server 2019 R2、Windows Server 2016 R2等。check_type的值可以通过这个接口的返回数据获得：/v5/{project_id}/baseline/risk-configs **约束限制**: 不涉及 **取值范围**: 字符长度0-255位 **默认取值**: 不涉及
      * @param {string} checkRuleId **参数解释**:  检查项ID，值可以通过这个接口的返回数据获得：/v5/{project_id}/baseline/risk-config/{check_name}/check-rules **约束限制**: 不涉及 **取值范围**: 字符长度0-255位 **默认取值**: 不涉及
-     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准 **默认取值**: 不涉及
+     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准  **默认取值**: 不涉及
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostId] **参数解释**: 主机id **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及
      * @param {*} [options] Override http request option.
@@ -8252,7 +8890,7 @@ export class HssClient {
      *
      * @summary 查询指定安全配置项的检查结果
      * @param {string} checkName **参数解释**: 配置检查（基线）的名称，例如SSH、CentOS 7、Windows **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准 **默认取值**: 不涉及 
+     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard : 等保合规标准 - hw_standard : 云安全实践标准  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [hostId] **参数解释**: 主机ID，不赋值时，查租户所有主机 **约束限制**: 不涉及 **取值范围**: 字符长度0-64位 **默认取值**: 不涉及 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -8378,6 +9016,48 @@ export class HssClient {
      */
     public showClusterScanStatistics(showClusterScanStatisticsRequest?: ShowClusterScanStatisticsRequest): Promise<ShowClusterScanStatisticsResponse> {
         const options = ParamCreater().showClusterScanStatistics(showClusterScanStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量上传文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量上传文件
+     * @param {string} uploadType **参数解释**: 上传文件类型 **约束限制**: 不涉及 **取值范围**: - dockerfile：Dockerfile文件。如果所有文件上传成功，接口返回文件名称和文件ID列表，服务保存上传的文件。如果批量上传的文件中存在上传失败的文件，接口返回上传成功和失败的文件信息，所有文件都不会被服务保存。 - k8s_yaml：k8s yaml文件。如果所有文件上传成功，接口返回文件名称和文件ID列表，服务保存上传的文件。如果批量上传的文件中存在上传失败的文件，接口返回上传成功和失败的文件信息，所有文件都不会被服务保存。 - helm_charts：helm charts文件。如果所有文件上传成功，接口返回文件名称和文件ID列表，服务保存上传的文件。如果批量上传的文件中存在上传失败的文件，接口返回上传成功和失败的文件信息，所有文件都不会被服务保存。  **默认取值**: 不涉及 
+     * @param {Array<object>} files **参数解释**: 上传的文件，支持批量上传 **约束限制**: 上传文件需要与upload_type的类型对应 **取值范围**: 单文件支持最大1M，10个。 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUploadFiles(batchUploadFilesRequest?: BatchUploadFilesRequest): Promise<BatchUploadFilesResponse> {
+        const options = ParamCreater().batchUploadFiles(batchUploadFilesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 公共的导出接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 公共的导出接口
+     * @param {number} exportSize **参数解释**: 导出条数 **约束限制**: 不涉及 **取值范围**: 取值1-100000 **默认取值**: 100000 
+     * @param {ExportCommonInterfaceRequestBody} exportCommonInterfaceRequestBody 导出数据的查询条件
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportCommonInterface(exportCommonInterfaceRequest?: ExportCommonInterfaceRequest): Promise<ExportCommonInterfaceResponse> {
+        const options = ParamCreater().exportCommonInterface(exportCommonInterfaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9149,7 +9829,7 @@ export class HssClient {
      * @param {string} organization 组织名称
      * @param {string} username 用户名
      * @param {string} password 密码
-     * @param {string} [plugType] **参数解释**: 插件类型 **约束限制**: 不涉及 **取值范围**: - docker: docker插件镜像 - agent: hostguard镜像 **默认取值**: 不涉及 
+     * @param {string} [plugType] **参数解释**: 插件类型 **约束限制**: 不涉及 **取值范围**: - docker: docker插件镜像 - agent: hostguard镜像  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -9384,6 +10064,27 @@ export class HssClient {
     }
 
     /**
+     * 编辑告警白名单主机相关信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 编辑告警白名单生效主机
+     * @param {UpdateAlarmWhiteListRequestInfo} updateAlarmWhiteListHostRequestBody 修改告警白名单生效主机 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest): Promise<UpdateAlarmWhiteListHostResponse> {
+        const options = ParamCreater().updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 变更文件列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -9479,6 +10180,35 @@ export class HssClient {
      */
     public showFileStatistic(showFileStatisticRequest?: ShowFileStatisticRequest): Promise<ShowFileStatisticResponse> {
         const options = ParamCreater().showFileStatistic(showFileStatisticRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询蜜罐事件列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询蜜罐事件列表
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [beginTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 需小于等于end_time，未传end_time时默认查询至当前时间 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [endTime] **参数解释**: 结束时间，13位时间戳 **约束限制**: 需大于等于begin_time，未传begin_time时默认从时间戳0开始查询 **取值范围**: 最小值0，最大值9223372036854775807（UTC时区，从1970-01-01 00:00:00开始计算） **默认取值**: 不涉及 
+     * @param {number} [lastDays] **参数解释**: 查询时间范围天数 **约束限制**: 与begin_time、end_time互斥，不可同时传参，优先按last_days筛选 **取值范围**: 最小值1，最大值90（支持查询近90天内任务） **默认取值**: 不涉及 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostId] **参数解释**: 服务器ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
+     * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [severity] 威胁等级，包含如下:   - Security：安全   - Low：低危   - Medium：中危   - High：高危   - Critical：危急
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHoneypotEvents(listHoneypotEventsRequest?: ListHoneypotEventsRequest): Promise<ListHoneypotEventsResponse> {
+        const options = ParamCreater().listHoneypotEvents(listHoneypotEventsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9777,17 +10507,17 @@ export class HssClient {
      * @summary 查询云服务器列表
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [version] **参数解释**： 主机开通的版本 **约束限制**: 不涉及 **取值范围**： 包含如下7种输入。 - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。 **默认取值**: 不涉及
+     * @param {string} [version] **参数解释**： 主机开通的版本 **约束限制**: 不涉及 **取值范围**： 包含如下7种输入。 - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。 - hss.version.container.wtp：容器网页防篡改增值项。  **默认取值**: 不涉及
      * @param {string} [agentStatus] **参数解释**: Agent的状态 **约束限制**: 不涉及 **取值范围**: Agent的状态分为两类： - installed：已安装。已安装状态包含以下四种情况：   - online：在线。表示Agent已经成功安装并且与HSS云端防护中心保持连接。   - offline：离线。表示虽然Agent已经安装，但当前与HSS云端防护中心的连接中断。   - install_failed：安装失败。表示在尝试安装过程中遇到错误或问题，导致安装未能完成。   - installing：安装中。表示当前正在进行Agent安装。 - not_installed ：未安装。表示服务器中尚未安装Agent。 如果您要筛选除在线以外所有状态的Agent，可设置not_online（仅作为查询条件） **默认取值**: 不涉及
-     * @param {string} [detectResult] **参数解释**: 检测结果 **约束限制**: 不涉及 **取值范围**: 包含如下4种。   - undetected ：未检测。   - clean ：无风险。   - risk ：有风险。   - scanning ：检测中。 **默认取值**: 不涉及
+     * @param {string} [detectResult] **参数解释**: 检测结果 **约束限制**: 不涉及 **取值范围**: 包含如下4种。   - undetected ：未检测。   - clean ：无风险。   - risk ：有风险。   - scanning ：检测中。  **默认取值**: 不涉及
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [hostId] **参数解释**: 服务器的唯一标识ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
-     * @param {string} [hostStatus] **参数解释**: 主机状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种。 - ACTIVE ：正在运行。 - SHUTOFF ：关机。 - BUILDING ：创建中。 - ERROR ：故障。 **默认取值**: 不涉及
-     * @param {string} [osType] **参数解释**: 操作系统类型 **约束限制**: 不涉及 **取值范围**: 包含如下2种。 - Linux ：Linux。 - Windows ：Windows。 **默认取值**: 不涉及
+     * @param {string} [hostStatus] **参数解释**: 主机状态 **约束限制**: 不涉及 **取值范围**: 包含如下4种。 - ACTIVE ：正在运行。 - SHUTOFF ：关机。 - BUILDING ：创建中。 - ERROR ：故障。  **默认取值**: 不涉及
+     * @param {string} [osType] **参数解释**: 操作系统类型 **约束限制**: 不涉及 **取值范围**: 包含如下2种。 - Linux ：Linux。 - Windows ：Windows。  **默认取值**: 不涉及
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [ipAddr] **参数解释**: 公网或私网IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及
-     * @param {string} [protectStatus] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: 包含如下3种： - closed ：关闭。 - opened ：开启。 - protection_exception ：防护异常。 **默认取值**: 不涉及
+     * @param {string} [protectStatus] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: 包含如下3种： - closed ：关闭。 - opened ：开启。 - protection_exception ：防护异常。  **默认取值**: 不涉及
      * @param {string} [groupId] 服务器组的唯一标识ID
      * @param {string} [groupName] **参数解释**: 服务器组名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [vpcId] **参数解释**: VPC的ID **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
@@ -9799,10 +10529,10 @@ export class HssClient {
      * @param {boolean} [hasVul] **参数解释**: 存在漏洞风险 **约束限制**: 不涉及 **取值范围**: true或者false **默认取值**: 不涉及 
      * @param {boolean} [hasBaseline] **参数解释**: 存在基线风险 **约束限制**: 不涉及 **取值范围**: true或者false **默认取值**: 不涉及 
      * @param {string} [sortKey] **参数解释**: 排序字段 **约束限制**: 不涉及 **取值范围**: 只支持risk_num **默认取值**: 不涉及 
-     * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**: - asc: 正序 - desc: 倒序 **默认取值**: 不涉及 
+     * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**: - asc: 正序 - desc: 倒序  **默认取值**: 不涉及 
      * @param {string} [policyGroupId] **参数解释**: 策略组ID **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {string} [policyGroupName] **参数解释**: 策略组名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。 **默认取值**: 不涉及
+     * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。  **默认取值**: 不涉及
      * @param {boolean} [refresh] **参数解释** : 是否强制从ECS同步主机 **约束限制** : 不涉及 **取值范围** : true或者false **默认取值** : 不涉及 
      * @param {boolean} [getCommonLoginLocations] **参数解释** : 是否获取主机常用登录地信息 **约束限制** : 不涉及 **取值范围** : true或者false **默认取值** : 不涉及 
      * @param {boolean} [aboveVersion] **参数解释** : 是否返回比当前版本高的所有版本 **约束限制** : 不涉及 **取值范围** : true或者false **默认取值** : 不涉及 
@@ -9844,6 +10574,26 @@ export class HssClient {
      */
     public listHostsRisk(listHostsRiskRequest?: ListHostsRiskRequest): Promise<ListHostsRiskResponse> {
         const options = ParamCreater().listHostsRisk(listHostsRiskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取主机的升级状态，支持按主机ID列表批量查询Agent 1.0到2.0的升级状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取主机的升级状态
+     * @param {Array<string>} hostIdList **参数解释**: 主机ID列表，用于指定需要查询升级状态的主机。 **约束限制**: 必填 **取值范围**: 1-50个主机ID **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHostsUpgrade(listHostsUpgradeRequest?: ListHostsUpgradeRequest): Promise<ListHostsUpgradeResponse> {
+        const options = ParamCreater().listHostsUpgrade(listHostsUpgradeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -10094,7 +10844,7 @@ export class HssClient {
      * @summary 获取iac文件列表
      * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
      * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 必填 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} scanType **参数解释**: 扫描方式 **约束限制**: 不涉及 **取值范围**: - manual_scan：手动扫描 - cicd_scan：cicd扫描 **默认取值**: 不涉及 
+     * @param {string} scanType **参数解释**: 扫描方式 **约束限制**: 不涉及 **取值范围**: - manual_scan：手动扫描 - cicd_scan：cicd扫描  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [fileId] **参数解释**: 文件ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64  **默认取值**: 不涉及 
      * @param {string} [fileName] **参数解释**: 文件名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-512  **默认取值**: 不涉及 
@@ -10380,7 +11130,7 @@ export class HssClient {
      * @param {string} imageType **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: - cicd：cicd镜像 - registry：仓库镜像  **默认取值**: 不涉及 
      * @param {string} checkRuleId **参数解释**: 检查项ID **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
      * @param {string} checkName **参数解释**: 配置检查（基线）的名称，例如SSH、CentOS 7、Windows **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard：等保合规标准 - hw_standard：云安全实践标准 **默认取值**: 不涉及
+     * @param {string} standard **参数解释**: 标准类型 **约束限制**: 不涉及 **取值范围**: - cn_standard：等保合规标准 - hw_standard：云安全实践标准  **默认取值**: 不涉及
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -10413,7 +11163,7 @@ export class HssClient {
      * @param {string} [imageVersion] **参数解释**: 镜像版本名称 **约束限制**: 不涉及 **取值范围**: 字符串大小0-65535 **默认取值**: 不涉及 
      * @param {string} [instanceId] **参数解释**: 企业仓库实例ID，swr共享版无需使用该参数 **约束限制**: 不涉及 **取值范围**: 字符串大小0-128 **默认取值**: 不涉及 
      * @param {string} [imageId] **参数解释**: 镜像id **约束限制**： 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
-     * @param {string} [scanResult] **参数解释**: 检测结果 **约束限制**: 不涉及 **取值范围**:   - pass：通过   - failed：未通过 **默认取值**: 不涉及
+     * @param {string} [scanResult] **参数解释**: 检测结果 **约束限制**: 不涉及 **取值范围**:   - pass：通过   - failed：未通过  **默认取值**: 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -10511,7 +11261,7 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [imageType] **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: - registry：仓库镜像。 - cicd：cicd镜像。 **默认取值**: 不涉及 
+     * @param {string} [imageType] **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: - registry：仓库镜像。 - cicd：cicd镜像。  **默认取值**: 不涉及 
      * @param {string} [fileName] **参数解释**: 文件名称过滤查询(支持模糊匹配) **约束限制**: 不涉及 **取值范围**: 字符长度0-65535 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -10580,7 +11330,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像软件列表
-     * @param {string} imageType **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - instance_image : 企业镜像   - cicd : cicd镜像   - harbor ：Harbor仓库镜像 **默认取值**: 不涉及 
+     * @param {string} imageType **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: 镜像类型，包含如下:   - private_image : 私有镜像仓库   - shared_image : 共享镜像仓库   - instance_image : 企业镜像   - cicd : cicd镜像   - harbor ：Harbor仓库镜像  **默认取值**: 不涉及 
      * @param {string} imageId **参数解释**: 镜像id **约束限制**: 不涉及 **取值范围**: 字符长度0-65535位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
@@ -10685,7 +11435,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像文件列表
-     * @param {string} imageType **参数解释**: 镜像类型 **取值范围**: - private_image : 私有镜像仓库 - shared_image : 共享镜像仓库 - instance_image : 企业镜像 - cicd : cicd镜像 - harbor ：Harbor仓库镜像 **默认取值**: 不涉及 
+     * @param {string} imageType **参数解释**: 镜像类型 **取值范围**: - private_image : 私有镜像仓库 - shared_image : 共享镜像仓库 - instance_image : 企业镜像 - cicd : cicd镜像 - harbor ：Harbor仓库镜像  **默认取值**: 不涉及 
      * @param {string} imageId **参数解释**: 镜像id **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -10917,6 +11667,26 @@ export class HssClient {
     }
 
     /**
+     * 获取镜像扫描的总览
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像扫描的总览
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [globalImageType] **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: - local：本地镜像。 - registry：仓库镜像。  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listImageScanOverview(listImageScanOverviewRequest?: ListImageScanOverviewRequest): Promise<ListImageScanOverviewResponse> {
+        const options = ParamCreater().listImageScanOverview(listImageScanOverviewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询镜像的敏感信息，若镜像类型为cicd镜像，则需传参镜像类型和镜像id唯一确定一条cicd镜像信息；若镜像类型为其他镜像仓类型，需要传参镜像类型、组织名称、镜像名称、镜像版本名称唯一确定一条其他镜像信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -11125,6 +11895,33 @@ export class HssClient {
      */
     public listLocalImageHosts(listLocalImageHostsRequest?: ListLocalImageHostsRequest): Promise<ListLocalImageHostsResponse> {
         const options = ParamCreater().listLocalImageHosts(listLocalImageHostsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询本地镜像的漏洞信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询本地镜像的漏洞信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [repairNecessity] **参数解释**: 修复紧急度 **约束限制**: 不涉及 **取值范围**: - immediate_repair：紧急修复 - delay_repair：延迟修复 - not_needed_repair：无需修复  **默认取值**: 不涉及 
+     * @param {string} [imageId] **参数解释**: 镜像ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [vulId] **参数解释**: 漏洞ID **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [appName] **参数解释**: 软件名 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [type] **参数解释**: 漏洞类型 **约束限制**: 不涉及 **取值范围**: - linux_vul：linux漏洞 - app_vul：应用漏洞  **默认取值**: 不涉及 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLocalImageVul(listLocalImageVulRequest?: ListLocalImageVulRequest): Promise<ListLocalImageVulResponse> {
+        const options = ParamCreater().listLocalImageVul(listLocalImageVulRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -11838,17 +12635,133 @@ export class HssClient {
     }
 
     /**
-     * 查询风险评分结果。
+     * 查询当前云负载的防护状态统计信息，包含主机、容器、Serverless的防护情况。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询风险评分结果
+     * @summary 查询当前云负载的防护状态
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProtectionStatusStatistics(showProtectionStatusStatisticsRequest?: ShowProtectionStatusStatisticsRequest): Promise<ShowProtectionStatusStatisticsResponse> {
+        const options = ParamCreater().showProtectionStatusStatistics(showProtectionStatusStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询主机配额统计信息，包含各版本配额数量、主机数量、即将过期配额数量等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主机配额统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [chargingMode] **参数解释**: 计费模式，用于过滤不同计费模式下的配额信息。 **约束限制**: 不涉及 **取值范围**: 字符长度1-32位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuotaHostStatistics(showQuotaHostStatisticsRequest?: ShowQuotaHostStatisticsRequest): Promise<ShowQuotaHostStatisticsResponse> {
+        const options = ParamCreater().showQuotaHostStatistics(showQuotaHostStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询风险评分结果--接口已废弃。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询风险评分结果--接口已废弃
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showRiskScore(showRiskScoreRequest?: ShowRiskScoreRequest): Promise<ShowRiskScoreResponse> {
         const options = ParamCreater().showRiskScore(showRiskScoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目安全风险信息，包含主机风险（告警、漏洞、基线、可疑进程）和容器风险（漏洞），以及7天安全风险趋势数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全风险信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityRisk(showSecurityRiskRequest?: ShowSecurityRiskRequest): Promise<ShowSecurityRiskResponse> {
+        const options = ParamCreater().showSecurityRisk(showSecurityRiskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询总览界面安全评分信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询总览界面安全评分信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [needCalScore] **参数解释**: 是否计算分数 **约束限制**: 不涉及 **取值范围**: - 0：不计算 - 1：计算  **默认取值**: 0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityScore(showSecurityScoreRequest?: ShowSecurityScoreRequest): Promise<ShowSecurityScoreResponse> {
+        const options = ParamCreater().showSecurityScore(showSecurityScoreRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 统计信息：包含勒索病毒防治开启数量，应用防护开启数量，网页防篡改开启数量，双因子认证开启数量，支持双因子认证开启数量，隔离文件数量，应用进程控制防护服务器数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStatistics(showStatisticsRequest?: ShowStatisticsRequest): Promise<ShowStatisticsResponse> {
+        const options = ParamCreater().showStatistics(showStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询试用主机风险统计
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询试用主机风险统计
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTrialsStatistics(showTrialsStatisticsRequest?: ShowTrialsStatisticsRequest): Promise<ShowTrialsStatisticsResponse> {
+        const options = ParamCreater().showTrialsStatistics(showTrialsStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12101,6 +13014,47 @@ export class HssClient {
     }
 
     /**
+     * 查询策略组详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询策略组详情
+     * @param {string} groupId **参数解释**： 策略组ID **约束限制**： 必填 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {boolean} [enabled] **参数解释**： 策略开启状态 **约束限制**： 不涉及 **取值范围**： - true：开启 - false：关闭  **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPolicyGroupDetail(listPolicyGroupDetailRequest?: ListPolicyGroupDetailRequest): Promise<ListPolicyGroupDetailResponse> {
+        const options = ParamCreater().listPolicyGroupDetail(listPolicyGroupDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询策略详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询策略详情
+     * @param {string} policyId **参数解释**: 策略ID **约束限制**: 必填 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPolicyDetail(showPolicyDetailRequest?: ShowPolicyDetailRequest): Promise<ShowPolicyDetailResponse> {
+        const options = ParamCreater().showPolicyDetail(showPolicyDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 解绑配额。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -12171,14 +13125,14 @@ export class HssClient {
      * @summary 查询配额详情
      * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [version] **参数解释**： 主机开通的版本 **约束限制**: 不涉及 **取值范围**： 包含如下7种输入。 - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。 **默认取值**: 不涉及
-     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: 包含如下两种： - host_resource ：主机 - container_resource ：容器 **默认取值**: 不涉及
-     * @param {string} [quotaStatus] **参数解释**: 配额状态 **约束限制**: 不涉及 **取值范围**: 包含如下三种： - normal ： 正常 - expired ：过期 - freeze ：冻结 **默认取值**: 不涉及
-     * @param {string} [usedStatus] **参数解释**: 使用状态 **约束限制**: 不涉及 **取值范围**: 包含如下两种： - idle ：空闲的 - used ：使用中 **默认取值**: 不涉及
+     * @param {string} [version] **参数解释**： 主机开通的版本 **约束限制**: 不涉及 **取值范围**： 包含如下7种输入。 - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。 - hss.version.container.wtp：容器网页防篡改增值项。  **默认取值**: 不涉及
+     * @param {string} [category] **参数解释**: 类别 **约束限制**: 不涉及 **取值范围**: 包含如下两种： - host_resource：主机 - container_resource：容器 - container_wtp_resource：容器网页防篡改  **默认取值**: 不涉及
+     * @param {string} [quotaStatus] **参数解释**: 配额状态 **约束限制**: 不涉及 **取值范围**: 包含如下三种： - normal ： 正常 - expired ：过期 - freeze ：冻结  **默认取值**: 不涉及
+     * @param {string} [usedStatus] **参数解释**: 使用状态 **约束限制**: 不涉及 **取值范围**: 包含如下两种： - idle ：空闲的 - used ：使用中  **默认取值**: 不涉及
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {Array<string>} [hostIdList] **参数解释**: 服务器ID列表 **约束限制**: 不涉及 **取值范围**: 单个服务器ID字符长度1-64位 批量查询服务器ID个数1-100个 采用逗号分割 **默认取值**: 不涉及
      * @param {string} [resourceId] **参数解释** : HSS配额的资源ID **约束限制** : 不涉及 **取值范围** : 字符长度1-128位 **默认取值** : 不涉及 
-     * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。 **默认取值**: 不涉及
+     * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。  **默认取值**: 不涉及
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {*} [options] Override http request option.
@@ -12242,8 +13196,8 @@ export class HssClient {
      *
      * @summary 查询配额信息
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [version] **参数解释**： 主机开通的版本 **约束限制**: 不涉及 **取值范围**： 包含如下7种输入。 - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。 **默认取值**: 不涉及
-     * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。 **默认取值**: 不涉及
+     * @param {string} [version] **参数解释**： 主机开通的版本 **约束限制**: 不涉及 **取值范围**： 包含如下7种输入。 - hss.version.null ：无。 - hss.version.basic ：基础版。 - hss.version.advanced ：专业版。 - hss.version.enterprise ：企业版。 - hss.version.premium ：旗舰版。 - hss.version.wtp ：网页防篡改版。 - hss.version.container.enterprise：容器版。 - hss.version.container.wtp：容器网页防篡改增值项。  **默认取值**: 不涉及
+     * @param {string} [chargingMode] **参数解释**： 收费模式 **约束限制**: 不涉及 **取值范围**: - packet_cycle ：包年/包月。 - on_demand ：按需。  **默认取值**: 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -12269,6 +13223,25 @@ export class HssClient {
      */
     public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
         const options = ParamCreater().showVersion(showVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户当前最高主机版本和容器版本信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户版本信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVersionNewService(showVersionNewServiceRequest?: ShowVersionNewServiceRequest): Promise<ShowVersionNewServiceResponse> {
+        const options = ParamCreater().showVersionNewService(showVersionNewServiceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -12505,7 +13478,7 @@ export class HssClient {
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [policyName] **参数解释**: 防护策略名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-255 **默认取值**: 不涉及 
      * @param {string} [protectPolicyId] **参数解释**: 防护策略id **约束限制**: 不涉及 **取值范围**: 字符长度0-128 **默认取值**: 不涉及 
-     * @param {string} [operatingSystem] **参数解释**: 策略支持的操作系统 **约束限制**: 不涉及 **取值范围**: 包含如下：   - Windows : Windows系统   - Linux : Linux系统 **默认取值**: 不涉及
+     * @param {string} [operatingSystem] **参数解释**: 策略支持的操作系统 **约束限制**: 不涉及 **取值范围**: 包含如下：   - Windows : Windows系统   - Linux : Linux系统  **默认取值**: 不涉及
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -12531,7 +13504,7 @@ export class HssClient {
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [osType] **参数解释**: 操作系统类型 **约束限制**: 不涉及 **取值范围**: 包含如下2种。   - Linux ：Linux。   - Windows ：Windows。 字符长度0-64 **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP地址 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及 
-     * @param {string} [hostStatus] **参数解释**: 主机状态 **约束限制**: 不涉及 **取值范围**: 包含如下3种。   - 不传参默认为全部。   - ACTIVE ：正在运行。   - SHUTOFF ：关机。 **默认取值**: 不涉及 
+     * @param {string} [hostStatus] **参数解释**: 主机状态 **约束限制**: 不涉及 **取值范围**: 包含如下3种。   - 不传参默认为全部。   - ACTIVE ：正在运行。   - SHUTOFF ：关机。  **默认取值**: 不涉及 
      * @param {number} [lastDays] **参数解释**: 查询时间范围天数 **约束限制**: 不涉及 **取值范围**: 长度1-30。若不填，则默认查询一天内的防护事件和已有备份数。 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -12644,6 +13617,48 @@ export class HssClient {
     }
 
     /**
+     * 查询防勒索备份统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询防勒索备份统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {number} [lastDays] **参数解释**： 查询最近天数 **约束限制**： 不涉及 **取值范围**： 取值1-30 **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showBackupsStatistics(showBackupsStatisticsRequest?: ShowBackupsStatisticsRequest): Promise<ShowBackupsStatisticsResponse> {
+        const options = ParamCreater().showBackupsStatistics(showBackupsStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询防勒索防护统计信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询防勒索防护统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {number} [lastDays] **参数解释**： 查询时间范围 **约束限制**： 不涉及 **取值范围**： 不涉及 **默认取值**： 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProtectionStatistics(showProtectionStatisticsRequest?: ShowProtectionStatisticsRequest): Promise<ShowProtectionStatisticsResponse> {
+        const options = ParamCreater().showProtectionStatistics(showProtectionStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单个备份策略信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -12748,6 +13763,49 @@ export class HssClient {
     }
 
     /**
+     * 更新定时快照策略
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新定时快照策略
+     * @param {UpdateSnapshotPolicyRequestBody} updateSnapshotPolicyRequestBody 更新定时快照策略请求体
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSnapshotPolicy(updateSnapshotPolicyRequest?: UpdateSnapshotPolicyRequest): Promise<UpdateSnapshotPolicyResponse> {
+        const options = ParamCreater().updateSnapshotPolicy(updateSnapshotPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询虚拟补丁列表：查询已导入的虚拟补丁信息，包含补丁名称、漏洞ID、CVE编号、目标组件、影响版本、补丁版本、漏洞说明等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询虚拟补丁列表
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [patchName] **参数解释**: 补丁名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
+     * @param {number} [chkFeatureId] **参数解释**: 特征检查项ID **约束限制**: 不涉及 **取值范围**: 最小值0，最大值999999999 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRaspPatches(listRaspPatchesRequest?: ListRaspPatchesRequest): Promise<ListRaspPatchesResponse> {
+        const options = ParamCreater().listRaspPatches(listRaspPatchesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建同步镜像任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -12780,7 +13838,7 @@ export class HssClient {
      * @param {string} [imageVersion] **参数解释**: 镜像版本 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [registryName] **参数解释**: 仓库名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
-     * @param {string} [imageType] **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: - private_image：SWR私有镜像。 - shared_image：SWR共享镜像。 - instance_image：SWR企业版镜像。 - harbor：Harbor仓库镜像。 - jfrog：Jfrog镜像。 **默认取值**: 不涉及 
+     * @param {string} [imageType] **参数解释**: 镜像类型 **约束限制**: 不涉及 **取值范围**: - private_image：SWR私有镜像。 - shared_image：SWR共享镜像。 - instance_image：SWR企业版镜像。 - harbor：Harbor仓库镜像。 - jfrog：Jfrog镜像。  **默认取值**: 不涉及 
      * @param {string} [sortKey] **参数解释**: 可排序字段 **约束限制**: 不涉及 **取值范围**: - latest_scan_time：最近扫描时间。  **默认取值**: 不涉及 
      * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc：正序   - desc：倒序  **默认取值**: 正序排序 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值1-200 **默认取值**: 10 
@@ -12814,14 +13872,96 @@ export class HssClient {
     }
 
     /**
+     * 添加安全报告
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加安全报告
+     * @param {AddSecurityReportRequestInfo} addSecurityReportRequestBody 添加安全报告请求体
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addSecurityReport(addSecurityReportRequest?: AddSecurityReportRequest): Promise<AddSecurityReportResponse> {
+        const options = ParamCreater().addSecurityReport(addSecurityReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改报告
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改报告
+     * @param {ChangeSecurityReportRequestInfo} changeSecurityReportRequestBody **参数解释**: 修改报告的请求体 **约束限制**: 必填 **取值范围**: 不涉及 **默认取值**: 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeSecurityReport(changeSecurityReportRequest?: ChangeSecurityReportRequest): Promise<ChangeSecurityReportResponse> {
+        const options = ParamCreater().changeSecurityReport(changeSecurityReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除安全报告
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除安全报告
+     * @param {DeleteSecurityReportRequestInfo} deleteSecurityReportRequestBody 删除安全报告请求体
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteSecurityReport(deleteSecurityReportRequest?: DeleteSecurityReportRequest): Promise<DeleteSecurityReportResponse> {
+        const options = ParamCreater().deleteSecurityReport(deleteSecurityReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询历史报告统计周期列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询历史报告统计周期列表
+     * @param {number} reportId **参数解释**: 报告ID **约束限制**: 必填 **取值范围**: 最小值0，最大值2147483647 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listHistoryPeriod(listHistoryPeriodRequest?: ListHistoryPeriodRequest): Promise<ListHistoryPeriodResponse> {
+        const options = ParamCreater().listHistoryPeriod(listHistoryPeriodRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询报告总览页列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询报告总览页列表
-     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {string} [reportCategory] **参数解释**: \&quot;报告类别(不传默认是全部)\&quot;  **约束限制**:  不涉及  **取值范围**:  - daily_report：安全日报  - weekly_report：安全周报  - monthly_report：安全月报  - custom_report：自定义报告  **默认取值**:  不涉及，不传默认是全部 
+     * @param {string} [reportCategory] **参数解释**: 报告类别，不传默认查询全部类别。 **约束限制**: 不涉及 **取值范围**: - daily_report：日报 - weekly_report：周报 - monthly_report：月报 - custom_report：自定义报告  **默认取值**: 不涉及 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {*} [options] Override http request option.
@@ -12857,6 +13997,69 @@ export class HssClient {
     }
 
     /**
+     * 查询报告订阅的内容
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询报告订阅的内容
+     * @param {number} reportId **参数解释**: 报告ID **约束限制**: 必填 **取值范围**: 最小值0，最大值2147483647 **默认取值**: 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showReportSubscription(showReportSubscriptionRequest?: ShowReportSubscriptionRequest): Promise<ShowReportSubscriptionResponse> {
+        const options = ParamCreater().showReportSubscription(showReportSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全报告详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全报告详情
+     * @param {number} reportId **参数解释**: 报告ID **约束限制**: 必填 **取值范围**: 最小值0，最大值2147483647 **默认取值**: 0 
+     * @param {number} reportSubId **参数解释**: 报告子ID **约束限制**: 必填 **取值范围**: 最小值0，最大值2147483647 **默认取值**: 0 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityReport(showSecurityReportRequest?: ShowSecurityReportRequest): Promise<ShowSecurityReportResponse> {
+        const options = ParamCreater().showSecurityReport(showSecurityReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取安全报告logo
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取安全报告logo
+     * @param {string} logoType **参数解释**: logo类型 **约束限制**: 必填 **取值范围**: - default：华为logo - customize：自定义logo  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [logoId] **参数解释**: logo唯一ID **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityReportLogo(showSecurityReportLogoRequest?: ShowSecurityReportLogoRequest): Promise<ShowSecurityReportLogoResponse> {
+        const options = ParamCreater().showSecurityReportLogo(showSecurityReportLogoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询病毒扫描历史处置记录列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -12868,13 +14071,13 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [malwareName] **参数解释**: 病毒名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [filePath] **参数解释**： 文件路径 **约束限制**： 不涉及 **取值范围**： 字符数1-512位 **默认取值**： 不涉及 
-     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命 **默认取值**: 不涉及 
+     * @param {Array<string>} [severityList] **参数解释**: 威胁等级，已废弃 **约束限制**: 不涉及 **取值范围**: 威胁等级，包含如下:   - Low：低危   - Medium：中危   - High：高危   - Critical：致命  **默认取值**: 不涉及 
      * @param {string} [severities] 威胁等级，包含如下:   - Low : 低危   - Medium : 中危   - High : 高危   - Critical : 危急
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [assetValue] **参数解释**: 资产重要性 **约束限制**: 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**: 不涉及 
-     * @param {string} [handleMethod] **参数解释**: 处理方式 **约束限制**: 不涉及 **取值范围**: 处理方式，包含如下:   - mark_as_handled：手动处理   - ignore：忽略   - add_to_alarm_whitelist：加入告警白名单   - manual_isolate_and_kill：手动隔离查杀   - auto_isolate_and_kill：自动隔离查杀   - unhandle：取消手动处理   - do_not_ignore：取消忽略   - remove_from_alarm_whitelist：删除告警白名单   - do_not_isolate_or_kill：取消隔离文件 **默认取值**: 不涉及 
+     * @param {string} [handleMethod] **参数解释**: 处理方式 **约束限制**: 不涉及 **取值范围**: 处理方式，包含如下:   - mark_as_handled：手动处理   - ignore：忽略   - add_to_alarm_whitelist：加入告警白名单   - manual_isolate_and_kill：手动隔离查杀   - auto_isolate_and_kill：自动隔离查杀   - unhandle：取消手动处理   - do_not_ignore：取消忽略   - remove_from_alarm_whitelist：删除告警白名单   - do_not_isolate_or_kill：取消隔离文件  **默认取值**: 不涉及 
      * @param {string} [userName] **参数解释**: 用户名 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [sortDir] **参数解释**: 排序的顺序 **约束限制**: 不涉及 **取值范围**:   - asc：正序   - desc：倒序  **默认取值**: 正序排序 
      * @param {number} [eventType] **参数解释**: 事件类型 **约束限制**: 不涉及 **取值范围**: 0（病毒查杀事件）、1（恶意文件处置事件） **默认取值**: 不涉及 
@@ -12902,12 +14105,12 @@ export class HssClient {
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [severity] 威胁等级，包含如下:   - Security：安全   - Low：低危   - Medium：中危   - High：高危   - Critical：危急
      * @param {string} [attackTag] 攻击标识，包含如下：   - attack_success : 攻击成功   - attack_attempt : 攻击尝试   - attack_blocked : 攻击被阻断   - abnormal_behavior : 异常行为   - collapsible_host : 主机失陷   - system_vulnerability : 系统脆弱性
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产 **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {Array<string>} [eventClassIds] 事件标识，包含如下: - container_1001：容器命名空间 - container_1002：容器开放端口 - container_1003：容器安全选项 - container_1004：容器挂载目录 - containerescape_0001：容器高危系统调用 - containerescape_0002：Shocker攻击 - containerescape_0003：DirtCow攻击 - containerescape_0004：容器文件逃逸攻击 - dockerfile_001：用户自定义容器保护文件被修改 - dockerfile_002：容器文件系统可执行文件被修改 - dockerproc_001：容器进程异常事件上报 - fileprotect_0001：文件提权 - fileprotect_0002：关键文件变更 - fileprotect_0003：关键文件路径变更 - fileprotect_0004：文件/目录变更 - av_1002：病毒 - av_1003：蠕虫 - av_1004：木马 - av_1005：僵尸网络 - av_1006：后门 - av_1007：间谍软件 - av_1008：恶意广告软件 - av_1009：钓鱼 - av_1010：Rootkit - av_1011：勒索软件 - av_1012：黑客工具 - av_1013：灰色软件 - av_1015：Webshell - av_1016：挖矿软件 - login_0001：尝试暴力破解 - login_0002：爆破成功 - login_1001：登录成功 - login_1002：异地登录 - login_1003：弱口令 - malware_0001：shell变更事件上报 - malware_0002：反弹shell事件上报 - malware_1001：恶意程序 - procdet_0001：进程异常行为检测 - procdet_0002：进程提权 - crontab_0001：crontab脚本提权 - crontab_0002：恶意路径提权 - procreport_0001：危险命令 - user_1001：账号变更 - user_1002：风险账号 - vmescape_0001：虚拟机敏感命令执行 - vmescape_0002：虚拟化进程访问敏感文件 - vmescape_0003：虚拟机异常端口访问 - webshell_0001：网站后门 - network_1001：恶意挖矿 - network_1002：对外DDoS攻击 - network_1003：恶意扫描 - network_1004：敏感区域攻击 - ransomware_0001：勒索攻击 - ransomware_0002：勒索攻击 - ransomware_0003：勒索攻击 - fileless_0001：进程注入 - fileless_0002：动态库注入进程 - fileless_0003：关键配置变更 - fileless_0004：环境变量变更 - fileless_0005：内存文件进程 - fileless_0006：vdso劫持 - crontab_1001：Crontab可疑任务 - vul_exploit_0001：Redis漏洞利用攻击 - vul_exploit_0002：Hadoop漏洞利用攻击 - vul_exploit_0003：MySQL漏洞利用攻击 - rootkit_0001：可疑rootkit文件 - rootkit_0002：可疑内核模块 - RASP_0004：上传Webshell - RASP_0018：无文件Webshell - blockexec_001：已知勒索攻击 - hips_0001：Windows Defender防护被禁用 - hips_0002：可疑的黑客工具 - hips_0003：可疑的勒索加密行为 - hips_0004：隐藏账号创建 - hips_0005：读取用户密码凭据 - hips_0006：可疑的SAM文件导出 - hips_0007：可疑shadow copy删除操作 - hips_0008：备份文件删除 - hips_0009：可疑勒索病毒操作注册表 - hips_0010：可疑的异常进程行为 - hips_0011：可疑的扫描探测 - hips_0012：可疑的勒索病毒脚本运行 - hips_0013：可疑的挖矿命令执行 - hips_0014：可疑的禁用windows安全中心 - hips_0015：可疑的停止防火墙服务行为 - hips_0016：可疑的系统自动恢复禁用 - hips_0017：Office创建可执行文件 - hips_0018：带宏Office文件异常创建 - hips_0019：可疑的注册表操作 - hips_0020：Confluence远程代码执行 - hips_0021：MSDT远程代码执行 - portscan_0001：通用端口扫描 - portscan_0002：秘密端口扫描 - k8s_1001：Kubernetes事件删除 - k8s_1002：创建特权Pod - k8s_1003：Pod中使用交互式shell - k8s_1004：创建敏感目录Pod - k8s_1005：创建主机网络的Pod - k8s_1006：创建主机Pid空间的Pod - k8s_1007：普通pod访问APIserver认证失败 - k8s_1008：普通Pod通过Curl访问APIServer - k8s_1009：系统管理空间执行exec - k8s_1010：系统管理空间创建Pod - k8s_1011：创建静态Pod - k8s_1012：创建DaemonSet - k8s_1013：创建集群计划任务 - k8s_1014：Secrets操作 - k8s_1015：枚举用户可执行的操作 - k8s_1016：高权限RoleBinding或ClusterRoleBinding - k8s_1017：ServiceAccount创建 - k8s_1018：创建Cronjob - k8s_1019：Pod中exec使用交互式shell - k8s_1020：无权限访问Apiserver - k8s_1021：使用curl访问APIServer - k8s_1022：Ingress漏洞 - k8s_1023：中间人攻击 - k8s_1024：蠕虫挖矿木马 - k8s_1025：K8s事件删除 - k8s_1026：SelfSubjectRulesReview场景 - imgblock_0001：镜像白名单阻断 - imgblock_0002：镜像黑名单阻断 - imgblock_0003：镜像标签白名单阻断 - imgblock_0004：镜像标签黑名单阻断 - imgblock_0005：创建容器白名单阻断 - imgblock_0006：创建容器黑名单阻断 - imgblock_0007：容器mount proc阻断 - imgblock_0008：容器seccomp unconfined阻断 - imgblock_0009：容器特权阻断 - imgblock_0010：容器capabilities阻断
      * @param {string} [eventName] 告警名称
-     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012 ：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色 
+     * @param {number} [eventType] **参数解释**： 事件类型 **取值范围**：   - 1001：通用恶意软件   - 1002：病毒   - 1003：蠕虫   - 1004：木马   - 1005：僵尸网络   - 1006：后门   - 1010：Rootkit   - 1011：勒索软件   - 1012：黑客工具   - 1015：Webshell   - 1016：挖矿   - 1017：反弹Shell   - 2001：一般漏洞利用   - 2012：远程代码执行   - 2047：Redis漏洞利用   - 2048：Hadoop漏洞利用   - 2049：MySQL漏洞利用   - 3002：文件提权   - 3003：进程提权   - 3004：关键文件变更   - 3005：文件/目录变更   - 3007：进程异常行为   - 3015：高危命令执行   - 3018：异常Shell   - 3026：crontab提权   - 3027：Crontab可疑任务   - 3029：系统安全防护被禁用   - 3030：备份删除   - 3031：异常注册表操作   - 3036：容器镜像阻断   - 4002：暴力破解   - 4004：异常登录   - 4006：非法系统账号   - 4014：用户账号添加   - 4020：用户密码窃取   - 6002：端口扫描   - 6003：主机扫描   - 13001：Kubernetes事件删除   - 13002：Pod异常行为   - 13003：枚举用户信息   - 13004：绑定集群用户角色   - 2006：XSS攻击   - 2007：SQL注入   - 2008：XML注入   - 2009：代码注入   - 2010：命令注入   - 2011：命令执行   - 2042：漏洞逃逸攻击   - 2044：文件逃逸攻击   - 2046：JNDI注入   - 3008：容器进程异常   - 3009：容器异常启动   - 3016：高危系统调用   - 3021：敏感文件访问   - 3023：异常命令执行   - 3025：可疑异常   - 3038：系统日志删除   - 3039：可疑命令执行   - 3040：可疑进程运行   - 3041：可疑进程文件访问   - 3043：运行时异常行为   - 3044：内核模块加载   - 4016：用户账号变更   - 5001：未知网络访问   - 5003：异常外联行为   - 5014：端口转发   - 5015：可疑的下载请求   - 5016：可疑的HTTP请求   - 8005：目录遍历   - 11001：高级威胁事件   - 12001：进程注入   - 12002：动态库注入进程   - 12005：内存文件进程   - 12006：vdso劫持   - 12007：利用Windows工具攻击   - 12008：注册表恶意注入   - 60001：直接提示词注入   - 60002：恶意指令与越狱   - 61001：间接提示词注入   - 61002：数据投毒与误导   - 62001：工具反馈污染   - 62002：工具描述/接口注入   - 63001：越权操作攻击   - 63002：资源耗尽攻击   - 64001：未授权操作   - 64002：权限提升尝试   - 64003：角色访问违规   - 64004：策略约束违规   - 65001：未授权信息输出   - 65002：API密钥/凭证泄露   - 65003：内部业务数据泄露   - 65004：策略约束违规输出   - 65005：隐私信息泄露   - 66001：智能体高危命令执行   - 66002：智能体敏感文件访问   - 67001：其他类告警   - 68001：记忆投毒   - 68002：RAG异常调用   - 68003：工具参数注入   - 68004：工具循环调用   - 68005：上下文资源滥用 
      * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
-     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理 **默认取值**: 不涉及 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: 包含如下:   - unhandled：未处理   - handled：已处理  **默认取值**: 不涉及 
      * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {string} [publicIp] **参数解释**: 服务器弹性IP地址 **约束限制**: 不涉及 **取值范围**: IPv4格式（长度7-15位）、IPv6格式（长度15-39位） **默认取值**: 无 
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
@@ -12943,6 +14146,31 @@ export class HssClient {
      */
     public listSecurityCheckClusterReports(listSecurityCheckClusterReportsRequest?: ListSecurityCheckClusterReportsRequest): Promise<ListSecurityCheckClusterReportsResponse> {
         const options = ParamCreater().listSecurityCheckClusterReports(listSecurityCheckClusterReportsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全体检主机结果列表，支持按主机名称、主机IP、操作系统类型、风险级别等条件筛选
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全体检主机结果列表
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {string} [hostName] **参数解释**: 服务器名称 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [hostIp] **参数解释**: 服务器IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [osType] **参数解释**: 操作系统类型 **约束限制**: 不涉及 **取值范围**: - Linux：Linux操作系统 - Windows：Windows操作系统  **默认取值**: 不涉及 
+     * @param {string} [severity] **参数解释**: 风险级别 **约束限制**: 不涉及 **取值范围**: - Security：安全 - Low：低危 - Medium：中危 - High：高危  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listSecurityCheckHostResult(listSecurityCheckHostResultRequest?: ListSecurityCheckHostResultRequest): Promise<ListSecurityCheckHostResultResponse> {
+        const options = ParamCreater().listSecurityCheckHostResult(listSecurityCheckHostResultRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13064,6 +14292,44 @@ export class HssClient {
     }
 
     /**
+     * 查询安全体检总览信息，包括风险评分、风险数量、防护主机数量等
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全体检总览
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityCheckOverview(showSecurityCheckOverviewRequest?: ShowSecurityCheckOverviewRequest): Promise<ShowSecurityCheckOverviewResponse> {
+        const options = ParamCreater().showSecurityCheckOverview(showSecurityCheckOverviewRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询安全体检统计信息，包含本次体检服务器数量、各风险等级服务器数量等
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询安全体检统计信息
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSecurityCheckStatistic(showSecurityCheckStatisticRequest?: ShowSecurityCheckStatisticRequest): Promise<ShowSecurityCheckStatisticResponse> {
+        const options = ParamCreater().showSecurityCheckStatistic(showSecurityCheckStatisticRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 启动手动体检。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -13123,20 +14389,21 @@ export class HssClient {
     }
 
     /**
-     * 查询Serverless资产列表--接口已废弃
+     * 实例安装Agent列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Serverless资产列表--接口已废弃
-     * @param {string} category **参数解释**： 资产维度 **约束限制**： 不涉及 **取值范围**： - container: 容器维度 - pod: pod实例维度 **默认取值**： container
+     * @summary 实例安装Agent列表
+     * @param {number} limit **参数解释**: 每页显示个数 **约束限制**: 必填 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {number} offset **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 不涉及 
+     * @param {string} type **参数解释**： 接入后展示维度 **约束限制**： 不涉及 **取值范围**： - workload：工作负载。 - cluster：集群。  **默认取值**： cluster 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
-     * @param {number} [limit] **参数解释**： 每页显示数量，默认10 **约束限制**： 不涉及 **取值范围**： 整数取值[10,200] **默认取值**： 10 
-     * @param {number} [offset] **参数解释**： 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0 **约束限制**： 不涉及 **取值范围**： 取值[0,2000000] **默认取值**： 0 
+     * @param {string} [workloadId] **参数解释**： 工作负载ID，type为cluster时传参为集群ID，展示该集群下工作负载详情；type为workload时传参为工作负载ID，展示该工作负载详情；不传参时，展示type类型所有详情。 **约束限制**： 不涉及 **取值范围**： 字符长度1-256位  **默认取值**： 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listServerlessAsset(listServerlessAssetRequest?: ListServerlessAssetRequest): Promise<ListServerlessAssetResponse> {
-        const options = ParamCreater().listServerlessAsset(listServerlessAssetRequest);
+    public installedInstanceAgentList(installedInstanceAgentListRequest?: InstalledInstanceAgentListRequest): Promise<InstalledInstanceAgentListResponse> {
+        const options = ParamCreater().installedInstanceAgentList(installedInstanceAgentListRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13145,19 +14412,40 @@ export class HssClient {
     }
 
     /**
-     * 查询Serverless资产详细信息--接口已废弃
+     * serverless防护管理列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询Serverless资产详细信息--接口已废弃
-     * @param {string} category **参数解释**： 资产维度 **约束限制**： 不涉及 **取值范围**： - container : 容器维度 **默认取值**： container
-     * @param {string} assetId **参数解释**: 资产ID，基于参数category决定维度（比如category&#x3D;container时，asset_id为容器id） **约束限制**： 不涉及 **取值范围**: 字符长度0-255位 **默认取值**： 不涉及 
+     * @summary serverless防护管理列表
+     * @param {string} type **参数解释**： 列表展示维度 **约束限制**： 不涉及 **取值范围**： - instance：实例维度。 - deployment：无状态负载维度。 - stateful：有状态负载维度。 - cronjob：定时任务维度。 - job：普通任务维度。 - cluster：集群维度。  **默认取值**： instance 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [instanceId] **参数解释**： 实例ID，type类型为instance时，传入实例ID **约束限制**： type值为instance，传入实例ID。 **取值范围**： 字符长度1-256位  **默认取值**： 不涉及 
+     * @param {number} [limit] **参数解释**： 每页显示数量，默认10 **约束限制**： 不涉及 **取值范围**： 整数取值[10,200]  **默认取值**： 10 
+     * @param {number} [offset] **参数解释**： 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0 **约束限制**： 不涉及 **取值范围**： 取值[0,2000000]  **默认取值**： 0 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listInstanceProtections(listInstanceProtectionsRequest?: ListInstanceProtectionsRequest): Promise<ListInstanceProtectionsResponse> {
+        const options = ParamCreater().listInstanceProtections(listInstanceProtectionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查看serverless漏洞统计数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查看serverless漏洞统计数据
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listServerlessAssetDetail(listServerlessAssetDetailRequest?: ListServerlessAssetDetailRequest): Promise<ListServerlessAssetDetailResponse> {
-        const options = ParamCreater().listServerlessAssetDetail(listServerlessAssetDetailRequest);
+    public showServerlessVulStatistics(showServerlessVulStatisticsRequest?: ShowServerlessVulStatisticsRequest): Promise<ShowServerlessVulStatisticsResponse> {
+        const options = ParamCreater().showServerlessVulStatistics(showServerlessVulStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13219,6 +14507,34 @@ export class HssClient {
      */
     public changeSwitchesStatus(changeSwitchesStatusRequest?: ChangeSwitchesStatusRequest): Promise<ChangeSwitchesStatusResponse> {
         const options = ParamCreater().changeSwitchesStatus(changeSwitchesStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 安装agent
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 安装agent
+     * @param {string} hostIdList **参数解释**: 服务器id列表,有多个hostId的时使用逗号拼接 **约束限制**: 不涉及 **取值范围**: 字符长度0-3200 **默认取值**: 不涉及
+     * @param {string} loginType **参数解释**: 登录类型 **约束限制**: 不涉及 **取值范围**: - single_password - single_sshKey - dew - ssh_key - password  **默认取值**: 不涉及
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [rootPermission] **参数解释**: 是否允许root直连 **约束限制**: 不涉及 **取值范围**: - true：允许 - false：不允许  **默认取值**: 不涉及
+     * @param {string} [rootPassword] **参数解释**: root密码 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及
+     * @param {string} [loginUser] **参数解释**: 登录用户 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及
+     * @param {string} [loginPassword] **参数解释**: 登录密码 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及
+     * @param {number} [loginPort] **参数解释**: 登录端口 **约束限制**: 不涉及 **取值范围**: 字符长度0-256 **默认取值**: 不涉及
+     * @param {Array<MultipartFile>} [file] 密码或者密钥模板文件
+     * @param {string} [hostGroupId] **参数解释**: 服务器组id **约束限制**: 不涉及 **取值范围**: 字符长度0-128 **默认取值**: 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public installAgent(installAgentRequest?: InstallAgentRequest): Promise<InstallAgentResponse> {
+        const options = ParamCreater().installAgent(installAgentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13492,6 +14808,27 @@ export class HssClient {
     }
 
     /**
+     * 设置告警提醒开关
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置告警提醒开关
+     * @param {SetRemindersConfigRequestInfo} setRemindersConfigRequestBody **参数解释**: 设置告警提醒开关的请求体 **约束限制**: 必填 **取值范围**: 不涉及 **默认取值**: 不涉及 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setRemindersConfig(setRemindersConfigRequest?: SetRemindersConfigRequest): Promise<SetRemindersConfigResponse> {
+        const options = ParamCreater().setRemindersConfig(setRemindersConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 设置双因子登录配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -13564,6 +14901,27 @@ export class HssClient {
      */
     public showSwitchesStatus(showSwitchesStatusRequest?: ShowSwitchesStatusRequest): Promise<ShowSwitchesStatusResponse> {
         const options = ParamCreater().showSwitchesStatus(showSwitchesStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 下载模板文件
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下载模板文件
+     * @param {string} type **参数解释**: 模板类型 **约束限制**: 必填 **取值范围**: 包含如下5种： - agent_install_windows_password：Windows密码模板 - agent_install_password：Linux密码模板 - agent_install_ssh_key：SSH密钥模板 - agent_install_linux_password：Linux密码模板 - agent_install_linux_ssh_key：Linux SSH密钥模板  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [region] **参数解释**: 区域ID，用于查询目的区域内的资产。获取方式请参见[获取区域ID](hss_02_0026.xml)。 **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTemplate(showTemplateRequest?: ShowTemplateRequest): Promise<ShowTemplateResponse> {
+        const options = ParamCreater().showTemplate(showTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -13881,6 +15239,26 @@ export class HssClient {
     }
 
     /**
+     * 导出漏洞报告
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 导出漏洞报告
+     * @param {ExportVulReportRequestInfo} exportVulReportRequestBody 导出漏洞报告请求体
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public exportVulReport(exportVulReportRequest?: ExportVulReportRequest): Promise<ExportVulReportResponse> {
+        const options = ParamCreater().exportVulReport(exportVulReportRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 导出漏洞及漏洞影响的主机的相关信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -13964,7 +15342,7 @@ export class HssClient {
      * @param {string} [vulName] **参数解释**: 漏洞名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {string} [cveId] **参数解释**: 漏洞编号 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {Array<string>} [labelList] **参数解释**: 漏洞标签列表 **取值范围**: 最小值0，最大值10 
-     * @param {string} [status] **参数解释**: 漏洞当前状态 **约束限制**: 不涉及 **取值范围**: - vul_status_unfix：未处理 - vul_status_ignored：已忽略 **默认取值**: 不涉及 
+     * @param {string} [status] **参数解释**: 漏洞当前状态 **约束限制**: 不涉及 **取值范围**: - vul_status_unfix：未处理 - vul_status_ignored：已忽略  **默认取值**: 不涉及 
      * @param {string} [clusterId] **参数解释**: 集群id **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -14124,6 +15502,54 @@ export class HssClient {
     }
 
     /**
+     * 查询漏洞处置任务列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询漏洞处置任务列表
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [handleType] **参数解释**: 处置任务类型 **约束限制**: 不涉及 **取值范围**: - immediate_repair：立即修复。 - verify：验证。  **默认取值**: 不涉及 
+     * @param {number} [minStartTime] **参数解释**: 任务开始时间的最小值，时间戳，单位毫秒 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {number} [maxStartTime] **参数解释**: 任务开始时间的最大值，时间戳，单位毫秒 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
+     * @param {string} [status] **参数解释**: 任务状态 **约束限制**: 不涉及 **取值范围**: - running：执行中。 - finished：已完成。  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVulHandleTask(listVulHandleTaskRequest?: ListVulHandleTaskRequest): Promise<ListVulHandleTaskResponse> {
+        const options = ParamCreater().listVulHandleTask(listVulHandleTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询漏洞处置任务详情列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询漏洞处置任务详情列表
+     * @param {string} taskId **参数解释**: 漏洞处置任务ID **约束限制**: 必填 **取值范围**: 字符长度1-36位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
+     * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
+     * @param {string} [handleStatus] **参数解释**: 处置状态 **约束限制**: 不涉及 **取值范围**: - ready：待执行。 - running：执行中。 - success：处置成功。 - failed：处置失败。  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVulHandleTaskDetail(listVulHandleTaskDetailRequest?: ListVulHandleTaskDetailRequest): Promise<ListVulHandleTaskDetailResponse> {
+        const options = ParamCreater().listVulHandleTaskDetail(listVulHandleTaskDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询受影响服务器详情-软件列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -14271,7 +15697,7 @@ export class HssClient {
      * @param {string} [type] **参数解释**: 查询的漏洞类型 **约束限制**: 不涉及 **取值范围**: - linux_vul：linux漏洞 - windows_vul：windows漏洞 - web_cms：Web-CMS漏洞 - app_vul：应用漏洞 - urgent_vul：应急漏洞  **默认取值**: 不涉及 
      * @param {string} [repairType] **参数解释**: 查询漏洞的修复紧急程度类型 **约束限制**: 不涉及 **取值范围**: - need_urgent_repair：需要紧急修复的漏洞 - unrepair：未完成修复的漏洞  **默认取值**: 不涉及 
      * @param {string} [severityLevel] **参数解释**: 漏洞风险等级 **约束限制**: 不涉及 **取值范围**: - Critical: 紧急 - High: 高 - Medium: 中 - Low: 低  **默认取值**: 不涉及 
-     * @param {string} [repairPriority] **参数解释**: 漏洞修复优先级 **约束限制**: 不涉及 **取值范围**: - Critical：紧急 - High：高 - Medium：中 - Low：低 **默认取值**: 不涉及 
+     * @param {string} [repairPriority] **参数解释**: 漏洞修复优先级 **约束限制**: 不涉及 **取值范围**: - Critical：紧急 - High：高 - Medium：中 - Low：低  **默认取值**: 不涉及 
      * @param {string} [hostIdList] **参数解释**: 主机id列表，多个主机id用英文逗号分隔 **约束限制**: 不涉及 **取值范围**: 字符长度0-1850位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -14608,6 +16034,29 @@ export class HssClient {
     }
 
     /**
+     * 查询漏洞影响的主机及主机下的漏洞
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询漏洞影响的主机及主机下的漏洞
+     * @param {string} vulId **参数解释**: 漏洞ID **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {string} [hostId] **参数解释**: 主机ID，不传时查询该漏洞影响范围内的所有主机 **约束限制**: 不涉及 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
+     * @param {string} [vulType] **参数解释**: 漏洞类型 **约束限制**: 不涉及 **取值范围**: - linux_vul：Linux漏洞。 - windows_vul：Windows漏洞。 - web_cms：Web-CMS漏洞。 - app_vul：应用漏洞。 - urgent_vul：应急漏洞。  **默认取值**: 不涉及 
+     * @param {string} [handleStatus] **参数解释**: 漏洞处理状态 **约束限制**: 不涉及 **取值范围**: - handled：已处理。 - unhandled：未处理。  **默认取值**: 不涉及 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVulAffectInfo(showVulAffectInfoRequest?: ShowVulAffectInfoRequest): Promise<ShowVulAffectInfoResponse> {
+        const options = ParamCreater().showVulAffectInfo(showVulAffectInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 统计受影响服务器和漏洞数量。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -14618,7 +16067,7 @@ export class HssClient {
      * @param {string} [type] **参数解释**: 漏洞类型，当前select_type为all_vul此字段为必选 **约束限制**: 不涉及 **取值范围**: - linux_vul：linux漏洞 - windows_vul：windows漏洞 - web_cms：Web-CMS漏洞 - app_vul：应用漏洞 - urgent_vul：应急漏洞 - cluster_vul：集群漏洞  **默认取值**: 不涉及 
      * @param {string} [clusterId] **参数解释**: 集群id **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {Array<string>} [containerIds] **参数解释**: 容器id集合 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值1000 **默认取值**: 不涉及 
-     * @param {boolean} [isContainer] **参数解释**: 是否是容器场景 **约束限制**: 不涉及 **取值范围**: - true：是容器场景 - false：不是容器场景 **默认取值**: false 
+     * @param {boolean} [isContainer] **参数解释**: 是否是容器场景 **约束限制**: 不涉及 **取值范围**: - true：是容器场景 - false：不是容器场景  **默认取值**: false 
      * @param {Array<string>} [vulIds] **参数解释**: 漏洞id集合 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值1000 **默认取值**: 不涉及 
      * @param {Array<string>} [hostIds] **参数解释**: 主机id集合 **约束限制**: 不涉及 **取值范围**: 最小值1，最大值1000 **默认取值**: 不涉及 
      * @param {string} [category] **参数解释**: 类别，默认为host **约束限制**: 不涉及 **取值范围**: - host：主机 - container：容器 - serverless：serverless场景  **默认取值**: host 
@@ -14647,6 +16096,26 @@ export class HssClient {
      */
     public showVulBackupStatistics(showVulBackupStatisticsRequest?: ShowVulBackupStatisticsRequest): Promise<ShowVulBackupStatisticsResponse> {
         const options = ParamCreater().showVulBackupStatistics(showVulBackupStatisticsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 根据统计类型列表查询漏洞的指定统计数据，支持查询多种漏洞统计指标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询漏洞指定统计数据
+     * @param {Array<string>} statisticsTypes **参数解释**: 需要查询的漏洞统计数据类型列表，多个类型以逗号分隔。 **约束限制**: 必填 **取值范围**: - need_urgent_repair_num：需要紧急修复的漏洞数量 - unhandled_num：未完成修复的漏洞数量 - existed_vul_host_num：存在漏洞的服务器数量 - today_handled_num：今日处理的漏洞数量 - all_handled_num：累计处理的漏洞数量 - vul_library_info：漏洞库统计数据 - linux_vul_unhandled_num：未处置的Linux漏洞数量 - windows_vul_unhandled_num：未处置的Windows漏洞数量 - web_cms_vul_unhandled_num：未处置的Web CMS漏洞数量 - app_vul_unhandled_num：未处置的应用漏洞数量 - urgent_vul_unhandled_num：未处置的应急漏洞数量 - max_vul_handle_num：单次最大可处置的漏洞数量  **默认取值**: 不涉及 
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVulIndividualStatistics(showVulIndividualStatisticsRequest?: ShowVulIndividualStatisticsRequest): Promise<ShowVulIndividualStatisticsResponse> {
+        const options = ParamCreater().showVulIndividualStatistics(showVulIndividualStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -14706,6 +16175,25 @@ export class HssClient {
      */
     public showVulScanTaskEstimatedTime(showVulScanTaskEstimatedTimeRequest?: ShowVulScanTaskEstimatedTimeRequest): Promise<ShowVulScanTaskEstimatedTimeResponse> {
         const options = ParamCreater().showVulScanTaskEstimatedTime(showVulScanTaskEstimatedTimeRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询漏洞扫描任务的统计数据，包含扫描任务总次数、进行中任务次数和最后一次扫描任务详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询漏洞扫描任务的统计数据
+     * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVulScanTaskStatistics(showVulScanTaskStatisticsRequest?: ShowVulScanTaskStatisticsRequest): Promise<ShowVulScanTaskStatisticsResponse> {
+        const options = ParamCreater().showVulScanTaskStatistics(showVulScanTaskStatisticsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -14978,7 +16466,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询网页防篡改事件列表
-     * @param {string} type **参数解释**: 网页防篡改类型 **约束限制**: 不涉及。 **取值范围**: - container_wtp：容器网页防篡改 **默认取值**: 不涉及 
+     * @param {string} type **参数解释**: 网页防篡改类型 **约束限制**: 不涉及。 **取值范围**: - container_wtp：容器网页防篡改  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -14993,7 +16481,7 @@ export class HssClient {
      * @param {string} [clusterId] **参数解释**： 集群id **约束限制**： 不涉及 **取值范围**： 字符长度1-128位 **默认取值**： 不涉及 
      * @param {string} [filePath] **参数解释**: 防护文件的文件路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {string} [processPath] **参数解释**: 进程路径 **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} [processEnv] **参数解释**: 进程环境，是指在容器内的进程或者宿主机的进程 **约束限制**: 不涉及 **取值范围**: - host：主机进程 - container：容器进程 **默认取值**: 不涉及 
+     * @param {string} [processEnv] **参数解释**: 进程环境，是指在容器内的进程或者宿主机的进程 **约束限制**: 不涉及 **取值范围**: - host：主机进程 - container：容器进程  **默认取值**: 不涉及 
      * @param {string} [webAppName] **参数解释**: 网站应用名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {number} [startEventTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
      * @param {number} [endEventTime] **参数解释**: 开始时间，13位时间戳 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值9223372036854775807 **默认取值**: 不涉及 
@@ -15043,7 +16531,7 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询容器网页版防篡改镜像选项列表
-     * @param {string} imageType **参数解释**: 查询镜像类型 **约束限制**: 不涉及。 **取值范围**: - registry：仓库镜像。 - local：本地镜像。 **默认取值**: 不涉及 
+     * @param {string} imageType **参数解释**: 查询镜像类型 **约束限制**: 不涉及。 **取值范围**: - registry：仓库镜像。 - local：本地镜像。  **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
@@ -15132,7 +16620,7 @@ export class HssClient {
      * @param {string} [hostPrivateIp] **参数解释**: 主机私有IP **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {string} [containerName] **参数解释**: 容器名称 **约束限制**: 不涉及 **取值范围**: 字符长度0-128位 **默认取值**: 不涉及 
      * @param {string} [containerId] **参数解释**: 受影响容器id **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
-     * @param {string} [status] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: - protected：防护中 - partial_protected：部分防护 - protect_failed：防护失败 **默认取值**: 不涉及 
+     * @param {string} [status] **参数解释**: 防护状态 **约束限制**: 不涉及 **取值范围**: - protected：防护中 - partial_protected：部分防护 - protect_failed：防护失败  **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -15151,13 +16639,13 @@ export class HssClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护配置关联的容器的防护目录列表
-     * @param {string} type **参数解释**: 网页防篡改类型 **约束限制**: 不涉及。 **取值范围**: - container_wtp：容器网页防篡改 **默认取值**: 不涉及 
+     * @param {string} type **参数解释**: 网页防篡改类型 **约束限制**: 不涉及。 **取值范围**: - container_wtp：容器网页防篡改  **默认取值**: 不涉及 
      * @param {string} protectionConfigId **参数解释**: 防护配置id **约束限制**: 不涉及。 **取值范围**: 字符长度1-64位 **默认取值**: 不涉及 
      * @param {string} [enterpriseProjectId] **参数解释**: 企业项目ID，用于过滤不同企业项目下的资产。获取方式请参见[获取企业项目ID](hss_02_0027.xml)。 如需查询所有企业项目下的资产请传参“all_granted_eps”。 **约束限制**: 开通企业项目功能后才需要配置企业项目ID参数。 **取值范围**: 字符长度1-256位 **默认取值**: 0，表示默认企业项目（default）。 
      * @param {string} [containerId] **参数解释**: 受影响容器id **约束限制**: 不涉及 **取值范围**: 字符长度0-256位 **默认取值**: 不涉及 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
-     * @param {string} [status] **参数解释**: 防护状态 **约束限制**: type为container_wtp时必传 **取值范围**: - protected：防护中 - protect_failed：防护失败 **默认取值**: 不涉及 
+     * @param {string} [status] **参数解释**: 防护状态 **约束限制**: type为container_wtp时必传 **取值范围**: - protected：防护中 - protect_failed：防护失败  **默认取值**: 不涉及 
      * @param {string} [protectDirectory] **参数解释**: 防护目录 **约束限制**: 不涉及。 **取值范围**: 字符长度1-256位 **默认取值**: 不涉及 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15185,7 +16673,7 @@ export class HssClient {
      * @param {string} [privateIp] **参数解释**: 服务器私有IP **约束限制**: 不涉及 **取值范围**: 字符长度1-128位 **默认取值**: 不涉及 
      * @param {string} [groupName] **参数解释**: 服务器组名称。 **约束限制**: 不涉及 **取值范围**: 字符长度1-64位 **默认取值**: 无 
      * @param {string} [osType] **参数解释**: 操作系统类型。 **约束限制**: 不涉及 **取值范围**: - Linux：Linux操作系统。 - Windows：Windows操作系统。  **默认取值**: 无 
-     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产 **默认取值**： 无 
+     * @param {string} [assetValue] **参数解释**： 资产重要性 **约束限制**： 不涉及 **取值范围**： - important：重要资产 - common：一般资产 - test：测试资产  **默认取值**： 无 
      * @param {number} [offset] **参数解释**: 偏移量：指定返回记录的开始位置 **约束限制**: 不涉及 **取值范围**: 最小值0，最大值2000000 **默认取值**: 默认为0 
      * @param {number} [limit] **参数解释**: 每页显示个数 **约束限制**: 不涉及 **取值范围**: 取值10-200 **默认取值**: 10 
      * @param {string} [protectStatus] **参数解释**: 网页防篡改防护开启状态。 **约束限制**: 不涉及 **取值范围**: - opened ：已开启网页防篡改防护。  **默认取值**: 无 
@@ -15899,62 +17387,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改开放端口状态。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        batchModifyPortStatus(batchModifyPortStatusRequest?: BatchModifyPortStatusRequest) {
-            const options = {
-                method: "POST",
-                url: "/v5/{project_id}/asset/batch-modify-port-status",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-
-            if (batchModifyPortStatusRequest !== null && batchModifyPortStatusRequest !== undefined) {
-                if (batchModifyPortStatusRequest instanceof BatchModifyPortStatusRequest) {
-                    category = batchModifyPortStatusRequest.category;
-                    body = batchModifyPortStatusRequest.body
-                    enterpriseProjectId = batchModifyPortStatusRequest.enterpriseProjectId;
-                } else {
-                    category = batchModifyPortStatusRequest['category'];
-                    body = batchModifyPortStatusRequest['body'];
-                    enterpriseProjectId = batchModifyPortStatusRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling batchModifyPortStatus.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 解除已拦截IP。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -16514,62 +17946,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建全局资产扫描任务。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createGlobalAssetScanTask(createGlobalAssetScanTaskRequest?: CreateGlobalAssetScanTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v5/{project_id}/asset/assign-task",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-
-            if (createGlobalAssetScanTaskRequest !== null && createGlobalAssetScanTaskRequest !== undefined) {
-                if (createGlobalAssetScanTaskRequest instanceof CreateGlobalAssetScanTaskRequest) {
-                    category = createGlobalAssetScanTaskRequest.category;
-                    body = createGlobalAssetScanTaskRequest.body
-                    enterpriseProjectId = createGlobalAssetScanTaskRequest.enterpriseProjectId;
-                } else {
-                    category = createGlobalAssetScanTaskRequest['category'];
-                    body = createGlobalAssetScanTaskRequest['body'];
-                    enterpriseProjectId = createGlobalAssetScanTaskRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling createGlobalAssetScanTask.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 创建安全组策略(云原生网络模型)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -17084,72 +18460,6 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'cluster_id': clusterId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 导出资产指纹信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        downloadAssetFile(downloadAssetFileRequest?: DownloadAssetFileRequest) {
-            const options = {
-                method: "POST",
-                url: "/v5/{project_id}/asset/export",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let assetType;
-            
-            let category;
-            
-            let enterpriseProjectId;
-
-            if (downloadAssetFileRequest !== null && downloadAssetFileRequest !== undefined) {
-                if (downloadAssetFileRequest instanceof DownloadAssetFileRequest) {
-                    assetType = downloadAssetFileRequest.assetType;
-                    category = downloadAssetFileRequest.category;
-                    body = downloadAssetFileRequest.body
-                    enterpriseProjectId = downloadAssetFileRequest.enterpriseProjectId;
-                } else {
-                    assetType = downloadAssetFileRequest['asset_type'];
-                    category = downloadAssetFileRequest['category'];
-                    body = downloadAssetFileRequest['body'];
-                    enterpriseProjectId = downloadAssetFileRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (assetType === null || assetType === undefined) {
-                throw new RequiredError('assetType','Required parameter assetType was null or undefined when calling downloadAssetFile.');
-            }
-            if (assetType !== null && assetType !== undefined) {
-                localVarQueryParameter['asset_type'] = assetType;
-            }
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling downloadAssetFile.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -17689,239 +18999,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询AI组件详细信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/ai-component/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let catalogue;
-            
-            let limit;
-            
-            let offset;
-            
-            let serverName;
-            
-            let serverIp;
-            
-            let aiApplication;
-            
-            let hostId;
-            
-            let aiTool;
-            
-            let type;
-            
-            let version;
-            
-            let installationPath;
-            
-            let firstScanTime;
-            
-            let latestScanTime;
-            
-            let containerName;
-            
-            let containerId;
-            
-            let imageName;
-
-            if (listAiComponentDetailRequest !== null && listAiComponentDetailRequest !== undefined) {
-                if (listAiComponentDetailRequest instanceof ListAiComponentDetailRequest) {
-                    category = listAiComponentDetailRequest.category;
-                    catalogue = listAiComponentDetailRequest.catalogue;
-                    limit = listAiComponentDetailRequest.limit;
-                    offset = listAiComponentDetailRequest.offset;
-                    serverName = listAiComponentDetailRequest.serverName;
-                    serverIp = listAiComponentDetailRequest.serverIp;
-                    aiApplication = listAiComponentDetailRequest.aiApplication;
-                    hostId = listAiComponentDetailRequest.hostId;
-                    aiTool = listAiComponentDetailRequest.aiTool;
-                    type = listAiComponentDetailRequest.type;
-                    version = listAiComponentDetailRequest.version;
-                    installationPath = listAiComponentDetailRequest.installationPath;
-                    firstScanTime = listAiComponentDetailRequest.firstScanTime;
-                    latestScanTime = listAiComponentDetailRequest.latestScanTime;
-                    containerName = listAiComponentDetailRequest.containerName;
-                    containerId = listAiComponentDetailRequest.containerId;
-                    imageName = listAiComponentDetailRequest.imageName;
-                } else {
-                    category = listAiComponentDetailRequest['category'];
-                    catalogue = listAiComponentDetailRequest['catalogue'];
-                    limit = listAiComponentDetailRequest['limit'];
-                    offset = listAiComponentDetailRequest['offset'];
-                    serverName = listAiComponentDetailRequest['server_name'];
-                    serverIp = listAiComponentDetailRequest['server_ip'];
-                    aiApplication = listAiComponentDetailRequest['ai_application'];
-                    hostId = listAiComponentDetailRequest['host_id'];
-                    aiTool = listAiComponentDetailRequest['ai_tool'];
-                    type = listAiComponentDetailRequest['type'];
-                    version = listAiComponentDetailRequest['version'];
-                    installationPath = listAiComponentDetailRequest['installation_path'];
-                    firstScanTime = listAiComponentDetailRequest['first_scan_time'];
-                    latestScanTime = listAiComponentDetailRequest['latest_scan_time'];
-                    containerName = listAiComponentDetailRequest['container_name'];
-                    containerId = listAiComponentDetailRequest['container_id'];
-                    imageName = listAiComponentDetailRequest['image_name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentDetail.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (catalogue === null || catalogue === undefined) {
-                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentDetail.');
-            }
-            if (catalogue !== null && catalogue !== undefined) {
-                localVarQueryParameter['catalogue'] = catalogue;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (serverName !== null && serverName !== undefined) {
-                localVarQueryParameter['server_name'] = serverName;
-            }
-            if (serverIp !== null && serverIp !== undefined) {
-                localVarQueryParameter['server_ip'] = serverIp;
-            }
-            if (aiApplication !== null && aiApplication !== undefined) {
-                localVarQueryParameter['ai_application'] = aiApplication;
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (aiTool !== null && aiTool !== undefined) {
-                localVarQueryParameter['ai_tool'] = aiTool;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (version !== null && version !== undefined) {
-                localVarQueryParameter['version'] = version;
-            }
-            if (installationPath !== null && installationPath !== undefined) {
-                localVarQueryParameter['installation_path'] = installationPath;
-            }
-            if (firstScanTime !== null && firstScanTime !== undefined) {
-                localVarQueryParameter['first_scan_time'] = firstScanTime;
-            }
-            if (latestScanTime !== null && latestScanTime !== undefined) {
-                localVarQueryParameter['latest_scan_time'] = latestScanTime;
-            }
-            if (containerName !== null && containerName !== undefined) {
-                localVarQueryParameter['container_name'] = containerName;
-            }
-            if (containerId !== null && containerId !== undefined) {
-                localVarQueryParameter['container_id'] = containerId;
-            }
-            if (imageName !== null && imageName !== undefined) {
-                localVarQueryParameter['image_name'] = imageName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询AI组件统计信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/ai-component/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let catalogue;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let aiComponentName;
-
-            if (listAiComponentStatisticsRequest !== null && listAiComponentStatisticsRequest !== undefined) {
-                if (listAiComponentStatisticsRequest instanceof ListAiComponentStatisticsRequest) {
-                    category = listAiComponentStatisticsRequest.category;
-                    catalogue = listAiComponentStatisticsRequest.catalogue;
-                    enterpriseProjectId = listAiComponentStatisticsRequest.enterpriseProjectId;
-                    limit = listAiComponentStatisticsRequest.limit;
-                    offset = listAiComponentStatisticsRequest.offset;
-                    aiComponentName = listAiComponentStatisticsRequest.aiComponentName;
-                } else {
-                    category = listAiComponentStatisticsRequest['category'];
-                    catalogue = listAiComponentStatisticsRequest['catalogue'];
-                    enterpriseProjectId = listAiComponentStatisticsRequest['enterprise_project_id'];
-                    limit = listAiComponentStatisticsRequest['limit'];
-                    offset = listAiComponentStatisticsRequest['offset'];
-                    aiComponentName = listAiComponentStatisticsRequest['ai_component_name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (catalogue === null || catalogue === undefined) {
-                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentStatistics.');
-            }
-            if (catalogue !== null && catalogue !== undefined) {
-                localVarQueryParameter['catalogue'] = catalogue;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (aiComponentName !== null && aiComponentName !== undefined) {
-                localVarQueryParameter['ai_component_name'] = aiComponentName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询告警白名单列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18012,18 +19089,14 @@ export const ParamCreater = function () {
             
             let ruleId;
             
-            let region;
-            
             let enterpriseProjectId;
 
             if (listAlarmWhiteListHostDetailRequest !== null && listAlarmWhiteListHostDetailRequest !== undefined) {
                 if (listAlarmWhiteListHostDetailRequest instanceof ListAlarmWhiteListHostDetailRequest) {
                     ruleId = listAlarmWhiteListHostDetailRequest.ruleId;
-                    region = listAlarmWhiteListHostDetailRequest.region;
                     enterpriseProjectId = listAlarmWhiteListHostDetailRequest.enterpriseProjectId;
                 } else {
                     ruleId = listAlarmWhiteListHostDetailRequest['rule_id'];
-                    region = listAlarmWhiteListHostDetailRequest['region'];
                     enterpriseProjectId = listAlarmWhiteListHostDetailRequest['enterprise_project_id'];
                 }
             }
@@ -18037,587 +19110,6 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (region !== undefined && region !== null) {
-                localVarHeaderParameter['region'] = String(region);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取软件信息的历史变动记录。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAppChangeHistories(listAppChangeHistoriesRequest?: ListAppChangeHistoriesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/app/change-history",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-            
-            let hostId;
-            
-            let hostIp;
-            
-            let hostName;
-            
-            let appName;
-            
-            let variationType;
-            
-            let sortKey;
-            
-            let sortDir;
-            
-            let limit;
-            
-            let offset;
-            
-            let startTime;
-            
-            let endTime;
-
-            if (listAppChangeHistoriesRequest !== null && listAppChangeHistoriesRequest !== undefined) {
-                if (listAppChangeHistoriesRequest instanceof ListAppChangeHistoriesRequest) {
-                    enterpriseProjectId = listAppChangeHistoriesRequest.enterpriseProjectId;
-                    hostId = listAppChangeHistoriesRequest.hostId;
-                    hostIp = listAppChangeHistoriesRequest.hostIp;
-                    hostName = listAppChangeHistoriesRequest.hostName;
-                    appName = listAppChangeHistoriesRequest.appName;
-                    variationType = listAppChangeHistoriesRequest.variationType;
-                    sortKey = listAppChangeHistoriesRequest.sortKey;
-                    sortDir = listAppChangeHistoriesRequest.sortDir;
-                    limit = listAppChangeHistoriesRequest.limit;
-                    offset = listAppChangeHistoriesRequest.offset;
-                    startTime = listAppChangeHistoriesRequest.startTime;
-                    endTime = listAppChangeHistoriesRequest.endTime;
-                } else {
-                    enterpriseProjectId = listAppChangeHistoriesRequest['enterprise_project_id'];
-                    hostId = listAppChangeHistoriesRequest['host_id'];
-                    hostIp = listAppChangeHistoriesRequest['host_ip'];
-                    hostName = listAppChangeHistoriesRequest['host_name'];
-                    appName = listAppChangeHistoriesRequest['app_name'];
-                    variationType = listAppChangeHistoriesRequest['variation_type'];
-                    sortKey = listAppChangeHistoriesRequest['sort_key'];
-                    sortDir = listAppChangeHistoriesRequest['sort_dir'];
-                    limit = listAppChangeHistoriesRequest['limit'];
-                    offset = listAppChangeHistoriesRequest['offset'];
-                    startTime = listAppChangeHistoriesRequest['start_time'];
-                    endTime = listAppChangeHistoriesRequest['end_time'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (appName !== null && appName !== undefined) {
-                localVarQueryParameter['app_name'] = appName;
-            }
-            if (variationType !== null && variationType !== undefined) {
-                localVarQueryParameter['variation_type'] = variationType;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询软件列表，支持通过软件名称查询对应的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAppStatistics(listAppStatisticsRequest?: ListAppStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/app/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let appName;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-
-            if (listAppStatisticsRequest !== null && listAppStatisticsRequest !== undefined) {
-                if (listAppStatisticsRequest instanceof ListAppStatisticsRequest) {
-                    category = listAppStatisticsRequest.category;
-                    appName = listAppStatisticsRequest.appName;
-                    enterpriseProjectId = listAppStatisticsRequest.enterpriseProjectId;
-                    limit = listAppStatisticsRequest.limit;
-                    offset = listAppStatisticsRequest.offset;
-                } else {
-                    category = listAppStatisticsRequest['category'];
-                    appName = listAppStatisticsRequest['app_name'];
-                    enterpriseProjectId = listAppStatisticsRequest['enterprise_project_id'];
-                    limit = listAppStatisticsRequest['limit'];
-                    offset = listAppStatisticsRequest['offset'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listAppStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (appName !== null && appName !== undefined) {
-                localVarQueryParameter['app_name'] = appName;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询软件的服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listApps(listAppsRequest?: ListAppsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/apps",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostId;
-            
-            let hostName;
-            
-            let appName;
-            
-            let hostIp;
-            
-            let version;
-            
-            let installDir;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let category;
-            
-            let partMatch;
-
-            if (listAppsRequest !== null && listAppsRequest !== undefined) {
-                if (listAppsRequest instanceof ListAppsRequest) {
-                    hostId = listAppsRequest.hostId;
-                    hostName = listAppsRequest.hostName;
-                    appName = listAppsRequest.appName;
-                    hostIp = listAppsRequest.hostIp;
-                    version = listAppsRequest.version;
-                    installDir = listAppsRequest.installDir;
-                    enterpriseProjectId = listAppsRequest.enterpriseProjectId;
-                    limit = listAppsRequest.limit;
-                    offset = listAppsRequest.offset;
-                    category = listAppsRequest.category;
-                    partMatch = listAppsRequest.partMatch;
-                } else {
-                    hostId = listAppsRequest['host_id'];
-                    hostName = listAppsRequest['host_name'];
-                    appName = listAppsRequest['app_name'];
-                    hostIp = listAppsRequest['host_ip'];
-                    version = listAppsRequest['version'];
-                    installDir = listAppsRequest['install_dir'];
-                    enterpriseProjectId = listAppsRequest['enterprise_project_id'];
-                    limit = listAppsRequest['limit'];
-                    offset = listAppsRequest['offset'];
-                    category = listAppsRequest['category'];
-                    partMatch = listAppsRequest['part_match'];
-                }
-            }
-
-        
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (appName !== null && appName !== undefined) {
-                localVarQueryParameter['app_name'] = appName;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (version !== null && version !== undefined) {
-                localVarQueryParameter['version'] = version;
-            }
-            if (installDir !== null && installDir !== undefined) {
-                localVarQueryParameter['install_dir'] = installDir;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取自启动项的历史变动记录。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAutoLaunchChangeHistories(listAutoLaunchChangeHistoriesRequest?: ListAutoLaunchChangeHistoriesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/auto-launch/change-history",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-            
-            let hostId;
-            
-            let hostIp;
-            
-            let hostName;
-            
-            let autoLaunchName;
-            
-            let type;
-            
-            let variationType;
-            
-            let sortKey;
-            
-            let sortDir;
-            
-            let limit;
-            
-            let offset;
-            
-            let startTime;
-            
-            let endTime;
-
-            if (listAutoLaunchChangeHistoriesRequest !== null && listAutoLaunchChangeHistoriesRequest !== undefined) {
-                if (listAutoLaunchChangeHistoriesRequest instanceof ListAutoLaunchChangeHistoriesRequest) {
-                    enterpriseProjectId = listAutoLaunchChangeHistoriesRequest.enterpriseProjectId;
-                    hostId = listAutoLaunchChangeHistoriesRequest.hostId;
-                    hostIp = listAutoLaunchChangeHistoriesRequest.hostIp;
-                    hostName = listAutoLaunchChangeHistoriesRequest.hostName;
-                    autoLaunchName = listAutoLaunchChangeHistoriesRequest.autoLaunchName;
-                    type = listAutoLaunchChangeHistoriesRequest.type;
-                    variationType = listAutoLaunchChangeHistoriesRequest.variationType;
-                    sortKey = listAutoLaunchChangeHistoriesRequest.sortKey;
-                    sortDir = listAutoLaunchChangeHistoriesRequest.sortDir;
-                    limit = listAutoLaunchChangeHistoriesRequest.limit;
-                    offset = listAutoLaunchChangeHistoriesRequest.offset;
-                    startTime = listAutoLaunchChangeHistoriesRequest.startTime;
-                    endTime = listAutoLaunchChangeHistoriesRequest.endTime;
-                } else {
-                    enterpriseProjectId = listAutoLaunchChangeHistoriesRequest['enterprise_project_id'];
-                    hostId = listAutoLaunchChangeHistoriesRequest['host_id'];
-                    hostIp = listAutoLaunchChangeHistoriesRequest['host_ip'];
-                    hostName = listAutoLaunchChangeHistoriesRequest['host_name'];
-                    autoLaunchName = listAutoLaunchChangeHistoriesRequest['auto_launch_name'];
-                    type = listAutoLaunchChangeHistoriesRequest['type'];
-                    variationType = listAutoLaunchChangeHistoriesRequest['variation_type'];
-                    sortKey = listAutoLaunchChangeHistoriesRequest['sort_key'];
-                    sortDir = listAutoLaunchChangeHistoriesRequest['sort_dir'];
-                    limit = listAutoLaunchChangeHistoriesRequest['limit'];
-                    offset = listAutoLaunchChangeHistoriesRequest['offset'];
-                    startTime = listAutoLaunchChangeHistoriesRequest['start_time'];
-                    endTime = listAutoLaunchChangeHistoriesRequest['end_time'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (autoLaunchName !== null && autoLaunchName !== undefined) {
-                localVarQueryParameter['auto_launch_name'] = autoLaunchName;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (variationType !== null && variationType !== undefined) {
-                localVarQueryParameter['variation_type'] = variationType;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询自启动信息，支持通过传入自启动名称查询启动类型和服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAutoLaunchStatistics(listAutoLaunchStatisticsRequest?: ListAutoLaunchStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/auto-launch/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let name;
-            
-            let type;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-
-            if (listAutoLaunchStatisticsRequest !== null && listAutoLaunchStatisticsRequest !== undefined) {
-                if (listAutoLaunchStatisticsRequest instanceof ListAutoLaunchStatisticsRequest) {
-                    category = listAutoLaunchStatisticsRequest.category;
-                    name = listAutoLaunchStatisticsRequest.name;
-                    type = listAutoLaunchStatisticsRequest.type;
-                    enterpriseProjectId = listAutoLaunchStatisticsRequest.enterpriseProjectId;
-                    limit = listAutoLaunchStatisticsRequest.limit;
-                    offset = listAutoLaunchStatisticsRequest.offset;
-                } else {
-                    category = listAutoLaunchStatisticsRequest['category'];
-                    name = listAutoLaunchStatisticsRequest['name'];
-                    type = listAutoLaunchStatisticsRequest['type'];
-                    enterpriseProjectId = listAutoLaunchStatisticsRequest['enterprise_project_id'];
-                    limit = listAutoLaunchStatisticsRequest['limit'];
-                    offset = listAutoLaunchStatisticsRequest['offset'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listAutoLaunchStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询自启动项的服务列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listAutoLaunchs(listAutoLaunchsRequest?: ListAutoLaunchsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/auto-launchs",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostId;
-            
-            let hostName;
-            
-            let name;
-            
-            let hostIp;
-            
-            let type;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let partMatch;
-
-            if (listAutoLaunchsRequest !== null && listAutoLaunchsRequest !== undefined) {
-                if (listAutoLaunchsRequest instanceof ListAutoLaunchsRequest) {
-                    hostId = listAutoLaunchsRequest.hostId;
-                    hostName = listAutoLaunchsRequest.hostName;
-                    name = listAutoLaunchsRequest.name;
-                    hostIp = listAutoLaunchsRequest.hostIp;
-                    type = listAutoLaunchsRequest.type;
-                    enterpriseProjectId = listAutoLaunchsRequest.enterpriseProjectId;
-                    limit = listAutoLaunchsRequest.limit;
-                    offset = listAutoLaunchsRequest.offset;
-                    partMatch = listAutoLaunchsRequest.partMatch;
-                } else {
-                    hostId = listAutoLaunchsRequest['host_id'];
-                    hostName = listAutoLaunchsRequest['host_name'];
-                    name = listAutoLaunchsRequest['name'];
-                    hostIp = listAutoLaunchsRequest['host_ip'];
-                    type = listAutoLaunchsRequest['type'];
-                    enterpriseProjectId = listAutoLaunchsRequest['enterprise_project_id'];
-                    limit = listAutoLaunchsRequest['limit'];
-                    offset = listAutoLaunchsRequest['offset'];
-                    partMatch = listAutoLaunchsRequest['part_match'];
-                }
-            }
-
-        
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -18766,7 +19258,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listCceClusterDetectRisk(listCceClusterDetectRiskRequest?: ListCceClusterDetectRiskRequest) {
+        listCceClusterDetectRisk2(listCceClusterDetectRisk2Request?: ListCceClusterDetectRisk2Request) {
             const options = {
                 method: "POST",
                 url: "/v5/{project_id}/container/kubernetes/clusters/risks/query",
@@ -18782,13 +19274,13 @@ export const ParamCreater = function () {
             
             let enterpriseProjectId;
 
-            if (listCceClusterDetectRiskRequest !== null && listCceClusterDetectRiskRequest !== undefined) {
-                if (listCceClusterDetectRiskRequest instanceof ListCceClusterDetectRiskRequest) {
-                    enterpriseProjectId = listCceClusterDetectRiskRequest.enterpriseProjectId;
-                    body = listCceClusterDetectRiskRequest.body
+            if (listCceClusterDetectRisk2Request !== null && listCceClusterDetectRisk2Request !== undefined) {
+                if (listCceClusterDetectRisk2Request instanceof ListCceClusterDetectRisk2Request) {
+                    enterpriseProjectId = listCceClusterDetectRisk2Request.enterpriseProjectId;
+                    body = listCceClusterDetectRisk2Request.body
                 } else {
-                    enterpriseProjectId = listCceClusterDetectRiskRequest['enterprise_project_id'];
-                    body = listCceClusterDetectRiskRequest['body'];
+                    enterpriseProjectId = listCceClusterDetectRisk2Request['enterprise_project_id'];
+                    body = listCceClusterDetectRisk2Request['body'];
                 }
             }
 
@@ -20440,6 +20932,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询已委托账号树形结构
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDelegatedAccounts(listDelegatedAccountsRequest?: ListDelegatedAccountsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/setting/account/delegated-accounts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let xSecurityToken;
+            
+            let region;
+            
+            let refresh;
+
+            if (listDelegatedAccountsRequest !== null && listDelegatedAccountsRequest !== undefined) {
+                if (listDelegatedAccountsRequest instanceof ListDelegatedAccountsRequest) {
+                    xSecurityToken = listDelegatedAccountsRequest.xSecurityToken;
+                    region = listDelegatedAccountsRequest.region;
+                    refresh = listDelegatedAccountsRequest.refresh;
+                } else {
+                    xSecurityToken = listDelegatedAccountsRequest['X-Security-Token'];
+                    region = listDelegatedAccountsRequest['region'];
+                    refresh = listDelegatedAccountsRequest['refresh'];
+                }
+            }
+
+        
+            if (refresh !== null && refresh !== undefined) {
+                localVarQueryParameter['refresh'] = refresh;
+            }
+            if (xSecurityToken !== undefined && xSecurityToken !== null) {
+                localVarHeaderParameter['X-Security-Token'] = String(xSecurityToken);
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询插件列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -20875,39 +21418,33 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let eventType;
-            
             let eventId;
             
             let occurTime;
             
             let enterpriseProjectId;
             
+            let eventType;
+            
             let category;
 
             if (listEventForensicRequest !== null && listEventForensicRequest !== undefined) {
                 if (listEventForensicRequest instanceof ListEventForensicRequest) {
-                    eventType = listEventForensicRequest.eventType;
                     eventId = listEventForensicRequest.eventId;
                     occurTime = listEventForensicRequest.occurTime;
                     enterpriseProjectId = listEventForensicRequest.enterpriseProjectId;
+                    eventType = listEventForensicRequest.eventType;
                     category = listEventForensicRequest.category;
                 } else {
-                    eventType = listEventForensicRequest['event_type'];
                     eventId = listEventForensicRequest['event_id'];
                     occurTime = listEventForensicRequest['occur_time'];
                     enterpriseProjectId = listEventForensicRequest['enterprise_project_id'];
+                    eventType = listEventForensicRequest['event_type'];
                     category = listEventForensicRequest['category'];
                 }
             }
 
         
-            if (eventType === null || eventType === undefined) {
-                throw new RequiredError('eventType','Required parameter eventType was null or undefined when calling listEventForensic.');
-            }
-            if (eventType !== null && eventType !== undefined) {
-                localVarQueryParameter['event_type'] = eventType;
-            }
             if (eventId === null || eventId === undefined) {
                 throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling listEventForensic.');
             }
@@ -20922,6 +21459,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (eventType !== null && eventType !== undefined) {
+                localVarQueryParameter['event_type'] = eventType;
             }
             if (category !== null && category !== undefined) {
                 localVarQueryParameter['category'] = category;
@@ -21274,14 +21814,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询资产全局扫描任务状态。
+         * 查询已忽略的服务器列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listGlobalAssetScanTask(listGlobalAssetScanTaskRequest?: ListGlobalAssetScanTaskRequest) {
+        listIgnoreHosts(listIgnoreHostsRequest?: ListIgnoreHostsRequest) {
             const options = {
                 method: "GET",
-                url: "/v5/{project_id}/asset/assign-task",
+                url: "/v5/{project_id}/hosts/ignore",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -21290,29 +21830,166 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let category;
-            
             let enterpriseProjectId;
+            
+            let version;
+            
+            let agentStatus;
+            
+            let detectResult;
+            
+            let hostName;
+            
+            let hostId;
+            
+            let hostStatus;
+            
+            let osType;
+            
+            let privateIp;
+            
+            let publicIp;
+            
+            let ipAddr;
+            
+            let protectStatus;
+            
+            let groupId;
+            
+            let groupName;
+            
+            let policyGroupId;
+            
+            let policyGroupName;
+            
+            let chargingMode;
+            
+            let assetValue;
+            
+            let label;
+            
+            let hasIntrusion;
+            
+            let offset;
+            
+            let limit;
 
-            if (listGlobalAssetScanTaskRequest !== null && listGlobalAssetScanTaskRequest !== undefined) {
-                if (listGlobalAssetScanTaskRequest instanceof ListGlobalAssetScanTaskRequest) {
-                    category = listGlobalAssetScanTaskRequest.category;
-                    enterpriseProjectId = listGlobalAssetScanTaskRequest.enterpriseProjectId;
+            if (listIgnoreHostsRequest !== null && listIgnoreHostsRequest !== undefined) {
+                if (listIgnoreHostsRequest instanceof ListIgnoreHostsRequest) {
+                    enterpriseProjectId = listIgnoreHostsRequest.enterpriseProjectId;
+                    version = listIgnoreHostsRequest.version;
+                    agentStatus = listIgnoreHostsRequest.agentStatus;
+                    detectResult = listIgnoreHostsRequest.detectResult;
+                    hostName = listIgnoreHostsRequest.hostName;
+                    hostId = listIgnoreHostsRequest.hostId;
+                    hostStatus = listIgnoreHostsRequest.hostStatus;
+                    osType = listIgnoreHostsRequest.osType;
+                    privateIp = listIgnoreHostsRequest.privateIp;
+                    publicIp = listIgnoreHostsRequest.publicIp;
+                    ipAddr = listIgnoreHostsRequest.ipAddr;
+                    protectStatus = listIgnoreHostsRequest.protectStatus;
+                    groupId = listIgnoreHostsRequest.groupId;
+                    groupName = listIgnoreHostsRequest.groupName;
+                    policyGroupId = listIgnoreHostsRequest.policyGroupId;
+                    policyGroupName = listIgnoreHostsRequest.policyGroupName;
+                    chargingMode = listIgnoreHostsRequest.chargingMode;
+                    assetValue = listIgnoreHostsRequest.assetValue;
+                    label = listIgnoreHostsRequest.label;
+                    hasIntrusion = listIgnoreHostsRequest.hasIntrusion;
+                    offset = listIgnoreHostsRequest.offset;
+                    limit = listIgnoreHostsRequest.limit;
                 } else {
-                    category = listGlobalAssetScanTaskRequest['category'];
-                    enterpriseProjectId = listGlobalAssetScanTaskRequest['enterprise_project_id'];
+                    enterpriseProjectId = listIgnoreHostsRequest['enterprise_project_id'];
+                    version = listIgnoreHostsRequest['version'];
+                    agentStatus = listIgnoreHostsRequest['agent_status'];
+                    detectResult = listIgnoreHostsRequest['detect_result'];
+                    hostName = listIgnoreHostsRequest['host_name'];
+                    hostId = listIgnoreHostsRequest['host_id'];
+                    hostStatus = listIgnoreHostsRequest['host_status'];
+                    osType = listIgnoreHostsRequest['os_type'];
+                    privateIp = listIgnoreHostsRequest['private_ip'];
+                    publicIp = listIgnoreHostsRequest['public_ip'];
+                    ipAddr = listIgnoreHostsRequest['ip_addr'];
+                    protectStatus = listIgnoreHostsRequest['protect_status'];
+                    groupId = listIgnoreHostsRequest['group_id'];
+                    groupName = listIgnoreHostsRequest['group_name'];
+                    policyGroupId = listIgnoreHostsRequest['policy_group_id'];
+                    policyGroupName = listIgnoreHostsRequest['policy_group_name'];
+                    chargingMode = listIgnoreHostsRequest['charging_mode'];
+                    assetValue = listIgnoreHostsRequest['asset_value'];
+                    label = listIgnoreHostsRequest['label'];
+                    hasIntrusion = listIgnoreHostsRequest['has_intrusion'];
+                    offset = listIgnoreHostsRequest['offset'];
+                    limit = listIgnoreHostsRequest['limit'];
                 }
             }
 
         
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listGlobalAssetScanTask.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (agentStatus !== null && agentStatus !== undefined) {
+                localVarQueryParameter['agent_status'] = agentStatus;
+            }
+            if (detectResult !== null && detectResult !== undefined) {
+                localVarQueryParameter['detect_result'] = detectResult;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostStatus !== null && hostStatus !== undefined) {
+                localVarQueryParameter['host_status'] = hostStatus;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (publicIp !== null && publicIp !== undefined) {
+                localVarQueryParameter['public_ip'] = publicIp;
+            }
+            if (ipAddr !== null && ipAddr !== undefined) {
+                localVarQueryParameter['ip_addr'] = ipAddr;
+            }
+            if (protectStatus !== null && protectStatus !== undefined) {
+                localVarQueryParameter['protect_status'] = protectStatus;
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (groupName !== null && groupName !== undefined) {
+                localVarQueryParameter['group_name'] = groupName;
+            }
+            if (policyGroupId !== null && policyGroupId !== undefined) {
+                localVarQueryParameter['policy_group_id'] = policyGroupId;
+            }
+            if (policyGroupName !== null && policyGroupName !== undefined) {
+                localVarQueryParameter['policy_group_name'] = policyGroupName;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+            if (assetValue !== null && assetValue !== undefined) {
+                localVarQueryParameter['asset_value'] = assetValue;
+            }
+            if (label !== null && label !== undefined) {
+                localVarQueryParameter['label'] = label;
+            }
+            if (hasIntrusion !== null && hasIntrusion !== undefined) {
+                localVarQueryParameter['has_intrusion'] = hasIntrusion;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -21441,225 +22118,6 @@ export const ParamCreater = function () {
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定中间件的服务器列表，通过传入中间件名称参数，返回对应的中间件服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listJarPackageHostInfo(listJarPackageHostInfoRequest?: ListJarPackageHostInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/midwares/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let fileName;
-            
-            let enterpriseProjectId;
-            
-            let category;
-            
-            let hostName;
-            
-            let hostIp;
-            
-            let limit;
-            
-            let offset;
-            
-            let partMatch;
-
-            if (listJarPackageHostInfoRequest !== null && listJarPackageHostInfoRequest !== undefined) {
-                if (listJarPackageHostInfoRequest instanceof ListJarPackageHostInfoRequest) {
-                    fileName = listJarPackageHostInfoRequest.fileName;
-                    enterpriseProjectId = listJarPackageHostInfoRequest.enterpriseProjectId;
-                    category = listJarPackageHostInfoRequest.category;
-                    hostName = listJarPackageHostInfoRequest.hostName;
-                    hostIp = listJarPackageHostInfoRequest.hostIp;
-                    limit = listJarPackageHostInfoRequest.limit;
-                    offset = listJarPackageHostInfoRequest.offset;
-                    partMatch = listJarPackageHostInfoRequest.partMatch;
-                } else {
-                    fileName = listJarPackageHostInfoRequest['file_name'];
-                    enterpriseProjectId = listJarPackageHostInfoRequest['enterprise_project_id'];
-                    category = listJarPackageHostInfoRequest['category'];
-                    hostName = listJarPackageHostInfoRequest['host_name'];
-                    hostIp = listJarPackageHostInfoRequest['host_ip'];
-                    limit = listJarPackageHostInfoRequest['limit'];
-                    offset = listJarPackageHostInfoRequest['offset'];
-                    partMatch = listJarPackageHostInfoRequest['part_match'];
-                }
-            }
-
-        
-            if (fileName === null || fileName === undefined) {
-                throw new RequiredError('fileName','Required parameter fileName was null or undefined when calling listJarPackageHostInfo.');
-            }
-            if (fileName !== null && fileName !== undefined) {
-                localVarQueryParameter['file_name'] = fileName;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定主机的中间件信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listJarPackageInfo(listJarPackageInfoRequest?: ListJarPackageInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/{host_id}/jar-package",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostId;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let fileName;
-
-            if (listJarPackageInfoRequest !== null && listJarPackageInfoRequest !== undefined) {
-                if (listJarPackageInfoRequest instanceof ListJarPackageInfoRequest) {
-                    hostId = listJarPackageInfoRequest.hostId;
-                    category = listJarPackageInfoRequest.category;
-                    enterpriseProjectId = listJarPackageInfoRequest.enterpriseProjectId;
-                    fileName = listJarPackageInfoRequest.fileName;
-                } else {
-                    hostId = listJarPackageInfoRequest['host_id'];
-                    category = listJarPackageInfoRequest['category'];
-                    enterpriseProjectId = listJarPackageInfoRequest['enterprise_project_id'];
-                    fileName = listJarPackageInfoRequest['file_name'];
-                }
-            }
-
-        
-            if (hostId === null || hostId === undefined) {
-            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listJarPackageInfo.');
-            }
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listJarPackageInfo.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (fileName !== null && fileName !== undefined) {
-                localVarQueryParameter['file_name'] = fileName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'host_id': hostId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询中间件列表，支持通过中间件名称查询对应的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listJarPackageStatistics(listJarPackageStatisticsRequest?: ListJarPackageStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/midwares",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let fileName;
-
-            if (listJarPackageStatisticsRequest !== null && listJarPackageStatisticsRequest !== undefined) {
-                if (listJarPackageStatisticsRequest instanceof ListJarPackageStatisticsRequest) {
-                    category = listJarPackageStatisticsRequest.category;
-                    enterpriseProjectId = listJarPackageStatisticsRequest.enterpriseProjectId;
-                    offset = listJarPackageStatisticsRequest.offset;
-                    limit = listJarPackageStatisticsRequest.limit;
-                    fileName = listJarPackageStatisticsRequest.fileName;
-                } else {
-                    category = listJarPackageStatisticsRequest['category'];
-                    enterpriseProjectId = listJarPackageStatisticsRequest['enterprise_project_id'];
-                    offset = listJarPackageStatisticsRequest['offset'];
-                    limit = listJarPackageStatisticsRequest['limit'];
-                    fileName = listJarPackageStatisticsRequest['file_name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listJarPackageStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (fileName !== null && fileName !== undefined) {
-                localVarQueryParameter['file_name'] = fileName;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -22107,198 +22565,6 @@ export const ParamCreater = function () {
             }
             if (clusterName !== null && clusterName !== undefined) {
                 localVarQueryParameter['cluster_name'] = clusterName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定内核模块的服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listKernelModuleHostInfo(listKernelModuleHostInfoRequest?: ListKernelModuleHostInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/host/kernel-module",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let name;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let hostName;
-            
-            let hostIp;
-            
-            let partMatch;
-
-            if (listKernelModuleHostInfoRequest !== null && listKernelModuleHostInfoRequest !== undefined) {
-                if (listKernelModuleHostInfoRequest instanceof ListKernelModuleHostInfoRequest) {
-                    name = listKernelModuleHostInfoRequest.name;
-                    enterpriseProjectId = listKernelModuleHostInfoRequest.enterpriseProjectId;
-                    offset = listKernelModuleHostInfoRequest.offset;
-                    limit = listKernelModuleHostInfoRequest.limit;
-                    hostName = listKernelModuleHostInfoRequest.hostName;
-                    hostIp = listKernelModuleHostInfoRequest.hostIp;
-                    partMatch = listKernelModuleHostInfoRequest.partMatch;
-                } else {
-                    name = listKernelModuleHostInfoRequest['name'];
-                    enterpriseProjectId = listKernelModuleHostInfoRequest['enterprise_project_id'];
-                    offset = listKernelModuleHostInfoRequest['offset'];
-                    limit = listKernelModuleHostInfoRequest['limit'];
-                    hostName = listKernelModuleHostInfoRequest['host_name'];
-                    hostIp = listKernelModuleHostInfoRequest['host_ip'];
-                    partMatch = listKernelModuleHostInfoRequest['part_match'];
-                }
-            }
-
-        
-            if (name === null || name === undefined) {
-                throw new RequiredError('name','Required parameter name was null or undefined when calling listKernelModuleHostInfo.');
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定主机的内核模块信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listKernelModuleInfo(listKernelModuleInfoRequest?: ListKernelModuleInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/{host_id}/kernel-module",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostId;
-            
-            let enterpriseProjectId;
-            
-            let name;
-
-            if (listKernelModuleInfoRequest !== null && listKernelModuleInfoRequest !== undefined) {
-                if (listKernelModuleInfoRequest instanceof ListKernelModuleInfoRequest) {
-                    hostId = listKernelModuleInfoRequest.hostId;
-                    enterpriseProjectId = listKernelModuleInfoRequest.enterpriseProjectId;
-                    name = listKernelModuleInfoRequest.name;
-                } else {
-                    hostId = listKernelModuleInfoRequest['host_id'];
-                    enterpriseProjectId = listKernelModuleInfoRequest['enterprise_project_id'];
-                    name = listKernelModuleInfoRequest['name'];
-                }
-            }
-
-        
-            if (hostId === null || hostId === undefined) {
-            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listKernelModuleInfo.');
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'host_id': hostId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询内核模块的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listKernelModuleStatistics(listKernelModuleStatisticsRequest?: ListKernelModuleStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/statistics/kernel-module",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let name;
-
-            if (listKernelModuleStatisticsRequest !== null && listKernelModuleStatisticsRequest !== undefined) {
-                if (listKernelModuleStatisticsRequest instanceof ListKernelModuleStatisticsRequest) {
-                    enterpriseProjectId = listKernelModuleStatisticsRequest.enterpriseProjectId;
-                    offset = listKernelModuleStatisticsRequest.offset;
-                    limit = listKernelModuleStatisticsRequest.limit;
-                    name = listKernelModuleStatisticsRequest.name;
-                } else {
-                    enterpriseProjectId = listKernelModuleStatisticsRequest['enterprise_project_id'];
-                    offset = listKernelModuleStatisticsRequest['offset'];
-                    limit = listKernelModuleStatisticsRequest['limit'];
-                    name = listKernelModuleStatisticsRequest['name'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -22812,206 +23078,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询具备该端口的主机/容器的服务器列表。
+         * 查询主机或容器上的进程列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listPortHost(listPortHostRequest?: ListPortHostRequest) {
+        listProcesses(listProcessesRequest?: ListProcessesRequest) {
             const options = {
                 method: "GET",
-                url: "/v5/{project_id}/asset/ports/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let port;
-            
-            let enterpriseProjectId;
-            
-            let hostName;
-            
-            let hostIp;
-            
-            let limit;
-            
-            let offset;
-            
-            let type;
-
-            if (listPortHostRequest !== null && listPortHostRequest !== undefined) {
-                if (listPortHostRequest instanceof ListPortHostRequest) {
-                    category = listPortHostRequest.category;
-                    port = listPortHostRequest.port;
-                    enterpriseProjectId = listPortHostRequest.enterpriseProjectId;
-                    hostName = listPortHostRequest.hostName;
-                    hostIp = listPortHostRequest.hostIp;
-                    limit = listPortHostRequest.limit;
-                    offset = listPortHostRequest.offset;
-                    type = listPortHostRequest.type;
-                } else {
-                    category = listPortHostRequest['category'];
-                    port = listPortHostRequest['port'];
-                    enterpriseProjectId = listPortHostRequest['enterprise_project_id'];
-                    hostName = listPortHostRequest['host_name'];
-                    hostIp = listPortHostRequest['host_ip'];
-                    limit = listPortHostRequest['limit'];
-                    offset = listPortHostRequest['offset'];
-                    type = listPortHostRequest['type'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listPortHost.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (port === null || port === undefined) {
-                throw new RequiredError('port','Required parameter port was null or undefined when calling listPortHost.');
-            }
-            if (port !== null && port !== undefined) {
-                localVarQueryParameter['port'] = port;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询开放端口列表，支持通过传入端口或协议类型查询服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPortStatistics(listPortStatisticsRequest?: ListPortStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/port/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-            
-            let category;
-            
-            let sortDir;
-            
-            let limit;
-            
-            let offset;
-            
-            let port;
-            
-            let portString;
-            
-            let type;
-            
-            let status;
-            
-            let sortKey;
-
-            if (listPortStatisticsRequest !== null && listPortStatisticsRequest !== undefined) {
-                if (listPortStatisticsRequest instanceof ListPortStatisticsRequest) {
-                    enterpriseProjectId = listPortStatisticsRequest.enterpriseProjectId;
-                    category = listPortStatisticsRequest.category;
-                    sortDir = listPortStatisticsRequest.sortDir;
-                    limit = listPortStatisticsRequest.limit;
-                    offset = listPortStatisticsRequest.offset;
-                    port = listPortStatisticsRequest.port;
-                    portString = listPortStatisticsRequest.portString;
-                    type = listPortStatisticsRequest.type;
-                    status = listPortStatisticsRequest.status;
-                    sortKey = listPortStatisticsRequest.sortKey;
-                } else {
-                    enterpriseProjectId = listPortStatisticsRequest['enterprise_project_id'];
-                    category = listPortStatisticsRequest['category'];
-                    sortDir = listPortStatisticsRequest['sort_dir'];
-                    limit = listPortStatisticsRequest['limit'];
-                    offset = listPortStatisticsRequest['offset'];
-                    port = listPortStatisticsRequest['port'];
-                    portString = listPortStatisticsRequest['port_string'];
-                    type = listPortStatisticsRequest['type'];
-                    status = listPortStatisticsRequest['status'];
-                    sortKey = listPortStatisticsRequest['sort_key'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (port !== null && port !== undefined) {
-                localVarQueryParameter['port'] = port;
-            }
-            if (portString !== null && portString !== undefined) {
-                localVarQueryParameter['port_string'] = portString;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询单服务器的开放端口列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listPorts(listPortsRequest?: ListPortsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/ports",
+                url: "/v5/{project_id}/asset/processes",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -23022,207 +23096,57 @@ export const ParamCreater = function () {
             
             let hostId;
             
+            let enterpriseProjectId;
+            
             let hostName;
             
             let hostIp;
             
-            let port;
+            let user;
             
-            let type;
+            let path;
             
-            let status;
+            let launchParams;
             
-            let enterpriseProjectId;
-            
-            let limit;
+            let category;
             
             let offset;
             
-            let category;
+            let limit;
 
-            if (listPortsRequest !== null && listPortsRequest !== undefined) {
-                if (listPortsRequest instanceof ListPortsRequest) {
-                    hostId = listPortsRequest.hostId;
-                    hostName = listPortsRequest.hostName;
-                    hostIp = listPortsRequest.hostIp;
-                    port = listPortsRequest.port;
-                    type = listPortsRequest.type;
-                    status = listPortsRequest.status;
-                    enterpriseProjectId = listPortsRequest.enterpriseProjectId;
-                    limit = listPortsRequest.limit;
-                    offset = listPortsRequest.offset;
-                    category = listPortsRequest.category;
+            if (listProcessesRequest !== null && listProcessesRequest !== undefined) {
+                if (listProcessesRequest instanceof ListProcessesRequest) {
+                    hostId = listProcessesRequest.hostId;
+                    enterpriseProjectId = listProcessesRequest.enterpriseProjectId;
+                    hostName = listProcessesRequest.hostName;
+                    hostIp = listProcessesRequest.hostIp;
+                    user = listProcessesRequest.user;
+                    path = listProcessesRequest.path;
+                    launchParams = listProcessesRequest.launchParams;
+                    category = listProcessesRequest.category;
+                    offset = listProcessesRequest.offset;
+                    limit = listProcessesRequest.limit;
                 } else {
-                    hostId = listPortsRequest['host_id'];
-                    hostName = listPortsRequest['host_name'];
-                    hostIp = listPortsRequest['host_ip'];
-                    port = listPortsRequest['port'];
-                    type = listPortsRequest['type'];
-                    status = listPortsRequest['status'];
-                    enterpriseProjectId = listPortsRequest['enterprise_project_id'];
-                    limit = listPortsRequest['limit'];
-                    offset = listPortsRequest['offset'];
-                    category = listPortsRequest['category'];
+                    hostId = listProcessesRequest['host_id'];
+                    enterpriseProjectId = listProcessesRequest['enterprise_project_id'];
+                    hostName = listProcessesRequest['host_name'];
+                    hostIp = listProcessesRequest['host_ip'];
+                    user = listProcessesRequest['user'];
+                    path = listProcessesRequest['path'];
+                    launchParams = listProcessesRequest['launch_params'];
+                    category = listProcessesRequest['category'];
+                    offset = listProcessesRequest['offset'];
+                    limit = listProcessesRequest['limit'];
                 }
             }
 
         
             if (hostId === null || hostId === undefined) {
-                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listPorts.');
+                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listProcesses.');
             }
             if (hostId !== null && hostId !== undefined) {
                 localVarQueryParameter['host_id'] = hostId;
             }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (port !== null && port !== undefined) {
-                localVarQueryParameter['port'] = port;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询进程列表，通过传入进程路径参数查询对应的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listProcessStatistics(listProcessStatisticsRequest?: ListProcessStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/process/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let category;
-            
-            let path;
-
-            if (listProcessStatisticsRequest !== null && listProcessStatisticsRequest !== undefined) {
-                if (listProcessStatisticsRequest instanceof ListProcessStatisticsRequest) {
-                    enterpriseProjectId = listProcessStatisticsRequest.enterpriseProjectId;
-                    limit = listProcessStatisticsRequest.limit;
-                    offset = listProcessStatisticsRequest.offset;
-                    category = listProcessStatisticsRequest.category;
-                    path = listProcessStatisticsRequest.path;
-                } else {
-                    enterpriseProjectId = listProcessStatisticsRequest['enterprise_project_id'];
-                    limit = listProcessStatisticsRequest['limit'];
-                    offset = listProcessStatisticsRequest['offset'];
-                    category = listProcessStatisticsRequest['category'];
-                    path = listProcessStatisticsRequest['path'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (path !== null && path !== undefined) {
-                localVarQueryParameter['path'] = path;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 具备该进程的主机/容器的服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listProcessesHost(listProcessesHostRequest?: ListProcessesHostRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/processes/detail",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-            
-            let hostName;
-            
-            let hostIp;
-            
-            let path;
-            
-            let category;
-            
-            let limit;
-            
-            let offset;
-
-            if (listProcessesHostRequest !== null && listProcessesHostRequest !== undefined) {
-                if (listProcessesHostRequest instanceof ListProcessesHostRequest) {
-                    enterpriseProjectId = listProcessesHostRequest.enterpriseProjectId;
-                    hostName = listProcessesHostRequest.hostName;
-                    hostIp = listProcessesHostRequest.hostIp;
-                    path = listProcessesHostRequest.path;
-                    category = listProcessesHostRequest.category;
-                    limit = listProcessesHostRequest.limit;
-                    offset = listProcessesHostRequest.offset;
-                } else {
-                    enterpriseProjectId = listProcessesHostRequest['enterprise_project_id'];
-                    hostName = listProcessesHostRequest['host_name'];
-                    hostIp = listProcessesHostRequest['host_ip'];
-                    path = listProcessesHostRequest['path'];
-                    category = listProcessesHostRequest['category'];
-                    limit = listProcessesHostRequest['limit'];
-                    offset = listProcessesHostRequest['offset'];
-                }
-            }
-
-        
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
@@ -23232,17 +23156,23 @@ export const ParamCreater = function () {
             if (hostIp !== null && hostIp !== undefined) {
                 localVarQueryParameter['host_ip'] = hostIp;
             }
+            if (user !== null && user !== undefined) {
+                localVarQueryParameter['user'] = user;
+            }
             if (path !== null && path !== undefined) {
                 localVarQueryParameter['path'] = path;
+            }
+            if (launchParams !== null && launchParams !== undefined) {
+                localVarQueryParameter['launch_params'] = launchParams;
             }
             if (category !== null && category !== undefined) {
                 localVarQueryParameter['category'] = category;
             }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -24328,934 +24258,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取账户变动历史记录信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listUserChangeHistories(listUserChangeHistoriesRequest?: ListUserChangeHistoriesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/user/change-history",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostName;
-            
-            let hostId;
-            
-            let enterpriseProjectId;
-            
-            let userName;
-            
-            let rootPermission;
-            
-            let privateIp;
-            
-            let changeType;
-            
-            let limit;
-            
-            let offset;
-            
-            let startTime;
-            
-            let endTime;
-
-            if (listUserChangeHistoriesRequest !== null && listUserChangeHistoriesRequest !== undefined) {
-                if (listUserChangeHistoriesRequest instanceof ListUserChangeHistoriesRequest) {
-                    hostName = listUserChangeHistoriesRequest.hostName;
-                    hostId = listUserChangeHistoriesRequest.hostId;
-                    enterpriseProjectId = listUserChangeHistoriesRequest.enterpriseProjectId;
-                    userName = listUserChangeHistoriesRequest.userName;
-                    rootPermission = listUserChangeHistoriesRequest.rootPermission;
-                    privateIp = listUserChangeHistoriesRequest.privateIp;
-                    changeType = listUserChangeHistoriesRequest.changeType;
-                    limit = listUserChangeHistoriesRequest.limit;
-                    offset = listUserChangeHistoriesRequest.offset;
-                    startTime = listUserChangeHistoriesRequest.startTime;
-                    endTime = listUserChangeHistoriesRequest.endTime;
-                } else {
-                    hostName = listUserChangeHistoriesRequest['host_name'];
-                    hostId = listUserChangeHistoriesRequest['host_id'];
-                    enterpriseProjectId = listUserChangeHistoriesRequest['enterprise_project_id'];
-                    userName = listUserChangeHistoriesRequest['user_name'];
-                    rootPermission = listUserChangeHistoriesRequest['root_permission'];
-                    privateIp = listUserChangeHistoriesRequest['private_ip'];
-                    changeType = listUserChangeHistoriesRequest['change_type'];
-                    limit = listUserChangeHistoriesRequest['limit'];
-                    offset = listUserChangeHistoriesRequest['offset'];
-                    startTime = listUserChangeHistoriesRequest['start_time'];
-                    endTime = listUserChangeHistoriesRequest['end_time'];
-                }
-            }
-
-        
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (userName !== null && userName !== undefined) {
-                localVarQueryParameter['user_name'] = userName;
-            }
-            if (rootPermission !== null && rootPermission !== undefined) {
-                localVarQueryParameter['root_permission'] = rootPermission;
-            }
-            if (privateIp !== null && privateIp !== undefined) {
-                localVarQueryParameter['private_ip'] = privateIp;
-            }
-            if (changeType !== null && changeType !== undefined) {
-                localVarQueryParameter['change_type'] = changeType;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询账号信息列表，支持通过传入账号名称参数查询对应的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listUserStatistics(listUserStatisticsRequest?: ListUserStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/user/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let userName;
-
-            if (listUserStatisticsRequest !== null && listUserStatisticsRequest !== undefined) {
-                if (listUserStatisticsRequest instanceof ListUserStatisticsRequest) {
-                    category = listUserStatisticsRequest.category;
-                    enterpriseProjectId = listUserStatisticsRequest.enterpriseProjectId;
-                    limit = listUserStatisticsRequest.limit;
-                    offset = listUserStatisticsRequest.offset;
-                    userName = listUserStatisticsRequest.userName;
-                } else {
-                    category = listUserStatisticsRequest['category'];
-                    enterpriseProjectId = listUserStatisticsRequest['enterprise_project_id'];
-                    limit = listUserStatisticsRequest['limit'];
-                    offset = listUserStatisticsRequest['offset'];
-                    userName = listUserStatisticsRequest['user_name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listUserStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (userName !== null && userName !== undefined) {
-                localVarQueryParameter['user_name'] = userName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询账号的服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listUsers(listUsersRequest?: ListUsersRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/users",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostId;
-            
-            let userName;
-            
-            let hostName;
-            
-            let privateIp;
-            
-            let loginPermission;
-            
-            let rootPermission;
-            
-            let userGroup;
-            
-            let enterpriseProjectId;
-            
-            let limit;
-            
-            let offset;
-            
-            let category;
-            
-            let partMatch;
-
-            if (listUsersRequest !== null && listUsersRequest !== undefined) {
-                if (listUsersRequest instanceof ListUsersRequest) {
-                    hostId = listUsersRequest.hostId;
-                    userName = listUsersRequest.userName;
-                    hostName = listUsersRequest.hostName;
-                    privateIp = listUsersRequest.privateIp;
-                    loginPermission = listUsersRequest.loginPermission;
-                    rootPermission = listUsersRequest.rootPermission;
-                    userGroup = listUsersRequest.userGroup;
-                    enterpriseProjectId = listUsersRequest.enterpriseProjectId;
-                    limit = listUsersRequest.limit;
-                    offset = listUsersRequest.offset;
-                    category = listUsersRequest.category;
-                    partMatch = listUsersRequest.partMatch;
-                } else {
-                    hostId = listUsersRequest['host_id'];
-                    userName = listUsersRequest['user_name'];
-                    hostName = listUsersRequest['host_name'];
-                    privateIp = listUsersRequest['private_ip'];
-                    loginPermission = listUsersRequest['login_permission'];
-                    rootPermission = listUsersRequest['root_permission'];
-                    userGroup = listUsersRequest['user_group'];
-                    enterpriseProjectId = listUsersRequest['enterprise_project_id'];
-                    limit = listUsersRequest['limit'];
-                    offset = listUsersRequest['offset'];
-                    category = listUsersRequest['category'];
-                    partMatch = listUsersRequest['part_match'];
-                }
-            }
-
-        
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (userName !== null && userName !== undefined) {
-                localVarQueryParameter['user_name'] = userName;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (privateIp !== null && privateIp !== undefined) {
-                localVarQueryParameter['private_ip'] = privateIp;
-            }
-            if (loginPermission !== null && loginPermission !== undefined) {
-                localVarQueryParameter['login_permission'] = loginPermission;
-            }
-            if (rootPermission !== null && rootPermission !== undefined) {
-                localVarQueryParameter['root_permission'] = rootPermission;
-            }
-            if (userGroup !== null && userGroup !== undefined) {
-                localVarQueryParameter['user_group'] = userGroup;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Web服务、Web应用、数据库的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebAppAndServiceStatistics(listWebAppAndServiceStatisticsRequest?: ListWebAppAndServiceStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/web-app-and-service-statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let catalogue;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let name;
-
-            if (listWebAppAndServiceStatisticsRequest !== null && listWebAppAndServiceStatisticsRequest !== undefined) {
-                if (listWebAppAndServiceStatisticsRequest instanceof ListWebAppAndServiceStatisticsRequest) {
-                    category = listWebAppAndServiceStatisticsRequest.category;
-                    catalogue = listWebAppAndServiceStatisticsRequest.catalogue;
-                    enterpriseProjectId = listWebAppAndServiceStatisticsRequest.enterpriseProjectId;
-                    offset = listWebAppAndServiceStatisticsRequest.offset;
-                    limit = listWebAppAndServiceStatisticsRequest.limit;
-                    name = listWebAppAndServiceStatisticsRequest.name;
-                } else {
-                    category = listWebAppAndServiceStatisticsRequest['category'];
-                    catalogue = listWebAppAndServiceStatisticsRequest['catalogue'];
-                    enterpriseProjectId = listWebAppAndServiceStatisticsRequest['enterprise_project_id'];
-                    offset = listWebAppAndServiceStatisticsRequest['offset'];
-                    limit = listWebAppAndServiceStatisticsRequest['limit'];
-                    name = listWebAppAndServiceStatisticsRequest['name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebAppAndServiceStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (catalogue === null || catalogue === undefined) {
-                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listWebAppAndServiceStatistics.');
-            }
-            if (catalogue !== null && catalogue !== undefined) {
-                localVarQueryParameter['catalogue'] = catalogue;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定Web服务、Web应用、数据库的服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebAppAndServices(listWebAppAndServicesRequest?: ListWebAppAndServicesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/web-app-and-services",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let catalogue;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let name;
-            
-            let hostName;
-            
-            let hostId;
-            
-            let hostIp;
-            
-            let version;
-            
-            let installDir;
-            
-            let partMatch;
-
-            if (listWebAppAndServicesRequest !== null && listWebAppAndServicesRequest !== undefined) {
-                if (listWebAppAndServicesRequest instanceof ListWebAppAndServicesRequest) {
-                    category = listWebAppAndServicesRequest.category;
-                    catalogue = listWebAppAndServicesRequest.catalogue;
-                    enterpriseProjectId = listWebAppAndServicesRequest.enterpriseProjectId;
-                    offset = listWebAppAndServicesRequest.offset;
-                    limit = listWebAppAndServicesRequest.limit;
-                    name = listWebAppAndServicesRequest.name;
-                    hostName = listWebAppAndServicesRequest.hostName;
-                    hostId = listWebAppAndServicesRequest.hostId;
-                    hostIp = listWebAppAndServicesRequest.hostIp;
-                    version = listWebAppAndServicesRequest.version;
-                    installDir = listWebAppAndServicesRequest.installDir;
-                    partMatch = listWebAppAndServicesRequest.partMatch;
-                } else {
-                    category = listWebAppAndServicesRequest['category'];
-                    catalogue = listWebAppAndServicesRequest['catalogue'];
-                    enterpriseProjectId = listWebAppAndServicesRequest['enterprise_project_id'];
-                    offset = listWebAppAndServicesRequest['offset'];
-                    limit = listWebAppAndServicesRequest['limit'];
-                    name = listWebAppAndServicesRequest['name'];
-                    hostName = listWebAppAndServicesRequest['host_name'];
-                    hostId = listWebAppAndServicesRequest['host_id'];
-                    hostIp = listWebAppAndServicesRequest['host_ip'];
-                    version = listWebAppAndServicesRequest['version'];
-                    installDir = listWebAppAndServicesRequest['install_dir'];
-                    partMatch = listWebAppAndServicesRequest['part_match'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebAppAndServices.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (catalogue === null || catalogue === undefined) {
-                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listWebAppAndServices.');
-            }
-            if (catalogue !== null && catalogue !== undefined) {
-                localVarQueryParameter['catalogue'] = catalogue;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (version !== null && version !== undefined) {
-                localVarQueryParameter['version'] = version;
-            }
-            if (installDir !== null && installDir !== undefined) {
-                localVarQueryParameter['install_dir'] = installDir;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定Web框架的服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebFrameworkHostInfo(listWebFrameworkHostInfoRequest?: ListWebFrameworkHostInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/host/web-framework",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let fileName;
-            
-            let hostName;
-            
-            let hostIp;
-            
-            let partMatch;
-
-            if (listWebFrameworkHostInfoRequest !== null && listWebFrameworkHostInfoRequest !== undefined) {
-                if (listWebFrameworkHostInfoRequest instanceof ListWebFrameworkHostInfoRequest) {
-                    category = listWebFrameworkHostInfoRequest.category;
-                    enterpriseProjectId = listWebFrameworkHostInfoRequest.enterpriseProjectId;
-                    offset = listWebFrameworkHostInfoRequest.offset;
-                    limit = listWebFrameworkHostInfoRequest.limit;
-                    fileName = listWebFrameworkHostInfoRequest.fileName;
-                    hostName = listWebFrameworkHostInfoRequest.hostName;
-                    hostIp = listWebFrameworkHostInfoRequest.hostIp;
-                    partMatch = listWebFrameworkHostInfoRequest.partMatch;
-                } else {
-                    category = listWebFrameworkHostInfoRequest['category'];
-                    enterpriseProjectId = listWebFrameworkHostInfoRequest['enterprise_project_id'];
-                    offset = listWebFrameworkHostInfoRequest['offset'];
-                    limit = listWebFrameworkHostInfoRequest['limit'];
-                    fileName = listWebFrameworkHostInfoRequest['file_name'];
-                    hostName = listWebFrameworkHostInfoRequest['host_name'];
-                    hostIp = listWebFrameworkHostInfoRequest['host_ip'];
-                    partMatch = listWebFrameworkHostInfoRequest['part_match'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebFrameworkHostInfo.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (fileName !== null && fileName !== undefined) {
-                localVarQueryParameter['file_name'] = fileName;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定主机的Web框架信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebFrameworkInfo(listWebFrameworkInfoRequest?: ListWebFrameworkInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/{host_id}/web-framework",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostId;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let fileName;
-
-            if (listWebFrameworkInfoRequest !== null && listWebFrameworkInfoRequest !== undefined) {
-                if (listWebFrameworkInfoRequest instanceof ListWebFrameworkInfoRequest) {
-                    hostId = listWebFrameworkInfoRequest.hostId;
-                    category = listWebFrameworkInfoRequest.category;
-                    enterpriseProjectId = listWebFrameworkInfoRequest.enterpriseProjectId;
-                    fileName = listWebFrameworkInfoRequest.fileName;
-                } else {
-                    hostId = listWebFrameworkInfoRequest['host_id'];
-                    category = listWebFrameworkInfoRequest['category'];
-                    enterpriseProjectId = listWebFrameworkInfoRequest['enterprise_project_id'];
-                    fileName = listWebFrameworkInfoRequest['file_name'];
-                }
-            }
-
-        
-            if (hostId === null || hostId === undefined) {
-            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listWebFrameworkInfo.');
-            }
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebFrameworkInfo.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (fileName !== null && fileName !== undefined) {
-                localVarQueryParameter['file_name'] = fileName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'host_id': hostId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Web框架的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebFrameworkStatistics(listWebFrameworkStatisticsRequest?: ListWebFrameworkStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/statistics/web-framework",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let fileName;
-
-            if (listWebFrameworkStatisticsRequest !== null && listWebFrameworkStatisticsRequest !== undefined) {
-                if (listWebFrameworkStatisticsRequest instanceof ListWebFrameworkStatisticsRequest) {
-                    category = listWebFrameworkStatisticsRequest.category;
-                    enterpriseProjectId = listWebFrameworkStatisticsRequest.enterpriseProjectId;
-                    offset = listWebFrameworkStatisticsRequest.offset;
-                    limit = listWebFrameworkStatisticsRequest.limit;
-                    fileName = listWebFrameworkStatisticsRequest.fileName;
-                } else {
-                    category = listWebFrameworkStatisticsRequest['category'];
-                    enterpriseProjectId = listWebFrameworkStatisticsRequest['enterprise_project_id'];
-                    offset = listWebFrameworkStatisticsRequest['offset'];
-                    limit = listWebFrameworkStatisticsRequest['limit'];
-                    fileName = listWebFrameworkStatisticsRequest['file_name'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebFrameworkStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (fileName !== null && fileName !== undefined) {
-                localVarQueryParameter['file_name'] = fileName;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定Web站点的服务器列表。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebSiteHostInfo(listWebSiteHostInfoRequest?: ListWebSiteHostInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/host/web-site",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let domain;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let hostName;
-            
-            let hostIp;
-            
-            let partMatch;
-
-            if (listWebSiteHostInfoRequest !== null && listWebSiteHostInfoRequest !== undefined) {
-                if (listWebSiteHostInfoRequest instanceof ListWebSiteHostInfoRequest) {
-                    category = listWebSiteHostInfoRequest.category;
-                    domain = listWebSiteHostInfoRequest.domain;
-                    enterpriseProjectId = listWebSiteHostInfoRequest.enterpriseProjectId;
-                    offset = listWebSiteHostInfoRequest.offset;
-                    limit = listWebSiteHostInfoRequest.limit;
-                    hostName = listWebSiteHostInfoRequest.hostName;
-                    hostIp = listWebSiteHostInfoRequest.hostIp;
-                    partMatch = listWebSiteHostInfoRequest.partMatch;
-                } else {
-                    category = listWebSiteHostInfoRequest['category'];
-                    domain = listWebSiteHostInfoRequest['domain'];
-                    enterpriseProjectId = listWebSiteHostInfoRequest['enterprise_project_id'];
-                    offset = listWebSiteHostInfoRequest['offset'];
-                    limit = listWebSiteHostInfoRequest['limit'];
-                    hostName = listWebSiteHostInfoRequest['host_name'];
-                    hostIp = listWebSiteHostInfoRequest['host_ip'];
-                    partMatch = listWebSiteHostInfoRequest['part_match'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebSiteHostInfo.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (domain === null || domain === undefined) {
-                throw new RequiredError('domain','Required parameter domain was null or undefined when calling listWebSiteHostInfo.');
-            }
-            if (domain !== null && domain !== undefined) {
-                localVarQueryParameter['domain'] = domain;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (hostName !== null && hostName !== undefined) {
-                localVarQueryParameter['host_name'] = hostName;
-            }
-            if (hostIp !== null && hostIp !== undefined) {
-                localVarQueryParameter['host_ip'] = hostIp;
-            }
-            if (partMatch !== null && partMatch !== undefined) {
-                localVarQueryParameter['part_match'] = partMatch;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询指定主机的Web站点信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebSiteInfo(listWebSiteInfoRequest?: ListWebSiteInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/{host_id}/web-site",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let hostId;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let domain;
-
-            if (listWebSiteInfoRequest !== null && listWebSiteInfoRequest !== undefined) {
-                if (listWebSiteInfoRequest instanceof ListWebSiteInfoRequest) {
-                    hostId = listWebSiteInfoRequest.hostId;
-                    category = listWebSiteInfoRequest.category;
-                    enterpriseProjectId = listWebSiteInfoRequest.enterpriseProjectId;
-                    domain = listWebSiteInfoRequest.domain;
-                } else {
-                    hostId = listWebSiteInfoRequest['host_id'];
-                    category = listWebSiteInfoRequest['category'];
-                    enterpriseProjectId = listWebSiteInfoRequest['enterprise_project_id'];
-                    domain = listWebSiteInfoRequest['domain'];
-                }
-            }
-
-        
-            if (hostId === null || hostId === undefined) {
-            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listWebSiteInfo.');
-            }
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebSiteInfo.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (domain !== null && domain !== undefined) {
-                localVarQueryParameter['domain'] = domain;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'host_id': hostId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询Web站点的服务器数。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listWebSiteStatistics(listWebSiteStatisticsRequest?: ListWebSiteStatisticsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/statistics/web-site",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let offset;
-            
-            let limit;
-            
-            let domain;
-
-            if (listWebSiteStatisticsRequest !== null && listWebSiteStatisticsRequest !== undefined) {
-                if (listWebSiteStatisticsRequest instanceof ListWebSiteStatisticsRequest) {
-                    category = listWebSiteStatisticsRequest.category;
-                    enterpriseProjectId = listWebSiteStatisticsRequest.enterpriseProjectId;
-                    offset = listWebSiteStatisticsRequest.offset;
-                    limit = listWebSiteStatisticsRequest.limit;
-                    domain = listWebSiteStatisticsRequest.domain;
-                } else {
-                    category = listWebSiteStatisticsRequest['category'];
-                    enterpriseProjectId = listWebSiteStatisticsRequest['enterprise_project_id'];
-                    offset = listWebSiteStatisticsRequest['offset'];
-                    limit = listWebSiteStatisticsRequest['limit'];
-                    domain = listWebSiteStatisticsRequest['domain'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebSiteStatistics.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (domain !== null && domain !== undefined) {
-                localVarQueryParameter['domain'] = domain;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询集群下某一命名空间下的工作负载。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -25510,61 +24512,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 采集单主机资产指纹。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runHostAssetManualCollect(runHostAssetManualCollectRequest?: RunHostAssetManualCollectRequest) {
-            const options = {
-                method: "POST",
-                url: "/v5/{project_id}/asset/manual-collect/{type}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let type;
-            
-            let hostId;
-            
-            let enterpriseProjectId;
-
-            if (runHostAssetManualCollectRequest !== null && runHostAssetManualCollectRequest !== undefined) {
-                if (runHostAssetManualCollectRequest instanceof RunHostAssetManualCollectRequest) {
-                    type = runHostAssetManualCollectRequest.type;
-                    hostId = runHostAssetManualCollectRequest.hostId;
-                    enterpriseProjectId = runHostAssetManualCollectRequest.enterpriseProjectId;
-                } else {
-                    type = runHostAssetManualCollectRequest['type'];
-                    hostId = runHostAssetManualCollectRequest['host_id'];
-                    enterpriseProjectId = runHostAssetManualCollectRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (type === null || type === undefined) {
-            throw new RequiredError('type','Required parameter type was null or undefined when calling runHostAssetManualCollect.');
-            }
-            if (hostId === null || hostId === undefined) {
-                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling runHostAssetManualCollect.');
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'type': type, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 设置提示信息配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -25605,80 +24552,6 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-账户Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAccountTop(showAccountTopRequest?: ShowAccountTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/account",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showAccountTopRequest !== null && showAccountTopRequest !== undefined) {
-                if (showAccountTopRequest instanceof ShowAccountTopRequest) {
-                    enterpriseProjectId = showAccountTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showAccountTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-资产状态-主机Agent状态。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAgentStatisticsStatus(showAgentStatisticsStatusRequest?: ShowAgentStatisticsStatusRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/status/agent",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showAgentStatisticsStatusRequest !== null && showAgentStatisticsStatusRequest !== undefined) {
-                if (showAgentStatisticsStatusRequest instanceof ShowAgentStatisticsStatusRequest) {
-                    enterpriseProjectId = showAgentStatisticsStatusRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showAgentStatisticsStatusRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
@@ -25732,97 +24605,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'host_id': hostId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产统计信息，账号、端口、进程等。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAssetStatistic(showAssetStatisticRequest?: ShowAssetStatisticRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/statistics",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let enterpriseProjectId;
-            
-            let hostId;
-
-            if (showAssetStatisticRequest !== null && showAssetStatisticRequest !== undefined) {
-                if (showAssetStatisticRequest instanceof ShowAssetStatisticRequest) {
-                    category = showAssetStatisticRequest.category;
-                    enterpriseProjectId = showAssetStatisticRequest.enterpriseProjectId;
-                    hostId = showAssetStatisticRequest.hostId;
-                } else {
-                    category = showAssetStatisticRequest['category'];
-                    enterpriseProjectId = showAssetStatisticRequest['enterprise_project_id'];
-                    hostId = showAssetStatisticRequest['host_id'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling showAssetStatistic.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-自启动项Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showAutoLaunchTop(showAutoLaunchTopRequest?: ShowAutoLaunchTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/auto-launch",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showAutoLaunchTopRequest !== null && showAutoLaunchTopRequest !== undefined) {
-                if (showAutoLaunchTopRequest instanceof ShowAutoLaunchTopRequest) {
-                    enterpriseProjectId = showAutoLaunchTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showAutoLaunchTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -25910,63 +24692,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 呈现某一端口详细信息，如本地端口：80，类型：TCP，危险程度：正常，端口描述：常用于SSH(SecureShell)-远程登录协议，用于安全登录文件传输（SCP，SFTP）及端口重新定向。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showCommonPort(showCommonPortRequest?: ShowCommonPortRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/common-port-info",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let category;
-            
-            let port;
-            
-            let enterpriseProjectId;
-
-            if (showCommonPortRequest !== null && showCommonPortRequest !== undefined) {
-                if (showCommonPortRequest instanceof ShowCommonPortRequest) {
-                    category = showCommonPortRequest.category;
-                    port = showCommonPortRequest.port;
-                    enterpriseProjectId = showCommonPortRequest.enterpriseProjectId;
-                } else {
-                    category = showCommonPortRequest['category'];
-                    port = showCommonPortRequest['port'];
-                    enterpriseProjectId = showCommonPortRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling showCommonPort.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (port === null || port === undefined) {
-                throw new RequiredError('port','Required parameter port was null or undefined when calling showCommonPort.');
-            }
-            if (port !== null && port !== undefined) {
-                localVarQueryParameter['port'] = port;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 查询容器集群网络的网络信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -26035,43 +24760,6 @@ export const ParamCreater = function () {
                     enterpriseProjectId = showContainerNodeStatisticsRequest.enterpriseProjectId;
                 } else {
                     enterpriseProjectId = showContainerNodeStatisticsRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-资产状态-容器节点防护状态。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showContainerProtectionStatus(showContainerProtectionStatusRequest?: ShowContainerProtectionStatusRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/status/container/protection",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showContainerProtectionStatusRequest !== null && showContainerProtectionStatusRequest !== undefined) {
-                if (showContainerProtectionStatusRequest instanceof ShowContainerProtectionStatusRequest) {
-                    enterpriseProjectId = showContainerProtectionStatusRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showContainerProtectionStatusRequest['enterprise_project_id'];
                 }
             }
 
@@ -26262,6 +24950,43 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询诱饵端口主机统计
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDecoyPortStatistics(showDecoyPortStatisticsRequest?: ShowDecoyPortStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/honeypot-port/host-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showDecoyPortStatisticsRequest !== null && showDecoyPortStatisticsRequest !== undefined) {
+                if (showDecoyPortStatisticsRequest instanceof ShowDecoyPortStatisticsRequest) {
+                    enterpriseProjectId = showDecoyPortStatisticsRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showDecoyPortStatisticsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -26599,6 +25324,190 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询告警事件统计
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showEventStatistics(showEventStatisticsRequest?: ShowEventStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/event/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let lastDays;
+            
+            let beginTime;
+            
+            let endTime;
+            
+            let category;
+            
+            let hostName;
+            
+            let hostId;
+            
+            let privateIp;
+            
+            let publicIp;
+            
+            let containerName;
+            
+            let eventType;
+            
+            let eventTypes;
+            
+            let handleStatus;
+            
+            let severity;
+            
+            let eventClassIds;
+            
+            let severityList;
+            
+            let attackTag;
+            
+            let attCk;
+            
+            let assetValue;
+            
+            let tagList;
+            
+            let eventName;
+            
+            let source;
+
+            if (showEventStatisticsRequest !== null && showEventStatisticsRequest !== undefined) {
+                if (showEventStatisticsRequest instanceof ShowEventStatisticsRequest) {
+                    enterpriseProjectId = showEventStatisticsRequest.enterpriseProjectId;
+                    lastDays = showEventStatisticsRequest.lastDays;
+                    beginTime = showEventStatisticsRequest.beginTime;
+                    endTime = showEventStatisticsRequest.endTime;
+                    category = showEventStatisticsRequest.category;
+                    hostName = showEventStatisticsRequest.hostName;
+                    hostId = showEventStatisticsRequest.hostId;
+                    privateIp = showEventStatisticsRequest.privateIp;
+                    publicIp = showEventStatisticsRequest.publicIp;
+                    containerName = showEventStatisticsRequest.containerName;
+                    eventType = showEventStatisticsRequest.eventType;
+                    eventTypes = showEventStatisticsRequest.eventTypes;
+                    handleStatus = showEventStatisticsRequest.handleStatus;
+                    severity = showEventStatisticsRequest.severity;
+                    eventClassIds = showEventStatisticsRequest.eventClassIds;
+                    severityList = showEventStatisticsRequest.severityList;
+                    attackTag = showEventStatisticsRequest.attackTag;
+                    attCk = showEventStatisticsRequest.attCk;
+                    assetValue = showEventStatisticsRequest.assetValue;
+                    tagList = showEventStatisticsRequest.tagList;
+                    eventName = showEventStatisticsRequest.eventName;
+                    source = showEventStatisticsRequest.source;
+                } else {
+                    enterpriseProjectId = showEventStatisticsRequest['enterprise_project_id'];
+                    lastDays = showEventStatisticsRequest['last_days'];
+                    beginTime = showEventStatisticsRequest['begin_time'];
+                    endTime = showEventStatisticsRequest['end_time'];
+                    category = showEventStatisticsRequest['category'];
+                    hostName = showEventStatisticsRequest['host_name'];
+                    hostId = showEventStatisticsRequest['host_id'];
+                    privateIp = showEventStatisticsRequest['private_ip'];
+                    publicIp = showEventStatisticsRequest['public_ip'];
+                    containerName = showEventStatisticsRequest['container_name'];
+                    eventType = showEventStatisticsRequest['event_type'];
+                    eventTypes = showEventStatisticsRequest['event_types'];
+                    handleStatus = showEventStatisticsRequest['handle_status'];
+                    severity = showEventStatisticsRequest['severity'];
+                    eventClassIds = showEventStatisticsRequest['event_class_ids'];
+                    severityList = showEventStatisticsRequest['severity_list'];
+                    attackTag = showEventStatisticsRequest['attack_tag'];
+                    attCk = showEventStatisticsRequest['att_ck'];
+                    assetValue = showEventStatisticsRequest['asset_value'];
+                    tagList = showEventStatisticsRequest['tag_list'];
+                    eventName = showEventStatisticsRequest['event_name'];
+                    source = showEventStatisticsRequest['source'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (lastDays !== null && lastDays !== undefined) {
+                localVarQueryParameter['last_days'] = lastDays;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (publicIp !== null && publicIp !== undefined) {
+                localVarQueryParameter['public_ip'] = publicIp;
+            }
+            if (containerName !== null && containerName !== undefined) {
+                localVarQueryParameter['container_name'] = containerName;
+            }
+            if (eventType !== null && eventType !== undefined) {
+                localVarQueryParameter['event_type'] = eventType;
+            }
+            if (eventTypes !== null && eventTypes !== undefined) {
+                localVarQueryParameter['event_types'] = eventTypes;
+            }
+            if (handleStatus !== null && handleStatus !== undefined) {
+                localVarQueryParameter['handle_status'] = handleStatus;
+            }
+            if (severity !== null && severity !== undefined) {
+                localVarQueryParameter['severity'] = severity;
+            }
+            if (eventClassIds !== null && eventClassIds !== undefined) {
+                localVarQueryParameter['event_class_ids'] = eventClassIds;
+            }
+            if (severityList !== null && severityList !== undefined) {
+                localVarQueryParameter['severity_list'] = severityList;
+            }
+            if (attackTag !== null && attackTag !== undefined) {
+                localVarQueryParameter['attack_tag'] = attackTag;
+            }
+            if (attCk !== null && attCk !== undefined) {
+                localVarQueryParameter['att_ck'] = attCk;
+            }
+            if (assetValue !== null && assetValue !== undefined) {
+                localVarQueryParameter['asset_value'] = assetValue;
+            }
+            if (tagList !== null && tagList !== undefined) {
+                localVarQueryParameter['tag_list'] = tagList;
+            }
+            if (eventName !== null && eventName !== undefined) {
+                localVarQueryParameter['event_name'] = eventName;
+            }
+            if (source !== null && source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询导出任务信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -26644,69 +25553,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询单主机资产指纹采集状态。
+         * 查询蜜罐事件统计
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showHostAssetManualCollectStatus(showHostAssetManualCollectStatusRequest?: ShowHostAssetManualCollectStatusRequest) {
+        showHoneypotEventStatistics(showHoneypotEventStatisticsRequest?: ShowHoneypotEventStatisticsRequest) {
             const options = {
                 method: "GET",
-                url: "/v5/{project_id}/asset/manual-collect/{type}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let type;
-            
-            let hostId;
-            
-            let enterpriseProjectId;
-
-            if (showHostAssetManualCollectStatusRequest !== null && showHostAssetManualCollectStatusRequest !== undefined) {
-                if (showHostAssetManualCollectStatusRequest instanceof ShowHostAssetManualCollectStatusRequest) {
-                    type = showHostAssetManualCollectStatusRequest.type;
-                    hostId = showHostAssetManualCollectStatusRequest.hostId;
-                    enterpriseProjectId = showHostAssetManualCollectStatusRequest.enterpriseProjectId;
-                } else {
-                    type = showHostAssetManualCollectStatusRequest['type'];
-                    hostId = showHostAssetManualCollectStatusRequest['host_id'];
-                    enterpriseProjectId = showHostAssetManualCollectStatusRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (type === null || type === undefined) {
-            throw new RequiredError('type','Required parameter type was null or undefined when calling showHostAssetManualCollectStatus.');
-            }
-            if (hostId === null || hostId === undefined) {
-                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling showHostAssetManualCollectStatus.');
-            }
-            if (hostId !== null && hostId !== undefined) {
-                localVarQueryParameter['host_id'] = hostId;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'type': type, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-资产状态-Agent状态。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showHostProtectionStatus(showHostProtectionStatusRequest?: ShowHostProtectionStatusRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/status/host/protection",
+                url: "/v5/{project_id}/honeypot/event/statistics",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -26716,55 +25570,39 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             
             let enterpriseProjectId;
-
-            if (showHostProtectionStatusRequest !== null && showHostProtectionStatusRequest !== undefined) {
-                if (showHostProtectionStatusRequest instanceof ShowHostProtectionStatusRequest) {
-                    enterpriseProjectId = showHostProtectionStatusRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showHostProtectionStatusRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-jar包Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showJarPackageTop(showJarPackageTopRequest?: ShowJarPackageTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/jar-package",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
             
-            let enterpriseProjectId;
+            let beginTime;
+            
+            let endTime;
+            
+            let lastDays;
 
-            if (showJarPackageTopRequest !== null && showJarPackageTopRequest !== undefined) {
-                if (showJarPackageTopRequest instanceof ShowJarPackageTopRequest) {
-                    enterpriseProjectId = showJarPackageTopRequest.enterpriseProjectId;
+            if (showHoneypotEventStatisticsRequest !== null && showHoneypotEventStatisticsRequest !== undefined) {
+                if (showHoneypotEventStatisticsRequest instanceof ShowHoneypotEventStatisticsRequest) {
+                    enterpriseProjectId = showHoneypotEventStatisticsRequest.enterpriseProjectId;
+                    beginTime = showHoneypotEventStatisticsRequest.beginTime;
+                    endTime = showHoneypotEventStatisticsRequest.endTime;
+                    lastDays = showHoneypotEventStatisticsRequest.lastDays;
                 } else {
-                    enterpriseProjectId = showJarPackageTopRequest['enterprise_project_id'];
+                    enterpriseProjectId = showHoneypotEventStatisticsRequest['enterprise_project_id'];
+                    beginTime = showHoneypotEventStatisticsRequest['begin_time'];
+                    endTime = showHoneypotEventStatisticsRequest['end_time'];
+                    lastDays = showHoneypotEventStatisticsRequest['last_days'];
                 }
             }
 
         
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (lastDays !== null && lastDays !== undefined) {
+                localVarQueryParameter['last_days'] = lastDays;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -26860,43 +25698,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'pod_name': podName, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-内核模块Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showKernelModuleTop(showKernelModuleTopRequest?: ShowKernelModuleTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/kernel-module",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showKernelModuleTopRequest !== null && showKernelModuleTopRequest !== undefined) {
-                if (showKernelModuleTopRequest instanceof ShowKernelModuleTopRequest) {
-                    enterpriseProjectId = showKernelModuleTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showKernelModuleTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -27124,43 +25925,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 资产管理-概览-资产状态-操作系统统计信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showOsStatisticsInfo(showOsStatisticsInfoRequest?: ShowOsStatisticsInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/status/os",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showOsStatisticsInfoRequest !== null && showOsStatisticsInfoRequest !== undefined) {
-                if (showOsStatisticsInfoRequest instanceof ShowOsStatisticsInfoRequest) {
-                    enterpriseProjectId = showOsStatisticsInfoRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showOsStatisticsInfoRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 获取页面通知信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -27197,117 +25961,6 @@ export const ParamCreater = function () {
             }
             if (pageLocation !== null && pageLocation !== undefined) {
                 localVarQueryParameter['page_location'] = pageLocation;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-端口Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPortTop(showPortTopRequest?: ShowPortTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/port",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showPortTopRequest !== null && showPortTopRequest !== undefined) {
-                if (showPortTopRequest instanceof ShowPortTopRequest) {
-                    enterpriseProjectId = showPortTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showPortTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-进程Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showProcessTop(showProcessTopRequest?: ShowProcessTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/process",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showProcessTopRequest !== null && showProcessTopRequest !== undefined) {
-                if (showProcessTopRequest instanceof ShowProcessTopRequest) {
-                    enterpriseProjectId = showProcessTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showProcessTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-资产状态-防护配额统计信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showQuotaStatisticsInfo(showQuotaStatisticsInfoRequest?: ShowQuotaStatisticsInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/status/quota",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showQuotaStatisticsInfoRequest !== null && showQuotaStatisticsInfoRequest !== undefined) {
-                if (showQuotaStatisticsInfoRequest instanceof ShowQuotaStatisticsInfoRequest) {
-                    enterpriseProjectId = showQuotaStatisticsInfoRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showQuotaStatisticsInfoRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -27477,164 +26130,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'host_id': hostId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-软件Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showSoftwareTop(showSoftwareTopRequest?: ShowSoftwareTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/software",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showSoftwareTopRequest !== null && showSoftwareTopRequest !== undefined) {
-                if (showSoftwareTopRequest instanceof ShowSoftwareTopRequest) {
-                    enterpriseProjectId = showSoftwareTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showSoftwareTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-Web应用TOP5/Web服务TOP5。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showWebAppAndServiceTop(showWebAppAndServiceTopRequest?: ShowWebAppAndServiceTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/web-app-and-service",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let catalogue;
-            
-            let enterpriseProjectId;
-
-            if (showWebAppAndServiceTopRequest !== null && showWebAppAndServiceTopRequest !== undefined) {
-                if (showWebAppAndServiceTopRequest instanceof ShowWebAppAndServiceTopRequest) {
-                    catalogue = showWebAppAndServiceTopRequest.catalogue;
-                    enterpriseProjectId = showWebAppAndServiceTopRequest.enterpriseProjectId;
-                } else {
-                    catalogue = showWebAppAndServiceTopRequest['catalogue'];
-                    enterpriseProjectId = showWebAppAndServiceTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (catalogue === null || catalogue === undefined) {
-                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling showWebAppAndServiceTop.');
-            }
-            if (catalogue !== null && catalogue !== undefined) {
-                localVarQueryParameter['catalogue'] = catalogue;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-Web框架Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showWebFrameworkTop(showWebFrameworkTopRequest?: ShowWebFrameworkTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/web-framework",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showWebFrameworkTopRequest !== null && showWebFrameworkTopRequest !== undefined) {
-                if (showWebFrameworkTopRequest instanceof ShowWebFrameworkTopRequest) {
-                    enterpriseProjectId = showWebFrameworkTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showWebFrameworkTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 资产管理-概览-Web站点Top。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showWebSiteTop(showWebSiteTopRequest?: ShowWebSiteTopRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/{project_id}/asset/overview/statistics/top/web-site",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            
-            let enterpriseProjectId;
-
-            if (showWebSiteTopRequest !== null && showWebSiteTopRequest !== undefined) {
-                if (showWebSiteTopRequest instanceof ShowWebSiteTopRequest) {
-                    enterpriseProjectId = showWebSiteTopRequest.enterpriseProjectId;
-                } else {
-                    enterpriseProjectId = showWebSiteTopRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-
-            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -28169,59 +26664,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 编辑告警白名单主机相关信息
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v5/{project_id}/event/white-list/alarm",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let body: any;
-            
-            let region;
-            
-            let enterpriseProjectId;
-
-            if (updateAlarmWhiteListHostRequest !== null && updateAlarmWhiteListHostRequest !== undefined) {
-                if (updateAlarmWhiteListHostRequest instanceof UpdateAlarmWhiteListHostRequest) {
-                    body = updateAlarmWhiteListHostRequest.body
-                    region = updateAlarmWhiteListHostRequest.region;
-                    enterpriseProjectId = updateAlarmWhiteListHostRequest.enterpriseProjectId;
-                } else {
-                    body = updateAlarmWhiteListHostRequest['body'];
-                    region = updateAlarmWhiteListHostRequest['region'];
-                    enterpriseProjectId = updateAlarmWhiteListHostRequest['enterprise_project_id'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (region !== undefined && region !== null) {
-                localVarHeaderParameter['region'] = String(region);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 容器集群网络更新配置策略。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -28487,6 +26929,698 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['region'] = String(region);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Serverless资产列表--接口已废弃
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServerlessAsset(listServerlessAssetRequest?: ListServerlessAssetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/serverless/asset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listServerlessAssetRequest !== null && listServerlessAssetRequest !== undefined) {
+                if (listServerlessAssetRequest instanceof ListServerlessAssetRequest) {
+                    category = listServerlessAssetRequest.category;
+                    enterpriseProjectId = listServerlessAssetRequest.enterpriseProjectId;
+                    limit = listServerlessAssetRequest.limit;
+                    offset = listServerlessAssetRequest.offset;
+                } else {
+                    category = listServerlessAssetRequest['category'];
+                    enterpriseProjectId = listServerlessAssetRequest['enterprise_project_id'];
+                    limit = listServerlessAssetRequest['limit'];
+                    offset = listServerlessAssetRequest['offset'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listServerlessAsset.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Serverless资产详细信息--接口已废弃
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listServerlessAssetDetail(listServerlessAssetDetailRequest?: ListServerlessAssetDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/serverless/asset/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let assetId;
+            
+            let enterpriseProjectId;
+
+            if (listServerlessAssetDetailRequest !== null && listServerlessAssetDetailRequest !== undefined) {
+                if (listServerlessAssetDetailRequest instanceof ListServerlessAssetDetailRequest) {
+                    category = listServerlessAssetDetailRequest.category;
+                    assetId = listServerlessAssetDetailRequest.assetId;
+                    enterpriseProjectId = listServerlessAssetDetailRequest.enterpriseProjectId;
+                } else {
+                    category = listServerlessAssetDetailRequest['category'];
+                    assetId = listServerlessAssetDetailRequest['asset_id'];
+                    enterpriseProjectId = listServerlessAssetDetailRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listServerlessAssetDetail.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (assetId === null || assetId === undefined) {
+                throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling listServerlessAssetDetail.');
+            }
+            if (assetId !== null && assetId !== undefined) {
+                localVarQueryParameter['asset_id'] = assetId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI智能体列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiInstances(listAiInstancesRequest?: ListAiInstancesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ai/instances/query",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (listAiInstancesRequest !== null && listAiInstancesRequest !== undefined) {
+                if (listAiInstancesRequest instanceof ListAiInstancesRequest) {
+                    enterpriseProjectId = listAiInstancesRequest.enterpriseProjectId;
+                    body = listAiInstancesRequest.body
+                } else {
+                    enterpriseProjectId = listAiInstancesRequest['enterprise_project_id'];
+                    body = listAiInstancesRequest['body'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI会话列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiSessions(listAiSessionsRequest?: ListAiSessionsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ai/sessions/query",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (listAiSessionsRequest !== null && listAiSessionsRequest !== undefined) {
+                if (listAiSessionsRequest instanceof ListAiSessionsRequest) {
+                    enterpriseProjectId = listAiSessionsRequest.enterpriseProjectId;
+                    body = listAiSessionsRequest.body
+                } else {
+                    enterpriseProjectId = listAiSessionsRequest['enterprise_project_id'];
+                    body = listAiSessionsRequest['body'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询智能体卫士插件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDefenderPlugins(listDefenderPluginsRequest?: ListDefenderPluginsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/defender/plugins",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let hostName;
+            
+            let hostId;
+            
+            let privateIp;
+            
+            let publicIp;
+            
+            let agentStatus;
+            
+            let defenderStatus;
+            
+            let limit;
+            
+            let offset;
+
+            if (listDefenderPluginsRequest !== null && listDefenderPluginsRequest !== undefined) {
+                if (listDefenderPluginsRequest instanceof ListDefenderPluginsRequest) {
+                    enterpriseProjectId = listDefenderPluginsRequest.enterpriseProjectId;
+                    hostName = listDefenderPluginsRequest.hostName;
+                    hostId = listDefenderPluginsRequest.hostId;
+                    privateIp = listDefenderPluginsRequest.privateIp;
+                    publicIp = listDefenderPluginsRequest.publicIp;
+                    agentStatus = listDefenderPluginsRequest.agentStatus;
+                    defenderStatus = listDefenderPluginsRequest.defenderStatus;
+                    limit = listDefenderPluginsRequest.limit;
+                    offset = listDefenderPluginsRequest.offset;
+                } else {
+                    enterpriseProjectId = listDefenderPluginsRequest['enterprise_project_id'];
+                    hostName = listDefenderPluginsRequest['host_name'];
+                    hostId = listDefenderPluginsRequest['host_id'];
+                    privateIp = listDefenderPluginsRequest['private_ip'];
+                    publicIp = listDefenderPluginsRequest['public_ip'];
+                    agentStatus = listDefenderPluginsRequest['agent_status'];
+                    defenderStatus = listDefenderPluginsRequest['defender_status'];
+                    limit = listDefenderPluginsRequest['limit'];
+                    offset = listDefenderPluginsRequest['offset'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (publicIp !== null && publicIp !== undefined) {
+                localVarQueryParameter['public_ip'] = publicIp;
+            }
+            if (agentStatus !== null && agentStatus !== undefined) {
+                localVarQueryParameter['agent_status'] = agentStatus;
+            }
+            if (defenderStatus !== null && defenderStatus !== undefined) {
+                localVarQueryParameter['defender_status'] = defenderStatus;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询大模型防火墙配置信息，包括防火墙AK、SK和应用ID。当未配置时返回空配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAiFirewallConfig() {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/plugin/firewall",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * AI Defender概览统计。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAiOverviewStatistics(showAiOverviewStatisticsRequest?: ShowAiOverviewStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/overview/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let beginTime;
+            
+            let endTime;
+            
+            let enterpriseProjectId;
+            
+            let type;
+
+            if (showAiOverviewStatisticsRequest !== null && showAiOverviewStatisticsRequest !== undefined) {
+                if (showAiOverviewStatisticsRequest instanceof ShowAiOverviewStatisticsRequest) {
+                    beginTime = showAiOverviewStatisticsRequest.beginTime;
+                    endTime = showAiOverviewStatisticsRequest.endTime;
+                    enterpriseProjectId = showAiOverviewStatisticsRequest.enterpriseProjectId;
+                    type = showAiOverviewStatisticsRequest.type;
+                } else {
+                    beginTime = showAiOverviewStatisticsRequest['begin_time'];
+                    endTime = showAiOverviewStatisticsRequest['end_time'];
+                    enterpriseProjectId = showAiOverviewStatisticsRequest['enterprise_project_id'];
+                    type = showAiOverviewStatisticsRequest['type'];
+                }
+            }
+
+        
+            if (beginTime === null || beginTime === undefined) {
+                throw new RequiredError('beginTime','Required parameter beginTime was null or undefined when calling showAiOverviewStatistics.');
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime === null || endTime === undefined) {
+                throw new RequiredError('endTime','Required parameter endTime was null or undefined when calling showAiOverviewStatistics.');
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取智能体卫士插件手动操作命令（安装/卸载），通过opt区分操作类型
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDefenderPluginManualCommand(showDefenderPluginManualCommandRequest?: ShowDefenderPluginManualCommandRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/defender/plugins/manual-command",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let opt;
+            
+            let agentType;
+            
+            let enterpriseProjectId;
+            
+            let network;
+
+            if (showDefenderPluginManualCommandRequest !== null && showDefenderPluginManualCommandRequest !== undefined) {
+                if (showDefenderPluginManualCommandRequest instanceof ShowDefenderPluginManualCommandRequest) {
+                    opt = showDefenderPluginManualCommandRequest.opt;
+                    agentType = showDefenderPluginManualCommandRequest.agentType;
+                    enterpriseProjectId = showDefenderPluginManualCommandRequest.enterpriseProjectId;
+                    network = showDefenderPluginManualCommandRequest.network;
+                } else {
+                    opt = showDefenderPluginManualCommandRequest['opt'];
+                    agentType = showDefenderPluginManualCommandRequest['agent_type'];
+                    enterpriseProjectId = showDefenderPluginManualCommandRequest['enterprise_project_id'];
+                    network = showDefenderPluginManualCommandRequest['network'];
+                }
+            }
+
+        
+            if (opt === null || opt === undefined) {
+                throw new RequiredError('opt','Required parameter opt was null or undefined when calling showDefenderPluginManualCommand.');
+            }
+            if (opt !== null && opt !== undefined) {
+                localVarQueryParameter['opt'] = opt;
+            }
+            if (agentType === null || agentType === undefined) {
+                throw new RequiredError('agentType','Required parameter agentType was null or undefined when calling showDefenderPluginManualCommand.');
+            }
+            if (agentType !== null && agentType !== undefined) {
+                localVarQueryParameter['agent_type'] = agentType;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (network !== null && network !== undefined) {
+                localVarQueryParameter['network'] = network;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 配置大模型防火墙，包括防火墙AK、SK和应用ID。SK加密存储，AK明文存储。
+         * 当三个参数都为空时，删除已有配置。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAiFirewallConfig(updateAiFirewallConfigRequest?: UpdateAiFirewallConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/ai/plugin/firewall",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (updateAiFirewallConfigRequest !== null && updateAiFirewallConfigRequest !== undefined) {
+                if (updateAiFirewallConfigRequest instanceof UpdateAiFirewallConfigRequest) {
+                    body = updateAiFirewallConfigRequest.body
+                } else {
+                    body = updateAiFirewallConfigRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量操作智能体卫士插件（安装/卸载），通过opt区分操作类型，异步下发指令
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchRegisterDefenderPlugin(batchRegisterDefenderPluginRequest?: BatchRegisterDefenderPluginRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/ai/defender/plugins/batch-operate",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (batchRegisterDefenderPluginRequest !== null && batchRegisterDefenderPluginRequest !== undefined) {
+                if (batchRegisterDefenderPluginRequest instanceof BatchRegisterDefenderPluginRequest) {
+                    body = batchRegisterDefenderPluginRequest.body
+                    enterpriseProjectId = batchRegisterDefenderPluginRequest.enterpriseProjectId;
+                } else {
+                    body = batchRegisterDefenderPluginRequest['body'];
+                    enterpriseProjectId = batchRegisterDefenderPluginRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI组件统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiComponentStatistics(listAiComponentStatisticsRequest?: ListAiComponentStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/ai-component/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let catalogue;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let aiComponentName;
+
+            if (listAiComponentStatisticsRequest !== null && listAiComponentStatisticsRequest !== undefined) {
+                if (listAiComponentStatisticsRequest instanceof ListAiComponentStatisticsRequest) {
+                    category = listAiComponentStatisticsRequest.category;
+                    catalogue = listAiComponentStatisticsRequest.catalogue;
+                    enterpriseProjectId = listAiComponentStatisticsRequest.enterpriseProjectId;
+                    limit = listAiComponentStatisticsRequest.limit;
+                    offset = listAiComponentStatisticsRequest.offset;
+                    aiComponentName = listAiComponentStatisticsRequest.aiComponentName;
+                } else {
+                    category = listAiComponentStatisticsRequest['category'];
+                    catalogue = listAiComponentStatisticsRequest['catalogue'];
+                    enterpriseProjectId = listAiComponentStatisticsRequest['enterprise_project_id'];
+                    limit = listAiComponentStatisticsRequest['limit'];
+                    offset = listAiComponentStatisticsRequest['offset'];
+                    aiComponentName = listAiComponentStatisticsRequest['ai_component_name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (catalogue === null || catalogue === undefined) {
+                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentStatistics.');
+            }
+            if (catalogue !== null && catalogue !== undefined) {
+                localVarQueryParameter['catalogue'] = catalogue;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (aiComponentName !== null && aiComponentName !== undefined) {
+                localVarQueryParameter['ai_component_name'] = aiComponentName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI Defender各产品特性的开关状态，包括AI Defender白名单开关、AgentArts开关、OfficeAce开关和OpenClaw开关。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAiFeatureStatus(showAiFeatureStatusRequest?: ShowAiFeatureStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ai/feature/status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showAiFeatureStatusRequest !== null && showAiFeatureStatusRequest !== undefined) {
+                if (showAiFeatureStatusRequest instanceof ShowAiFeatureStatusRequest) {
+                    enterpriseProjectId = showAiFeatureStatusRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showAiFeatureStatusRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开启或关闭智能体的安全防护。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAiInstanceProtection(updateAiInstanceProtectionRequest?: UpdateAiInstanceProtectionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/ai/instances/protection",
+                contentType: "application/json;charset=utf-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (updateAiInstanceProtectionRequest !== null && updateAiInstanceProtectionRequest !== undefined) {
+                if (updateAiInstanceProtectionRequest instanceof UpdateAiInstanceProtectionRequest) {
+                    body = updateAiInstanceProtectionRequest.body
+                    enterpriseProjectId = updateAiInstanceProtectionRequest.enterpriseProjectId;
+                } else {
+                    body = updateAiInstanceProtectionRequest['body'];
+                    enterpriseProjectId = updateAiInstanceProtectionRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=utf-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -31264,6 +30398,3525 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改开放端口状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchModifyPortStatus(batchModifyPortStatusRequest?: BatchModifyPortStatusRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/asset/batch-modify-port-status",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+
+            if (batchModifyPortStatusRequest !== null && batchModifyPortStatusRequest !== undefined) {
+                if (batchModifyPortStatusRequest instanceof BatchModifyPortStatusRequest) {
+                    category = batchModifyPortStatusRequest.category;
+                    body = batchModifyPortStatusRequest.body
+                    enterpriseProjectId = batchModifyPortStatusRequest.enterpriseProjectId;
+                } else {
+                    category = batchModifyPortStatusRequest['category'];
+                    body = batchModifyPortStatusRequest['body'];
+                    enterpriseProjectId = batchModifyPortStatusRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling batchModifyPortStatus.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建全局资产扫描任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createGlobalAssetScanTask(createGlobalAssetScanTaskRequest?: CreateGlobalAssetScanTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/asset/assign-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+
+            if (createGlobalAssetScanTaskRequest !== null && createGlobalAssetScanTaskRequest !== undefined) {
+                if (createGlobalAssetScanTaskRequest instanceof CreateGlobalAssetScanTaskRequest) {
+                    category = createGlobalAssetScanTaskRequest.category;
+                    body = createGlobalAssetScanTaskRequest.body
+                    enterpriseProjectId = createGlobalAssetScanTaskRequest.enterpriseProjectId;
+                } else {
+                    category = createGlobalAssetScanTaskRequest['category'];
+                    body = createGlobalAssetScanTaskRequest['body'];
+                    enterpriseProjectId = createGlobalAssetScanTaskRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling createGlobalAssetScanTask.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导出资产指纹信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        downloadAssetFile(downloadAssetFileRequest?: DownloadAssetFileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/asset/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let assetType;
+            
+            let category;
+            
+            let enterpriseProjectId;
+
+            if (downloadAssetFileRequest !== null && downloadAssetFileRequest !== undefined) {
+                if (downloadAssetFileRequest instanceof DownloadAssetFileRequest) {
+                    assetType = downloadAssetFileRequest.assetType;
+                    category = downloadAssetFileRequest.category;
+                    body = downloadAssetFileRequest.body
+                    enterpriseProjectId = downloadAssetFileRequest.enterpriseProjectId;
+                } else {
+                    assetType = downloadAssetFileRequest['asset_type'];
+                    category = downloadAssetFileRequest['category'];
+                    body = downloadAssetFileRequest['body'];
+                    enterpriseProjectId = downloadAssetFileRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (assetType === null || assetType === undefined) {
+                throw new RequiredError('assetType','Required parameter assetType was null or undefined when calling downloadAssetFile.');
+            }
+            if (assetType !== null && assetType !== undefined) {
+                localVarQueryParameter['asset_type'] = assetType;
+            }
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling downloadAssetFile.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询AI组件详细信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAiComponentDetail(listAiComponentDetailRequest?: ListAiComponentDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/ai-component/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let catalogue;
+            
+            let limit;
+            
+            let offset;
+            
+            let serverName;
+            
+            let serverIp;
+            
+            let aiApplication;
+            
+            let hostId;
+            
+            let aiTool;
+            
+            let type;
+            
+            let version;
+            
+            let installationPath;
+            
+            let firstScanTime;
+            
+            let latestScanTime;
+            
+            let containerName;
+            
+            let containerId;
+            
+            let imageName;
+
+            if (listAiComponentDetailRequest !== null && listAiComponentDetailRequest !== undefined) {
+                if (listAiComponentDetailRequest instanceof ListAiComponentDetailRequest) {
+                    category = listAiComponentDetailRequest.category;
+                    catalogue = listAiComponentDetailRequest.catalogue;
+                    limit = listAiComponentDetailRequest.limit;
+                    offset = listAiComponentDetailRequest.offset;
+                    serverName = listAiComponentDetailRequest.serverName;
+                    serverIp = listAiComponentDetailRequest.serverIp;
+                    aiApplication = listAiComponentDetailRequest.aiApplication;
+                    hostId = listAiComponentDetailRequest.hostId;
+                    aiTool = listAiComponentDetailRequest.aiTool;
+                    type = listAiComponentDetailRequest.type;
+                    version = listAiComponentDetailRequest.version;
+                    installationPath = listAiComponentDetailRequest.installationPath;
+                    firstScanTime = listAiComponentDetailRequest.firstScanTime;
+                    latestScanTime = listAiComponentDetailRequest.latestScanTime;
+                    containerName = listAiComponentDetailRequest.containerName;
+                    containerId = listAiComponentDetailRequest.containerId;
+                    imageName = listAiComponentDetailRequest.imageName;
+                } else {
+                    category = listAiComponentDetailRequest['category'];
+                    catalogue = listAiComponentDetailRequest['catalogue'];
+                    limit = listAiComponentDetailRequest['limit'];
+                    offset = listAiComponentDetailRequest['offset'];
+                    serverName = listAiComponentDetailRequest['server_name'];
+                    serverIp = listAiComponentDetailRequest['server_ip'];
+                    aiApplication = listAiComponentDetailRequest['ai_application'];
+                    hostId = listAiComponentDetailRequest['host_id'];
+                    aiTool = listAiComponentDetailRequest['ai_tool'];
+                    type = listAiComponentDetailRequest['type'];
+                    version = listAiComponentDetailRequest['version'];
+                    installationPath = listAiComponentDetailRequest['installation_path'];
+                    firstScanTime = listAiComponentDetailRequest['first_scan_time'];
+                    latestScanTime = listAiComponentDetailRequest['latest_scan_time'];
+                    containerName = listAiComponentDetailRequest['container_name'];
+                    containerId = listAiComponentDetailRequest['container_id'];
+                    imageName = listAiComponentDetailRequest['image_name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listAiComponentDetail.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (catalogue === null || catalogue === undefined) {
+                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listAiComponentDetail.');
+            }
+            if (catalogue !== null && catalogue !== undefined) {
+                localVarQueryParameter['catalogue'] = catalogue;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (serverName !== null && serverName !== undefined) {
+                localVarQueryParameter['server_name'] = serverName;
+            }
+            if (serverIp !== null && serverIp !== undefined) {
+                localVarQueryParameter['server_ip'] = serverIp;
+            }
+            if (aiApplication !== null && aiApplication !== undefined) {
+                localVarQueryParameter['ai_application'] = aiApplication;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (aiTool !== null && aiTool !== undefined) {
+                localVarQueryParameter['ai_tool'] = aiTool;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (installationPath !== null && installationPath !== undefined) {
+                localVarQueryParameter['installation_path'] = installationPath;
+            }
+            if (firstScanTime !== null && firstScanTime !== undefined) {
+                localVarQueryParameter['first_scan_time'] = firstScanTime;
+            }
+            if (latestScanTime !== null && latestScanTime !== undefined) {
+                localVarQueryParameter['latest_scan_time'] = latestScanTime;
+            }
+            if (containerName !== null && containerName !== undefined) {
+                localVarQueryParameter['container_name'] = containerName;
+            }
+            if (containerId !== null && containerId !== undefined) {
+                localVarQueryParameter['container_id'] = containerId;
+            }
+            if (imageName !== null && imageName !== undefined) {
+                localVarQueryParameter['image_name'] = imageName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取软件信息的历史变动记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppChangeHistories(listAppChangeHistoriesRequest?: ListAppChangeHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/app/change-history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let hostId;
+            
+            let hostIp;
+            
+            let hostName;
+            
+            let appName;
+            
+            let variationType;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let limit;
+            
+            let offset;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listAppChangeHistoriesRequest !== null && listAppChangeHistoriesRequest !== undefined) {
+                if (listAppChangeHistoriesRequest instanceof ListAppChangeHistoriesRequest) {
+                    enterpriseProjectId = listAppChangeHistoriesRequest.enterpriseProjectId;
+                    hostId = listAppChangeHistoriesRequest.hostId;
+                    hostIp = listAppChangeHistoriesRequest.hostIp;
+                    hostName = listAppChangeHistoriesRequest.hostName;
+                    appName = listAppChangeHistoriesRequest.appName;
+                    variationType = listAppChangeHistoriesRequest.variationType;
+                    sortKey = listAppChangeHistoriesRequest.sortKey;
+                    sortDir = listAppChangeHistoriesRequest.sortDir;
+                    limit = listAppChangeHistoriesRequest.limit;
+                    offset = listAppChangeHistoriesRequest.offset;
+                    startTime = listAppChangeHistoriesRequest.startTime;
+                    endTime = listAppChangeHistoriesRequest.endTime;
+                } else {
+                    enterpriseProjectId = listAppChangeHistoriesRequest['enterprise_project_id'];
+                    hostId = listAppChangeHistoriesRequest['host_id'];
+                    hostIp = listAppChangeHistoriesRequest['host_ip'];
+                    hostName = listAppChangeHistoriesRequest['host_name'];
+                    appName = listAppChangeHistoriesRequest['app_name'];
+                    variationType = listAppChangeHistoriesRequest['variation_type'];
+                    sortKey = listAppChangeHistoriesRequest['sort_key'];
+                    sortDir = listAppChangeHistoriesRequest['sort_dir'];
+                    limit = listAppChangeHistoriesRequest['limit'];
+                    offset = listAppChangeHistoriesRequest['offset'];
+                    startTime = listAppChangeHistoriesRequest['start_time'];
+                    endTime = listAppChangeHistoriesRequest['end_time'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+            if (variationType !== null && variationType !== undefined) {
+                localVarQueryParameter['variation_type'] = variationType;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询软件列表，支持通过软件名称查询对应的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAppStatistics(listAppStatisticsRequest?: ListAppStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/app/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let appName;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listAppStatisticsRequest !== null && listAppStatisticsRequest !== undefined) {
+                if (listAppStatisticsRequest instanceof ListAppStatisticsRequest) {
+                    category = listAppStatisticsRequest.category;
+                    appName = listAppStatisticsRequest.appName;
+                    enterpriseProjectId = listAppStatisticsRequest.enterpriseProjectId;
+                    limit = listAppStatisticsRequest.limit;
+                    offset = listAppStatisticsRequest.offset;
+                } else {
+                    category = listAppStatisticsRequest['category'];
+                    appName = listAppStatisticsRequest['app_name'];
+                    enterpriseProjectId = listAppStatisticsRequest['enterprise_project_id'];
+                    limit = listAppStatisticsRequest['limit'];
+                    offset = listAppStatisticsRequest['offset'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listAppStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询软件的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApps(listAppsRequest?: ListAppsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/apps",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let hostName;
+            
+            let appName;
+            
+            let hostIp;
+            
+            let version;
+            
+            let installDir;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let category;
+            
+            let partMatch;
+
+            if (listAppsRequest !== null && listAppsRequest !== undefined) {
+                if (listAppsRequest instanceof ListAppsRequest) {
+                    hostId = listAppsRequest.hostId;
+                    hostName = listAppsRequest.hostName;
+                    appName = listAppsRequest.appName;
+                    hostIp = listAppsRequest.hostIp;
+                    version = listAppsRequest.version;
+                    installDir = listAppsRequest.installDir;
+                    enterpriseProjectId = listAppsRequest.enterpriseProjectId;
+                    limit = listAppsRequest.limit;
+                    offset = listAppsRequest.offset;
+                    category = listAppsRequest.category;
+                    partMatch = listAppsRequest.partMatch;
+                } else {
+                    hostId = listAppsRequest['host_id'];
+                    hostName = listAppsRequest['host_name'];
+                    appName = listAppsRequest['app_name'];
+                    hostIp = listAppsRequest['host_ip'];
+                    version = listAppsRequest['version'];
+                    installDir = listAppsRequest['install_dir'];
+                    enterpriseProjectId = listAppsRequest['enterprise_project_id'];
+                    limit = listAppsRequest['limit'];
+                    offset = listAppsRequest['offset'];
+                    category = listAppsRequest['category'];
+                    partMatch = listAppsRequest['part_match'];
+                }
+            }
+
+        
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (installDir !== null && installDir !== undefined) {
+                localVarQueryParameter['install_dir'] = installDir;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取自启动项的历史变动记录。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutoLaunchChangeHistories(listAutoLaunchChangeHistoriesRequest?: ListAutoLaunchChangeHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/auto-launch/change-history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let hostId;
+            
+            let hostIp;
+            
+            let hostName;
+            
+            let autoLaunchName;
+            
+            let type;
+            
+            let variationType;
+            
+            let sortKey;
+            
+            let sortDir;
+            
+            let limit;
+            
+            let offset;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listAutoLaunchChangeHistoriesRequest !== null && listAutoLaunchChangeHistoriesRequest !== undefined) {
+                if (listAutoLaunchChangeHistoriesRequest instanceof ListAutoLaunchChangeHistoriesRequest) {
+                    enterpriseProjectId = listAutoLaunchChangeHistoriesRequest.enterpriseProjectId;
+                    hostId = listAutoLaunchChangeHistoriesRequest.hostId;
+                    hostIp = listAutoLaunchChangeHistoriesRequest.hostIp;
+                    hostName = listAutoLaunchChangeHistoriesRequest.hostName;
+                    autoLaunchName = listAutoLaunchChangeHistoriesRequest.autoLaunchName;
+                    type = listAutoLaunchChangeHistoriesRequest.type;
+                    variationType = listAutoLaunchChangeHistoriesRequest.variationType;
+                    sortKey = listAutoLaunchChangeHistoriesRequest.sortKey;
+                    sortDir = listAutoLaunchChangeHistoriesRequest.sortDir;
+                    limit = listAutoLaunchChangeHistoriesRequest.limit;
+                    offset = listAutoLaunchChangeHistoriesRequest.offset;
+                    startTime = listAutoLaunchChangeHistoriesRequest.startTime;
+                    endTime = listAutoLaunchChangeHistoriesRequest.endTime;
+                } else {
+                    enterpriseProjectId = listAutoLaunchChangeHistoriesRequest['enterprise_project_id'];
+                    hostId = listAutoLaunchChangeHistoriesRequest['host_id'];
+                    hostIp = listAutoLaunchChangeHistoriesRequest['host_ip'];
+                    hostName = listAutoLaunchChangeHistoriesRequest['host_name'];
+                    autoLaunchName = listAutoLaunchChangeHistoriesRequest['auto_launch_name'];
+                    type = listAutoLaunchChangeHistoriesRequest['type'];
+                    variationType = listAutoLaunchChangeHistoriesRequest['variation_type'];
+                    sortKey = listAutoLaunchChangeHistoriesRequest['sort_key'];
+                    sortDir = listAutoLaunchChangeHistoriesRequest['sort_dir'];
+                    limit = listAutoLaunchChangeHistoriesRequest['limit'];
+                    offset = listAutoLaunchChangeHistoriesRequest['offset'];
+                    startTime = listAutoLaunchChangeHistoriesRequest['start_time'];
+                    endTime = listAutoLaunchChangeHistoriesRequest['end_time'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (autoLaunchName !== null && autoLaunchName !== undefined) {
+                localVarQueryParameter['auto_launch_name'] = autoLaunchName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (variationType !== null && variationType !== undefined) {
+                localVarQueryParameter['variation_type'] = variationType;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自启动信息，支持通过传入自启动名称查询启动类型和服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutoLaunchStatistics(listAutoLaunchStatisticsRequest?: ListAutoLaunchStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/auto-launch/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let name;
+            
+            let type;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+
+            if (listAutoLaunchStatisticsRequest !== null && listAutoLaunchStatisticsRequest !== undefined) {
+                if (listAutoLaunchStatisticsRequest instanceof ListAutoLaunchStatisticsRequest) {
+                    category = listAutoLaunchStatisticsRequest.category;
+                    name = listAutoLaunchStatisticsRequest.name;
+                    type = listAutoLaunchStatisticsRequest.type;
+                    enterpriseProjectId = listAutoLaunchStatisticsRequest.enterpriseProjectId;
+                    limit = listAutoLaunchStatisticsRequest.limit;
+                    offset = listAutoLaunchStatisticsRequest.offset;
+                } else {
+                    category = listAutoLaunchStatisticsRequest['category'];
+                    name = listAutoLaunchStatisticsRequest['name'];
+                    type = listAutoLaunchStatisticsRequest['type'];
+                    enterpriseProjectId = listAutoLaunchStatisticsRequest['enterprise_project_id'];
+                    limit = listAutoLaunchStatisticsRequest['limit'];
+                    offset = listAutoLaunchStatisticsRequest['offset'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listAutoLaunchStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询自启动项的服务列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAutoLaunchs(listAutoLaunchsRequest?: ListAutoLaunchsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/auto-launchs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let hostName;
+            
+            let name;
+            
+            let hostIp;
+            
+            let type;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let partMatch;
+
+            if (listAutoLaunchsRequest !== null && listAutoLaunchsRequest !== undefined) {
+                if (listAutoLaunchsRequest instanceof ListAutoLaunchsRequest) {
+                    hostId = listAutoLaunchsRequest.hostId;
+                    hostName = listAutoLaunchsRequest.hostName;
+                    name = listAutoLaunchsRequest.name;
+                    hostIp = listAutoLaunchsRequest.hostIp;
+                    type = listAutoLaunchsRequest.type;
+                    enterpriseProjectId = listAutoLaunchsRequest.enterpriseProjectId;
+                    limit = listAutoLaunchsRequest.limit;
+                    offset = listAutoLaunchsRequest.offset;
+                    partMatch = listAutoLaunchsRequest.partMatch;
+                } else {
+                    hostId = listAutoLaunchsRequest['host_id'];
+                    hostName = listAutoLaunchsRequest['host_name'];
+                    name = listAutoLaunchsRequest['name'];
+                    hostIp = listAutoLaunchsRequest['host_ip'];
+                    type = listAutoLaunchsRequest['type'];
+                    enterpriseProjectId = listAutoLaunchsRequest['enterprise_project_id'];
+                    limit = listAutoLaunchsRequest['limit'];
+                    offset = listAutoLaunchsRequest['offset'];
+                    partMatch = listAutoLaunchsRequest['part_match'];
+                }
+            }
+
+        
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资产全局扫描任务状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listGlobalAssetScanTask(listGlobalAssetScanTaskRequest?: ListGlobalAssetScanTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/assign-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+
+            if (listGlobalAssetScanTaskRequest !== null && listGlobalAssetScanTaskRequest !== undefined) {
+                if (listGlobalAssetScanTaskRequest instanceof ListGlobalAssetScanTaskRequest) {
+                    category = listGlobalAssetScanTaskRequest.category;
+                    enterpriseProjectId = listGlobalAssetScanTaskRequest.enterpriseProjectId;
+                } else {
+                    category = listGlobalAssetScanTaskRequest['category'];
+                    enterpriseProjectId = listGlobalAssetScanTaskRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listGlobalAssetScanTask.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定中间件的服务器列表，通过传入中间件名称参数，返回对应的中间件服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJarPackageHostInfo(listJarPackageHostInfoRequest?: ListJarPackageHostInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/midwares/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let fileName;
+            
+            let enterpriseProjectId;
+            
+            let category;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let limit;
+            
+            let offset;
+            
+            let partMatch;
+
+            if (listJarPackageHostInfoRequest !== null && listJarPackageHostInfoRequest !== undefined) {
+                if (listJarPackageHostInfoRequest instanceof ListJarPackageHostInfoRequest) {
+                    fileName = listJarPackageHostInfoRequest.fileName;
+                    enterpriseProjectId = listJarPackageHostInfoRequest.enterpriseProjectId;
+                    category = listJarPackageHostInfoRequest.category;
+                    hostName = listJarPackageHostInfoRequest.hostName;
+                    hostIp = listJarPackageHostInfoRequest.hostIp;
+                    limit = listJarPackageHostInfoRequest.limit;
+                    offset = listJarPackageHostInfoRequest.offset;
+                    partMatch = listJarPackageHostInfoRequest.partMatch;
+                } else {
+                    fileName = listJarPackageHostInfoRequest['file_name'];
+                    enterpriseProjectId = listJarPackageHostInfoRequest['enterprise_project_id'];
+                    category = listJarPackageHostInfoRequest['category'];
+                    hostName = listJarPackageHostInfoRequest['host_name'];
+                    hostIp = listJarPackageHostInfoRequest['host_ip'];
+                    limit = listJarPackageHostInfoRequest['limit'];
+                    offset = listJarPackageHostInfoRequest['offset'];
+                    partMatch = listJarPackageHostInfoRequest['part_match'];
+                }
+            }
+
+        
+            if (fileName === null || fileName === undefined) {
+                throw new RequiredError('fileName','Required parameter fileName was null or undefined when calling listJarPackageHostInfo.');
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定主机的中间件信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJarPackageInfo(listJarPackageInfoRequest?: ListJarPackageInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/{host_id}/jar-package",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let fileName;
+
+            if (listJarPackageInfoRequest !== null && listJarPackageInfoRequest !== undefined) {
+                if (listJarPackageInfoRequest instanceof ListJarPackageInfoRequest) {
+                    hostId = listJarPackageInfoRequest.hostId;
+                    category = listJarPackageInfoRequest.category;
+                    enterpriseProjectId = listJarPackageInfoRequest.enterpriseProjectId;
+                    fileName = listJarPackageInfoRequest.fileName;
+                } else {
+                    hostId = listJarPackageInfoRequest['host_id'];
+                    category = listJarPackageInfoRequest['category'];
+                    enterpriseProjectId = listJarPackageInfoRequest['enterprise_project_id'];
+                    fileName = listJarPackageInfoRequest['file_name'];
+                }
+            }
+
+        
+            if (hostId === null || hostId === undefined) {
+            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listJarPackageInfo.');
+            }
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listJarPackageInfo.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'host_id': hostId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询中间件列表，支持通过中间件名称查询对应的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listJarPackageStatistics(listJarPackageStatisticsRequest?: ListJarPackageStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/midwares",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let fileName;
+
+            if (listJarPackageStatisticsRequest !== null && listJarPackageStatisticsRequest !== undefined) {
+                if (listJarPackageStatisticsRequest instanceof ListJarPackageStatisticsRequest) {
+                    category = listJarPackageStatisticsRequest.category;
+                    enterpriseProjectId = listJarPackageStatisticsRequest.enterpriseProjectId;
+                    offset = listJarPackageStatisticsRequest.offset;
+                    limit = listJarPackageStatisticsRequest.limit;
+                    fileName = listJarPackageStatisticsRequest.fileName;
+                } else {
+                    category = listJarPackageStatisticsRequest['category'];
+                    enterpriseProjectId = listJarPackageStatisticsRequest['enterprise_project_id'];
+                    offset = listJarPackageStatisticsRequest['offset'];
+                    limit = listJarPackageStatisticsRequest['limit'];
+                    fileName = listJarPackageStatisticsRequest['file_name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listJarPackageStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定内核模块的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKernelModuleHostInfo(listKernelModuleHostInfoRequest?: ListKernelModuleHostInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/host/kernel-module",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let name;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let partMatch;
+
+            if (listKernelModuleHostInfoRequest !== null && listKernelModuleHostInfoRequest !== undefined) {
+                if (listKernelModuleHostInfoRequest instanceof ListKernelModuleHostInfoRequest) {
+                    name = listKernelModuleHostInfoRequest.name;
+                    enterpriseProjectId = listKernelModuleHostInfoRequest.enterpriseProjectId;
+                    offset = listKernelModuleHostInfoRequest.offset;
+                    limit = listKernelModuleHostInfoRequest.limit;
+                    hostName = listKernelModuleHostInfoRequest.hostName;
+                    hostIp = listKernelModuleHostInfoRequest.hostIp;
+                    partMatch = listKernelModuleHostInfoRequest.partMatch;
+                } else {
+                    name = listKernelModuleHostInfoRequest['name'];
+                    enterpriseProjectId = listKernelModuleHostInfoRequest['enterprise_project_id'];
+                    offset = listKernelModuleHostInfoRequest['offset'];
+                    limit = listKernelModuleHostInfoRequest['limit'];
+                    hostName = listKernelModuleHostInfoRequest['host_name'];
+                    hostIp = listKernelModuleHostInfoRequest['host_ip'];
+                    partMatch = listKernelModuleHostInfoRequest['part_match'];
+                }
+            }
+
+        
+            if (name === null || name === undefined) {
+                throw new RequiredError('name','Required parameter name was null or undefined when calling listKernelModuleHostInfo.');
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定主机的内核模块信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKernelModuleInfo(listKernelModuleInfoRequest?: ListKernelModuleInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/{host_id}/kernel-module",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let enterpriseProjectId;
+            
+            let name;
+
+            if (listKernelModuleInfoRequest !== null && listKernelModuleInfoRequest !== undefined) {
+                if (listKernelModuleInfoRequest instanceof ListKernelModuleInfoRequest) {
+                    hostId = listKernelModuleInfoRequest.hostId;
+                    enterpriseProjectId = listKernelModuleInfoRequest.enterpriseProjectId;
+                    name = listKernelModuleInfoRequest.name;
+                } else {
+                    hostId = listKernelModuleInfoRequest['host_id'];
+                    enterpriseProjectId = listKernelModuleInfoRequest['enterprise_project_id'];
+                    name = listKernelModuleInfoRequest['name'];
+                }
+            }
+
+        
+            if (hostId === null || hostId === undefined) {
+            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listKernelModuleInfo.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'host_id': hostId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询内核模块的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listKernelModuleStatistics(listKernelModuleStatisticsRequest?: ListKernelModuleStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/statistics/kernel-module",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listKernelModuleStatisticsRequest !== null && listKernelModuleStatisticsRequest !== undefined) {
+                if (listKernelModuleStatisticsRequest instanceof ListKernelModuleStatisticsRequest) {
+                    enterpriseProjectId = listKernelModuleStatisticsRequest.enterpriseProjectId;
+                    offset = listKernelModuleStatisticsRequest.offset;
+                    limit = listKernelModuleStatisticsRequest.limit;
+                    name = listKernelModuleStatisticsRequest.name;
+                } else {
+                    enterpriseProjectId = listKernelModuleStatisticsRequest['enterprise_project_id'];
+                    offset = listKernelModuleStatisticsRequest['offset'];
+                    limit = listKernelModuleStatisticsRequest['limit'];
+                    name = listKernelModuleStatisticsRequest['name'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询具备该端口的主机/容器的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPortHost(listPortHostRequest?: ListPortHostRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/ports/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let port;
+            
+            let enterpriseProjectId;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let limit;
+            
+            let offset;
+            
+            let type;
+
+            if (listPortHostRequest !== null && listPortHostRequest !== undefined) {
+                if (listPortHostRequest instanceof ListPortHostRequest) {
+                    category = listPortHostRequest.category;
+                    port = listPortHostRequest.port;
+                    enterpriseProjectId = listPortHostRequest.enterpriseProjectId;
+                    hostName = listPortHostRequest.hostName;
+                    hostIp = listPortHostRequest.hostIp;
+                    limit = listPortHostRequest.limit;
+                    offset = listPortHostRequest.offset;
+                    type = listPortHostRequest.type;
+                } else {
+                    category = listPortHostRequest['category'];
+                    port = listPortHostRequest['port'];
+                    enterpriseProjectId = listPortHostRequest['enterprise_project_id'];
+                    hostName = listPortHostRequest['host_name'];
+                    hostIp = listPortHostRequest['host_ip'];
+                    limit = listPortHostRequest['limit'];
+                    offset = listPortHostRequest['offset'];
+                    type = listPortHostRequest['type'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listPortHost.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (port === null || port === undefined) {
+                throw new RequiredError('port','Required parameter port was null or undefined when calling listPortHost.');
+            }
+            if (port !== null && port !== undefined) {
+                localVarQueryParameter['port'] = port;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询开放端口列表，支持通过传入端口或协议类型查询服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPortStatistics(listPortStatisticsRequest?: ListPortStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/port/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let category;
+            
+            let sortDir;
+            
+            let limit;
+            
+            let offset;
+            
+            let port;
+            
+            let portString;
+            
+            let type;
+            
+            let status;
+            
+            let sortKey;
+
+            if (listPortStatisticsRequest !== null && listPortStatisticsRequest !== undefined) {
+                if (listPortStatisticsRequest instanceof ListPortStatisticsRequest) {
+                    enterpriseProjectId = listPortStatisticsRequest.enterpriseProjectId;
+                    category = listPortStatisticsRequest.category;
+                    sortDir = listPortStatisticsRequest.sortDir;
+                    limit = listPortStatisticsRequest.limit;
+                    offset = listPortStatisticsRequest.offset;
+                    port = listPortStatisticsRequest.port;
+                    portString = listPortStatisticsRequest.portString;
+                    type = listPortStatisticsRequest.type;
+                    status = listPortStatisticsRequest.status;
+                    sortKey = listPortStatisticsRequest.sortKey;
+                } else {
+                    enterpriseProjectId = listPortStatisticsRequest['enterprise_project_id'];
+                    category = listPortStatisticsRequest['category'];
+                    sortDir = listPortStatisticsRequest['sort_dir'];
+                    limit = listPortStatisticsRequest['limit'];
+                    offset = listPortStatisticsRequest['offset'];
+                    port = listPortStatisticsRequest['port'];
+                    portString = listPortStatisticsRequest['port_string'];
+                    type = listPortStatisticsRequest['type'];
+                    status = listPortStatisticsRequest['status'];
+                    sortKey = listPortStatisticsRequest['sort_key'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (port !== null && port !== undefined) {
+                localVarQueryParameter['port'] = port;
+            }
+            if (portString !== null && portString !== undefined) {
+                localVarQueryParameter['port_string'] = portString;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询单服务器的开放端口列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPorts(listPortsRequest?: ListPortsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/ports",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let port;
+            
+            let type;
+            
+            let status;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let category;
+
+            if (listPortsRequest !== null && listPortsRequest !== undefined) {
+                if (listPortsRequest instanceof ListPortsRequest) {
+                    hostId = listPortsRequest.hostId;
+                    hostName = listPortsRequest.hostName;
+                    hostIp = listPortsRequest.hostIp;
+                    port = listPortsRequest.port;
+                    type = listPortsRequest.type;
+                    status = listPortsRequest.status;
+                    enterpriseProjectId = listPortsRequest.enterpriseProjectId;
+                    limit = listPortsRequest.limit;
+                    offset = listPortsRequest.offset;
+                    category = listPortsRequest.category;
+                } else {
+                    hostId = listPortsRequest['host_id'];
+                    hostName = listPortsRequest['host_name'];
+                    hostIp = listPortsRequest['host_ip'];
+                    port = listPortsRequest['port'];
+                    type = listPortsRequest['type'];
+                    status = listPortsRequest['status'];
+                    enterpriseProjectId = listPortsRequest['enterprise_project_id'];
+                    limit = listPortsRequest['limit'];
+                    offset = listPortsRequest['offset'];
+                    category = listPortsRequest['category'];
+                }
+            }
+
+        
+            if (hostId === null || hostId === undefined) {
+                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listPorts.');
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (port !== null && port !== undefined) {
+                localVarQueryParameter['port'] = port;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询进程列表，通过传入进程路径参数查询对应的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProcessStatistics(listProcessStatisticsRequest?: ListProcessStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/process/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let category;
+            
+            let path;
+
+            if (listProcessStatisticsRequest !== null && listProcessStatisticsRequest !== undefined) {
+                if (listProcessStatisticsRequest instanceof ListProcessStatisticsRequest) {
+                    enterpriseProjectId = listProcessStatisticsRequest.enterpriseProjectId;
+                    limit = listProcessStatisticsRequest.limit;
+                    offset = listProcessStatisticsRequest.offset;
+                    category = listProcessStatisticsRequest.category;
+                    path = listProcessStatisticsRequest.path;
+                } else {
+                    enterpriseProjectId = listProcessStatisticsRequest['enterprise_project_id'];
+                    limit = listProcessStatisticsRequest['limit'];
+                    offset = listProcessStatisticsRequest['offset'];
+                    category = listProcessStatisticsRequest['category'];
+                    path = listProcessStatisticsRequest['path'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 具备该进程的主机/容器的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProcessesHost(listProcessesHostRequest?: ListProcessesHostRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/processes/detail",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let path;
+            
+            let category;
+            
+            let limit;
+            
+            let offset;
+
+            if (listProcessesHostRequest !== null && listProcessesHostRequest !== undefined) {
+                if (listProcessesHostRequest instanceof ListProcessesHostRequest) {
+                    enterpriseProjectId = listProcessesHostRequest.enterpriseProjectId;
+                    hostName = listProcessesHostRequest.hostName;
+                    hostIp = listProcessesHostRequest.hostIp;
+                    path = listProcessesHostRequest.path;
+                    category = listProcessesHostRequest.category;
+                    limit = listProcessesHostRequest.limit;
+                    offset = listProcessesHostRequest.offset;
+                } else {
+                    enterpriseProjectId = listProcessesHostRequest['enterprise_project_id'];
+                    hostName = listProcessesHostRequest['host_name'];
+                    hostIp = listProcessesHostRequest['host_ip'];
+                    path = listProcessesHostRequest['path'];
+                    category = listProcessesHostRequest['category'];
+                    limit = listProcessesHostRequest['limit'];
+                    offset = listProcessesHostRequest['offset'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (path !== null && path !== undefined) {
+                localVarQueryParameter['path'] = path;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取账户变动历史记录信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUserChangeHistories(listUserChangeHistoriesRequest?: ListUserChangeHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/user/change-history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostName;
+            
+            let hostId;
+            
+            let enterpriseProjectId;
+            
+            let userName;
+            
+            let rootPermission;
+            
+            let privateIp;
+            
+            let changeType;
+            
+            let limit;
+            
+            let offset;
+            
+            let startTime;
+            
+            let endTime;
+
+            if (listUserChangeHistoriesRequest !== null && listUserChangeHistoriesRequest !== undefined) {
+                if (listUserChangeHistoriesRequest instanceof ListUserChangeHistoriesRequest) {
+                    hostName = listUserChangeHistoriesRequest.hostName;
+                    hostId = listUserChangeHistoriesRequest.hostId;
+                    enterpriseProjectId = listUserChangeHistoriesRequest.enterpriseProjectId;
+                    userName = listUserChangeHistoriesRequest.userName;
+                    rootPermission = listUserChangeHistoriesRequest.rootPermission;
+                    privateIp = listUserChangeHistoriesRequest.privateIp;
+                    changeType = listUserChangeHistoriesRequest.changeType;
+                    limit = listUserChangeHistoriesRequest.limit;
+                    offset = listUserChangeHistoriesRequest.offset;
+                    startTime = listUserChangeHistoriesRequest.startTime;
+                    endTime = listUserChangeHistoriesRequest.endTime;
+                } else {
+                    hostName = listUserChangeHistoriesRequest['host_name'];
+                    hostId = listUserChangeHistoriesRequest['host_id'];
+                    enterpriseProjectId = listUserChangeHistoriesRequest['enterprise_project_id'];
+                    userName = listUserChangeHistoriesRequest['user_name'];
+                    rootPermission = listUserChangeHistoriesRequest['root_permission'];
+                    privateIp = listUserChangeHistoriesRequest['private_ip'];
+                    changeType = listUserChangeHistoriesRequest['change_type'];
+                    limit = listUserChangeHistoriesRequest['limit'];
+                    offset = listUserChangeHistoriesRequest['offset'];
+                    startTime = listUserChangeHistoriesRequest['start_time'];
+                    endTime = listUserChangeHistoriesRequest['end_time'];
+                }
+            }
+
+        
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+            if (rootPermission !== null && rootPermission !== undefined) {
+                localVarQueryParameter['root_permission'] = rootPermission;
+            }
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (changeType !== null && changeType !== undefined) {
+                localVarQueryParameter['change_type'] = changeType;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询账号信息列表，支持通过传入账号名称参数查询对应的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUserStatistics(listUserStatisticsRequest?: ListUserStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/user/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let userName;
+
+            if (listUserStatisticsRequest !== null && listUserStatisticsRequest !== undefined) {
+                if (listUserStatisticsRequest instanceof ListUserStatisticsRequest) {
+                    category = listUserStatisticsRequest.category;
+                    enterpriseProjectId = listUserStatisticsRequest.enterpriseProjectId;
+                    limit = listUserStatisticsRequest.limit;
+                    offset = listUserStatisticsRequest.offset;
+                    userName = listUserStatisticsRequest.userName;
+                } else {
+                    category = listUserStatisticsRequest['category'];
+                    enterpriseProjectId = listUserStatisticsRequest['enterprise_project_id'];
+                    limit = listUserStatisticsRequest['limit'];
+                    offset = listUserStatisticsRequest['offset'];
+                    userName = listUserStatisticsRequest['user_name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listUserStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询账号的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listUsers(listUsersRequest?: ListUsersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/users",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let userName;
+            
+            let hostName;
+            
+            let privateIp;
+            
+            let loginPermission;
+            
+            let rootPermission;
+            
+            let userGroup;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let category;
+            
+            let partMatch;
+
+            if (listUsersRequest !== null && listUsersRequest !== undefined) {
+                if (listUsersRequest instanceof ListUsersRequest) {
+                    hostId = listUsersRequest.hostId;
+                    userName = listUsersRequest.userName;
+                    hostName = listUsersRequest.hostName;
+                    privateIp = listUsersRequest.privateIp;
+                    loginPermission = listUsersRequest.loginPermission;
+                    rootPermission = listUsersRequest.rootPermission;
+                    userGroup = listUsersRequest.userGroup;
+                    enterpriseProjectId = listUsersRequest.enterpriseProjectId;
+                    limit = listUsersRequest.limit;
+                    offset = listUsersRequest.offset;
+                    category = listUsersRequest.category;
+                    partMatch = listUsersRequest.partMatch;
+                } else {
+                    hostId = listUsersRequest['host_id'];
+                    userName = listUsersRequest['user_name'];
+                    hostName = listUsersRequest['host_name'];
+                    privateIp = listUsersRequest['private_ip'];
+                    loginPermission = listUsersRequest['login_permission'];
+                    rootPermission = listUsersRequest['root_permission'];
+                    userGroup = listUsersRequest['user_group'];
+                    enterpriseProjectId = listUsersRequest['enterprise_project_id'];
+                    limit = listUsersRequest['limit'];
+                    offset = listUsersRequest['offset'];
+                    category = listUsersRequest['category'];
+                    partMatch = listUsersRequest['part_match'];
+                }
+            }
+
+        
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (loginPermission !== null && loginPermission !== undefined) {
+                localVarQueryParameter['login_permission'] = loginPermission;
+            }
+            if (rootPermission !== null && rootPermission !== undefined) {
+                localVarQueryParameter['root_permission'] = rootPermission;
+            }
+            if (userGroup !== null && userGroup !== undefined) {
+                localVarQueryParameter['user_group'] = userGroup;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Web服务、Web应用、数据库的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebAppAndServiceStatistics(listWebAppAndServiceStatisticsRequest?: ListWebAppAndServiceStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/web-app-and-service-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let catalogue;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+
+            if (listWebAppAndServiceStatisticsRequest !== null && listWebAppAndServiceStatisticsRequest !== undefined) {
+                if (listWebAppAndServiceStatisticsRequest instanceof ListWebAppAndServiceStatisticsRequest) {
+                    category = listWebAppAndServiceStatisticsRequest.category;
+                    catalogue = listWebAppAndServiceStatisticsRequest.catalogue;
+                    enterpriseProjectId = listWebAppAndServiceStatisticsRequest.enterpriseProjectId;
+                    offset = listWebAppAndServiceStatisticsRequest.offset;
+                    limit = listWebAppAndServiceStatisticsRequest.limit;
+                    name = listWebAppAndServiceStatisticsRequest.name;
+                } else {
+                    category = listWebAppAndServiceStatisticsRequest['category'];
+                    catalogue = listWebAppAndServiceStatisticsRequest['catalogue'];
+                    enterpriseProjectId = listWebAppAndServiceStatisticsRequest['enterprise_project_id'];
+                    offset = listWebAppAndServiceStatisticsRequest['offset'];
+                    limit = listWebAppAndServiceStatisticsRequest['limit'];
+                    name = listWebAppAndServiceStatisticsRequest['name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebAppAndServiceStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (catalogue === null || catalogue === undefined) {
+                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listWebAppAndServiceStatistics.');
+            }
+            if (catalogue !== null && catalogue !== undefined) {
+                localVarQueryParameter['catalogue'] = catalogue;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定Web服务、Web应用、数据库的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebAppAndServices(listWebAppAndServicesRequest?: ListWebAppAndServicesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/web-app-and-services",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let catalogue;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let name;
+            
+            let hostName;
+            
+            let hostId;
+            
+            let hostIp;
+            
+            let version;
+            
+            let installDir;
+            
+            let partMatch;
+
+            if (listWebAppAndServicesRequest !== null && listWebAppAndServicesRequest !== undefined) {
+                if (listWebAppAndServicesRequest instanceof ListWebAppAndServicesRequest) {
+                    category = listWebAppAndServicesRequest.category;
+                    catalogue = listWebAppAndServicesRequest.catalogue;
+                    enterpriseProjectId = listWebAppAndServicesRequest.enterpriseProjectId;
+                    offset = listWebAppAndServicesRequest.offset;
+                    limit = listWebAppAndServicesRequest.limit;
+                    name = listWebAppAndServicesRequest.name;
+                    hostName = listWebAppAndServicesRequest.hostName;
+                    hostId = listWebAppAndServicesRequest.hostId;
+                    hostIp = listWebAppAndServicesRequest.hostIp;
+                    version = listWebAppAndServicesRequest.version;
+                    installDir = listWebAppAndServicesRequest.installDir;
+                    partMatch = listWebAppAndServicesRequest.partMatch;
+                } else {
+                    category = listWebAppAndServicesRequest['category'];
+                    catalogue = listWebAppAndServicesRequest['catalogue'];
+                    enterpriseProjectId = listWebAppAndServicesRequest['enterprise_project_id'];
+                    offset = listWebAppAndServicesRequest['offset'];
+                    limit = listWebAppAndServicesRequest['limit'];
+                    name = listWebAppAndServicesRequest['name'];
+                    hostName = listWebAppAndServicesRequest['host_name'];
+                    hostId = listWebAppAndServicesRequest['host_id'];
+                    hostIp = listWebAppAndServicesRequest['host_ip'];
+                    version = listWebAppAndServicesRequest['version'];
+                    installDir = listWebAppAndServicesRequest['install_dir'];
+                    partMatch = listWebAppAndServicesRequest['part_match'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebAppAndServices.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (catalogue === null || catalogue === undefined) {
+                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling listWebAppAndServices.');
+            }
+            if (catalogue !== null && catalogue !== undefined) {
+                localVarQueryParameter['catalogue'] = catalogue;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (installDir !== null && installDir !== undefined) {
+                localVarQueryParameter['install_dir'] = installDir;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定Web框架的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebFrameworkHostInfo(listWebFrameworkHostInfoRequest?: ListWebFrameworkHostInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/host/web-framework",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let fileName;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let partMatch;
+
+            if (listWebFrameworkHostInfoRequest !== null && listWebFrameworkHostInfoRequest !== undefined) {
+                if (listWebFrameworkHostInfoRequest instanceof ListWebFrameworkHostInfoRequest) {
+                    category = listWebFrameworkHostInfoRequest.category;
+                    enterpriseProjectId = listWebFrameworkHostInfoRequest.enterpriseProjectId;
+                    offset = listWebFrameworkHostInfoRequest.offset;
+                    limit = listWebFrameworkHostInfoRequest.limit;
+                    fileName = listWebFrameworkHostInfoRequest.fileName;
+                    hostName = listWebFrameworkHostInfoRequest.hostName;
+                    hostIp = listWebFrameworkHostInfoRequest.hostIp;
+                    partMatch = listWebFrameworkHostInfoRequest.partMatch;
+                } else {
+                    category = listWebFrameworkHostInfoRequest['category'];
+                    enterpriseProjectId = listWebFrameworkHostInfoRequest['enterprise_project_id'];
+                    offset = listWebFrameworkHostInfoRequest['offset'];
+                    limit = listWebFrameworkHostInfoRequest['limit'];
+                    fileName = listWebFrameworkHostInfoRequest['file_name'];
+                    hostName = listWebFrameworkHostInfoRequest['host_name'];
+                    hostIp = listWebFrameworkHostInfoRequest['host_ip'];
+                    partMatch = listWebFrameworkHostInfoRequest['part_match'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebFrameworkHostInfo.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定主机的Web框架信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebFrameworkInfo(listWebFrameworkInfoRequest?: ListWebFrameworkInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/{host_id}/web-framework",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let fileName;
+
+            if (listWebFrameworkInfoRequest !== null && listWebFrameworkInfoRequest !== undefined) {
+                if (listWebFrameworkInfoRequest instanceof ListWebFrameworkInfoRequest) {
+                    hostId = listWebFrameworkInfoRequest.hostId;
+                    category = listWebFrameworkInfoRequest.category;
+                    enterpriseProjectId = listWebFrameworkInfoRequest.enterpriseProjectId;
+                    fileName = listWebFrameworkInfoRequest.fileName;
+                } else {
+                    hostId = listWebFrameworkInfoRequest['host_id'];
+                    category = listWebFrameworkInfoRequest['category'];
+                    enterpriseProjectId = listWebFrameworkInfoRequest['enterprise_project_id'];
+                    fileName = listWebFrameworkInfoRequest['file_name'];
+                }
+            }
+
+        
+            if (hostId === null || hostId === undefined) {
+            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listWebFrameworkInfo.');
+            }
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebFrameworkInfo.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'host_id': hostId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Web框架的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebFrameworkStatistics(listWebFrameworkStatisticsRequest?: ListWebFrameworkStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/statistics/web-framework",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let fileName;
+
+            if (listWebFrameworkStatisticsRequest !== null && listWebFrameworkStatisticsRequest !== undefined) {
+                if (listWebFrameworkStatisticsRequest instanceof ListWebFrameworkStatisticsRequest) {
+                    category = listWebFrameworkStatisticsRequest.category;
+                    enterpriseProjectId = listWebFrameworkStatisticsRequest.enterpriseProjectId;
+                    offset = listWebFrameworkStatisticsRequest.offset;
+                    limit = listWebFrameworkStatisticsRequest.limit;
+                    fileName = listWebFrameworkStatisticsRequest.fileName;
+                } else {
+                    category = listWebFrameworkStatisticsRequest['category'];
+                    enterpriseProjectId = listWebFrameworkStatisticsRequest['enterprise_project_id'];
+                    offset = listWebFrameworkStatisticsRequest['offset'];
+                    limit = listWebFrameworkStatisticsRequest['limit'];
+                    fileName = listWebFrameworkStatisticsRequest['file_name'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebFrameworkStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (fileName !== null && fileName !== undefined) {
+                localVarQueryParameter['file_name'] = fileName;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定Web站点的服务器列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebSiteHostInfo(listWebSiteHostInfoRequest?: ListWebSiteHostInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/host/web-site",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let domain;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let partMatch;
+
+            if (listWebSiteHostInfoRequest !== null && listWebSiteHostInfoRequest !== undefined) {
+                if (listWebSiteHostInfoRequest instanceof ListWebSiteHostInfoRequest) {
+                    category = listWebSiteHostInfoRequest.category;
+                    domain = listWebSiteHostInfoRequest.domain;
+                    enterpriseProjectId = listWebSiteHostInfoRequest.enterpriseProjectId;
+                    offset = listWebSiteHostInfoRequest.offset;
+                    limit = listWebSiteHostInfoRequest.limit;
+                    hostName = listWebSiteHostInfoRequest.hostName;
+                    hostIp = listWebSiteHostInfoRequest.hostIp;
+                    partMatch = listWebSiteHostInfoRequest.partMatch;
+                } else {
+                    category = listWebSiteHostInfoRequest['category'];
+                    domain = listWebSiteHostInfoRequest['domain'];
+                    enterpriseProjectId = listWebSiteHostInfoRequest['enterprise_project_id'];
+                    offset = listWebSiteHostInfoRequest['offset'];
+                    limit = listWebSiteHostInfoRequest['limit'];
+                    hostName = listWebSiteHostInfoRequest['host_name'];
+                    hostIp = listWebSiteHostInfoRequest['host_ip'];
+                    partMatch = listWebSiteHostInfoRequest['part_match'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebSiteHostInfo.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (domain === null || domain === undefined) {
+                throw new RequiredError('domain','Required parameter domain was null or undefined when calling listWebSiteHostInfo.');
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (partMatch !== null && partMatch !== undefined) {
+                localVarQueryParameter['part_match'] = partMatch;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定主机的Web站点信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebSiteInfo(listWebSiteInfoRequest?: ListWebSiteInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/{host_id}/web-site",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostId;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let domain;
+
+            if (listWebSiteInfoRequest !== null && listWebSiteInfoRequest !== undefined) {
+                if (listWebSiteInfoRequest instanceof ListWebSiteInfoRequest) {
+                    hostId = listWebSiteInfoRequest.hostId;
+                    category = listWebSiteInfoRequest.category;
+                    enterpriseProjectId = listWebSiteInfoRequest.enterpriseProjectId;
+                    domain = listWebSiteInfoRequest.domain;
+                } else {
+                    hostId = listWebSiteInfoRequest['host_id'];
+                    category = listWebSiteInfoRequest['category'];
+                    enterpriseProjectId = listWebSiteInfoRequest['enterprise_project_id'];
+                    domain = listWebSiteInfoRequest['domain'];
+                }
+            }
+
+        
+            if (hostId === null || hostId === undefined) {
+            throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling listWebSiteInfo.');
+            }
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebSiteInfo.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'host_id': hostId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Web站点的服务器数。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listWebSiteStatistics(listWebSiteStatisticsRequest?: ListWebSiteStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/statistics/web-site",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let domain;
+
+            if (listWebSiteStatisticsRequest !== null && listWebSiteStatisticsRequest !== undefined) {
+                if (listWebSiteStatisticsRequest instanceof ListWebSiteStatisticsRequest) {
+                    category = listWebSiteStatisticsRequest.category;
+                    enterpriseProjectId = listWebSiteStatisticsRequest.enterpriseProjectId;
+                    offset = listWebSiteStatisticsRequest.offset;
+                    limit = listWebSiteStatisticsRequest.limit;
+                    domain = listWebSiteStatisticsRequest.domain;
+                } else {
+                    category = listWebSiteStatisticsRequest['category'];
+                    enterpriseProjectId = listWebSiteStatisticsRequest['enterprise_project_id'];
+                    offset = listWebSiteStatisticsRequest['offset'];
+                    limit = listWebSiteStatisticsRequest['limit'];
+                    domain = listWebSiteStatisticsRequest['domain'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling listWebSiteStatistics.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (domain !== null && domain !== undefined) {
+                localVarQueryParameter['domain'] = domain;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 采集单主机资产指纹。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runHostAssetManualCollect(runHostAssetManualCollectRequest?: RunHostAssetManualCollectRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/asset/manual-collect/{type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let hostId;
+            
+            let enterpriseProjectId;
+
+            if (runHostAssetManualCollectRequest !== null && runHostAssetManualCollectRequest !== undefined) {
+                if (runHostAssetManualCollectRequest instanceof RunHostAssetManualCollectRequest) {
+                    type = runHostAssetManualCollectRequest.type;
+                    hostId = runHostAssetManualCollectRequest.hostId;
+                    enterpriseProjectId = runHostAssetManualCollectRequest.enterpriseProjectId;
+                } else {
+                    type = runHostAssetManualCollectRequest['type'];
+                    hostId = runHostAssetManualCollectRequest['host_id'];
+                    enterpriseProjectId = runHostAssetManualCollectRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (type === null || type === undefined) {
+            throw new RequiredError('type','Required parameter type was null or undefined when calling runHostAssetManualCollect.');
+            }
+            if (hostId === null || hostId === undefined) {
+                throw new RequiredError('hostId','Required parameter hostId was null or undefined when calling runHostAssetManualCollect.');
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'type': type, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-账户Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAccountTop(showAccountTopRequest?: ShowAccountTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/account",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showAccountTopRequest !== null && showAccountTopRequest !== undefined) {
+                if (showAccountTopRequest instanceof ShowAccountTopRequest) {
+                    enterpriseProjectId = showAccountTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showAccountTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-资产状态-主机Agent状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAgentStatisticsStatus(showAgentStatisticsStatusRequest?: ShowAgentStatisticsStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/status/agent",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showAgentStatisticsStatusRequest !== null && showAgentStatisticsStatusRequest !== undefined) {
+                if (showAgentStatisticsStatusRequest instanceof ShowAgentStatisticsStatusRequest) {
+                    enterpriseProjectId = showAgentStatisticsStatusRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showAgentStatisticsStatusRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产统计信息，账号、端口、进程等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssetStatistic(showAssetStatisticRequest?: ShowAssetStatisticRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let enterpriseProjectId;
+            
+            let hostId;
+
+            if (showAssetStatisticRequest !== null && showAssetStatisticRequest !== undefined) {
+                if (showAssetStatisticRequest instanceof ShowAssetStatisticRequest) {
+                    category = showAssetStatisticRequest.category;
+                    enterpriseProjectId = showAssetStatisticRequest.enterpriseProjectId;
+                    hostId = showAssetStatisticRequest.hostId;
+                } else {
+                    category = showAssetStatisticRequest['category'];
+                    enterpriseProjectId = showAssetStatisticRequest['enterprise_project_id'];
+                    hostId = showAssetStatisticRequest['host_id'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling showAssetStatistic.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-自启动项Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAutoLaunchTop(showAutoLaunchTopRequest?: ShowAutoLaunchTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/auto-launch",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showAutoLaunchTopRequest !== null && showAutoLaunchTopRequest !== undefined) {
+                if (showAutoLaunchTopRequest instanceof ShowAutoLaunchTopRequest) {
+                    enterpriseProjectId = showAutoLaunchTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showAutoLaunchTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 呈现某一端口详细信息，如本地端口：80，类型：TCP，危险程度：正常，端口描述：常用于SSH(SecureShell)-远程登录协议，用于安全登录文件传输（SCP，SFTP）及端口重新定向。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showCommonPort(showCommonPortRequest?: ShowCommonPortRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/common-port-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let category;
+            
+            let port;
+            
+            let enterpriseProjectId;
+
+            if (showCommonPortRequest !== null && showCommonPortRequest !== undefined) {
+                if (showCommonPortRequest instanceof ShowCommonPortRequest) {
+                    category = showCommonPortRequest.category;
+                    port = showCommonPortRequest.port;
+                    enterpriseProjectId = showCommonPortRequest.enterpriseProjectId;
+                } else {
+                    category = showCommonPortRequest['category'];
+                    port = showCommonPortRequest['port'];
+                    enterpriseProjectId = showCommonPortRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (category === null || category === undefined) {
+                throw new RequiredError('category','Required parameter category was null or undefined when calling showCommonPort.');
+            }
+            if (category !== null && category !== undefined) {
+                localVarQueryParameter['category'] = category;
+            }
+            if (port === null || port === undefined) {
+                throw new RequiredError('port','Required parameter port was null or undefined when calling showCommonPort.');
+            }
+            if (port !== null && port !== undefined) {
+                localVarQueryParameter['port'] = port;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-资产状态-容器节点防护状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showContainerProtectionStatus(showContainerProtectionStatusRequest?: ShowContainerProtectionStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/status/container/protection",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showContainerProtectionStatusRequest !== null && showContainerProtectionStatusRequest !== undefined) {
+                if (showContainerProtectionStatusRequest instanceof ShowContainerProtectionStatusRequest) {
+                    enterpriseProjectId = showContainerProtectionStatusRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showContainerProtectionStatusRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 单主机资产指纹采集状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHostAssetManualCollectStatus(showHostAssetManualCollectStatusRequest?: ShowHostAssetManualCollectStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/manual-collect/{type}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let enterpriseProjectId;
+            
+            let hostId;
+
+            if (showHostAssetManualCollectStatusRequest !== null && showHostAssetManualCollectStatusRequest !== undefined) {
+                if (showHostAssetManualCollectStatusRequest instanceof ShowHostAssetManualCollectStatusRequest) {
+                    type = showHostAssetManualCollectStatusRequest.type;
+                    enterpriseProjectId = showHostAssetManualCollectStatusRequest.enterpriseProjectId;
+                    hostId = showHostAssetManualCollectStatusRequest.hostId;
+                } else {
+                    type = showHostAssetManualCollectStatusRequest['type'];
+                    enterpriseProjectId = showHostAssetManualCollectStatusRequest['enterprise_project_id'];
+                    hostId = showHostAssetManualCollectStatusRequest['host_id'];
+                }
+            }
+
+        
+            if (type === null || type === undefined) {
+            throw new RequiredError('type','Required parameter type was null or undefined when calling showHostAssetManualCollectStatus.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'type': type, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-资产状态-Agent状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showHostProtectionStatus(showHostProtectionStatusRequest?: ShowHostProtectionStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/status/host/protection",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showHostProtectionStatusRequest !== null && showHostProtectionStatusRequest !== undefined) {
+                if (showHostProtectionStatusRequest instanceof ShowHostProtectionStatusRequest) {
+                    enterpriseProjectId = showHostProtectionStatusRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showHostProtectionStatusRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-jar包Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJarPackageTop(showJarPackageTopRequest?: ShowJarPackageTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/jar-package",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showJarPackageTopRequest !== null && showJarPackageTopRequest !== undefined) {
+                if (showJarPackageTopRequest instanceof ShowJarPackageTopRequest) {
+                    enterpriseProjectId = showJarPackageTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showJarPackageTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-内核模块Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKernelModuleTop(showKernelModuleTopRequest?: ShowKernelModuleTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/kernel-module",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showKernelModuleTopRequest !== null && showKernelModuleTopRequest !== undefined) {
+                if (showKernelModuleTopRequest instanceof ShowKernelModuleTopRequest) {
+                    enterpriseProjectId = showKernelModuleTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showKernelModuleTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-资产状态-操作系统统计信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOsStatisticsInfo(showOsStatisticsInfoRequest?: ShowOsStatisticsInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/status/os",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showOsStatisticsInfoRequest !== null && showOsStatisticsInfoRequest !== undefined) {
+                if (showOsStatisticsInfoRequest instanceof ShowOsStatisticsInfoRequest) {
+                    enterpriseProjectId = showOsStatisticsInfoRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showOsStatisticsInfoRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-端口Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPortTop(showPortTopRequest?: ShowPortTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/port",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showPortTopRequest !== null && showPortTopRequest !== undefined) {
+                if (showPortTopRequest instanceof ShowPortTopRequest) {
+                    enterpriseProjectId = showPortTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showPortTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-进程Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProcessTop(showProcessTopRequest?: ShowProcessTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/process",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showProcessTopRequest !== null && showProcessTopRequest !== undefined) {
+                if (showProcessTopRequest instanceof ShowProcessTopRequest) {
+                    enterpriseProjectId = showProcessTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showProcessTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-资产状态-防护配额统计信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuotaStatisticsInfo(showQuotaStatisticsInfoRequest?: ShowQuotaStatisticsInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/status/quota",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showQuotaStatisticsInfoRequest !== null && showQuotaStatisticsInfoRequest !== undefined) {
+                if (showQuotaStatisticsInfoRequest instanceof ShowQuotaStatisticsInfoRequest) {
+                    enterpriseProjectId = showQuotaStatisticsInfoRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showQuotaStatisticsInfoRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-软件Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSoftwareTop(showSoftwareTopRequest?: ShowSoftwareTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/software",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showSoftwareTopRequest !== null && showSoftwareTopRequest !== undefined) {
+                if (showSoftwareTopRequest instanceof ShowSoftwareTopRequest) {
+                    enterpriseProjectId = showSoftwareTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showSoftwareTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-Web应用TOP5/Web服务TOP5。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWebAppAndServiceTop(showWebAppAndServiceTopRequest?: ShowWebAppAndServiceTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/web-app-and-service",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let catalogue;
+            
+            let enterpriseProjectId;
+
+            if (showWebAppAndServiceTopRequest !== null && showWebAppAndServiceTopRequest !== undefined) {
+                if (showWebAppAndServiceTopRequest instanceof ShowWebAppAndServiceTopRequest) {
+                    catalogue = showWebAppAndServiceTopRequest.catalogue;
+                    enterpriseProjectId = showWebAppAndServiceTopRequest.enterpriseProjectId;
+                } else {
+                    catalogue = showWebAppAndServiceTopRequest['catalogue'];
+                    enterpriseProjectId = showWebAppAndServiceTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (catalogue === null || catalogue === undefined) {
+                throw new RequiredError('catalogue','Required parameter catalogue was null or undefined when calling showWebAppAndServiceTop.');
+            }
+            if (catalogue !== null && catalogue !== undefined) {
+                localVarQueryParameter['catalogue'] = catalogue;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-Web框架Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWebFrameworkTop(showWebFrameworkTopRequest?: ShowWebFrameworkTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/web-framework",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showWebFrameworkTopRequest !== null && showWebFrameworkTopRequest !== undefined) {
+                if (showWebFrameworkTopRequest instanceof ShowWebFrameworkTopRequest) {
+                    enterpriseProjectId = showWebFrameworkTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showWebFrameworkTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 资产管理-概览-Web站点Top。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWebSiteTop(showWebSiteTopRequest?: ShowWebSiteTopRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/asset/overview/statistics/top/web-site",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showWebSiteTopRequest !== null && showWebSiteTopRequest !== undefined) {
+                if (showWebSiteTopRequest instanceof ShowWebSiteTopRequest) {
+                    enterpriseProjectId = showWebSiteTopRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showWebSiteTopRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 新增基线白名单。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -32713,6 +35366,73 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询配置检测策略组关联的主机信息列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityCheckPolicyGroupHosts(listSecurityCheckPolicyGroupHostsRequest?: ListSecurityCheckPolicyGroupHostsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/baseline/security-checks/policy-groups/hosts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let offset;
+            
+            let limit;
+            
+            let groupId;
+            
+            let enterpriseProjectId;
+
+            if (listSecurityCheckPolicyGroupHostsRequest !== null && listSecurityCheckPolicyGroupHostsRequest !== undefined) {
+                if (listSecurityCheckPolicyGroupHostsRequest instanceof ListSecurityCheckPolicyGroupHostsRequest) {
+                    offset = listSecurityCheckPolicyGroupHostsRequest.offset;
+                    limit = listSecurityCheckPolicyGroupHostsRequest.limit;
+                    groupId = listSecurityCheckPolicyGroupHostsRequest.groupId;
+                    enterpriseProjectId = listSecurityCheckPolicyGroupHostsRequest.enterpriseProjectId;
+                } else {
+                    offset = listSecurityCheckPolicyGroupHostsRequest['offset'];
+                    limit = listSecurityCheckPolicyGroupHostsRequest['limit'];
+                    groupId = listSecurityCheckPolicyGroupHostsRequest['group_id'];
+                    enterpriseProjectId = listSecurityCheckPolicyGroupHostsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling listSecurityCheckPolicyGroupHosts.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling listSecurityCheckPolicyGroupHosts.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (groupId === null || groupId === undefined) {
+                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listSecurityCheckPolicyGroupHosts.');
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询弱口令检测结果列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -33826,6 +36546,124 @@ export const ParamCreater = function () {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量上传文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUploadFiles(batchUploadFilesRequest?: BatchUploadFilesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/common/files/batch-upload",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
+            let uploadType;
+            
+            let files;
+            
+            
+            let enterpriseProjectId;
+
+            if (batchUploadFilesRequest !== null && batchUploadFilesRequest !== undefined) {
+                if (batchUploadFilesRequest instanceof BatchUploadFilesRequest) {
+                    uploadType = batchUploadFilesRequest.body?.uploadType;
+                    files = batchUploadFilesRequest.body?.files;
+                    enterpriseProjectId = batchUploadFilesRequest.enterpriseProjectId;
+                } else {
+                    uploadType = batchUploadFilesRequest['body']['uploadType'];
+                    files = batchUploadFilesRequest['body']['files'];
+                    enterpriseProjectId = batchUploadFilesRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (uploadType === null || uploadType === undefined) {
+            throw new RequiredError('uploadType','Required parameter uploadType was null or undefined when calling batchUploadFiles.');
+            }
+            if (files === null || files === undefined) {
+            throw new RequiredError('files','Required parameter files was null or undefined when calling batchUploadFiles.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (uploadType !== undefined) { 
+                localVarFormParams.append('upload_type', uploadType as any);
+            }
+            if (files) {
+            
+                localVarFormParams.append('files', files.join(COLLECTION_FORMATS.csv));
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+            options.data = localVarFormParams;
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 公共的导出接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportCommonInterface(exportCommonInterfaceRequest?: ExportCommonInterfaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/export/common/interface",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let exportSize;
+            
+            let enterpriseProjectId;
+
+            if (exportCommonInterfaceRequest !== null && exportCommonInterfaceRequest !== undefined) {
+                if (exportCommonInterfaceRequest instanceof ExportCommonInterfaceRequest) {
+                    exportSize = exportCommonInterfaceRequest.exportSize;
+                    body = exportCommonInterfaceRequest.body
+                    enterpriseProjectId = exportCommonInterfaceRequest.enterpriseProjectId;
+                } else {
+                    exportSize = exportCommonInterfaceRequest['export_size'];
+                    body = exportCommonInterfaceRequest['body'];
+                    enterpriseProjectId = exportCommonInterfaceRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (exportSize === null || exportSize === undefined) {
+                throw new RequiredError('exportSize','Required parameter exportSize was null or undefined when calling exportCommonInterface.');
+            }
+            if (exportSize !== null && exportSize !== undefined) {
+                localVarQueryParameter['export_size'] = exportSize;
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
@@ -36397,6 +39235,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 编辑告警白名单主机相关信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAlarmWhiteListHost(updateAlarmWhiteListHostRequest?: UpdateAlarmWhiteListHostRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/event/white-list/alarm",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (updateAlarmWhiteListHostRequest !== null && updateAlarmWhiteListHostRequest !== undefined) {
+                if (updateAlarmWhiteListHostRequest instanceof UpdateAlarmWhiteListHostRequest) {
+                    body = updateAlarmWhiteListHostRequest.body
+                    region = updateAlarmWhiteListHostRequest.region;
+                    enterpriseProjectId = updateAlarmWhiteListHostRequest.enterpriseProjectId;
+                } else {
+                    body = updateAlarmWhiteListHostRequest['body'];
+                    region = updateAlarmWhiteListHostRequest['region'];
+                    enterpriseProjectId = updateAlarmWhiteListHostRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 变更文件列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -36745,6 +39636,113 @@ export const ParamCreater = function () {
             }
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询蜜罐事件列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHoneypotEvents(listHoneypotEventsRequest?: ListHoneypotEventsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/honeypot/events",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let beginTime;
+            
+            let endTime;
+            
+            let lastDays;
+            
+            let hostName;
+            
+            let hostId;
+            
+            let publicIp;
+            
+            let privateIp;
+            
+            let severity;
+
+            if (listHoneypotEventsRequest !== null && listHoneypotEventsRequest !== undefined) {
+                if (listHoneypotEventsRequest instanceof ListHoneypotEventsRequest) {
+                    enterpriseProjectId = listHoneypotEventsRequest.enterpriseProjectId;
+                    offset = listHoneypotEventsRequest.offset;
+                    limit = listHoneypotEventsRequest.limit;
+                    beginTime = listHoneypotEventsRequest.beginTime;
+                    endTime = listHoneypotEventsRequest.endTime;
+                    lastDays = listHoneypotEventsRequest.lastDays;
+                    hostName = listHoneypotEventsRequest.hostName;
+                    hostId = listHoneypotEventsRequest.hostId;
+                    publicIp = listHoneypotEventsRequest.publicIp;
+                    privateIp = listHoneypotEventsRequest.privateIp;
+                    severity = listHoneypotEventsRequest.severity;
+                } else {
+                    enterpriseProjectId = listHoneypotEventsRequest['enterprise_project_id'];
+                    offset = listHoneypotEventsRequest['offset'];
+                    limit = listHoneypotEventsRequest['limit'];
+                    beginTime = listHoneypotEventsRequest['begin_time'];
+                    endTime = listHoneypotEventsRequest['end_time'];
+                    lastDays = listHoneypotEventsRequest['last_days'];
+                    hostName = listHoneypotEventsRequest['host_name'];
+                    hostId = listHoneypotEventsRequest['host_id'];
+                    publicIp = listHoneypotEventsRequest['public_ip'];
+                    privateIp = listHoneypotEventsRequest['private_ip'];
+                    severity = listHoneypotEventsRequest['severity'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (beginTime !== null && beginTime !== undefined) {
+                localVarQueryParameter['begin_time'] = beginTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (lastDays !== null && lastDays !== undefined) {
+                localVarQueryParameter['last_days'] = lastDays;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (publicIp !== null && publicIp !== undefined) {
+                localVarQueryParameter['public_ip'] = publicIp;
+            }
+            if (privateIp !== null && privateIp !== undefined) {
+                localVarQueryParameter['private_ip'] = privateIp;
+            }
+            if (severity !== null && severity !== undefined) {
+                localVarQueryParameter['severity'] = severity;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -37884,6 +40882,53 @@ export const ParamCreater = function () {
         
             if (hostIdList === null || hostIdList === undefined) {
                 throw new RequiredError('hostIdList','Required parameter hostIdList was null or undefined when calling listHostsRisk.');
+            }
+            if (hostIdList !== null && hostIdList !== undefined) {
+                localVarQueryParameter['host_id_list'] = hostIdList;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取主机的升级状态，支持按主机ID列表批量查询Agent 1.0到2.0的升级状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHostsUpgrade(listHostsUpgradeRequest?: ListHostsUpgradeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/upgrade/agent-upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostIdList;
+            
+            let enterpriseProjectId;
+
+            if (listHostsUpgradeRequest !== null && listHostsUpgradeRequest !== undefined) {
+                if (listHostsUpgradeRequest instanceof ListHostsUpgradeRequest) {
+                    hostIdList = listHostsUpgradeRequest.hostIdList;
+                    enterpriseProjectId = listHostsUpgradeRequest.enterpriseProjectId;
+                } else {
+                    hostIdList = listHostsUpgradeRequest['host_id_list'];
+                    enterpriseProjectId = listHostsUpgradeRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (hostIdList === null || hostIdList === undefined) {
+                throw new RequiredError('hostIdList','Required parameter hostIdList was null or undefined when calling listHostsUpgrade.');
             }
             if (hostIdList !== null && hostIdList !== undefined) {
                 localVarQueryParameter['host_id_list'] = hostIdList;
@@ -41312,6 +44357,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取镜像扫描的总览
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listImageScanOverview(listImageScanOverviewRequest?: ListImageScanOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/image/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let globalImageType;
+
+            if (listImageScanOverviewRequest !== null && listImageScanOverviewRequest !== undefined) {
+                if (listImageScanOverviewRequest instanceof ListImageScanOverviewRequest) {
+                    enterpriseProjectId = listImageScanOverviewRequest.enterpriseProjectId;
+                    globalImageType = listImageScanOverviewRequest.globalImageType;
+                } else {
+                    enterpriseProjectId = listImageScanOverviewRequest['enterprise_project_id'];
+                    globalImageType = listImageScanOverviewRequest['global_image_type'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (globalImageType !== null && globalImageType !== undefined) {
+                localVarQueryParameter['global_image_type'] = globalImageType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询镜像的敏感信息，若镜像类型为cicd镜像，则需传参镜像类型和镜像id唯一确定一条cicd镜像信息；若镜像类型为其他镜像仓类型，需要传参镜像类型、组织名称、镜像名称、镜像版本名称唯一确定一条其他镜像信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -42077,6 +45166,99 @@ export const ParamCreater = function () {
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询本地镜像的漏洞信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLocalImageVul(listLocalImageVulRequest?: ListLocalImageVulRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/image/local/vuls",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let repairNecessity;
+            
+            let imageId;
+            
+            let vulId;
+            
+            let appName;
+            
+            let type;
+            
+            let handleStatus;
+
+            if (listLocalImageVulRequest !== null && listLocalImageVulRequest !== undefined) {
+                if (listLocalImageVulRequest instanceof ListLocalImageVulRequest) {
+                    enterpriseProjectId = listLocalImageVulRequest.enterpriseProjectId;
+                    offset = listLocalImageVulRequest.offset;
+                    limit = listLocalImageVulRequest.limit;
+                    repairNecessity = listLocalImageVulRequest.repairNecessity;
+                    imageId = listLocalImageVulRequest.imageId;
+                    vulId = listLocalImageVulRequest.vulId;
+                    appName = listLocalImageVulRequest.appName;
+                    type = listLocalImageVulRequest.type;
+                    handleStatus = listLocalImageVulRequest.handleStatus;
+                } else {
+                    enterpriseProjectId = listLocalImageVulRequest['enterprise_project_id'];
+                    offset = listLocalImageVulRequest['offset'];
+                    limit = listLocalImageVulRequest['limit'];
+                    repairNecessity = listLocalImageVulRequest['repair_necessity'];
+                    imageId = listLocalImageVulRequest['image_id'];
+                    vulId = listLocalImageVulRequest['vul_id'];
+                    appName = listLocalImageVulRequest['app_name'];
+                    type = listLocalImageVulRequest['type'];
+                    handleStatus = listLocalImageVulRequest['handle_status'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (repairNecessity !== null && repairNecessity !== undefined) {
+                localVarQueryParameter['repair_necessity'] = repairNecessity;
+            }
+            if (imageId !== null && imageId !== undefined) {
+                localVarQueryParameter['image_id'] = imageId;
+            }
+            if (vulId !== null && vulId !== undefined) {
+                localVarQueryParameter['vul_id'] = vulId;
+            }
+            if (appName !== null && appName !== undefined) {
+                localVarQueryParameter['app_name'] = appName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (handleStatus !== null && handleStatus !== undefined) {
+                localVarQueryParameter['handle_status'] = handleStatus;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -44100,7 +47282,88 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询风险评分结果。
+         * 查询当前云负载的防护状态统计信息，包含主机、容器、Serverless的防护情况。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProtectionStatusStatistics(showProtectionStatusStatisticsRequest?: ShowProtectionStatusStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/overview/risk/protection/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showProtectionStatusStatisticsRequest !== null && showProtectionStatusStatisticsRequest !== undefined) {
+                if (showProtectionStatusStatisticsRequest instanceof ShowProtectionStatusStatisticsRequest) {
+                    enterpriseProjectId = showProtectionStatusStatisticsRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showProtectionStatusStatisticsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询主机配额统计信息，包含各版本配额数量、主机数量、即将过期配额数量等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showQuotaHostStatistics(showQuotaHostStatisticsRequest?: ShowQuotaHostStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/overview/quotas/host/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let chargingMode;
+
+            if (showQuotaHostStatisticsRequest !== null && showQuotaHostStatisticsRequest !== undefined) {
+                if (showQuotaHostStatisticsRequest instanceof ShowQuotaHostStatisticsRequest) {
+                    enterpriseProjectId = showQuotaHostStatisticsRequest.enterpriseProjectId;
+                    chargingMode = showQuotaHostStatisticsRequest.chargingMode;
+                } else {
+                    enterpriseProjectId = showQuotaHostStatisticsRequest['enterprise_project_id'];
+                    chargingMode = showQuotaHostStatisticsRequest['charging_mode'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (chargingMode !== null && chargingMode !== undefined) {
+                localVarQueryParameter['charging_mode'] = chargingMode;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询风险评分结果--接口已废弃。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -44123,6 +47386,161 @@ export const ParamCreater = function () {
                     enterpriseProjectId = showRiskScoreRequest.enterpriseProjectId;
                 } else {
                     enterpriseProjectId = showRiskScoreRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目安全风险信息，包含主机风险（告警、漏洞、基线、可疑进程）和容器风险（漏洞），以及7天安全风险趋势数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityRisk(showSecurityRiskRequest?: ShowSecurityRiskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/overview/security/risk",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showSecurityRiskRequest !== null && showSecurityRiskRequest !== undefined) {
+                if (showSecurityRiskRequest instanceof ShowSecurityRiskRequest) {
+                    enterpriseProjectId = showSecurityRiskRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showSecurityRiskRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询总览界面安全评分信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityScore(showSecurityScoreRequest?: ShowSecurityScoreRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/overview/security/score",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let needCalScore;
+
+            if (showSecurityScoreRequest !== null && showSecurityScoreRequest !== undefined) {
+                if (showSecurityScoreRequest instanceof ShowSecurityScoreRequest) {
+                    enterpriseProjectId = showSecurityScoreRequest.enterpriseProjectId;
+                    needCalScore = showSecurityScoreRequest.needCalScore;
+                } else {
+                    enterpriseProjectId = showSecurityScoreRequest['enterprise_project_id'];
+                    needCalScore = showSecurityScoreRequest['need_cal_score'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (needCalScore !== null && needCalScore !== undefined) {
+                localVarQueryParameter['need_cal_score'] = needCalScore;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 统计信息：包含勒索病毒防治开启数量，应用防护开启数量，网页防篡改开启数量，双因子认证开启数量，支持双因子认证开启数量，隔离文件数量，应用进程控制防护服务器数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStatistics(showStatisticsRequest?: ShowStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/overview/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showStatisticsRequest !== null && showStatisticsRequest !== undefined) {
+                if (showStatisticsRequest instanceof ShowStatisticsRequest) {
+                    enterpriseProjectId = showStatisticsRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showStatisticsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询试用主机风险统计
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTrialsStatistics(showTrialsStatisticsRequest?: ShowTrialsStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/overview/trial/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showTrialsStatisticsRequest !== null && showTrialsStatisticsRequest !== undefined) {
+                if (showTrialsStatisticsRequest instanceof ShowTrialsStatisticsRequest) {
+                    enterpriseProjectId = showTrialsStatisticsRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showTrialsStatisticsRequest['enterprise_project_id'];
                 }
             }
 
@@ -44804,6 +48222,103 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询策略组详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listPolicyGroupDetail(listPolicyGroupDetailRequest?: ListPolicyGroupDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/policy/group/{group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let groupId;
+            
+            let enterpriseProjectId;
+            
+            let enabled;
+
+            if (listPolicyGroupDetailRequest !== null && listPolicyGroupDetailRequest !== undefined) {
+                if (listPolicyGroupDetailRequest instanceof ListPolicyGroupDetailRequest) {
+                    groupId = listPolicyGroupDetailRequest.groupId;
+                    enterpriseProjectId = listPolicyGroupDetailRequest.enterpriseProjectId;
+                    enabled = listPolicyGroupDetailRequest.enabled;
+                } else {
+                    groupId = listPolicyGroupDetailRequest['group_id'];
+                    enterpriseProjectId = listPolicyGroupDetailRequest['enterprise_project_id'];
+                    enabled = listPolicyGroupDetailRequest['enabled'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listPolicyGroupDetail.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (enabled !== null && enabled !== undefined) {
+                localVarQueryParameter['enabled'] = enabled;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'group_id': groupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询策略详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPolicyDetail(showPolicyDetailRequest?: ShowPolicyDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/policy/{policy_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let policyId;
+            
+            let enterpriseProjectId;
+
+            if (showPolicyDetailRequest !== null && showPolicyDetailRequest !== undefined) {
+                if (showPolicyDetailRequest instanceof ShowPolicyDetailRequest) {
+                    policyId = showPolicyDetailRequest.policyId;
+                    enterpriseProjectId = showPolicyDetailRequest.enterpriseProjectId;
+                } else {
+                    policyId = showPolicyDetailRequest['policy_id'];
+                    enterpriseProjectId = showPolicyDetailRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showPolicyDetail.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 解绑配额。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -45267,6 +48782,43 @@ export const ParamCreater = function () {
             }
             if (region !== undefined && region !== null) {
                 localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户当前最高主机版本和容器版本信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVersionNewService(showVersionNewServiceRequest?: ShowVersionNewServiceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/billing/version-new",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showVersionNewServiceRequest !== null && showVersionNewServiceRequest !== undefined) {
+                if (showVersionNewServiceRequest instanceof ShowVersionNewServiceRequest) {
+                    enterpriseProjectId = showVersionNewServiceRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showVersionNewServiceRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -46352,6 +49904,108 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询防勒索备份统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showBackupsStatistics(showBackupsStatisticsRequest?: ShowBackupsStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ransomware/statistics/backups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let region;
+            
+            let lastDays;
+
+            if (showBackupsStatisticsRequest !== null && showBackupsStatisticsRequest !== undefined) {
+                if (showBackupsStatisticsRequest instanceof ShowBackupsStatisticsRequest) {
+                    enterpriseProjectId = showBackupsStatisticsRequest.enterpriseProjectId;
+                    region = showBackupsStatisticsRequest.region;
+                    lastDays = showBackupsStatisticsRequest.lastDays;
+                } else {
+                    enterpriseProjectId = showBackupsStatisticsRequest['enterprise_project_id'];
+                    region = showBackupsStatisticsRequest['region'];
+                    lastDays = showBackupsStatisticsRequest['last_days'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (lastDays !== null && lastDays !== undefined) {
+                localVarQueryParameter['last_days'] = lastDays;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询防勒索防护统计信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProtectionStatistics(showProtectionStatisticsRequest?: ShowProtectionStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/ransomware/statistics/protection",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let region;
+            
+            let lastDays;
+
+            if (showProtectionStatisticsRequest !== null && showProtectionStatisticsRequest !== undefined) {
+                if (showProtectionStatisticsRequest instanceof ShowProtectionStatisticsRequest) {
+                    enterpriseProjectId = showProtectionStatisticsRequest.enterpriseProjectId;
+                    region = showProtectionStatisticsRequest.region;
+                    lastDays = showProtectionStatisticsRequest.lastDays;
+                } else {
+                    enterpriseProjectId = showProtectionStatisticsRequest['enterprise_project_id'];
+                    region = showProtectionStatisticsRequest['region'];
+                    lastDays = showProtectionStatisticsRequest['last_days'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (lastDays !== null && lastDays !== undefined) {
+                localVarQueryParameter['last_days'] = lastDays;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个备份策略信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -46603,6 +50257,117 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新定时快照策略
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSnapshotPolicy(updateSnapshotPolicyRequest?: UpdateSnapshotPolicyRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/ransomware/snapshots/policy",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (updateSnapshotPolicyRequest !== null && updateSnapshotPolicyRequest !== undefined) {
+                if (updateSnapshotPolicyRequest instanceof UpdateSnapshotPolicyRequest) {
+                    body = updateSnapshotPolicyRequest.body
+                    enterpriseProjectId = updateSnapshotPolicyRequest.enterpriseProjectId;
+                } else {
+                    body = updateSnapshotPolicyRequest['body'];
+                    enterpriseProjectId = updateSnapshotPolicyRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询虚拟补丁列表：查询已导入的虚拟补丁信息，包含补丁名称、漏洞ID、CVE编号、目标组件、影响版本、补丁版本、漏洞说明等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listRaspPatches(listRaspPatchesRequest?: ListRaspPatchesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/rasp/patches",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let patchName;
+            
+            let chkFeatureId;
+
+            if (listRaspPatchesRequest !== null && listRaspPatchesRequest !== undefined) {
+                if (listRaspPatchesRequest instanceof ListRaspPatchesRequest) {
+                    enterpriseProjectId = listRaspPatchesRequest.enterpriseProjectId;
+                    limit = listRaspPatchesRequest.limit;
+                    offset = listRaspPatchesRequest.offset;
+                    patchName = listRaspPatchesRequest.patchName;
+                    chkFeatureId = listRaspPatchesRequest.chkFeatureId;
+                } else {
+                    enterpriseProjectId = listRaspPatchesRequest['enterprise_project_id'];
+                    limit = listRaspPatchesRequest['limit'];
+                    offset = listRaspPatchesRequest['offset'];
+                    patchName = listRaspPatchesRequest['patch_name'];
+                    chkFeatureId = listRaspPatchesRequest['chk_feature_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (patchName !== null && patchName !== undefined) {
+                localVarQueryParameter['patch_name'] = patchName;
+            }
+            if (chkFeatureId !== null && chkFeatureId !== undefined) {
+                localVarQueryParameter['chk_feature_id'] = chkFeatureId;
+            }
+
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
@@ -46881,6 +50646,212 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 添加安全报告
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addSecurityReport(addSecurityReportRequest?: AddSecurityReportRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/report/security-report",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (addSecurityReportRequest !== null && addSecurityReportRequest !== undefined) {
+                if (addSecurityReportRequest instanceof AddSecurityReportRequest) {
+                    body = addSecurityReportRequest.body
+                    enterpriseProjectId = addSecurityReportRequest.enterpriseProjectId;
+                } else {
+                    body = addSecurityReportRequest['body'];
+                    enterpriseProjectId = addSecurityReportRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改报告
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeSecurityReport(changeSecurityReportRequest?: ChangeSecurityReportRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/report/security-report",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (changeSecurityReportRequest !== null && changeSecurityReportRequest !== undefined) {
+                if (changeSecurityReportRequest instanceof ChangeSecurityReportRequest) {
+                    body = changeSecurityReportRequest.body
+                    region = changeSecurityReportRequest.region;
+                    enterpriseProjectId = changeSecurityReportRequest.enterpriseProjectId;
+                } else {
+                    body = changeSecurityReportRequest['body'];
+                    region = changeSecurityReportRequest['region'];
+                    enterpriseProjectId = changeSecurityReportRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除安全报告
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteSecurityReport(deleteSecurityReportRequest?: DeleteSecurityReportRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/{project_id}/report/security-report",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (deleteSecurityReportRequest !== null && deleteSecurityReportRequest !== undefined) {
+                if (deleteSecurityReportRequest instanceof DeleteSecurityReportRequest) {
+                    body = deleteSecurityReportRequest.body
+                    enterpriseProjectId = deleteSecurityReportRequest.enterpriseProjectId;
+                } else {
+                    body = deleteSecurityReportRequest['body'];
+                    enterpriseProjectId = deleteSecurityReportRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询历史报告统计周期列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listHistoryPeriod(listHistoryPeriodRequest?: ListHistoryPeriodRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/report/period-list",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let reportId;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listHistoryPeriodRequest !== null && listHistoryPeriodRequest !== undefined) {
+                if (listHistoryPeriodRequest instanceof ListHistoryPeriodRequest) {
+                    reportId = listHistoryPeriodRequest.reportId;
+                    enterpriseProjectId = listHistoryPeriodRequest.enterpriseProjectId;
+                    offset = listHistoryPeriodRequest.offset;
+                    limit = listHistoryPeriodRequest.limit;
+                } else {
+                    reportId = listHistoryPeriodRequest['report_id'];
+                    enterpriseProjectId = listHistoryPeriodRequest['enterprise_project_id'];
+                    offset = listHistoryPeriodRequest['offset'];
+                    limit = listHistoryPeriodRequest['limit'];
+                }
+            }
+
+        
+            if (reportId === null || reportId === undefined) {
+                throw new RequiredError('reportId','Required parameter reportId was null or undefined when calling listHistoryPeriod.');
+            }
+            if (reportId !== null && reportId !== undefined) {
+                localVarQueryParameter['report_id'] = reportId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询报告总览页列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -46897,8 +50868,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let region;
-            
             let enterpriseProjectId;
             
             let reportCategory;
@@ -46909,13 +50878,11 @@ export const ParamCreater = function () {
 
             if (listSecurityReportRequest !== null && listSecurityReportRequest !== undefined) {
                 if (listSecurityReportRequest instanceof ListSecurityReportRequest) {
-                    region = listSecurityReportRequest.region;
                     enterpriseProjectId = listSecurityReportRequest.enterpriseProjectId;
                     reportCategory = listSecurityReportRequest.reportCategory;
                     offset = listSecurityReportRequest.offset;
                     limit = listSecurityReportRequest.limit;
                 } else {
-                    region = listSecurityReportRequest['region'];
                     enterpriseProjectId = listSecurityReportRequest['enterprise_project_id'];
                     reportCategory = listSecurityReportRequest['report_category'];
                     offset = listSecurityReportRequest['offset'];
@@ -46935,9 +50902,6 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-            if (region !== undefined && region !== null) {
-                localVarHeaderParameter['region'] = String(region);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -46986,6 +50950,171 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询报告订阅的内容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showReportSubscription(showReportSubscriptionRequest?: ShowReportSubscriptionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/report/report-subscription",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let reportId;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (showReportSubscriptionRequest !== null && showReportSubscriptionRequest !== undefined) {
+                if (showReportSubscriptionRequest instanceof ShowReportSubscriptionRequest) {
+                    reportId = showReportSubscriptionRequest.reportId;
+                    region = showReportSubscriptionRequest.region;
+                    enterpriseProjectId = showReportSubscriptionRequest.enterpriseProjectId;
+                } else {
+                    reportId = showReportSubscriptionRequest['report_id'];
+                    region = showReportSubscriptionRequest['region'];
+                    enterpriseProjectId = showReportSubscriptionRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (reportId === null || reportId === undefined) {
+                throw new RequiredError('reportId','Required parameter reportId was null or undefined when calling showReportSubscription.');
+            }
+            if (reportId !== null && reportId !== undefined) {
+                localVarQueryParameter['report_id'] = reportId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询安全报告详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityReport(showSecurityReportRequest?: ShowSecurityReportRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/report/security-report",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let reportId;
+            
+            let reportSubId;
+            
+            let enterpriseProjectId;
+
+            if (showSecurityReportRequest !== null && showSecurityReportRequest !== undefined) {
+                if (showSecurityReportRequest instanceof ShowSecurityReportRequest) {
+                    reportId = showSecurityReportRequest.reportId;
+                    reportSubId = showSecurityReportRequest.reportSubId;
+                    enterpriseProjectId = showSecurityReportRequest.enterpriseProjectId;
+                } else {
+                    reportId = showSecurityReportRequest['report_id'];
+                    reportSubId = showSecurityReportRequest['report_sub_id'];
+                    enterpriseProjectId = showSecurityReportRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (reportId === null || reportId === undefined) {
+                throw new RequiredError('reportId','Required parameter reportId was null or undefined when calling showSecurityReport.');
+            }
+            if (reportId !== null && reportId !== undefined) {
+                localVarQueryParameter['report_id'] = reportId;
+            }
+            if (reportSubId === null || reportSubId === undefined) {
+                throw new RequiredError('reportSubId','Required parameter reportSubId was null or undefined when calling showSecurityReport.');
+            }
+            if (reportSubId !== null && reportSubId !== undefined) {
+                localVarQueryParameter['report_sub_id'] = reportSubId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取安全报告logo
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityReportLogo(showSecurityReportLogoRequest?: ShowSecurityReportLogoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/report/logo",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let logoType;
+            
+            let enterpriseProjectId;
+            
+            let logoId;
+
+            if (showSecurityReportLogoRequest !== null && showSecurityReportLogoRequest !== undefined) {
+                if (showSecurityReportLogoRequest instanceof ShowSecurityReportLogoRequest) {
+                    logoType = showSecurityReportLogoRequest.logoType;
+                    enterpriseProjectId = showSecurityReportLogoRequest.enterpriseProjectId;
+                    logoId = showSecurityReportLogoRequest.logoId;
+                } else {
+                    logoType = showSecurityReportLogoRequest['logo_type'];
+                    enterpriseProjectId = showSecurityReportLogoRequest['enterprise_project_id'];
+                    logoId = showSecurityReportLogoRequest['logo_id'];
+                }
+            }
+
+        
+            if (logoType === null || logoType === undefined) {
+                throw new RequiredError('logoType','Required parameter logoType was null or undefined when calling showSecurityReportLogo.');
+            }
+            if (logoType !== null && logoType !== undefined) {
+                localVarQueryParameter['logo_type'] = logoType;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (logoId !== null && logoId !== undefined) {
+                localVarQueryParameter['logo_id'] = logoId;
+            }
+
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
@@ -47374,6 +51503,85 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询安全体检主机结果列表，支持按主机名称、主机IP、操作系统类型、风险级别等条件筛选
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listSecurityCheckHostResult(listSecurityCheckHostResultRequest?: ListSecurityCheckHostResultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/security-check/host-results",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let limit;
+            
+            let offset;
+            
+            let hostName;
+            
+            let hostIp;
+            
+            let osType;
+            
+            let severity;
+
+            if (listSecurityCheckHostResultRequest !== null && listSecurityCheckHostResultRequest !== undefined) {
+                if (listSecurityCheckHostResultRequest instanceof ListSecurityCheckHostResultRequest) {
+                    enterpriseProjectId = listSecurityCheckHostResultRequest.enterpriseProjectId;
+                    limit = listSecurityCheckHostResultRequest.limit;
+                    offset = listSecurityCheckHostResultRequest.offset;
+                    hostName = listSecurityCheckHostResultRequest.hostName;
+                    hostIp = listSecurityCheckHostResultRequest.hostIp;
+                    osType = listSecurityCheckHostResultRequest.osType;
+                    severity = listSecurityCheckHostResultRequest.severity;
+                } else {
+                    enterpriseProjectId = listSecurityCheckHostResultRequest['enterprise_project_id'];
+                    limit = listSecurityCheckHostResultRequest['limit'];
+                    offset = listSecurityCheckHostResultRequest['offset'];
+                    hostName = listSecurityCheckHostResultRequest['host_name'];
+                    hostIp = listSecurityCheckHostResultRequest['host_ip'];
+                    osType = listSecurityCheckHostResultRequest['os_type'];
+                    severity = listSecurityCheckHostResultRequest['severity'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (hostName !== null && hostName !== undefined) {
+                localVarQueryParameter['host_name'] = hostName;
+            }
+            if (hostIp !== null && hostIp !== undefined) {
+                localVarQueryParameter['host_ip'] = hostIp;
+            }
+            if (osType !== null && osType !== undefined) {
+                localVarQueryParameter['os_type'] = osType;
+            }
+            if (severity !== null && severity !== undefined) {
+                localVarQueryParameter['severity'] = severity;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询漏洞历史处置记录列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -47699,6 +51907,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询安全体检总览信息，包括风险评分、风险数量、防护主机数量等
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityCheckOverview(showSecurityCheckOverviewRequest?: ShowSecurityCheckOverviewRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/security-check/overview",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showSecurityCheckOverviewRequest !== null && showSecurityCheckOverviewRequest !== undefined) {
+                if (showSecurityCheckOverviewRequest instanceof ShowSecurityCheckOverviewRequest) {
+                    enterpriseProjectId = showSecurityCheckOverviewRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showSecurityCheckOverviewRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询安全体检统计信息，包含本次体检服务器数量、各风险等级服务器数量等
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSecurityCheckStatistic(showSecurityCheckStatisticRequest?: ShowSecurityCheckStatisticRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/security-check/statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showSecurityCheckStatisticRequest !== null && showSecurityCheckStatisticRequest !== undefined) {
+                if (showSecurityCheckStatisticRequest instanceof ShowSecurityCheckStatisticRequest) {
+                    enterpriseProjectId = showSecurityCheckStatisticRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showSecurityCheckStatisticRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 启动手动体检。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -47828,14 +52110,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Serverless资产列表--接口已废弃
+         * 实例安装Agent列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listServerlessAsset(listServerlessAssetRequest?: ListServerlessAssetRequest) {
+        installedInstanceAgentList(installedInstanceAgentListRequest?: InstalledInstanceAgentListRequest) {
             const options = {
                 method: "GET",
-                url: "/v5/{project_id}/serverless/asset",
+                url: "/v5/{project_id}/serverless/install/install-agent",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -47844,37 +52126,118 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let category;
+            let limit;
+            
+            let offset;
+            
+            let type;
             
             let enterpriseProjectId;
+            
+            let workloadId;
+
+            if (installedInstanceAgentListRequest !== null && installedInstanceAgentListRequest !== undefined) {
+                if (installedInstanceAgentListRequest instanceof InstalledInstanceAgentListRequest) {
+                    limit = installedInstanceAgentListRequest.limit;
+                    offset = installedInstanceAgentListRequest.offset;
+                    type = installedInstanceAgentListRequest.type;
+                    enterpriseProjectId = installedInstanceAgentListRequest.enterpriseProjectId;
+                    workloadId = installedInstanceAgentListRequest.workloadId;
+                } else {
+                    limit = installedInstanceAgentListRequest['limit'];
+                    offset = installedInstanceAgentListRequest['offset'];
+                    type = installedInstanceAgentListRequest['type'];
+                    enterpriseProjectId = installedInstanceAgentListRequest['enterprise_project_id'];
+                    workloadId = installedInstanceAgentListRequest['workload_id'];
+                }
+            }
+
+        
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling installedInstanceAgentList.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling installedInstanceAgentList.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling installedInstanceAgentList.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (workloadId !== null && workloadId !== undefined) {
+                localVarQueryParameter['workload_id'] = workloadId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * serverless防护管理列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listInstanceProtections(listInstanceProtectionsRequest?: ListInstanceProtectionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/serverless/protections",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let enterpriseProjectId;
+            
+            let instanceId;
             
             let limit;
             
             let offset;
 
-            if (listServerlessAssetRequest !== null && listServerlessAssetRequest !== undefined) {
-                if (listServerlessAssetRequest instanceof ListServerlessAssetRequest) {
-                    category = listServerlessAssetRequest.category;
-                    enterpriseProjectId = listServerlessAssetRequest.enterpriseProjectId;
-                    limit = listServerlessAssetRequest.limit;
-                    offset = listServerlessAssetRequest.offset;
+            if (listInstanceProtectionsRequest !== null && listInstanceProtectionsRequest !== undefined) {
+                if (listInstanceProtectionsRequest instanceof ListInstanceProtectionsRequest) {
+                    type = listInstanceProtectionsRequest.type;
+                    enterpriseProjectId = listInstanceProtectionsRequest.enterpriseProjectId;
+                    instanceId = listInstanceProtectionsRequest.instanceId;
+                    limit = listInstanceProtectionsRequest.limit;
+                    offset = listInstanceProtectionsRequest.offset;
                 } else {
-                    category = listServerlessAssetRequest['category'];
-                    enterpriseProjectId = listServerlessAssetRequest['enterprise_project_id'];
-                    limit = listServerlessAssetRequest['limit'];
-                    offset = listServerlessAssetRequest['offset'];
+                    type = listInstanceProtectionsRequest['type'];
+                    enterpriseProjectId = listInstanceProtectionsRequest['enterprise_project_id'];
+                    instanceId = listInstanceProtectionsRequest['instance_id'];
+                    limit = listInstanceProtectionsRequest['limit'];
+                    offset = listInstanceProtectionsRequest['offset'];
                 }
             }
 
         
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listServerlessAsset.');
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listInstanceProtections.');
             }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -47889,14 +52252,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Serverless资产详细信息--接口已废弃
+         * 查看serverless漏洞统计数据
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listServerlessAssetDetail(listServerlessAssetDetailRequest?: ListServerlessAssetDetailRequest) {
+        showServerlessVulStatistics(showServerlessVulStatisticsRequest?: ShowServerlessVulStatisticsRequest) {
             const options = {
                 method: "GET",
-                url: "/v5/{project_id}/serverless/asset/detail",
+                url: "/v5/{project_id}/serverless/vulnerability/statistics",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -47905,37 +52268,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let category;
-            
-            let assetId;
-            
             let enterpriseProjectId;
 
-            if (listServerlessAssetDetailRequest !== null && listServerlessAssetDetailRequest !== undefined) {
-                if (listServerlessAssetDetailRequest instanceof ListServerlessAssetDetailRequest) {
-                    category = listServerlessAssetDetailRequest.category;
-                    assetId = listServerlessAssetDetailRequest.assetId;
-                    enterpriseProjectId = listServerlessAssetDetailRequest.enterpriseProjectId;
+            if (showServerlessVulStatisticsRequest !== null && showServerlessVulStatisticsRequest !== undefined) {
+                if (showServerlessVulStatisticsRequest instanceof ShowServerlessVulStatisticsRequest) {
+                    enterpriseProjectId = showServerlessVulStatisticsRequest.enterpriseProjectId;
                 } else {
-                    category = listServerlessAssetDetailRequest['category'];
-                    assetId = listServerlessAssetDetailRequest['asset_id'];
-                    enterpriseProjectId = listServerlessAssetDetailRequest['enterprise_project_id'];
+                    enterpriseProjectId = showServerlessVulStatisticsRequest['enterprise_project_id'];
                 }
             }
 
         
-            if (category === null || category === undefined) {
-                throw new RequiredError('category','Required parameter category was null or undefined when calling listServerlessAssetDetail.');
-            }
-            if (category !== null && category !== undefined) {
-                localVarQueryParameter['category'] = category;
-            }
-            if (assetId === null || assetId === undefined) {
-                throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling listServerlessAssetDetail.');
-            }
-            if (assetId !== null && assetId !== undefined) {
-                localVarQueryParameter['asset_id'] = assetId;
-            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
@@ -48090,6 +52433,112 @@ export const ParamCreater = function () {
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'code': code, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 安装agent
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        installAgent(installAgentRequest?: InstallAgentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/setting/agents/install-tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let hostIdList;
+            
+            let loginType;
+            
+            let enterpriseProjectId;
+            
+            let rootPermission;
+            
+            let rootPassword;
+            
+            let loginUser;
+            
+            let loginPassword;
+            
+            let loginPort;
+            
+            let file;
+            
+            let hostGroupId;
+
+            if (installAgentRequest !== null && installAgentRequest !== undefined) {
+                if (installAgentRequest instanceof InstallAgentRequest) {
+                    hostIdList = installAgentRequest.hostIdList;
+                    loginType = installAgentRequest.loginType;
+                    enterpriseProjectId = installAgentRequest.enterpriseProjectId;
+                    rootPermission = installAgentRequest.rootPermission;
+                    rootPassword = installAgentRequest.rootPassword;
+                    loginUser = installAgentRequest.loginUser;
+                    loginPassword = installAgentRequest.loginPassword;
+                    loginPort = installAgentRequest.loginPort;
+                    file = installAgentRequest.file;
+                    hostGroupId = installAgentRequest.hostGroupId;
+                } else {
+                    hostIdList = installAgentRequest['host_id_list'];
+                    loginType = installAgentRequest['login_type'];
+                    enterpriseProjectId = installAgentRequest['enterprise_project_id'];
+                    rootPermission = installAgentRequest['root_permission'];
+                    rootPassword = installAgentRequest['root_password'];
+                    loginUser = installAgentRequest['login_user'];
+                    loginPassword = installAgentRequest['login_password'];
+                    loginPort = installAgentRequest['login_port'];
+                    file = installAgentRequest['file'];
+                    hostGroupId = installAgentRequest['host_group_id'];
+                }
+            }
+
+        
+            if (hostIdList === null || hostIdList === undefined) {
+                throw new RequiredError('hostIdList','Required parameter hostIdList was null or undefined when calling installAgent.');
+            }
+            if (hostIdList !== null && hostIdList !== undefined) {
+                localVarQueryParameter['host_id_list'] = hostIdList;
+            }
+            if (loginType === null || loginType === undefined) {
+                throw new RequiredError('loginType','Required parameter loginType was null or undefined when calling installAgent.');
+            }
+            if (loginType !== null && loginType !== undefined) {
+                localVarQueryParameter['login_type'] = loginType;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (rootPermission !== null && rootPermission !== undefined) {
+                localVarQueryParameter['root_permission'] = rootPermission;
+            }
+            if (rootPassword !== null && rootPassword !== undefined) {
+                localVarQueryParameter['root_password'] = rootPassword;
+            }
+            if (loginUser !== null && loginUser !== undefined) {
+                localVarQueryParameter['login_user'] = loginUser;
+            }
+            if (loginPassword !== null && loginPassword !== undefined) {
+                localVarQueryParameter['login_password'] = loginPassword;
+            }
+            if (loginPort !== null && loginPort !== undefined) {
+                localVarQueryParameter['login_port'] = loginPort;
+            }
+            if (file !== null && file !== undefined) {
+                localVarQueryParameter['file'] = file;
+            }
+            if (hostGroupId !== null && hostGroupId !== undefined) {
+                localVarQueryParameter['host_group_id'] = hostGroupId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -48726,6 +53175,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置告警提醒开关
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setRemindersConfig(setRemindersConfigRequest?: SetRemindersConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v5/{project_id}/setting/reminders-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (setRemindersConfigRequest !== null && setRemindersConfigRequest !== undefined) {
+                if (setRemindersConfigRequest instanceof SetRemindersConfigRequest) {
+                    body = setRemindersConfigRequest.body
+                    region = setRemindersConfigRequest.region;
+                    enterpriseProjectId = setRemindersConfigRequest.enterpriseProjectId;
+                } else {
+                    body = setRemindersConfigRequest['body'];
+                    region = setRemindersConfigRequest['region'];
+                    enterpriseProjectId = setRemindersConfigRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 设置双因子登录配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -48909,6 +53411,60 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'code': code, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 下载模板文件
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTemplate(showTemplateRequest?: ShowTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/setting/templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let enterpriseProjectId;
+            
+            let region;
+
+            if (showTemplateRequest !== null && showTemplateRequest !== undefined) {
+                if (showTemplateRequest instanceof ShowTemplateRequest) {
+                    type = showTemplateRequest.type;
+                    enterpriseProjectId = showTemplateRequest.enterpriseProjectId;
+                    region = showTemplateRequest.region;
+                } else {
+                    type = showTemplateRequest['type'];
+                    enterpriseProjectId = showTemplateRequest['enterprise_project_id'];
+                    region = showTemplateRequest['region'];
+                }
+            }
+
+        
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling showTemplate.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -49649,6 +54205,52 @@ export const ParamCreater = function () {
                 } else {
                     body = exportVulHandleHistoryRequest['body'];
                     enterpriseProjectId = exportVulHandleHistoryRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 导出漏洞报告
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        exportVulReport(exportVulReportRequest?: ExportVulReportRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/{project_id}/vulnerability/report/export",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let enterpriseProjectId;
+
+            if (exportVulReportRequest !== null && exportVulReportRequest !== undefined) {
+                if (exportVulReportRequest instanceof ExportVulReportRequest) {
+                    body = exportVulReportRequest.body
+                    enterpriseProjectId = exportVulReportRequest.enterpriseProjectId;
+                } else {
+                    body = exportVulReportRequest['body'];
+                    enterpriseProjectId = exportVulReportRequest['enterprise_project_id'];
                 }
             }
 
@@ -50635,6 +55237,151 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询漏洞处置任务列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVulHandleTask(listVulHandleTaskRequest?: ListVulHandleTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vulnerability/handle/tasks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let handleType;
+            
+            let minStartTime;
+            
+            let maxStartTime;
+            
+            let status;
+
+            if (listVulHandleTaskRequest !== null && listVulHandleTaskRequest !== undefined) {
+                if (listVulHandleTaskRequest instanceof ListVulHandleTaskRequest) {
+                    enterpriseProjectId = listVulHandleTaskRequest.enterpriseProjectId;
+                    offset = listVulHandleTaskRequest.offset;
+                    limit = listVulHandleTaskRequest.limit;
+                    handleType = listVulHandleTaskRequest.handleType;
+                    minStartTime = listVulHandleTaskRequest.minStartTime;
+                    maxStartTime = listVulHandleTaskRequest.maxStartTime;
+                    status = listVulHandleTaskRequest.status;
+                } else {
+                    enterpriseProjectId = listVulHandleTaskRequest['enterprise_project_id'];
+                    offset = listVulHandleTaskRequest['offset'];
+                    limit = listVulHandleTaskRequest['limit'];
+                    handleType = listVulHandleTaskRequest['handle_type'];
+                    minStartTime = listVulHandleTaskRequest['min_start_time'];
+                    maxStartTime = listVulHandleTaskRequest['max_start_time'];
+                    status = listVulHandleTaskRequest['status'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (handleType !== null && handleType !== undefined) {
+                localVarQueryParameter['handle_type'] = handleType;
+            }
+            if (minStartTime !== null && minStartTime !== undefined) {
+                localVarQueryParameter['min_start_time'] = minStartTime;
+            }
+            if (maxStartTime !== null && maxStartTime !== undefined) {
+                localVarQueryParameter['max_start_time'] = maxStartTime;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询漏洞处置任务详情列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listVulHandleTaskDetail(listVulHandleTaskDetailRequest?: ListVulHandleTaskDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vulnerability/handle/task/{task_id}/details",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let enterpriseProjectId;
+            
+            let offset;
+            
+            let limit;
+            
+            let handleStatus;
+
+            if (listVulHandleTaskDetailRequest !== null && listVulHandleTaskDetailRequest !== undefined) {
+                if (listVulHandleTaskDetailRequest instanceof ListVulHandleTaskDetailRequest) {
+                    taskId = listVulHandleTaskDetailRequest.taskId;
+                    enterpriseProjectId = listVulHandleTaskDetailRequest.enterpriseProjectId;
+                    offset = listVulHandleTaskDetailRequest.offset;
+                    limit = listVulHandleTaskDetailRequest.limit;
+                    handleStatus = listVulHandleTaskDetailRequest.handleStatus;
+                } else {
+                    taskId = listVulHandleTaskDetailRequest['task_id'];
+                    enterpriseProjectId = listVulHandleTaskDetailRequest['enterprise_project_id'];
+                    offset = listVulHandleTaskDetailRequest['offset'];
+                    limit = listVulHandleTaskDetailRequest['limit'];
+                    handleStatus = listVulHandleTaskDetailRequest['handle_status'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling listVulHandleTaskDetail.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (handleStatus !== null && handleStatus !== undefined) {
+                localVarQueryParameter['handle_status'] = handleStatus;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -52267,6 +57014,74 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询漏洞影响的主机及主机下的漏洞
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVulAffectInfo(showVulAffectInfoRequest?: ShowVulAffectInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vulnerability/affect-info",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let vulId;
+            
+            let enterpriseProjectId;
+            
+            let hostId;
+            
+            let vulType;
+            
+            let handleStatus;
+
+            if (showVulAffectInfoRequest !== null && showVulAffectInfoRequest !== undefined) {
+                if (showVulAffectInfoRequest instanceof ShowVulAffectInfoRequest) {
+                    vulId = showVulAffectInfoRequest.vulId;
+                    enterpriseProjectId = showVulAffectInfoRequest.enterpriseProjectId;
+                    hostId = showVulAffectInfoRequest.hostId;
+                    vulType = showVulAffectInfoRequest.vulType;
+                    handleStatus = showVulAffectInfoRequest.handleStatus;
+                } else {
+                    vulId = showVulAffectInfoRequest['vul_id'];
+                    enterpriseProjectId = showVulAffectInfoRequest['enterprise_project_id'];
+                    hostId = showVulAffectInfoRequest['host_id'];
+                    vulType = showVulAffectInfoRequest['vul_type'];
+                    handleStatus = showVulAffectInfoRequest['handle_status'];
+                }
+            }
+
+        
+            if (vulId === null || vulId === undefined) {
+                throw new RequiredError('vulId','Required parameter vulId was null or undefined when calling showVulAffectInfo.');
+            }
+            if (vulId !== null && vulId !== undefined) {
+                localVarQueryParameter['vul_id'] = vulId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (hostId !== null && hostId !== undefined) {
+                localVarQueryParameter['host_id'] = hostId;
+            }
+            if (vulType !== null && vulType !== undefined) {
+                localVarQueryParameter['vul_type'] = vulType;
+            }
+            if (handleStatus !== null && handleStatus !== undefined) {
+                localVarQueryParameter['handle_status'] = handleStatus;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 统计受影响服务器和漏洞数量。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -52406,6 +57221,53 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据统计类型列表查询漏洞的指定统计数据，支持查询多种漏洞统计指标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVulIndividualStatistics(showVulIndividualStatisticsRequest?: ShowVulIndividualStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vulnerability/individual-statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let statisticsTypes;
+            
+            let enterpriseProjectId;
+
+            if (showVulIndividualStatisticsRequest !== null && showVulIndividualStatisticsRequest !== undefined) {
+                if (showVulIndividualStatisticsRequest instanceof ShowVulIndividualStatisticsRequest) {
+                    statisticsTypes = showVulIndividualStatisticsRequest.statisticsTypes;
+                    enterpriseProjectId = showVulIndividualStatisticsRequest.enterpriseProjectId;
+                } else {
+                    statisticsTypes = showVulIndividualStatisticsRequest['statistics_types'];
+                    enterpriseProjectId = showVulIndividualStatisticsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (statisticsTypes === null || statisticsTypes === undefined) {
+                throw new RequiredError('statisticsTypes','Required parameter statisticsTypes was null or undefined when calling showVulIndividualStatistics.');
+            }
+            if (statisticsTypes !== null && statisticsTypes !== undefined) {
+                localVarQueryParameter['statistics_types'] = statisticsTypes;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 在主机视图中导出漏洞报告详细报告pdf格式。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -52529,6 +57391,43 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询漏洞扫描任务的统计数据，包含扫描任务总次数、进行中任务次数和最后一次扫描任务详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVulScanTaskStatistics(showVulScanTaskStatisticsRequest?: ShowVulScanTaskStatisticsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/{project_id}/vulnerability/scan/task/statistics",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let enterpriseProjectId;
+
+            if (showVulScanTaskStatisticsRequest !== null && showVulScanTaskStatisticsRequest !== undefined) {
+                if (showVulScanTaskStatisticsRequest instanceof ShowVulScanTaskStatisticsRequest) {
+                    enterpriseProjectId = showVulScanTaskStatisticsRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showVulScanTaskStatisticsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;

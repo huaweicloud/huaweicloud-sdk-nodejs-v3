@@ -1,11 +1,9 @@
-import { PageInfo } from './PageInfo';
 import { TrafficMirrorFilterRule } from './TrafficMirrorFilterRule';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchCreateTrafficMirrorFilterRulesResponse extends SdkResponse {
     private 'traffic_mirror_filter_rules'?: Array<TrafficMirrorFilterRule>;
-    private 'page_info'?: PageInfo;
     private 'request_id'?: string;
     public constructor() { 
         super();
@@ -19,16 +17,6 @@ export class BatchCreateTrafficMirrorFilterRulesResponse extends SdkResponse {
     }
     public get trafficMirrorFilterRules(): Array<TrafficMirrorFilterRule> | undefined {
         return this['traffic_mirror_filter_rules'];
-    }
-    public withPageInfo(pageInfo: PageInfo): BatchCreateTrafficMirrorFilterRulesResponse {
-        this['page_info'] = pageInfo;
-        return this;
-    }
-    public set pageInfo(pageInfo: PageInfo  | undefined) {
-        this['page_info'] = pageInfo;
-    }
-    public get pageInfo(): PageInfo | undefined {
-        return this['page_info'];
     }
     public withRequestId(requestId: string): BatchCreateTrafficMirrorFilterRulesResponse {
         this['request_id'] = requestId;

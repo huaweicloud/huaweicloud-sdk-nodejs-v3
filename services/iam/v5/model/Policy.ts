@@ -1,4 +1,5 @@
 import { PolicyType } from './PolicyType';
+import { Tag } from './Tag';
 
 
 export class Policy {
@@ -12,7 +13,8 @@ export class Policy {
     public description?: string;
     private 'created_at'?: Date;
     private 'updated_at'?: Date;
-    public constructor(policyType?: PolicyType, policyName?: string, policyId?: string, urn?: string, path?: string, defaultVersionId?: string, attachmentCount?: number, createdAt?: Date, updatedAt?: Date) { 
+    public tags?: Array<Tag>;
+    public constructor(policyType?: PolicyType, policyName?: string, policyId?: string, urn?: string, path?: string, defaultVersionId?: string, attachmentCount?: number, createdAt?: Date, updatedAt?: Date, tags?: Array<Tag>) { 
         this['policy_type'] = policyType;
         this['policy_name'] = policyName;
         this['policy_id'] = policyId;
@@ -22,6 +24,7 @@ export class Policy {
         this['attachment_count'] = attachmentCount;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
+        this['tags'] = tags;
     }
     public withPolicyType(policyType: PolicyType): Policy {
         this['policy_type'] = policyType;
@@ -104,5 +107,9 @@ export class Policy {
     }
     public get updatedAt(): Date | undefined {
         return this['updated_at'];
+    }
+    public withTags(tags: Array<Tag>): Policy {
+        this['tags'] = tags;
+        return this;
     }
 }

@@ -4,6 +4,7 @@ import { SessionQueryInfoOption } from './SessionQueryInfoOption';
 export class ListRealTimeSessionsRequestBody {
     private 'node_id'?: string;
     private 'component_id'?: string;
+    private 'support_local'?: boolean;
     private 'query_info'?: SessionQueryInfoOption;
     public constructor(nodeId?: string, componentId?: string) { 
         this['node_id'] = nodeId;
@@ -28,6 +29,16 @@ export class ListRealTimeSessionsRequestBody {
     }
     public get componentId(): string | undefined {
         return this['component_id'];
+    }
+    public withSupportLocal(supportLocal: boolean): ListRealTimeSessionsRequestBody {
+        this['support_local'] = supportLocal;
+        return this;
+    }
+    public set supportLocal(supportLocal: boolean  | undefined) {
+        this['support_local'] = supportLocal;
+    }
+    public get supportLocal(): boolean | undefined {
+        return this['support_local'];
     }
     public withQueryInfo(queryInfo: SessionQueryInfoOption): ListRealTimeSessionsRequestBody {
         this['query_info'] = queryInfo;

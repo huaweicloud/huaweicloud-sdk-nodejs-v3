@@ -1,8 +1,10 @@
+import { DeleteGaussMySqlInstanceRequestBody } from './DeleteGaussMySqlInstanceRequestBody';
 
 
 export class DeleteGaussMySqlInstanceRequest {
     private 'X-Language'?: string;
     private 'instance_id'?: string;
+    public body?: DeleteGaussMySqlInstanceRequestBody;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -25,5 +27,9 @@ export class DeleteGaussMySqlInstanceRequest {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
+    }
+    public withBody(body: DeleteGaussMySqlInstanceRequestBody): DeleteGaussMySqlInstanceRequest {
+        this['body'] = body;
+        return this;
     }
 }

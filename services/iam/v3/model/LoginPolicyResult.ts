@@ -8,7 +8,8 @@ export class LoginPolicyResult {
     private 'period_with_login_failures'?: number;
     private 'session_timeout'?: number;
     private 'show_recent_login_info'?: boolean;
-    public constructor(accountValidityPeriod?: number, customInfoForLogin?: string, lockoutDuration?: number, loginFailedTimes?: number, periodWithLoginFailures?: number, sessionTimeout?: number, showRecentLoginInfo?: boolean) { 
+    private 'allow_sms_login'?: boolean;
+    public constructor(accountValidityPeriod?: number, customInfoForLogin?: string, lockoutDuration?: number, loginFailedTimes?: number, periodWithLoginFailures?: number, sessionTimeout?: number, showRecentLoginInfo?: boolean, allowSmsLogin?: boolean) { 
         this['account_validity_period'] = accountValidityPeriod;
         this['custom_info_for_login'] = customInfoForLogin;
         this['lockout_duration'] = lockoutDuration;
@@ -16,6 +17,7 @@ export class LoginPolicyResult {
         this['period_with_login_failures'] = periodWithLoginFailures;
         this['session_timeout'] = sessionTimeout;
         this['show_recent_login_info'] = showRecentLoginInfo;
+        this['allow_sms_login'] = allowSmsLogin;
     }
     public withAccountValidityPeriod(accountValidityPeriod: number): LoginPolicyResult {
         this['account_validity_period'] = accountValidityPeriod;
@@ -86,5 +88,15 @@ export class LoginPolicyResult {
     }
     public get showRecentLoginInfo(): boolean | undefined {
         return this['show_recent_login_info'];
+    }
+    public withAllowSmsLogin(allowSmsLogin: boolean): LoginPolicyResult {
+        this['allow_sms_login'] = allowSmsLogin;
+        return this;
+    }
+    public set allowSmsLogin(allowSmsLogin: boolean  | undefined) {
+        this['allow_sms_login'] = allowSmsLogin;
+    }
+    public get allowSmsLogin(): boolean | undefined {
+        return this['allow_sms_login'];
     }
 }

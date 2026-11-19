@@ -60,6 +60,9 @@ import { CreateRandomResponse } from './model/CreateRandomResponse';
 import { CreateRsaDatakeyPairRequest } from './model/CreateRsaDatakeyPairRequest';
 import { CreateRsaDatakeyPairRequestBody } from './model/CreateRsaDatakeyPairRequestBody';
 import { CreateRsaDatakeyPairResponse } from './model/CreateRsaDatakeyPairResponse';
+import { CreateTrustedKeySpaceRequest } from './model/CreateTrustedKeySpaceRequest';
+import { CreateTrustedKeySpaceRequestBody } from './model/CreateTrustedKeySpaceRequestBody';
+import { CreateTrustedKeySpaceResponse } from './model/CreateTrustedKeySpaceResponse';
 import { DecryptDataRequest } from './model/DecryptDataRequest';
 import { DecryptDataRequestBody } from './model/DecryptDataRequestBody';
 import { DecryptDataResponse } from './model/DecryptDataResponse';
@@ -85,6 +88,8 @@ import { DeleteKeyStoreRequest } from './model/DeleteKeyStoreRequest';
 import { DeleteKeyStoreResponse } from './model/DeleteKeyStoreResponse';
 import { DeleteTagRequest } from './model/DeleteTagRequest';
 import { DeleteTagResponse } from './model/DeleteTagResponse';
+import { DeleteTrustedKeySpaceRequest } from './model/DeleteTrustedKeySpaceRequest';
+import { DeleteTrustedKeySpaceResponse } from './model/DeleteTrustedKeySpaceResponse';
 import { DeriveSharedSecretRequest } from './model/DeriveSharedSecretRequest';
 import { DeriveSharedSecretRequestBody } from './model/DeriveSharedSecretRequestBody';
 import { DeriveSharedSecretResponse } from './model/DeriveSharedSecretResponse';
@@ -162,6 +167,9 @@ import { ListRetirableGrantsRequestBody } from './model/ListRetirableGrantsReque
 import { ListRetirableGrantsResponse } from './model/ListRetirableGrantsResponse';
 import { ListSupportRegionsRequest } from './model/ListSupportRegionsRequest';
 import { ListSupportRegionsResponse } from './model/ListSupportRegionsResponse';
+import { ListTrustedKeySpaceRequest } from './model/ListTrustedKeySpaceRequest';
+import { ListTrustedKeySpaceResponse } from './model/ListTrustedKeySpaceResponse';
+import { ListTrustedKeySpaceResponseBodyKeyspaces } from './model/ListTrustedKeySpaceResponseBodyKeyspaces';
 import { OperateKeyRequestBody } from './model/OperateKeyRequestBody';
 import { PageInfo } from './model/PageInfo';
 import { Quotas } from './model/Quotas';
@@ -185,6 +193,10 @@ import { ShowKeyRotationStatusRequest } from './model/ShowKeyRotationStatusReque
 import { ShowKeyRotationStatusResponse } from './model/ShowKeyRotationStatusResponse';
 import { ShowKeyStoreRequest } from './model/ShowKeyStoreRequest';
 import { ShowKeyStoreResponse } from './model/ShowKeyStoreResponse';
+import { ShowKeyUsageFlowRequest } from './model/ShowKeyUsageFlowRequest';
+import { ShowKeyUsageFlowResponse } from './model/ShowKeyUsageFlowResponse';
+import { ShowKeyUsageFlowResponseBodyEdges } from './model/ShowKeyUsageFlowResponseBodyEdges';
+import { ShowKeyUsageFlowResponseBodyNodes } from './model/ShowKeyUsageFlowResponseBodyNodes';
 import { ShowKmsTagsRequest } from './model/ShowKmsTagsRequest';
 import { ShowKmsTagsResponse } from './model/ShowKmsTagsResponse';
 import { ShowPublicKeyRequest } from './model/ShowPublicKeyRequest';
@@ -202,6 +214,9 @@ import { SignRequestBody } from './model/SignRequestBody';
 import { SignResponse } from './model/SignResponse';
 import { Tag } from './model/Tag';
 import { TagItem } from './model/TagItem';
+import { TransferKeyRequest } from './model/TransferKeyRequest';
+import { TransferKeyRequestBody } from './model/TransferKeyRequestBody';
+import { TransferKeyResponse } from './model/TransferKeyResponse';
 import { UpdateKeyAliasRequest } from './model/UpdateKeyAliasRequest';
 import { UpdateKeyAliasRequestBody } from './model/UpdateKeyAliasRequestBody';
 import { UpdateKeyAliasResponse } from './model/UpdateKeyAliasResponse';
@@ -216,6 +231,9 @@ import { UpdateKeyPolicyResponseBodyPolicyValidityPeriod } from './model/UpdateK
 import { UpdateKeyRotationIntervalRequest } from './model/UpdateKeyRotationIntervalRequest';
 import { UpdateKeyRotationIntervalRequestBody } from './model/UpdateKeyRotationIntervalRequestBody';
 import { UpdateKeyRotationIntervalResponse } from './model/UpdateKeyRotationIntervalResponse';
+import { UpdateKeyStoreRequest } from './model/UpdateKeyStoreRequest';
+import { UpdateKeyStoreRequestBody } from './model/UpdateKeyStoreRequestBody';
+import { UpdateKeyStoreResponse } from './model/UpdateKeyStoreResponse';
 import { UpdatePrimaryRegionRequest } from './model/UpdatePrimaryRegionRequest';
 import { UpdatePrimaryRegionRequestBody } from './model/UpdatePrimaryRegionRequestBody';
 import { UpdatePrimaryRegionResponse } from './model/UpdatePrimaryRegionResponse';
@@ -639,6 +657,25 @@ export class KmsClient {
     }
 
     /**
+     * 用于创建密钥空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建密钥空间
+     * @param {CreateTrustedKeySpaceRequestBody} createTrustedKeySpaceRequestBody **参数解释：** 创建密钥空间请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTrustedKeySpace(createTrustedKeySpaceRequest?: CreateTrustedKeySpaceRequest): Promise<CreateTrustedKeySpaceResponse> {
+        const options = ParamCreater().createTrustedKeySpace(createTrustedKeySpaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：解密数据。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -821,6 +858,25 @@ export class KmsClient {
      */
     public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
         const options = ParamCreater().deleteTag(deleteTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于删除密钥空间
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除密钥空间
+     * @param {string} keyspaceId **参数解释：** 密钥空间ID。 **约束限制：** 不涉及 **取值范围：** UUID格式，字符长度36-36。 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTrustedKeySpace(deleteTrustedKeySpaceRequest?: DeleteTrustedKeySpaceRequest): Promise<DeleteTrustedKeySpaceResponse> {
+        const options = ParamCreater().deleteTrustedKeySpace(deleteTrustedKeySpaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1316,6 +1372,28 @@ export class KmsClient {
     }
 
     /**
+     * 用于查询密钥空间列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询密钥空间列表
+     * @param {string} [limit] **参数解释：** 分页参数，每一页显示的记录数 **约束限制：** 数字类型 **取值范围：** 1-100 **默认取值：** 50
+     * @param {string} [marker] **参数解释：** 分页参数，下一页的标志 **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} [keyspaceId] **参数解释：** 密钥空间ID，用于过滤 **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {number} [type] **参数解释：** 密钥空间类型，用于过滤 **约束限制：** 数字类型 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTrustedKeySpace(listTrustedKeySpaceRequest?: ListTrustedKeySpaceRequest): Promise<ListTrustedKeySpaceResponse> {
+        const options = ParamCreater().listTrustedKeySpace(listTrustedKeySpaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 将密文使用源密钥解密后，再使用指定的新密钥加密。
      * 能将CreateDatekey，CreateDatakeyWithoutPlainText,EncryptDatakey加密的数据密钥密文重新加密成新的数据密钥密文。
      * 能将EncryptData加密的密文重新加密成新的密文。
@@ -1433,6 +1511,29 @@ export class KmsClient {
     }
 
     /**
+     * 查询指定密钥空间下指定密钥的使用流关系图，返回节点和边的图结构。
+     * - 节点按类型分组：vpc（VPC节点，含ECS、CCE子节点）、custom（接入点节点）、modelarts（ModelArts节点）、policy（策略节点）、unknown_node（未知起点节点）、key（密钥节点）。
+     * - 边表示使用流关系：起点节点到策略节点、策略节点到密钥节点。
+     * - 该接口仅支持查询已记录使用流关系的密钥，若密钥不存在使用流记录，则返回空的节点和边。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询密钥使用流
+     * @param {string} keyspaceId **参数解释：** 密钥空间ID **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {string} keyId **参数解释：** 密钥ID **约束限制：** 满足正则表达式^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showKeyUsageFlow(showKeyUsageFlowRequest?: ShowKeyUsageFlowRequest): Promise<ShowKeyUsageFlowResponse> {
+        const options = ParamCreater().showKeyUsageFlow(showKeyUsageFlowRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：查询密钥标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1526,6 +1627,26 @@ export class KmsClient {
     }
 
     /**
+     * 用于将密钥从一个密钥空间转移到另一个密钥空间
+     * - ASSIGN：将密钥分配给目标密钥空间，仅支持对称密钥，且密钥必须未属于任何密钥空间。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 转移密钥
+     * @param {TransferKeyRequestBody} transferKeyRequestBody **参数解释：** 转移密钥请求消息体 **约束限制：** 不涉及 **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public transferKey(transferKeyRequest?: TransferKeyRequest): Promise<TransferKeyResponse> {
+        const options = ParamCreater().transferKey(transferKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 功能介绍：修改用户主密钥别名。
      * - 说明：
      *    - 服务默认主密钥（密钥别名后缀为“/default”）不可以修改。
@@ -1601,6 +1722,26 @@ export class KmsClient {
      */
     public updateKeyRotationInterval(updateKeyRotationIntervalRequest?: UpdateKeyRotationIntervalRequest): Promise<UpdateKeyRotationIntervalResponse> {
         const options = ParamCreater().updateKeyRotationInterval(updateKeyRotationIntervalRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 仅XKS类型的密钥库支持更新访问凭证信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新专属密钥库
+     * @param {string} keystoreId **参数解释：** 密钥库ID **约束限制：** 满足正则表达式\&quot;[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$\&quot; **取值范围：** 不涉及 **默认取值：** 不涉及
+     * @param {UpdateKeyStoreRequestBody} updateKeyStoreRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateKeyStore(updateKeyStoreRequest?: UpdateKeyStoreRequest): Promise<UpdateKeyStoreResponse> {
+        const options = ParamCreater().updateKeyStore(updateKeyStoreRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2500,6 +2641,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用于创建密钥空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTrustedKeySpace(createTrustedKeySpaceRequest?: CreateTrustedKeySpaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/key-spaces",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createTrustedKeySpaceRequest !== null && createTrustedKeySpaceRequest !== undefined) {
+                if (createTrustedKeySpaceRequest instanceof CreateTrustedKeySpaceRequest) {
+                    body = createTrustedKeySpaceRequest.body
+                } else {
+                    body = createTrustedKeySpaceRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：解密数据。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2878,6 +3057,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'key_id': keyId,'key': key, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于删除密钥空间
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTrustedKeySpace(deleteTrustedKeySpaceRequest?: DeleteTrustedKeySpaceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/{project_id}/kms/key-spaces/{keyspace_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let keyspaceId;
+
+            if (deleteTrustedKeySpaceRequest !== null && deleteTrustedKeySpaceRequest !== undefined) {
+                if (deleteTrustedKeySpaceRequest instanceof DeleteTrustedKeySpaceRequest) {
+                    keyspaceId = deleteTrustedKeySpaceRequest.keyspaceId;
+                } else {
+                    keyspaceId = deleteTrustedKeySpaceRequest['keyspace_id'];
+                }
+            }
+
+        
+            if (keyspaceId === null || keyspaceId === undefined) {
+            throw new RequiredError('keyspaceId','Required parameter keyspaceId was null or undefined when calling deleteTrustedKeySpace.');
+            }
+
+            options.pathParams = { 'keyspace_id': keyspaceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3881,6 +4097,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 用于查询密钥空间列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTrustedKeySpace(listTrustedKeySpaceRequest?: ListTrustedKeySpaceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/kms/key-spaces",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let keyspaceId;
+            
+            let type;
+
+            if (listTrustedKeySpaceRequest !== null && listTrustedKeySpaceRequest !== undefined) {
+                if (listTrustedKeySpaceRequest instanceof ListTrustedKeySpaceRequest) {
+                    limit = listTrustedKeySpaceRequest.limit;
+                    marker = listTrustedKeySpaceRequest.marker;
+                    keyspaceId = listTrustedKeySpaceRequest.keyspaceId;
+                    type = listTrustedKeySpaceRequest.type;
+                } else {
+                    limit = listTrustedKeySpaceRequest['limit'];
+                    marker = listTrustedKeySpaceRequest['marker'];
+                    keyspaceId = listTrustedKeySpaceRequest['keyspace_id'];
+                    type = listTrustedKeySpaceRequest['type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (keyspaceId !== null && keyspaceId !== undefined) {
+                localVarQueryParameter['keyspace_id'] = keyspaceId;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 将密文使用源密钥解密后，再使用指定的新密钥加密。
          * 能将CreateDatekey，CreateDatakeyWithoutPlainText,EncryptDatakey加密的数据密钥密文重新加密成新的数据密钥密文。
          * 能将EncryptData加密的密文重新加密成新的密文。
@@ -4117,6 +4391,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询指定密钥空间下指定密钥的使用流关系图，返回节点和边的图结构。
+         * - 节点按类型分组：vpc（VPC节点，含ECS、CCE子节点）、custom（接入点节点）、modelarts（ModelArts节点）、policy（策略节点）、unknown_node（未知起点节点）、key（密钥节点）。
+         * - 边表示使用流关系：起点节点到策略节点、策略节点到密钥节点。
+         * - 该接口仅支持查询已记录使用流关系的密钥，若密钥不存在使用流记录，则返回空的节点和边。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showKeyUsageFlow(showKeyUsageFlowRequest?: ShowKeyUsageFlowRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/kms/key-spaces/usage-flow",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let keyspaceId;
+            
+            let keyId;
+
+            if (showKeyUsageFlowRequest !== null && showKeyUsageFlowRequest !== undefined) {
+                if (showKeyUsageFlowRequest instanceof ShowKeyUsageFlowRequest) {
+                    keyspaceId = showKeyUsageFlowRequest.keyspaceId;
+                    keyId = showKeyUsageFlowRequest.keyId;
+                } else {
+                    keyspaceId = showKeyUsageFlowRequest['keyspace_id'];
+                    keyId = showKeyUsageFlowRequest['key_id'];
+                }
+            }
+
+        
+            if (keyspaceId === null || keyspaceId === undefined) {
+                throw new RequiredError('keyspaceId','Required parameter keyspaceId was null or undefined when calling showKeyUsageFlow.');
+            }
+            if (keyspaceId !== null && keyspaceId !== undefined) {
+                localVarQueryParameter['keyspace_id'] = keyspaceId;
+            }
+            if (keyId === null || keyId === undefined) {
+                throw new RequiredError('keyId','Required parameter keyId was null or undefined when calling showKeyUsageFlow.');
+            }
+            if (keyId !== null && keyId !== undefined) {
+                localVarQueryParameter['key_id'] = keyId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 功能介绍：查询密钥标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4257,6 +4584,45 @@ export const ParamCreater = function () {
                     body = signRequest.body
                 } else {
                     body = signRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于将密钥从一个密钥空间转移到另一个密钥空间
+         * - ASSIGN：将密钥分配给目标密钥空间，仅支持对称密钥，且密钥必须未属于任何密钥空间。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        transferKey(transferKeyRequest?: TransferKeyRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/kms/key-spaces/transfer-key",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (transferKeyRequest !== null && transferKeyRequest !== undefined) {
+                if (transferKeyRequest instanceof TransferKeyRequest) {
+                    body = transferKeyRequest.body
+                } else {
+                    body = transferKeyRequest['body'];
                 }
             }
 
@@ -4433,6 +4799,52 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 仅XKS类型的密钥库支持更新访问凭证信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateKeyStore(updateKeyStoreRequest?: UpdateKeyStoreRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/keystores/{keystore_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let keystoreId;
+
+            if (updateKeyStoreRequest !== null && updateKeyStoreRequest !== undefined) {
+                if (updateKeyStoreRequest instanceof UpdateKeyStoreRequest) {
+                    keystoreId = updateKeyStoreRequest.keystoreId;
+                    body = updateKeyStoreRequest.body
+                } else {
+                    keystoreId = updateKeyStoreRequest['keystore_id'];
+                    body = updateKeyStoreRequest['body'];
+                }
+            }
+
+        
+            if (keystoreId === null || keystoreId === undefined) {
+            throw new RequiredError('keystoreId','Required parameter keystoreId was null or undefined when calling updateKeyStore.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'keystore_id': keystoreId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

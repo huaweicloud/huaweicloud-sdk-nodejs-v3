@@ -8,6 +8,9 @@ export class ShowServerlessComputeAbilityPolicyResponse extends SdkResponse {
     private 'scale_out_switch'?: boolean;
     private 'max_readonly_node_count'?: number;
     private 'min_readonly_node_count'?: number;
+    private 'scale_to_zero'?: boolean;
+    private 'idle_duration_seconds'?: number;
+    private 'scale_to_zero_status'?: string;
     public constructor() { 
         super();
     }
@@ -70,5 +73,35 @@ export class ShowServerlessComputeAbilityPolicyResponse extends SdkResponse {
     }
     public get minReadonlyNodeCount(): number | undefined {
         return this['min_readonly_node_count'];
+    }
+    public withScaleToZero(scaleToZero: boolean): ShowServerlessComputeAbilityPolicyResponse {
+        this['scale_to_zero'] = scaleToZero;
+        return this;
+    }
+    public set scaleToZero(scaleToZero: boolean  | undefined) {
+        this['scale_to_zero'] = scaleToZero;
+    }
+    public get scaleToZero(): boolean | undefined {
+        return this['scale_to_zero'];
+    }
+    public withIdleDurationSeconds(idleDurationSeconds: number): ShowServerlessComputeAbilityPolicyResponse {
+        this['idle_duration_seconds'] = idleDurationSeconds;
+        return this;
+    }
+    public set idleDurationSeconds(idleDurationSeconds: number  | undefined) {
+        this['idle_duration_seconds'] = idleDurationSeconds;
+    }
+    public get idleDurationSeconds(): number | undefined {
+        return this['idle_duration_seconds'];
+    }
+    public withScaleToZeroStatus(scaleToZeroStatus: string): ShowServerlessComputeAbilityPolicyResponse {
+        this['scale_to_zero_status'] = scaleToZeroStatus;
+        return this;
+    }
+    public set scaleToZeroStatus(scaleToZeroStatus: string  | undefined) {
+        this['scale_to_zero_status'] = scaleToZeroStatus;
+    }
+    public get scaleToZeroStatus(): string | undefined {
+        return this['scale_to_zero_status'];
     }
 }

@@ -40,6 +40,7 @@ import { ChangePasswordV5Request } from './model/ChangePasswordV5Request';
 import { ChangePasswordV5Response } from './model/ChangePasswordV5Response';
 import { Condition } from './model/Condition';
 import { ConditionKey } from './model/ConditionKey';
+import { CreateAccessKeyReqBody } from './model/CreateAccessKeyReqBody';
 import { CreateAccessKeyV5Request } from './model/CreateAccessKeyV5Request';
 import { CreateAccessKeyV5Response } from './model/CreateAccessKeyV5Response';
 import { CreateAgencyReqBody } from './model/CreateAgencyReqBody';
@@ -1942,6 +1943,7 @@ export class IamClient {
      *
      * @summary 创建永久访问密钥
      * @param {string} userId IAM用户ID。
+     * @param {CreateAccessKeyReqBody} [createAccessKeyReqBody] 创建永久访问密钥请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5614,18 +5616,22 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {}
+                headers: {},
+                data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
             
             let userId;
 
             if (createAccessKeyV5Request !== null && createAccessKeyV5Request !== undefined) {
                 if (createAccessKeyV5Request instanceof CreateAccessKeyV5Request) {
                     userId = createAccessKeyV5Request.userId;
+                    body = createAccessKeyV5Request.body
                 } else {
                     userId = createAccessKeyV5Request['user_id'];
+                    body = createAccessKeyV5Request['body'];
                 }
             }
 
@@ -5633,7 +5639,9 @@ export const ParamCreater = function () {
             if (userId === null || userId === undefined) {
             throw new RequiredError('userId','Required parameter userId was null or undefined when calling createAccessKeyV5.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'user_id': userId, };
             options.headers = localVarHeaderParameter;
             return options;

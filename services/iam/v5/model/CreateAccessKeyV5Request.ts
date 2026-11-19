@@ -1,7 +1,9 @@
+import { CreateAccessKeyReqBody } from './CreateAccessKeyReqBody';
 
 
 export class CreateAccessKeyV5Request {
     private 'user_id'?: string;
+    public body?: CreateAccessKeyReqBody;
     public constructor(userId?: string) { 
         this['user_id'] = userId;
     }
@@ -14,5 +16,9 @@ export class CreateAccessKeyV5Request {
     }
     public get userId(): string | undefined {
         return this['user_id'];
+    }
+    public withBody(body: CreateAccessKeyReqBody): CreateAccessKeyV5Request {
+        this['body'] = body;
+        return this;
     }
 }

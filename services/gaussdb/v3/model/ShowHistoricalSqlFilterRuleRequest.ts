@@ -5,6 +5,8 @@ export class ShowHistoricalSqlFilterRuleRequest {
     private 'instance_id'?: string;
     private 'node_id'?: string;
     private 'sql_type'?: string;
+    public offset?: number;
+    public limit?: number;
     public constructor(instanceId?: string, nodeId?: string) { 
         this['instance_id'] = instanceId;
         this['node_id'] = nodeId;
@@ -48,5 +50,13 @@ export class ShowHistoricalSqlFilterRuleRequest {
     }
     public get sqlType(): string | undefined {
         return this['sql_type'];
+    }
+    public withOffset(offset: number): ShowHistoricalSqlFilterRuleRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withLimit(limit: number): ShowHistoricalSqlFilterRuleRequest {
+        this['limit'] = limit;
+        return this;
     }
 }

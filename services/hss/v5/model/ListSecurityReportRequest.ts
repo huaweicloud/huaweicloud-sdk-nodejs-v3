@@ -1,16 +1,11 @@
 
 
 export class ListSecurityReportRequest {
-    public region?: string;
     private 'enterprise_project_id'?: string;
     private 'report_category'?: string;
     public offset?: number;
     public limit?: number;
     public constructor() { 
-    }
-    public withRegion(region: string): ListSecurityReportRequest {
-        this['region'] = region;
-        return this;
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListSecurityReportRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

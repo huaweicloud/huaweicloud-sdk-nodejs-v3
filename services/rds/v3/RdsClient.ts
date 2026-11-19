@@ -1188,6 +1188,9 @@ import { UpgradeDbMajorVersionPreCheckRequest } from './model/UpgradeDbMajorVers
 import { UpgradeDbMajorVersionPreCheckResponse } from './model/UpgradeDbMajorVersionPreCheckResponse';
 import { UpgradeDbMajorVersionRequest } from './model/UpgradeDbMajorVersionRequest';
 import { UpgradeDbMajorVersionResponse } from './model/UpgradeDbMajorVersionResponse';
+import { UpgradeDbVersionFinalConfirmRequest } from './model/UpgradeDbVersionFinalConfirmRequest';
+import { UpgradeDbVersionFinalConfirmRequestBody } from './model/UpgradeDbVersionFinalConfirmRequestBody';
+import { UpgradeDbVersionFinalConfirmResponse } from './model/UpgradeDbVersionFinalConfirmResponse';
 import { UpgradeDbVersionNewRequest } from './model/UpgradeDbVersionNewRequest';
 import { UpgradeDbVersionNewResponse } from './model/UpgradeDbVersionNewResponse';
 import { UpgradeDbVersionRequest } from './model/UpgradeDbVersionRequest';
@@ -6001,6 +6004,28 @@ export class RdsClient {
      */
     public upgradeDbVersion(upgradeDbVersionRequest?: UpgradeDbVersionRequest): Promise<UpgradeDbVersionResponse> {
         const options = ParamCreater().upgradeDbVersion(upgradeDbVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 数据库小版本升级后最后确认操作
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 数据库小版本升级后最后确认操作
+     * @param {string} contentType **参数解释**：  内容类型。  **约束限制**：  不涉及。  **取值范围**：  application/json。  **默认取值**：  application/json。
+     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  **约束限制**：  不涉及。  **取值范围**:  不涉及。  **默认取值**:  不涉及。
+     * @param {UpgradeDbVersionFinalConfirmRequestBody} upgradeDbVersionFinalConfirmRequestBody **参数解释**  小版本升级完成后用于最终确认的请求体  **约束限制**  不涉及  **取值范围**:  不涉及。  **默认取值**:  不涉及。
+     * @param {string} [xLanguage] **参数解释**：  请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us - zh-cn **默认取值**：  en-us。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeDbVersionFinalConfirm(upgradeDbVersionFinalConfirmRequest?: UpgradeDbVersionFinalConfirmRequest): Promise<UpgradeDbVersionFinalConfirmResponse> {
+        const options = ParamCreater().upgradeDbVersionFinalConfirm(upgradeDbVersionFinalConfirmRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -21229,6 +21254,66 @@ export const ParamCreater = function () {
         
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeDbVersion.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 数据库小版本升级后最后确认操作
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeDbVersionFinalConfirm(upgradeDbVersionFinalConfirmRequest?: UpgradeDbVersionFinalConfirmRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/instances/{instance_id}/db-upgrade/operation",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+            
+            let instanceId;
+            
+            let xLanguage;
+
+            if (upgradeDbVersionFinalConfirmRequest !== null && upgradeDbVersionFinalConfirmRequest !== undefined) {
+                if (upgradeDbVersionFinalConfirmRequest instanceof UpgradeDbVersionFinalConfirmRequest) {
+                    contentType = upgradeDbVersionFinalConfirmRequest.contentType;
+                    instanceId = upgradeDbVersionFinalConfirmRequest.instanceId;
+                    body = upgradeDbVersionFinalConfirmRequest.body
+                    xLanguage = upgradeDbVersionFinalConfirmRequest.xLanguage;
+                } else {
+                    contentType = upgradeDbVersionFinalConfirmRequest['Content-Type'];
+                    instanceId = upgradeDbVersionFinalConfirmRequest['instance_id'];
+                    body = upgradeDbVersionFinalConfirmRequest['body'];
+                    xLanguage = upgradeDbVersionFinalConfirmRequest['X-Language'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling upgradeDbVersionFinalConfirm.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

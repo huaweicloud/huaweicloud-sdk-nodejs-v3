@@ -2,6 +2,7 @@
 
 export class TaurusSwitchoverRequest {
     private 'node_id'?: string;
+    public force?: boolean;
     public constructor(nodeId?: string) { 
         this['node_id'] = nodeId;
     }
@@ -14,5 +15,9 @@ export class TaurusSwitchoverRequest {
     }
     public get nodeId(): string | undefined {
         return this['node_id'];
+    }
+    public withForce(force: boolean): TaurusSwitchoverRequest {
+        this['force'] = force;
+        return this;
     }
 }

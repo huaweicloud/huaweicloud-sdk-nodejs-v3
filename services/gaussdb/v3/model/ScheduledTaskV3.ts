@@ -2,19 +2,14 @@
 
 export class ScheduledTaskV3 {
     private 'create_time'?: number;
-    private 'datastore_type'?: string;
     private 'end_time'?: number;
     private 'instance_id'?: string;
-    private 'instance_name'?: string;
-    private 'instance_status'?: string;
     private 'project_id'?: string;
     private 'proxy_id'?: string;
     private 'proxy_name'?: string;
     private 'start_time'?: number;
-    private 'target_config'?: { [key: string]: string; };
     private 'task_id'?: string;
     private 'task_name'?: string;
-    private 'task_order'?: number;
     private 'task_status'?: string;
     public constructor() { 
     }
@@ -27,16 +22,6 @@ export class ScheduledTaskV3 {
     }
     public get createTime(): number | undefined {
         return this['create_time'];
-    }
-    public withDatastoreType(datastoreType: string): ScheduledTaskV3 {
-        this['datastore_type'] = datastoreType;
-        return this;
-    }
-    public set datastoreType(datastoreType: string  | undefined) {
-        this['datastore_type'] = datastoreType;
-    }
-    public get datastoreType(): string | undefined {
-        return this['datastore_type'];
     }
     public withEndTime(endTime: number): ScheduledTaskV3 {
         this['end_time'] = endTime;
@@ -57,26 +42,6 @@ export class ScheduledTaskV3 {
     }
     public get instanceId(): string | undefined {
         return this['instance_id'];
-    }
-    public withInstanceName(instanceName: string): ScheduledTaskV3 {
-        this['instance_name'] = instanceName;
-        return this;
-    }
-    public set instanceName(instanceName: string  | undefined) {
-        this['instance_name'] = instanceName;
-    }
-    public get instanceName(): string | undefined {
-        return this['instance_name'];
-    }
-    public withInstanceStatus(instanceStatus: string): ScheduledTaskV3 {
-        this['instance_status'] = instanceStatus;
-        return this;
-    }
-    public set instanceStatus(instanceStatus: string  | undefined) {
-        this['instance_status'] = instanceStatus;
-    }
-    public get instanceStatus(): string | undefined {
-        return this['instance_status'];
     }
     public withProjectId(projectId: string): ScheduledTaskV3 {
         this['project_id'] = projectId;
@@ -118,16 +83,6 @@ export class ScheduledTaskV3 {
     public get startTime(): number | undefined {
         return this['start_time'];
     }
-    public withTargetConfig(targetConfig: { [key: string]: string; }): ScheduledTaskV3 {
-        this['target_config'] = targetConfig;
-        return this;
-    }
-    public set targetConfig(targetConfig: { [key: string]: string; }  | undefined) {
-        this['target_config'] = targetConfig;
-    }
-    public get targetConfig(): { [key: string]: string; } | undefined {
-        return this['target_config'];
-    }
     public withTaskId(taskId: string): ScheduledTaskV3 {
         this['task_id'] = taskId;
         return this;
@@ -147,16 +102,6 @@ export class ScheduledTaskV3 {
     }
     public get taskName(): string | undefined {
         return this['task_name'];
-    }
-    public withTaskOrder(taskOrder: number): ScheduledTaskV3 {
-        this['task_order'] = taskOrder;
-        return this;
-    }
-    public set taskOrder(taskOrder: number  | undefined) {
-        this['task_order'] = taskOrder;
-    }
-    public get taskOrder(): number | undefined {
-        return this['task_order'];
     }
     public withTaskStatus(taskStatus: string): ScheduledTaskV3 {
         this['task_status'] = taskStatus;

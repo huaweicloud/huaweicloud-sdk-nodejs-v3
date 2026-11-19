@@ -22,6 +22,7 @@ export class RealTimeSessionResult {
     private 'rollback_num'?: string;
     private 'sql_num'?: string;
     private 'client_port'?: string;
+    private 'server_port'?: string;
     private 'query_id'?: string;
     private 'transaction_time_cost'?: string;
     private 'trace_id'?: string;
@@ -224,6 +225,16 @@ export class RealTimeSessionResult {
     }
     public get clientPort(): string | undefined {
         return this['client_port'];
+    }
+    public withServerPort(serverPort: string): RealTimeSessionResult {
+        this['server_port'] = serverPort;
+        return this;
+    }
+    public set serverPort(serverPort: string  | undefined) {
+        this['server_port'] = serverPort;
+    }
+    public get serverPort(): string | undefined {
+        return this['server_port'];
     }
     public withQueryId(queryId: string): RealTimeSessionResult {
         this['query_id'] = queryId;
