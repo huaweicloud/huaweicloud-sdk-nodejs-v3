@@ -1,14 +1,36 @@
 
 
 export class RequestUrlRewriteEngine {
+    private 'rewrite_type'?: string;
+    private 'source_url'?: string;
     private 'redirect_status_code'?: number;
     private 'redirect_url'?: string;
     private 'redirect_host'?: string;
     private 'execution_mode'?: string;
-    public constructor(redirectUrl?: string, redirectHost?: string, executionMode?: string) { 
+    private 'inherit_param'?: string;
+    public constructor(redirectUrl?: string, executionMode?: string) { 
         this['redirect_url'] = redirectUrl;
-        this['redirect_host'] = redirectHost;
         this['execution_mode'] = executionMode;
+    }
+    public withRewriteType(rewriteType: string): RequestUrlRewriteEngine {
+        this['rewrite_type'] = rewriteType;
+        return this;
+    }
+    public set rewriteType(rewriteType: string  | undefined) {
+        this['rewrite_type'] = rewriteType;
+    }
+    public get rewriteType(): string | undefined {
+        return this['rewrite_type'];
+    }
+    public withSourceUrl(sourceUrl: string): RequestUrlRewriteEngine {
+        this['source_url'] = sourceUrl;
+        return this;
+    }
+    public set sourceUrl(sourceUrl: string  | undefined) {
+        this['source_url'] = sourceUrl;
+    }
+    public get sourceUrl(): string | undefined {
+        return this['source_url'];
     }
     public withRedirectStatusCode(redirectStatusCode: number): RequestUrlRewriteEngine {
         this['redirect_status_code'] = redirectStatusCode;
@@ -49,5 +71,15 @@ export class RequestUrlRewriteEngine {
     }
     public get executionMode(): string | undefined {
         return this['execution_mode'];
+    }
+    public withInheritParam(inheritParam: string): RequestUrlRewriteEngine {
+        this['inherit_param'] = inheritParam;
+        return this;
+    }
+    public set inheritParam(inheritParam: string  | undefined) {
+        this['inherit_param'] = inheritParam;
+    }
+    public get inheritParam(): string | undefined {
+        return this['inherit_param'];
     }
 }

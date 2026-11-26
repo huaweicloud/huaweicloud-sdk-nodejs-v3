@@ -9,6 +9,7 @@ export class CreateReplicationPolicyRequestBody {
     private 'src_registry'?: ReplicationRegistry;
     private 'dest_registry'?: ReplicationRegistry;
     private 'dest_namespace'?: string;
+    private 'dest_namespace_replace_count'?: number;
     public filters?: Array<Filter>;
     private 'repo_scope_mode'?: string;
     public trigger?: TriggerConfig;
@@ -58,6 +59,16 @@ export class CreateReplicationPolicyRequestBody {
     }
     public get destNamespace(): string | undefined {
         return this['dest_namespace'];
+    }
+    public withDestNamespaceReplaceCount(destNamespaceReplaceCount: number): CreateReplicationPolicyRequestBody {
+        this['dest_namespace_replace_count'] = destNamespaceReplaceCount;
+        return this;
+    }
+    public set destNamespaceReplaceCount(destNamespaceReplaceCount: number  | undefined) {
+        this['dest_namespace_replace_count'] = destNamespaceReplaceCount;
+    }
+    public get destNamespaceReplaceCount(): number | undefined {
+        return this['dest_namespace_replace_count'];
     }
     public withFilters(filters: Array<Filter>): CreateReplicationPolicyRequestBody {
         this['filters'] = filters;

@@ -208,6 +208,7 @@ import { PolicyType } from './model/PolicyType';
 import { PolicyUser } from './model/PolicyUser';
 import { PolicyVersion } from './model/PolicyVersion';
 import { PolicyVersionId } from './model/PolicyVersionId';
+import { PolicyWithTags } from './model/PolicyWithTags';
 import { ProviderDescription } from './model/ProviderDescription';
 import { Reason } from './model/Reason';
 import { RegionName } from './model/RegionName';

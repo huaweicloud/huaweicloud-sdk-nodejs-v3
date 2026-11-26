@@ -10,6 +10,7 @@ export class CacheRules {
     private 'force_cache'?: string;
     private 'url_parameter_type'?: string;
     private 'url_parameter_value'?: string;
+    private 'stale_while_revalidate'?: string;
     public constructor(matchType?: string, ttlUnit?: string, priority?: number) { 
         this['match_type'] = matchType;
         this['ttl_unit'] = ttlUnit;
@@ -92,5 +93,15 @@ export class CacheRules {
     }
     public get urlParameterValue(): string | undefined {
         return this['url_parameter_value'];
+    }
+    public withStaleWhileRevalidate(staleWhileRevalidate: string): CacheRules {
+        this['stale_while_revalidate'] = staleWhileRevalidate;
+        return this;
+    }
+    public set staleWhileRevalidate(staleWhileRevalidate: string  | undefined) {
+        this['stale_while_revalidate'] = staleWhileRevalidate;
+    }
+    public get staleWhileRevalidate(): string | undefined {
+        return this['stale_while_revalidate'];
     }
 }

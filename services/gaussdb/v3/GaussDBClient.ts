@@ -803,8 +803,6 @@ import { ShowLockWaitSessionRequest } from './model/ShowLockWaitSessionRequest';
 import { ShowLockWaitSessionResponse } from './model/ShowLockWaitSessionResponse';
 import { ShowLtsConfigsRequest } from './model/ShowLtsConfigsRequest';
 import { ShowLtsConfigsResponse } from './model/ShowLtsConfigsResponse';
-import { ShowMigrateInfoRequest } from './model/ShowMigrateInfoRequest';
-import { ShowMigrateInfoResponse } from './model/ShowMigrateInfoResponse';
 import { ShowMultiTenantRequest } from './model/ShowMultiTenantRequest';
 import { ShowMultiTenantResponse } from './model/ShowMultiTenantResponse';
 import { ShowProxyConfigurationsRequest } from './model/ShowProxyConfigurationsRequest';
@@ -3882,7 +3880,6 @@ export class GaussDBClient {
      * @param {string} instanceId 租户在某一project下的实例ID。
      * @param {string} [xLanguage] 语言。
      * @param {string} [date] 所需查询的日志，为yyyy-mm-dd字符串格式，时区为UTC。
-     * @param {string} [date2] **参数解释**：  所需查询的日期。  **约束限制**：  不涉及。  **取值范围**：  yyyy-mm-dd字符串格式，时区为UTC。  **默认取值**：  不涉及。
      * @param {string} [startTime] **参数解释**：  所需查询的起始时间戳。  **约束限制**：  - “start_time”有值时，“end_time”必选。 - “date”有值时，“start_time”失效。  **取值范围**：  格式为UNIX时间戳，单位是毫秒，时区为UTC标准时区。传参时需要将对应时区的时间转为标准时区对应的时间戳，比如，北京时区的时间点需要-8h后再转为时间戳。  **默认取值**：  不涉及。
      * @param {string} [endTime] **参数解释**：  所需查询的结束时间戳。  **约束限制**：  - “end_time”有值时，“start_time”必选。 - “date”有值时，“end_time”失效。  **取值范围**：  格式为UNIX时间戳，单位是毫秒，时区为UTC标准时区。传参时需要将对应时区的时间转为标准时区对应的时间戳，比如，北京时区的时间点需要-8h后再转为时间戳。  **默认取值**：  不涉及。
      * @param {*} [options] Override http request option.
@@ -4689,26 +4686,6 @@ export class GaussDBClient {
      */
     public showLtsConfigs(showLtsConfigsRequest?: ShowLtsConfigsRequest): Promise<ShowLtsConfigsResponse> {
         const options = ParamCreater().showLtsConfigs(showLtsConfigsRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询一键迁移到TaurusDB企业版的迁移信息。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询一键迁移信息
-     * @param {string} instanceId **参数解释**：  实例ID，此参数是实例的唯一标识。  获取方法请参见[查询实例列表](https://support.huaweicloud.com/api-taurusdb/ListGaussMySqlInstancesUnifyStatus.html)。  **约束限制**：  不涉及。  **取值范围**：  只能由英文字母、数字组成，后缀为in07，长度为36个字符。  **默认取值**：  不涉及。
-     * @param {string} [xLanguage] **参数解释**：              请求语言类型。  **约束限制**：  不涉及。  **取值范围**：  - en-us：英文。 - zh-cn：中文。  **默认取值**：  en-us。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showMigrateInfo(showMigrateInfoRequest?: ShowMigrateInfoRequest): Promise<ShowMigrateInfoResponse> {
-        const options = ParamCreater().showMigrateInfo(showMigrateInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -15127,8 +15104,6 @@ export const ParamCreater = function () {
             
             let date;
             
-            let date2;
-            
             let startTime;
             
             let endTime;
@@ -15138,14 +15113,12 @@ export const ParamCreater = function () {
                     instanceId = showBackupRestoreTimeRequest.instanceId;
                     xLanguage = showBackupRestoreTimeRequest.xLanguage;
                     date = showBackupRestoreTimeRequest.date;
-                    date2 = showBackupRestoreTimeRequest.date2;
                     startTime = showBackupRestoreTimeRequest.startTime;
                     endTime = showBackupRestoreTimeRequest.endTime;
                 } else {
                     instanceId = showBackupRestoreTimeRequest['instance_id'];
                     xLanguage = showBackupRestoreTimeRequest['X-Language'];
                     date = showBackupRestoreTimeRequest['date'];
-                    date2 = showBackupRestoreTimeRequest['date'];
                     startTime = showBackupRestoreTimeRequest['start_time'];
                     endTime = showBackupRestoreTimeRequest['end_time'];
                 }
@@ -15157,9 +15130,6 @@ export const ParamCreater = function () {
             }
             if (date !== null && date !== undefined) {
                 localVarQueryParameter['date'] = date;
-            }
-            if (date2 !== null && date2 !== undefined) {
-                localVarQueryParameter['date'] = date2;
             }
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;
@@ -17251,50 +17221,6 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询一键迁移到TaurusDB企业版的迁移信息。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showMigrateInfo(showMigrateInfoRequest?: ShowMigrateInfoRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/migration/{instance_id}/info",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let instanceId;
-            
-            let xLanguage;
-
-            if (showMigrateInfoRequest !== null && showMigrateInfoRequest !== undefined) {
-                if (showMigrateInfoRequest instanceof ShowMigrateInfoRequest) {
-                    instanceId = showMigrateInfoRequest.instanceId;
-                    xLanguage = showMigrateInfoRequest.xLanguage;
-                } else {
-                    instanceId = showMigrateInfoRequest['instance_id'];
-                    xLanguage = showMigrateInfoRequest['X-Language'];
-                }
-            }
-
-        
-            if (instanceId === null || instanceId === undefined) {
-            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showMigrateInfo.');
-            }
-            if (xLanguage !== undefined && xLanguage !== null) {
-                localVarHeaderParameter['X-Language'] = String(xLanguage);
-            }
-
-            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

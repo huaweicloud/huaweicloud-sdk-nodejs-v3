@@ -14,6 +14,10 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     private 'enable_resource'?: boolean;
     private 'enable_list_v3'?: boolean;
     private 'enable_image_quota'?: boolean;
+    private 'enable_cosign_signature'?: boolean;
+    private 'enable_enterprise_edition_link'?: boolean;
+    private 'enable_customize_validity_period'?: boolean;
+    private 'swr_util_download_url'?: string;
     public constructor() { 
         super();
     }
@@ -136,5 +140,45 @@ export class ShowShareFeatureGatesResponse extends SdkResponse {
     }
     public get enableImageQuota(): boolean | undefined {
         return this['enable_image_quota'];
+    }
+    public withEnableCosignSignature(enableCosignSignature: boolean): ShowShareFeatureGatesResponse {
+        this['enable_cosign_signature'] = enableCosignSignature;
+        return this;
+    }
+    public set enableCosignSignature(enableCosignSignature: boolean  | undefined) {
+        this['enable_cosign_signature'] = enableCosignSignature;
+    }
+    public get enableCosignSignature(): boolean | undefined {
+        return this['enable_cosign_signature'];
+    }
+    public withEnableEnterpriseEditionLink(enableEnterpriseEditionLink: boolean): ShowShareFeatureGatesResponse {
+        this['enable_enterprise_edition_link'] = enableEnterpriseEditionLink;
+        return this;
+    }
+    public set enableEnterpriseEditionLink(enableEnterpriseEditionLink: boolean  | undefined) {
+        this['enable_enterprise_edition_link'] = enableEnterpriseEditionLink;
+    }
+    public get enableEnterpriseEditionLink(): boolean | undefined {
+        return this['enable_enterprise_edition_link'];
+    }
+    public withEnableCustomizeValidityPeriod(enableCustomizeValidityPeriod: boolean): ShowShareFeatureGatesResponse {
+        this['enable_customize_validity_period'] = enableCustomizeValidityPeriod;
+        return this;
+    }
+    public set enableCustomizeValidityPeriod(enableCustomizeValidityPeriod: boolean  | undefined) {
+        this['enable_customize_validity_period'] = enableCustomizeValidityPeriod;
+    }
+    public get enableCustomizeValidityPeriod(): boolean | undefined {
+        return this['enable_customize_validity_period'];
+    }
+    public withSwrUtilDownloadUrl(swrUtilDownloadUrl: string): ShowShareFeatureGatesResponse {
+        this['swr_util_download_url'] = swrUtilDownloadUrl;
+        return this;
+    }
+    public set swrUtilDownloadUrl(swrUtilDownloadUrl: string  | undefined) {
+        this['swr_util_download_url'] = swrUtilDownloadUrl;
+    }
+    public get swrUtilDownloadUrl(): string | undefined {
+        return this['swr_util_download_url'];
     }
 }

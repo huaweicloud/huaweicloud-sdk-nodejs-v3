@@ -1,5 +1,6 @@
 import { CVEAllowlist } from './CVEAllowlist';
 import { NamespaceMetadata } from './NamespaceMetadata';
+import { ResourceTag } from './ResourceTag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -11,6 +12,7 @@ export class ShowInstanceNamespaceResponse extends SdkResponse {
     private 'updated_at'?: string;
     private 'repo_count'?: number;
     private 'cve_allowlist'?: CVEAllowlist;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
         super();
     }
@@ -71,5 +73,9 @@ export class ShowInstanceNamespaceResponse extends SdkResponse {
     }
     public get cveAllowlist(): CVEAllowlist | undefined {
         return this['cve_allowlist'];
+    }
+    public withTags(tags: Array<ResourceTag>): ShowInstanceNamespaceResponse {
+        this['tags'] = tags;
+        return this;
     }
 }

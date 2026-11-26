@@ -1,4 +1,5 @@
 import { AccessAreaFilter } from './AccessAreaFilter';
+import { BandwidthAlarmStrategy } from './BandwidthAlarmStrategy';
 import { BrowserCacheRules } from './BrowserCacheRules';
 import { CacheRules } from './CacheRules';
 import { CacheUrlParameterFilter } from './CacheUrlParameterFilter';
@@ -70,6 +71,7 @@ export class Configs {
     private 'client_cert'?: ClientCert;
     private 'https_tls_version'?: HttpsTlsVersion;
     private 'flow_limit_strategy'?: Array<FlowLimitStrategy>;
+    private 'bandwidth_alarm_strategy'?: BandwidthAlarmStrategy;
     public constructor() { 
     }
     public withBusinessType(businessType: string): Configs {
@@ -407,5 +409,15 @@ export class Configs {
     }
     public get flowLimitStrategy(): Array<FlowLimitStrategy> | undefined {
         return this['flow_limit_strategy'];
+    }
+    public withBandwidthAlarmStrategy(bandwidthAlarmStrategy: BandwidthAlarmStrategy): Configs {
+        this['bandwidth_alarm_strategy'] = bandwidthAlarmStrategy;
+        return this;
+    }
+    public set bandwidthAlarmStrategy(bandwidthAlarmStrategy: BandwidthAlarmStrategy  | undefined) {
+        this['bandwidth_alarm_strategy'] = bandwidthAlarmStrategy;
+    }
+    public get bandwidthAlarmStrategy(): BandwidthAlarmStrategy | undefined {
+        return this['bandwidth_alarm_strategy'];
     }
 }

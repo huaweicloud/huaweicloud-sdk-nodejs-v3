@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class Instance {
@@ -25,6 +26,7 @@ export class Instance {
     private 'subnet_name'?: string;
     private 'subnet_cidr'?: string;
     private 'vpcep_service_id'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
     }
     public withId(id: string): Instance {
@@ -231,6 +233,10 @@ export class Instance {
     public get vpcepServiceId(): string | undefined {
         return this['vpcep_service_id'];
     }
+    public withTags(tags: Array<ResourceTag>): Instance {
+        this['tags'] = tags;
+        return this;
+    }
 }
 
 /**
@@ -248,5 +254,9 @@ export enum InstanceStatusEnum {
     INITIAL = 'Initial',
     CREATING = 'Creating',
     RUNNING = 'Running',
-    UNAVAILABLE = 'Unavailable'
+    UNAVAILABLE = 'Unavailable',
+    FROZEN = 'Frozen',
+    DEPLOYMENTABNORMAL = 'DeploymentAbnormal',
+    PARTIALLYUNAVAILABLE = 'PartiallyUnavailable',
+    COREDIALFAILED = 'CoreDialFailed'
 }

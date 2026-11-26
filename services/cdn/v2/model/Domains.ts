@@ -25,6 +25,7 @@ export class Domains {
     private 'locked_reason'?: string;
     private 'enterprise_project_id'?: string;
     public tags?: Array<EpResourceTag>;
+    private 'origin_protocol'?: string;
     public constructor() { 
     }
     public withId(id: string): Domains {
@@ -200,6 +201,16 @@ export class Domains {
     public withTags(tags: Array<EpResourceTag>): Domains {
         this['tags'] = tags;
         return this;
+    }
+    public withOriginProtocol(originProtocol: string): Domains {
+        this['origin_protocol'] = originProtocol;
+        return this;
+    }
+    public set originProtocol(originProtocol: string  | undefined) {
+        this['origin_protocol'] = originProtocol;
+    }
+    public get originProtocol(): string | undefined {
+        return this['origin_protocol'];
     }
 }
 

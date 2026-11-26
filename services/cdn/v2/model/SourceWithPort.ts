@@ -9,6 +9,7 @@ export class SourceWithPort {
     private 'enable_obs_web_hosting'?: number;
     private 'http_port'?: number;
     private 'https_port'?: number;
+    public weight?: number;
     public constructor(ipOrDomain?: string, originType?: string, activeStandby?: number) { 
         this['ip_or_domain'] = ipOrDomain;
         this['origin_type'] = originType;
@@ -93,6 +94,10 @@ export class SourceWithPort {
     }
     public get httpsPort(): number | undefined {
         return this['https_port'];
+    }
+    public withWeight(weight: number): SourceWithPort {
+        this['weight'] = weight;
+        return this;
     }
 }
 

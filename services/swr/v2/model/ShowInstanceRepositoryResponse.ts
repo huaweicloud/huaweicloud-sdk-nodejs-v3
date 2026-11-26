@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -12,6 +13,7 @@ export class ShowInstanceRepositoryResponse extends SdkResponse {
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
         super();
     }
@@ -96,5 +98,9 @@ export class ShowInstanceRepositoryResponse extends SdkResponse {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withTags(tags: Array<ResourceTag>): ShowInstanceRepositoryResponse {
+        this['tags'] = tags;
+        return this;
     }
 }

@@ -6,6 +6,9 @@ export class ListFeatureGatesResponse extends SdkResponse {
     public enableCombinationRetention?: boolean;
     public enableArtifactScanning?: boolean;
     public enableArtifactGc?: boolean;
+    public enableRepositoryTag?: boolean;
+    public enableNamespaceTag?: boolean;
+    public enableArtifactMetadata?: boolean;
     public constructor() { 
         super();
     }
@@ -23,6 +26,18 @@ export class ListFeatureGatesResponse extends SdkResponse {
     }
     public withEnableArtifactGc(enableArtifactGc: boolean): ListFeatureGatesResponse {
         this['enableArtifactGc'] = enableArtifactGc;
+        return this;
+    }
+    public withEnableRepositoryTag(enableRepositoryTag: boolean): ListFeatureGatesResponse {
+        this['enableRepositoryTag'] = enableRepositoryTag;
+        return this;
+    }
+    public withEnableNamespaceTag(enableNamespaceTag: boolean): ListFeatureGatesResponse {
+        this['enableNamespaceTag'] = enableNamespaceTag;
+        return this;
+    }
+    public withEnableArtifactMetadata(enableArtifactMetadata: boolean): ListFeatureGatesResponse {
+        this['enableArtifactMetadata'] = enableArtifactMetadata;
         return this;
     }
 }

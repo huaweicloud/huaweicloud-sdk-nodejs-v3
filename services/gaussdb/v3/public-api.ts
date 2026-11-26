@@ -800,8 +800,6 @@ export * from './model/ShowLockWaitSessionRequest';
 export * from './model/ShowLockWaitSessionResponse';
 export * from './model/ShowLtsConfigsRequest';
 export * from './model/ShowLtsConfigsResponse';
-export * from './model/ShowMigrateInfoRequest';
-export * from './model/ShowMigrateInfoResponse';
 export * from './model/ShowMultiTenantRequest';
 export * from './model/ShowMultiTenantResponse';
 export * from './model/ShowProxyConfigurationsRequest';

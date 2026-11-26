@@ -6,9 +6,8 @@ export class FlexibleOrigins {
     private 'match_pattern'?: string;
     public priority?: number;
     private 'back_sources'?: Array<BackSources>;
-    public constructor(matchType?: string, matchPattern?: string, priority?: number, backSources?: Array<BackSources>) { 
+    public constructor(matchType?: string, priority?: number, backSources?: Array<BackSources>) { 
         this['match_type'] = matchType;
-        this['match_pattern'] = matchPattern;
         this['priority'] = priority;
         this['back_sources'] = backSources;
     }

@@ -1,4 +1,5 @@
 import { ForceRedirect } from './ForceRedirect';
+import { MultiCertificateBatchVo } from './MultiCertificateBatchVo';
 
 
 export class UpdateDomainMultiCertificatesResponseBodyContent {
@@ -12,6 +13,8 @@ export class UpdateDomainMultiCertificatesResponseBodyContent {
     public certificate?: string;
     private 'certificate_type'?: number;
     private 'expiration_time'?: number;
+    private 'certificate_category'?: number;
+    public certificates?: Array<MultiCertificateBatchVo>;
     public constructor(domainName?: string) { 
         this['domain_name'] = domainName;
     }
@@ -102,5 +105,19 @@ export class UpdateDomainMultiCertificatesResponseBodyContent {
     }
     public get expirationTime(): number | undefined {
         return this['expiration_time'];
+    }
+    public withCertificateCategory(certificateCategory: number): UpdateDomainMultiCertificatesResponseBodyContent {
+        this['certificate_category'] = certificateCategory;
+        return this;
+    }
+    public set certificateCategory(certificateCategory: number  | undefined) {
+        this['certificate_category'] = certificateCategory;
+    }
+    public get certificateCategory(): number | undefined {
+        return this['certificate_category'];
+    }
+    public withCertificates(certificates: Array<MultiCertificateBatchVo>): UpdateDomainMultiCertificatesResponseBodyContent {
+        this['certificates'] = certificates;
+        return this;
     }
 }

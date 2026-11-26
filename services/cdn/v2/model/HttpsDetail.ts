@@ -1,4 +1,5 @@
 import { ForceRedirect } from './ForceRedirect';
+import { HttpsDetailCertificates } from './HttpsDetailCertificates';
 
 
 export class HttpsDetail {
@@ -13,6 +14,7 @@ export class HttpsDetail {
     private 'force_redirect_https'?: number;
     private 'force_redirect_config'?: ForceRedirect;
     public http2?: number;
+    public certificates?: Array<HttpsDetailCertificates>;
     public constructor() { 
     }
     public withDomainId(domainId: string): HttpsDetail {
@@ -111,6 +113,10 @@ export class HttpsDetail {
     }
     public withHttp2(http2: number): HttpsDetail {
         this['http2'] = http2;
+        return this;
+    }
+    public withCertificates(certificates: Array<HttpsDetailCertificates>): HttpsDetail {
+        this['certificates'] = certificates;
         return this;
     }
 }

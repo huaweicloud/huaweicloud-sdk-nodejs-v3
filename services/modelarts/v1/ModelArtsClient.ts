@@ -45,8 +45,12 @@ import { ArtifactInfo } from './model/ArtifactInfo';
 import { ArtifactsPublish } from './model/ArtifactsPublish';
 import { AscendInfo } from './model/AscendInfo';
 import { AscendResource } from './model/AscendResource';
+import { AssetActionReq } from './model/AssetActionReq';
+import { AssetActionRsp } from './model/AssetActionRsp';
+import { AssetDetail } from './model/AssetDetail';
 import { AssetModel } from './model/AssetModel';
 import { AssetModelResp } from './model/AssetModelResp';
+import { AssetOperationRecordRsp } from './model/AssetOperationRecordRsp';
 import { AttachDevServerPortRequest } from './model/AttachDevServerPortRequest';
 import { AttachDevServerPortResponse } from './model/AttachDevServerPortResponse';
 import { AttachDevServerPortsRequestBody } from './model/AttachDevServerPortsRequestBody';
@@ -154,6 +158,7 @@ import { Config } from './model/Config';
 import { Constraint } from './model/Constraint';
 import { ConstraintResp } from './model/ConstraintResp';
 import { ContainerHooks } from './model/ContainerHooks';
+import { Content } from './model/Content';
 import { ContentInfo } from './model/ContentInfo';
 import { ContinueTask } from './model/ContinueTask';
 import { ContinueTrainTask } from './model/ContinueTrainTask';
@@ -171,6 +176,11 @@ import { CreateAlgorithmVersionToGalleryBody } from './model/CreateAlgorithmVers
 import { CreateAlgorithmVersionToGalleryRequest } from './model/CreateAlgorithmVersionToGalleryRequest';
 import { CreateAlgorithmVersionToGalleryResponse } from './model/CreateAlgorithmVersionToGalleryResponse';
 import { CreateApiKeyReq } from './model/CreateApiKeyReq';
+import { CreateAssetFileDownLoadPathRequest } from './model/CreateAssetFileDownLoadPathRequest';
+import { CreateAssetFileDownLoadPathResponse } from './model/CreateAssetFileDownLoadPathResponse';
+import { CreateAssetReq } from './model/CreateAssetReq';
+import { CreateAssetRequest } from './model/CreateAssetRequest';
+import { CreateAssetResponse } from './model/CreateAssetResponse';
 import { CreateAuthGrantRequest } from './model/CreateAuthGrantRequest';
 import { CreateAuthGrantResponse } from './model/CreateAuthGrantResponse';
 import { CreateAuthorizationRequest } from './model/CreateAuthorizationRequest';
@@ -277,6 +287,8 @@ import { DataVolumesRes } from './model/DataVolumesRes';
 import { DatasetConfig } from './model/DatasetConfig';
 import { DeleteAlgorithmRequest } from './model/DeleteAlgorithmRequest';
 import { DeleteAlgorithmResponse } from './model/DeleteAlgorithmResponse';
+import { DeleteAssetRequest } from './model/DeleteAssetRequest';
+import { DeleteAssetResponse } from './model/DeleteAssetResponse';
 import { DeleteAuthorizationsRequest } from './model/DeleteAuthorizationsRequest';
 import { DeleteAuthorizationsResponse } from './model/DeleteAuthorizationsResponse';
 import { DeleteDevServerJobsRequest } from './model/DeleteDevServerJobsRequest';
@@ -342,6 +354,7 @@ import { DeleteWorkflowSubscriptionRequest } from './model/DeleteWorkflowSubscri
 import { DeleteWorkflowSubscriptionResponse } from './model/DeleteWorkflowSubscriptionResponse';
 import { DeleteWorkspaceRequest } from './model/DeleteWorkspaceRequest';
 import { DeleteWorkspaceResponse } from './model/DeleteWorkspaceResponse';
+import { DependArg } from './model/DependArg';
 import { DeploymentTaskLimit } from './model/DeploymentTaskLimit';
 import { DetachDevServerPortRequest } from './model/DetachDevServerPortRequest';
 import { DetachDevServerPortResponse } from './model/DetachDevServerPortResponse';
@@ -359,6 +372,7 @@ import { Disk } from './model/Disk';
 import { DiskResponse } from './model/DiskResponse';
 import { DockerLvmConfig } from './model/DockerLvmConfig';
 import { Domain } from './model/Domain';
+import { DownLoadPathReq } from './model/DownLoadPathReq';
 import { Dump } from './model/Dump';
 import { DumpResponse } from './model/DumpResponse';
 import { ElbConnectionCreateRequest } from './model/ElbConnectionCreateRequest';
@@ -510,6 +524,12 @@ import { ListAllHyperinstancesRequest } from './model/ListAllHyperinstancesReque
 import { ListAllHyperinstancesResponse } from './model/ListAllHyperinstancesResponse';
 import { ListAllNotebooksRequest } from './model/ListAllNotebooksRequest';
 import { ListAllNotebooksResponse } from './model/ListAllNotebooksResponse';
+import { ListAssetFileRequest } from './model/ListAssetFileRequest';
+import { ListAssetFileResponse } from './model/ListAssetFileResponse';
+import { ListAssetOperationRecordsRequest } from './model/ListAssetOperationRecordsRequest';
+import { ListAssetOperationRecordsResponse } from './model/ListAssetOperationRecordsResponse';
+import { ListAssetRequest } from './model/ListAssetRequest';
+import { ListAssetResponse } from './model/ListAssetResponse';
 import { ListAuthoringClustersRequest } from './model/ListAuthoringClustersRequest';
 import { ListAuthoringClustersResponse } from './model/ListAuthoringClustersResponse';
 import { ListAutoSearchTrialsItems } from './model/ListAutoSearchTrialsItems';
@@ -747,12 +767,16 @@ import { ObjectReference } from './model/ObjectReference';
 import { Obs } from './model/Obs';
 import { ObsModel } from './model/ObsModel';
 import { ObsModelResp } from './model/ObsModelResp';
+import { OperatorArgItem } from './model/OperatorArgItem';
+import { OperatorArgTypeEnum } from './model/OperatorArgTypeEnum';
+import { OperatorArgument } from './model/OperatorArgument';
 import { OrderDetailItem } from './model/OrderDetailItem';
 import { Os } from './model/Os';
 import { Output } from './model/Output';
 import { OutputModel } from './model/OutputModel';
 import { OutputModelResp } from './model/OutputModelResp';
 import { OutputResp } from './model/OutputResp';
+import { Owner } from './model/Owner';
 import { PFSSummary } from './model/PFSSummary';
 import { PFSSummaryResp } from './model/PFSSummaryResp';
 import { Parameter } from './model/Parameter';
@@ -835,6 +859,7 @@ import { PredictUrlResponse } from './model/PredictUrlResponse';
 import { PreferredAffinity } from './model/PreferredAffinity';
 import { PreferredSchedulingTerm } from './model/PreferredSchedulingTerm';
 import { ProjectTag } from './model/ProjectTag';
+import { Properties } from './model/Properties';
 import { PublicNetworkConfig } from './model/PublicNetworkConfig';
 import { PublishArtifactsBody } from './model/PublishArtifactsBody';
 import { PublishFtArtifactsRequest } from './model/PublishFtArtifactsRequest';
@@ -964,6 +989,16 @@ import { ServiceVersionResponse } from './model/ServiceVersionResponse';
 import { SfsTurboConnectionStatus } from './model/SfsTurboConnectionStatus';
 import { ShowAlgorithmByUuidRequest } from './model/ShowAlgorithmByUuidRequest';
 import { ShowAlgorithmByUuidResponse } from './model/ShowAlgorithmByUuidResponse';
+import { ShowAssetByCodeAndVersionRequest } from './model/ShowAssetByCodeAndVersionRequest';
+import { ShowAssetByCodeAndVersionResponse } from './model/ShowAssetByCodeAndVersionResponse';
+import { ShowAssetExtendMessageRequest } from './model/ShowAssetExtendMessageRequest';
+import { ShowAssetExtendMessageResponse } from './model/ShowAssetExtendMessageResponse';
+import { ShowAssetRequest } from './model/ShowAssetRequest';
+import { ShowAssetResourceRequest } from './model/ShowAssetResourceRequest';
+import { ShowAssetResourceResponse } from './model/ShowAssetResourceResponse';
+import { ShowAssetResponse } from './model/ShowAssetResponse';
+import { ShowAssetTagsInfoRequest } from './model/ShowAssetTagsInfoRequest';
+import { ShowAssetTagsInfoResponse } from './model/ShowAssetTagsInfoResponse';
 import { ShowAuthGrantRequest } from './model/ShowAuthGrantRequest';
 import { ShowAuthGrantResponse } from './model/ShowAuthGrantResponse';
 import { ShowAuthmodeDetailRequest } from './model/ShowAuthmodeDetailRequest';
@@ -1197,6 +1232,9 @@ import { UnitConfig } from './model/UnitConfig';
 import { UnitConfigResponse } from './model/UnitConfigResponse';
 import { UnitGroupPolicy } from './model/UnitGroupPolicy';
 import { UnitGroupPolicyResponse } from './model/UnitGroupPolicyResponse';
+import { UpdateAssetReq } from './model/UpdateAssetReq';
+import { UpdateAssetRequest } from './model/UpdateAssetRequest';
+import { UpdateAssetResponse } from './model/UpdateAssetResponse';
 import { UpdateAuthModeRequest } from './model/UpdateAuthModeRequest';
 import { UpdateAuthModeRequestBody } from './model/UpdateAuthModeRequestBody';
 import { UpdateAuthModeResponse } from './model/UpdateAuthModeResponse';
@@ -1335,7 +1373,7 @@ export class ModelArtsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 计划事件授权
-     * @param {string} eventId **参数解释**：计划事件ID，取值查询计划事件列表接口的event_id字段。  **约束限制**：不涉及。  **取值范围**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，长度小于63。 **默认取值**：不涉及。
+     * @param {string} eventId **参数解释**：计划事件ID，取值查询计划事件列表接口的event_id字段。 **约束限制**：不涉及。 **取值范围**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，长度小于63。 **默认取值**：不涉及。
      * @param {EventUpdate} acceptScheduledEventRequestBody **参数解释**：计划事件授权请求body参数。 **约束限制**：不涉及。
      * @param {string} [workspaceId] **参数解释**：工作空间ID，默认值为0，取值于查询workspaces列表的接口的id字段。 **约束限制**：系统自动生成，只能以小写字母开头，数字、中划线组成，不能以中划线结尾，且长度小于63个字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
      * @param {*} [options] Override http request option.
@@ -2055,6 +2093,50 @@ export class ModelArtsClient {
     }
 
     /**
+     * 创建资产接口用于在ModelArts平台上创建一个新的资产，支持创建独立资产或基于父资产派生新版本，并支持加入已有资产组进行版本管理。
+     * 该接口适用于以下场景：当用户需要将自定义模型、数据集、算子等资产上传至平台并进行统一管理时，可以通过此接口创建资产。使用该接口的前提条件是用户已具备项目访问权限，并已准备好资产的元数据信息及存储路径。平台将在校验资产类型、版本唯一性及数据合法性后，将资产添加到资产列表中并返回资产ID。若资产信息不完整、版本冲突或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建资产
+     * @param {CreateAssetReq} body 
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {string} [xStorageToken] **参数解释**： OBS属主租户token。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAsset(createAssetRequest?: CreateAssetRequest): Promise<CreateAssetResponse> {
+        const options = ParamCreater().createAsset(createAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取资产文件临时下载路径接口用于在ModelArts平台上为指定资产生成临时签名的文件下载路径。
+     * 该接口适用于以下场景：当用户需要下载资产关联的文件资源时，可以通过此接口获取临时有效的下载链接。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资产文件临时下载路径
+     * @param {string} assetId **参数解释**：资产id。 **约束限制**：1-36字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {DownLoadPathReq} [body] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAssetFileDownLoadPath(createAssetFileDownLoadPathRequest?: CreateAssetFileDownLoadPathRequest): Promise<CreateAssetFileDownLoadPathResponse> {
+        const options = ParamCreater().createAssetFileDownLoadPath(createAssetFileDownLoadPathRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 一键授权或重置授权接口用于一键创建ModelArts委托授权或重置已有委托。该接口适用于以下场景：当用户首次使用ModelArts服务需要开通委托授权时，或当现有委托授权出现异常、过期需要重新配置时，可通过此接口一键完成授权操作。使用该接口的前提条件是用户已登录系统且具有相应的操作权限。执行一键授权后，系统将自动创建委托授权关系；执行重置操作后，原有委托将被替换为新的授权。若用户无权限操作或服务异常，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2564,6 +2646,28 @@ export class ModelArtsClient {
      */
     public deleteAlgorithm(deleteAlgorithmRequest?: DeleteAlgorithmRequest): Promise<DeleteAlgorithmResponse> {
         const options = ParamCreater().deleteAlgorithm(deleteAlgorithmRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除资产接口用于在ModelArts平台上删除指定的资产，支持通过forceDelete参数对数据集类型资产进行强制删除。
+     * 该接口适用于以下场景：当用户需要清理不再使用的资产或释放存储资源时，可以通过此接口进行删除。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。平台将在校验资产存在性、归属权限及使用状态后执行禁用删除操作并返回资产ID。若资产不存在、为预置资产不可删除、模型资产仍在使用中或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资产
+     * @param {string} assetId **参数解释**：资产id。 **约束限制**：1-36字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {boolean} [forceDelete] **参数解释**：数据集资产是否删除OBS桶中的数据，boolean类型，取值true：删除OBS桶中的数据，取值false：仅删除记录不删除OBS桶中的数据。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAsset(deleteAssetRequest?: DeleteAssetRequest): Promise<DeleteAssetResponse> {
+        const options = ParamCreater().deleteAsset(deleteAssetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3364,6 +3468,115 @@ export class ModelArtsClient {
      */
     public listAllHyperinstances(listAllHyperinstancesRequest?: ListAllHyperinstancesRequest): Promise<ListAllHyperinstancesResponse> {
         const options = ParamCreater().listAllHyperinstances();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资产列表接口用于在ModelArts平台上查询指定项目下的资产列表。
+     * 该接口适用于以下场景：当用户需要在资产管理浏览、检索和管理资产时，可以通过此接口按需筛选所需资产。使用该接口的前提条件是用户已具备项目访问权限。平台将根据传入的查询条件返回符合条件的资产详情列表及总数。若请求参数格式错误或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资产列表
+     * @param {string} [sortDir] **参数解释**：排序方向。 **约束限制**：不涉及。 **取值范围**： 枚举值： - ASC: 升序 - DESC: 降序。 **默认取值**：DESC。
+     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：不涉及。 **取值范围**：枚举值： - created_at: 创建时间 - updated_at: 更新时间。 **默认取值**：created_at。
+     * @param {number} [limit] **参数解释**：限制量，单次查询总量，必须由数字组成。 **约束限制**：不涉及。 **取值范围**：1-1000。 **默认取值**：100。
+     * @param {number} [offset] **参数解释**：偏移量，查询起始偏移，必须由数字组成。 **约束限制**：不涉及。 **取值范围**0-100000000。 **默认取值**：0。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {string} [assetName] **参数解释**：资产名称,支持英文字母，数字，中划线，下划线，点，空格，中文汉字。 **约束限制**：1-128位字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {Array<string>} [assetType] **参数解释**: 资产类型。 **约束限制**: 枚举值: - MODEL: 模型资产 - TEMPLATE: 模板资产 - DATASET: 数据集资产 - WORKFLOW: 工作流资产 - IMAGE: 镜像资产 - ALGORITHM: 算法资产 - DATASET_TEMPLATE: 数据集模板资产 - DATA_OPERATOR: 算子镜像资产 **默认取值**: 不涉及。
+     * @param {string} [assetSource] **参数解释**：资产来源。 **约束限制**：不涉及。 **取值范围**：枚举值: - Preset: 预置资产 - Publish: 用户发布资产 - Import: 用户导入资产 **默认取值**：不涉及。
+     * @param {string} [assetSourceType] **参数解释**：用户资产来源。 **约束限制**：1-60位字符，英文字母，数字，下划线、中划线。 **取值范围**：preset_train：精调，custom_train：自定义训练，AgenticRL：强化学习。 **默认取值**：不涉及。
+     * @param {string} [assetCode] **参数解释**：资产编码。 **约束限制**：1-60字母，数字，中划线，下划线，点。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [assetVersion] **参数解释**：资产版本。 **约束限制**：数字或格式为x.y.z，x,y,z为数字。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [assetGroupId] **参数解释**：资产归属的资产组id，带有该字段将在同一个资产库中所有版本进行条件筛选，否则会筛选所有资产库中的主版本。 **约束限制**：1-36字母数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {boolean} [filterAllVersion] **参数解释**：是否过滤所有版本。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：false。
+     * @param {Array<string>} [supportActions] **参数解释**：资产支持的操作列表，例如SFT：监督微调，LORA微调:LORA，在线部署：ONLINE-DEPLOY，强化学习：AgenticRL。 **约束限制**：每个元素1-30位字符，英文字母，数字，下划线，中划线；最多10个元素。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {Array<string>} [tag] **参数解释**：检索资产时的标签，根据不同资产类型，条件可能不同。 - 需要匹配一个key对应一个value时格式为key&#x3D;value - 需要匹配一个key对应多个value中的任意一个时格式为key&#x3D;value1|value2|value3 - 需要匹配多个条件同时满足时key1&#x3D;value1,key2&#x3D;value2 - 如果需要实现模糊匹配格式为key1%&#x3D;value2（右匹配）key2&#x3D;%value2（左匹配） **约束限制**：不涉及。
+     * @param {boolean} [isMine] **参数解释**：过滤我创建的资产，boolean类型，取值true：查询我创建的资产，取值false：查询所有资产。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {boolean} [withActions] **参数解释**：列表查询是否包含action。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [assetSeries] **参数解释**：资产品牌，例如DeepSeek,Qwen,Wan,GPT,Llama,GLM,ERNIE,Mistral,Kimi,Other。 **约束限制**：不涉及。 **取值范围**：0-100位。 **默认取值**：不涉及。
+     * @param {Array<string>} [assetCapabilities] **参数解释**：资产能力，为自由文本字符串列表(非严格枚举)。推荐使用以下约定值：例如TextGeneration,ImageUnderstanding,ImageGeneration,VideoGeneration,AgenticRL,Other。 **约束限制**：每个元素为1-40位字符；最多10个元素。
+     * @param {Array<string>} [assetScenes] **参数解释**：资产场景，如DeepThinking。 **约束限制**：不涉及。
+     * @param {string} [rootAssetId] **参数解释**：根资产id。 **约束限制**：1-36个字符，英文字母，数字，中划线，下划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [parentAssetId] **参数解释**：父资产id。 **约束限制**：1-36个字符，英文字母，数字，中划线，下划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {boolean} [isDeleted] **参数解释**：是否返回软删除的资产。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：false。
+     * @param {Array<string>} [assetIds] **参数解释**：资产id。 **约束限制**：0-100个。
+     * @param {string} [tagMode] **参数解释**：tag组合方式 **约束限制**：不涉及。 **取值范围**：and：与，or：或。 **默认取值**：and。
+     * @param {string} [datasetUsage] **参数解释**：数据集用途，例如 GENERAL：通用数据集、EVAL：评测集。 **约束限制**：1-40位字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [status] **参数解释**：资产状态。 **约束限制**：不涉及。 **取值范围**：枚举值: - online: 上线 - offline: 下线 - waiting: 等待中 **默认取值**：不涉及。
+     * @param {Array<string>} [datasetFileFormats] **参数解释**：数据集存储格式，例如JSONL，TXT，MOBI，EPUB，DOCX，PDF。 **约束限制**：不涉及。
+     * @param {string} [datasetType] **参数解释**：数据集模态划分，如音频，图像，视频。 **约束限制**：1-40位字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [datasetSubType] **参数解释**：数据集模态细分值，如语义分割。 **约束限制**：1-40位字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [datasetSchemaFormat] **参数解释**：数据集逻辑规范，如盘古格式。 **约束限制**：1-40位字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [creator] **参数解释**：资产创建者。 **约束限制**：1-512位字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [dataSourceId] **参数解释**：数据源的ID信息。 **约束限制**：1-40位字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAsset(listAssetRequest?: ListAssetRequest): Promise<ListAssetResponse> {
+        const options = ParamCreater().listAsset(listAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询数据集文件列表接口用于在ModelArts平台上获取指定资产关联的文件列表信息。
+     * 该接口适用于以下场景：当用户需要浏览或检索某一资产下的文件资源时，可以通过此接口分页查询文件列表。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询数据集文件列表
+     * @param {string} assetId **参数解释**：资产id。 **约束限制**：1-36字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {string} [prefix] **参数解释**：列举桶内对象列表时，指定一个前缀，限定返回的对象名必须带有prefix前缀。 **约束限制**：1-1024位字符。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {number} [maxKeys] **参数解释**：列举对象的最大数目，返回的对象列表将是按照字典顺序的最多前max_keys个对象。 **约束限制**：1-1000。 **取值范围**：不涉及。 **默认取值**：1000。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssetFile(listAssetFileRequest?: ListAssetFileRequest): Promise<ListAssetFileResponse> {
+        const options = ParamCreater().listAssetFile(listAssetFileRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资产操作记录列表接口用于在ModelArts平台上分页查询资产的操作记录信息。
+     * 该接口适用于以下场景：当用户需要检索和审计资产的操作执行历史时，可以通过此接口按多种条件筛选并分页查询操作记录。使用该接口的前提条件是用户已具备项目访问权限。若用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资产操作记录列表
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {number} [limit] **参数解释**：限制量，单次查询总量，必须由数字组成。 **约束限制**：不涉及。 **取值范围**：1-1000。 **默认取值**：100。
+     * @param {number} [offset] **参数解释**：偏移量，查询起始偏移，必须由数字组成。 **约束限制**：不涉及。 **取值范围**0-100000000。 **默认取值**：0。
+     * @param {string} [sortDir] **参数解释**：排序方向。 **约束限制**：不涉及。 **取值范围**： 枚举值： - ASC: 升序 - DESC: 降序。 **默认取值**：DESC。
+     * @param {string} [sortKey] **参数解释**：排序字段。 **约束限制**：不涉及。 **取值范围**：枚举值： - created_at: 创建时间 - updated_at: 更新时间。 **默认取值**：created_at。
+     * @param {string} [recordId] **参数解释**：操作记录ID。 **约束限制**：1-64位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [jobType] **参数解释**：作业类型。 **约束限制**：1-40位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [jobId] **参数解释**：关联任务ID。 **约束限制**：1-64位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [jobName] **参数解释**：关联任务名称。 **约束限制**：1-128位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [jobStatus] **参数解释**：关联任务状态。 **约束限制**：1-40位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [userId] **参数解释**：操作用户ID。 **约束限制**：1-36位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [userName] **参数解释**：操作用户的用户名。 **约束限制**：1-128位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [assetId] **参数解释**：资产ID。 **约束限制**：1-64位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [assetCode] **参数解释**：资产code。 **约束限制**：1-64位字符串。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {boolean} [isDeleted] **参数解释**：任务是否删除。 **约束限制**：不涉及。 **取值范围**：true,false。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAssetOperationRecords(listAssetOperationRecordsRequest?: ListAssetOperationRecordsRequest): Promise<ListAssetOperationRecordsResponse> {
+        const options = ParamCreater().listAssetOperationRecords(listAssetOperationRecordsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4887,6 +5100,116 @@ export class ModelArtsClient {
     }
 
     /**
+     * 查询资产详情接口用于在ModelArts平台上获取指定资产的详细信息。
+     * 该接口适用于以下场景：当用户需要查看某个资产的完整元数据、存储位置、支持的操作及扩展信息时，可以通过此接口获取。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。平台将根据资产ID查询并返回资产的详情信息。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资产详情
+     * @param {string} assetId **参数解释**：资产id。 **约束限制**：1-36字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAsset(showAssetRequest?: ShowAssetRequest): Promise<ShowAssetResponse> {
+        const options = ParamCreater().showAsset(showAssetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 通过资产编码和版本查询资产详情接口用于在ModelArts平台上根据asset_code和版本asset_version查询指定资产的详细信息。
+     * 该接口适用于以下场景：当用户已知资产编码和版本但无资产ID时，可以通过此接口获取资产的完整详情及可执行操作。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的编码和版本号。平台将根据资产编码和版本查询并返回资产的详情信息。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 通过asset code 和asset version查询资产详情
+     * @param {string} assetCode **参数解释**：资产code。 **约束限制**：1-60字符，英文字母，数字，中划线，下划线，点。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} assetVersion **参数解释**：资产version。 **约束限制**：数字或为格式x.y.z， x,y,z均为数字。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {string} [assetType] **参数解释**:资产类型。 **约束限制**:不涉及。 **取值范围**:不涉及。 **默认取值**:MODEL。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssetByCodeAndVersion(showAssetByCodeAndVersionRequest?: ShowAssetByCodeAndVersionRequest): Promise<ShowAssetByCodeAndVersionResponse> {
+        const options = ParamCreater().showAssetByCodeAndVersion(showAssetByCodeAndVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资产扩展信息接口用于在ModelArts平台上获取指定资产README文件中的YAML内容。
+     * 该接口适用于以下场景：当用户需要查看预置资产的扩展元数据信息时，可以通过此接口解析README中的YAML片段并返回。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产ID。平台将根据资产ID读取对应README文件，解析其中的YAML内容后以JSON格式返回。若资产不存在、资产非预置资产、README文件未找到或用户无权限操作，接口将返回相应的错误信息或空数据。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询README中的yaml内容
+     * @param {string} assetId **参数解释**：资产id。 **约束限制**：1-36字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssetExtendMessage(showAssetExtendMessageRequest?: ShowAssetExtendMessageRequest): Promise<ShowAssetExtendMessageResponse> {
+        const options = ParamCreater().showAssetExtendMessage(showAssetExtendMessageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资产资源接口用于在ModelArts平台上获取指定资产中resource、doc等目录下的资源文件内容，如说明文档、芯片配置等。
+     * 该接口适用于以下场景：当用户需要查看资产的附加文档、配置文件或其他静态资源时，可以通过此接口按资源名称获取对应内容。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产ID及资源文件名称。平台将根据资产ID和资源名称读取对应文件，并按文件类型自动返回相应的内容格式。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资产管理resource、doc目录下的内容
+     * @param {string} assetId **参数解释**：资产id。 **约束限制**：1-36字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} resourceName **参数解释**：静态资源名称。 **约束限制**：当前只支持readme文件查询（docs/RELEASE.md）。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {boolean} [checkLocale] **参数解释**：查询资源时是否拼接区域信息。如果为false，则直接查询docs/RELEASE.md文件；如果为true，则会优先匹配带有区域信息的文件（请求头传递x-language，如英文查询docs/RELEASE_en-US.md）。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssetResource(showAssetResourceRequest?: ShowAssetResourceRequest): Promise<ShowAssetResourceResponse> {
+        const options = ParamCreater().showAssetResource(showAssetResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询tag列表信息接口用于在ModelArts平台上查询tag列表信息。
+     * 该接口适用于以下场景：当用户需要获取某一标签分类下所有标签的层级结构及详细信息时，可以通过此接口查询完整的标签树数据。使用该接口的前提条件是用户已具备项目访问权限，并已知目标标签的类型名称。平台将根据标签类型从对象存储中查询并返回对应的标签树形结构信息，支持多语言展示。若标签资源不存在或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询tag列表信息
+     * @param {string} tagCategory **参数解释**：标签分类。 **约束限制**：1-128位字符，仅支持中文、英文字母、数字、下划线和中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [xLanguage] **参数解释**：请求头（Header）参数，主要用于控制API返回内容的语言。 **约束限制**：不涉及。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAssetTagsInfo(showAssetTagsInfoRequest?: ShowAssetTagsInfoRequest): Promise<ShowAssetTagsInfoResponse> {
+        const options = ParamCreater().showAssetTagsInfo(showAssetTagsInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询委托授权状态接口用于查询ModelArts服务的委托授权是否已开通。该接口适用于以下场景：当用户需要确认是否已开通ModelArts委托授权以进行后续操作（如模型训练、部署等）时，可通过此接口查询当前授权状态。使用该接口的前提条件是用户已登录系统且具有相应的查询权限。查询结果将返回委托授权的当前状态（已开通或未开通），若用户无权限查询或服务异常，接口将返回相应的错误信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -6157,6 +6480,28 @@ export class ModelArtsClient {
      */
     public unbindInferApiKey(unbindInferApiKeyRequest?: UnbindInferApiKeyRequest): Promise<UnbindInferApiKeyResponse> {
         const options = ParamCreater().unbindInferApiKey(unbindInferApiKeyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新资产接口用于在ModelArts平台上修改指定资产的属性信息，包括资产名称、描述、系列、能力、启用状态、标签及自定义属性等。
+     * 该接口适用于以下场景：当用户需要修改已有资产的元数据信息或调整资产状态时，可以通过此接口进行更新。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。平台将在校验资产存在性及归属权限后将更新应用到目标资产及其同组资产上。若资产不存在、为预置资产不可修改或用户无权限操作，接口将返回相应的错误信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新资产
+     * @param {string} assetId **参数解释**：资产id。 **约束限制**：1-36字符，英文字母，数字，下划线，中划线。 **取值范围**：不涉及。 **默认取值**：不涉及。
+     * @param {UpdateAssetReq} body 
+     * @param {string} [workspaceId] 工作空间ID。[获取方法请参见[查询工作空间列表](ListWorkspace.xml)。](tag:hc)未创建工作空间时默认值为“0”，存在创建并使用的工作空间，以实际取值为准。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAsset(updateAssetRequest?: UpdateAssetRequest): Promise<UpdateAssetResponse> {
+        const options = ParamCreater().updateAsset(updateAssetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -9224,6 +9569,112 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建资产接口用于在ModelArts平台上创建一个新的资产，支持创建独立资产或基于父资产派生新版本，并支持加入已有资产组进行版本管理。
+         * 该接口适用于以下场景：当用户需要将自定义模型、数据集、算子等资产上传至平台并进行统一管理时，可以通过此接口创建资产。使用该接口的前提条件是用户已具备项目访问权限，并已准备好资产的元数据信息及存储路径。平台将在校验资产类型、版本唯一性及数据合法性后，将资产添加到资产列表中并返回资产ID。若资产信息不完整、版本冲突或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAsset(createAssetRequest?: CreateAssetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/assets",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let workspaceId;
+            
+            let xStorageToken;
+
+            if (createAssetRequest !== null && createAssetRequest !== undefined) {
+                if (createAssetRequest instanceof CreateAssetRequest) {
+                    body = createAssetRequest.body
+                    workspaceId = createAssetRequest.workspaceId;
+                    xStorageToken = createAssetRequest.xStorageToken;
+                } else {
+                    body = createAssetRequest['body'];
+                    workspaceId = createAssetRequest['workspace_id'];
+                    xStorageToken = createAssetRequest['X-Storage-Token'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (xStorageToken !== undefined && xStorageToken !== null) {
+                localVarHeaderParameter['X-Storage-Token'] = String(xStorageToken);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取资产文件临时下载路径接口用于在ModelArts平台上为指定资产生成临时签名的文件下载路径。
+         * 该接口适用于以下场景：当用户需要下载资产关联的文件资源时，可以通过此接口获取临时有效的下载链接。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAssetFileDownLoadPath(createAssetFileDownLoadPathRequest?: CreateAssetFileDownLoadPathRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/assets/{asset_id}/resources/file-path/sign",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let assetId;
+            
+            let workspaceId;
+
+            if (createAssetFileDownLoadPathRequest !== null && createAssetFileDownLoadPathRequest !== undefined) {
+                if (createAssetFileDownLoadPathRequest instanceof CreateAssetFileDownLoadPathRequest) {
+                    assetId = createAssetFileDownLoadPathRequest.assetId;
+                    workspaceId = createAssetFileDownLoadPathRequest.workspaceId;
+                    body = createAssetFileDownLoadPathRequest.body
+                } else {
+                    assetId = createAssetFileDownLoadPathRequest['asset_id'];
+                    workspaceId = createAssetFileDownLoadPathRequest['workspace_id'];
+                    body = createAssetFileDownLoadPathRequest['body'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling createAssetFileDownLoadPath.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_id': assetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 一键授权或重置授权接口用于一键创建ModelArts委托授权或重置已有委托。该接口适用于以下场景：当用户首次使用ModelArts服务需要开通委托授权时，或当现有委托授权出现异常、过期需要重新配置时，可通过此接口一键完成授权操作。使用该接口的前提条件是用户已登录系统且具有相应的操作权限。执行一键授权后，系统将自动创建委托授权关系；执行重置操作后，原有委托将被替换为新的授权。若用户无权限操作或服务异常，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -10309,6 +10760,59 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'algorithm_id': algorithmId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除资产接口用于在ModelArts平台上删除指定的资产，支持通过forceDelete参数对数据集类型资产进行强制删除。
+         * 该接口适用于以下场景：当用户需要清理不再使用的资产或释放存储资源时，可以通过此接口进行删除。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。平台将在校验资产存在性、归属权限及使用状态后执行禁用删除操作并返回资产ID。若资产不存在、为预置资产不可删除、模型资产仍在使用中或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteAsset(deleteAssetRequest?: DeleteAssetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/assets/{asset_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let assetId;
+            
+            let workspaceId;
+            
+            let forceDelete;
+
+            if (deleteAssetRequest !== null && deleteAssetRequest !== undefined) {
+                if (deleteAssetRequest instanceof DeleteAssetRequest) {
+                    assetId = deleteAssetRequest.assetId;
+                    workspaceId = deleteAssetRequest.workspaceId;
+                    forceDelete = deleteAssetRequest.forceDelete;
+                } else {
+                    assetId = deleteAssetRequest['asset_id'];
+                    workspaceId = deleteAssetRequest['workspace_id'];
+                    forceDelete = deleteAssetRequest['force_delete'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling deleteAsset.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (forceDelete !== null && forceDelete !== undefined) {
+                localVarQueryParameter['force_delete'] = forceDelete;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_id': assetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12025,6 +12529,464 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资产列表接口用于在ModelArts平台上查询指定项目下的资产列表。
+         * 该接口适用于以下场景：当用户需要在资产管理浏览、检索和管理资产时，可以通过此接口按需筛选所需资产。使用该接口的前提条件是用户已具备项目访问权限。平台将根据传入的查询条件返回符合条件的资产详情列表及总数。若请求参数格式错误或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAsset(listAssetRequest?: ListAssetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let sortDir;
+            
+            let sortKey;
+            
+            let limit;
+            
+            let offset;
+            
+            let workspaceId;
+            
+            let assetName;
+            
+            let assetType;
+            
+            let assetSource;
+            
+            let assetSourceType;
+            
+            let assetCode;
+            
+            let assetVersion;
+            
+            let assetGroupId;
+            
+            let filterAllVersion;
+            
+            let supportActions;
+            
+            let tag;
+            
+            let isMine;
+            
+            let withActions;
+            
+            let assetSeries;
+            
+            let assetCapabilities;
+            
+            let assetScenes;
+            
+            let rootAssetId;
+            
+            let parentAssetId;
+            
+            let isDeleted;
+            
+            let assetIds;
+            
+            let tagMode;
+            
+            let datasetUsage;
+            
+            let status;
+            
+            let datasetFileFormats;
+            
+            let datasetType;
+            
+            let datasetSubType;
+            
+            let datasetSchemaFormat;
+            
+            let creator;
+            
+            let dataSourceId;
+
+            if (listAssetRequest !== null && listAssetRequest !== undefined) {
+                if (listAssetRequest instanceof ListAssetRequest) {
+                    sortDir = listAssetRequest.sortDir;
+                    sortKey = listAssetRequest.sortKey;
+                    limit = listAssetRequest.limit;
+                    offset = listAssetRequest.offset;
+                    workspaceId = listAssetRequest.workspaceId;
+                    assetName = listAssetRequest.assetName;
+                    assetType = listAssetRequest.assetType;
+                    assetSource = listAssetRequest.assetSource;
+                    assetSourceType = listAssetRequest.assetSourceType;
+                    assetCode = listAssetRequest.assetCode;
+                    assetVersion = listAssetRequest.assetVersion;
+                    assetGroupId = listAssetRequest.assetGroupId;
+                    filterAllVersion = listAssetRequest.filterAllVersion;
+                    supportActions = listAssetRequest.supportActions;
+                    tag = listAssetRequest.tag;
+                    isMine = listAssetRequest.isMine;
+                    withActions = listAssetRequest.withActions;
+                    assetSeries = listAssetRequest.assetSeries;
+                    assetCapabilities = listAssetRequest.assetCapabilities;
+                    assetScenes = listAssetRequest.assetScenes;
+                    rootAssetId = listAssetRequest.rootAssetId;
+                    parentAssetId = listAssetRequest.parentAssetId;
+                    isDeleted = listAssetRequest.isDeleted;
+                    assetIds = listAssetRequest.assetIds;
+                    tagMode = listAssetRequest.tagMode;
+                    datasetUsage = listAssetRequest.datasetUsage;
+                    status = listAssetRequest.status;
+                    datasetFileFormats = listAssetRequest.datasetFileFormats;
+                    datasetType = listAssetRequest.datasetType;
+                    datasetSubType = listAssetRequest.datasetSubType;
+                    datasetSchemaFormat = listAssetRequest.datasetSchemaFormat;
+                    creator = listAssetRequest.creator;
+                    dataSourceId = listAssetRequest.dataSourceId;
+                } else {
+                    sortDir = listAssetRequest['sort_dir'];
+                    sortKey = listAssetRequest['sort_key'];
+                    limit = listAssetRequest['limit'];
+                    offset = listAssetRequest['offset'];
+                    workspaceId = listAssetRequest['workspace_id'];
+                    assetName = listAssetRequest['asset_name'];
+                    assetType = listAssetRequest['asset_type'];
+                    assetSource = listAssetRequest['asset_source'];
+                    assetSourceType = listAssetRequest['asset_source_type'];
+                    assetCode = listAssetRequest['asset_code'];
+                    assetVersion = listAssetRequest['asset_version'];
+                    assetGroupId = listAssetRequest['asset_group_id'];
+                    filterAllVersion = listAssetRequest['filter_all_version'];
+                    supportActions = listAssetRequest['support_actions'];
+                    tag = listAssetRequest['tag'];
+                    isMine = listAssetRequest['is_mine'];
+                    withActions = listAssetRequest['with_actions'];
+                    assetSeries = listAssetRequest['asset_series'];
+                    assetCapabilities = listAssetRequest['asset_capabilities'];
+                    assetScenes = listAssetRequest['asset_scenes'];
+                    rootAssetId = listAssetRequest['root_asset_id'];
+                    parentAssetId = listAssetRequest['parent_asset_id'];
+                    isDeleted = listAssetRequest['is_deleted'];
+                    assetIds = listAssetRequest['asset_ids'];
+                    tagMode = listAssetRequest['tag_mode'];
+                    datasetUsage = listAssetRequest['dataset_usage'];
+                    status = listAssetRequest['status'];
+                    datasetFileFormats = listAssetRequest['dataset_file_formats'];
+                    datasetType = listAssetRequest['dataset_type'];
+                    datasetSubType = listAssetRequest['dataset_sub_type'];
+                    datasetSchemaFormat = listAssetRequest['dataset_schema_format'];
+                    creator = listAssetRequest['creator'];
+                    dataSourceId = listAssetRequest['data_source_id'];
+                }
+            }
+
+        
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (assetName !== null && assetName !== undefined) {
+                localVarQueryParameter['asset_name'] = assetName;
+            }
+            if (assetType !== null && assetType !== undefined) {
+                localVarQueryParameter['asset_type'] = assetType;
+            }
+            if (assetSource !== null && assetSource !== undefined) {
+                localVarQueryParameter['asset_source'] = assetSource;
+            }
+            if (assetSourceType !== null && assetSourceType !== undefined) {
+                localVarQueryParameter['asset_source_type'] = assetSourceType;
+            }
+            if (assetCode !== null && assetCode !== undefined) {
+                localVarQueryParameter['asset_code'] = assetCode;
+            }
+            if (assetVersion !== null && assetVersion !== undefined) {
+                localVarQueryParameter['asset_version'] = assetVersion;
+            }
+            if (assetGroupId !== null && assetGroupId !== undefined) {
+                localVarQueryParameter['asset_group_id'] = assetGroupId;
+            }
+            if (filterAllVersion !== null && filterAllVersion !== undefined) {
+                localVarQueryParameter['filter_all_version'] = filterAllVersion;
+            }
+            if (supportActions !== null && supportActions !== undefined) {
+                localVarQueryParameter['support_actions'] = supportActions;
+            }
+            if (tag !== null && tag !== undefined) {
+                localVarQueryParameter['tag'] = tag;
+            }
+            if (isMine !== null && isMine !== undefined) {
+                localVarQueryParameter['is_mine'] = isMine;
+            }
+            if (withActions !== null && withActions !== undefined) {
+                localVarQueryParameter['with_actions'] = withActions;
+            }
+            if (assetSeries !== null && assetSeries !== undefined) {
+                localVarQueryParameter['asset_series'] = assetSeries;
+            }
+            if (assetCapabilities !== null && assetCapabilities !== undefined) {
+                localVarQueryParameter['asset_capabilities'] = assetCapabilities;
+            }
+            if (assetScenes !== null && assetScenes !== undefined) {
+                localVarQueryParameter['asset_scenes'] = assetScenes;
+            }
+            if (rootAssetId !== null && rootAssetId !== undefined) {
+                localVarQueryParameter['root_asset_id'] = rootAssetId;
+            }
+            if (parentAssetId !== null && parentAssetId !== undefined) {
+                localVarQueryParameter['parent_asset_id'] = parentAssetId;
+            }
+            if (isDeleted !== null && isDeleted !== undefined) {
+                localVarQueryParameter['is_deleted'] = isDeleted;
+            }
+            if (assetIds !== null && assetIds !== undefined) {
+                localVarQueryParameter['asset_ids'] = assetIds;
+            }
+            if (tagMode !== null && tagMode !== undefined) {
+                localVarQueryParameter['tag_mode'] = tagMode;
+            }
+            if (datasetUsage !== null && datasetUsage !== undefined) {
+                localVarQueryParameter['dataset_usage'] = datasetUsage;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (datasetFileFormats !== null && datasetFileFormats !== undefined) {
+                localVarQueryParameter['dataset_file_formats'] = datasetFileFormats;
+            }
+            if (datasetType !== null && datasetType !== undefined) {
+                localVarQueryParameter['dataset_type'] = datasetType;
+            }
+            if (datasetSubType !== null && datasetSubType !== undefined) {
+                localVarQueryParameter['dataset_sub_type'] = datasetSubType;
+            }
+            if (datasetSchemaFormat !== null && datasetSchemaFormat !== undefined) {
+                localVarQueryParameter['dataset_schema_format'] = datasetSchemaFormat;
+            }
+            if (creator !== null && creator !== undefined) {
+                localVarQueryParameter['creator'] = creator;
+            }
+            if (dataSourceId !== null && dataSourceId !== undefined) {
+                localVarQueryParameter['data_source_id'] = dataSourceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询数据集文件列表接口用于在ModelArts平台上获取指定资产关联的文件列表信息。
+         * 该接口适用于以下场景：当用户需要浏览或检索某一资产下的文件资源时，可以通过此接口分页查询文件列表。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssetFile(listAssetFileRequest?: ListAssetFileRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets/{asset_id}/resources/file-path",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let assetId;
+            
+            let workspaceId;
+            
+            let prefix;
+            
+            let maxKeys;
+
+            if (listAssetFileRequest !== null && listAssetFileRequest !== undefined) {
+                if (listAssetFileRequest instanceof ListAssetFileRequest) {
+                    assetId = listAssetFileRequest.assetId;
+                    workspaceId = listAssetFileRequest.workspaceId;
+                    prefix = listAssetFileRequest.prefix;
+                    maxKeys = listAssetFileRequest.maxKeys;
+                } else {
+                    assetId = listAssetFileRequest['asset_id'];
+                    workspaceId = listAssetFileRequest['workspace_id'];
+                    prefix = listAssetFileRequest['prefix'];
+                    maxKeys = listAssetFileRequest['max_keys'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling listAssetFile.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (prefix !== null && prefix !== undefined) {
+                localVarQueryParameter['prefix'] = prefix;
+            }
+            if (maxKeys !== null && maxKeys !== undefined) {
+                localVarQueryParameter['max_keys'] = maxKeys;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_id': assetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资产操作记录列表接口用于在ModelArts平台上分页查询资产的操作记录信息。
+         * 该接口适用于以下场景：当用户需要检索和审计资产的操作执行历史时，可以通过此接口按多种条件筛选并分页查询操作记录。使用该接口的前提条件是用户已具备项目访问权限。若用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAssetOperationRecords(listAssetOperationRecordsRequest?: ListAssetOperationRecordsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets/operation-records",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspaceId;
+            
+            let limit;
+            
+            let offset;
+            
+            let sortDir;
+            
+            let sortKey;
+            
+            let recordId;
+            
+            let jobType;
+            
+            let jobId;
+            
+            let jobName;
+            
+            let jobStatus;
+            
+            let userId;
+            
+            let userName;
+            
+            let assetId;
+            
+            let assetCode;
+            
+            let isDeleted;
+
+            if (listAssetOperationRecordsRequest !== null && listAssetOperationRecordsRequest !== undefined) {
+                if (listAssetOperationRecordsRequest instanceof ListAssetOperationRecordsRequest) {
+                    workspaceId = listAssetOperationRecordsRequest.workspaceId;
+                    limit = listAssetOperationRecordsRequest.limit;
+                    offset = listAssetOperationRecordsRequest.offset;
+                    sortDir = listAssetOperationRecordsRequest.sortDir;
+                    sortKey = listAssetOperationRecordsRequest.sortKey;
+                    recordId = listAssetOperationRecordsRequest.recordId;
+                    jobType = listAssetOperationRecordsRequest.jobType;
+                    jobId = listAssetOperationRecordsRequest.jobId;
+                    jobName = listAssetOperationRecordsRequest.jobName;
+                    jobStatus = listAssetOperationRecordsRequest.jobStatus;
+                    userId = listAssetOperationRecordsRequest.userId;
+                    userName = listAssetOperationRecordsRequest.userName;
+                    assetId = listAssetOperationRecordsRequest.assetId;
+                    assetCode = listAssetOperationRecordsRequest.assetCode;
+                    isDeleted = listAssetOperationRecordsRequest.isDeleted;
+                } else {
+                    workspaceId = listAssetOperationRecordsRequest['workspace_id'];
+                    limit = listAssetOperationRecordsRequest['limit'];
+                    offset = listAssetOperationRecordsRequest['offset'];
+                    sortDir = listAssetOperationRecordsRequest['sort_dir'];
+                    sortKey = listAssetOperationRecordsRequest['sort_key'];
+                    recordId = listAssetOperationRecordsRequest['record_id'];
+                    jobType = listAssetOperationRecordsRequest['job_type'];
+                    jobId = listAssetOperationRecordsRequest['job_id'];
+                    jobName = listAssetOperationRecordsRequest['job_name'];
+                    jobStatus = listAssetOperationRecordsRequest['job_status'];
+                    userId = listAssetOperationRecordsRequest['user_id'];
+                    userName = listAssetOperationRecordsRequest['user_name'];
+                    assetId = listAssetOperationRecordsRequest['asset_id'];
+                    assetCode = listAssetOperationRecordsRequest['asset_code'];
+                    isDeleted = listAssetOperationRecordsRequest['is_deleted'];
+                }
+            }
+
+        
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (recordId !== null && recordId !== undefined) {
+                localVarQueryParameter['record_id'] = recordId;
+            }
+            if (jobType !== null && jobType !== undefined) {
+                localVarQueryParameter['job_type'] = jobType;
+            }
+            if (jobId !== null && jobId !== undefined) {
+                localVarQueryParameter['job_id'] = jobId;
+            }
+            if (jobName !== null && jobName !== undefined) {
+                localVarQueryParameter['job_name'] = jobName;
+            }
+            if (jobStatus !== null && jobStatus !== undefined) {
+                localVarQueryParameter['job_status'] = jobStatus;
+            }
+            if (userId !== null && userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+            if (userName !== null && userName !== undefined) {
+                localVarQueryParameter['user_name'] = userName;
+            }
+            if (assetId !== null && assetId !== undefined) {
+                localVarQueryParameter['asset_id'] = assetId;
+            }
+            if (assetCode !== null && assetCode !== undefined) {
+                localVarQueryParameter['asset_code'] = assetCode;
+            }
+            if (isDeleted !== null && isDeleted !== undefined) {
+                localVarQueryParameter['is_deleted'] = isDeleted;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -16104,6 +17066,274 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询资产详情接口用于在ModelArts平台上获取指定资产的详细信息。
+         * 该接口适用于以下场景：当用户需要查看某个资产的完整元数据、存储位置、支持的操作及扩展信息时，可以通过此接口获取。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。平台将根据资产ID查询并返回资产的详情信息。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAsset(showAssetRequest?: ShowAssetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets/{asset_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let assetId;
+            
+            let workspaceId;
+
+            if (showAssetRequest !== null && showAssetRequest !== undefined) {
+                if (showAssetRequest instanceof ShowAssetRequest) {
+                    assetId = showAssetRequest.assetId;
+                    workspaceId = showAssetRequest.workspaceId;
+                } else {
+                    assetId = showAssetRequest['asset_id'];
+                    workspaceId = showAssetRequest['workspace_id'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling showAsset.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_id': assetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 通过资产编码和版本查询资产详情接口用于在ModelArts平台上根据asset_code和版本asset_version查询指定资产的详细信息。
+         * 该接口适用于以下场景：当用户已知资产编码和版本但无资产ID时，可以通过此接口获取资产的完整详情及可执行操作。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的编码和版本号。平台将根据资产编码和版本查询并返回资产的详情信息。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssetByCodeAndVersion(showAssetByCodeAndVersionRequest?: ShowAssetByCodeAndVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets/{asset_code}/{asset_version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let assetCode;
+            
+            let assetVersion;
+            
+            let workspaceId;
+            
+            let assetType;
+
+            if (showAssetByCodeAndVersionRequest !== null && showAssetByCodeAndVersionRequest !== undefined) {
+                if (showAssetByCodeAndVersionRequest instanceof ShowAssetByCodeAndVersionRequest) {
+                    assetCode = showAssetByCodeAndVersionRequest.assetCode;
+                    assetVersion = showAssetByCodeAndVersionRequest.assetVersion;
+                    workspaceId = showAssetByCodeAndVersionRequest.workspaceId;
+                    assetType = showAssetByCodeAndVersionRequest.assetType;
+                } else {
+                    assetCode = showAssetByCodeAndVersionRequest['asset_code'];
+                    assetVersion = showAssetByCodeAndVersionRequest['asset_version'];
+                    workspaceId = showAssetByCodeAndVersionRequest['workspace_id'];
+                    assetType = showAssetByCodeAndVersionRequest['asset_type'];
+                }
+            }
+
+        
+            if (assetCode === null || assetCode === undefined) {
+            throw new RequiredError('assetCode','Required parameter assetCode was null or undefined when calling showAssetByCodeAndVersion.');
+            }
+            if (assetVersion === null || assetVersion === undefined) {
+            throw new RequiredError('assetVersion','Required parameter assetVersion was null or undefined when calling showAssetByCodeAndVersion.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (assetType !== null && assetType !== undefined) {
+                localVarQueryParameter['asset_type'] = assetType;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_code': assetCode,'asset_version': assetVersion, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资产扩展信息接口用于在ModelArts平台上获取指定资产README文件中的YAML内容。
+         * 该接口适用于以下场景：当用户需要查看预置资产的扩展元数据信息时，可以通过此接口解析README中的YAML片段并返回。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产ID。平台将根据资产ID读取对应README文件，解析其中的YAML内容后以JSON格式返回。若资产不存在、资产非预置资产、README文件未找到或用户无权限操作，接口将返回相应的错误信息或空数据。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssetExtendMessage(showAssetExtendMessageRequest?: ShowAssetExtendMessageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets/{asset_id}/extend-message",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let assetId;
+            
+            let workspaceId;
+
+            if (showAssetExtendMessageRequest !== null && showAssetExtendMessageRequest !== undefined) {
+                if (showAssetExtendMessageRequest instanceof ShowAssetExtendMessageRequest) {
+                    assetId = showAssetExtendMessageRequest.assetId;
+                    workspaceId = showAssetExtendMessageRequest.workspaceId;
+                } else {
+                    assetId = showAssetExtendMessageRequest['asset_id'];
+                    workspaceId = showAssetExtendMessageRequest['workspace_id'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling showAssetExtendMessage.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_id': assetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资产资源接口用于在ModelArts平台上获取指定资产中resource、doc等目录下的资源文件内容，如说明文档、芯片配置等。
+         * 该接口适用于以下场景：当用户需要查看资产的附加文档、配置文件或其他静态资源时，可以通过此接口按资源名称获取对应内容。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产ID及资源文件名称。平台将根据资产ID和资源名称读取对应文件，并按文件类型自动返回相应的内容格式。若资产不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssetResource(showAssetResourceRequest?: ShowAssetResourceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets/{asset_id}/resources",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let assetId;
+            
+            let resourceName;
+            
+            let workspaceId;
+            
+            let checkLocale;
+
+            if (showAssetResourceRequest !== null && showAssetResourceRequest !== undefined) {
+                if (showAssetResourceRequest instanceof ShowAssetResourceRequest) {
+                    assetId = showAssetResourceRequest.assetId;
+                    resourceName = showAssetResourceRequest.resourceName;
+                    workspaceId = showAssetResourceRequest.workspaceId;
+                    checkLocale = showAssetResourceRequest.checkLocale;
+                } else {
+                    assetId = showAssetResourceRequest['asset_id'];
+                    resourceName = showAssetResourceRequest['resource_name'];
+                    workspaceId = showAssetResourceRequest['workspace_id'];
+                    checkLocale = showAssetResourceRequest['check_locale'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling showAssetResource.');
+            }
+            if (resourceName === null || resourceName === undefined) {
+                throw new RequiredError('resourceName','Required parameter resourceName was null or undefined when calling showAssetResource.');
+            }
+            if (resourceName !== null && resourceName !== undefined) {
+                localVarQueryParameter['resource_name'] = resourceName;
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (checkLocale !== null && checkLocale !== undefined) {
+                localVarQueryParameter['check_locale'] = checkLocale;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_id': assetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询tag列表信息接口用于在ModelArts平台上查询tag列表信息。
+         * 该接口适用于以下场景：当用户需要获取某一标签分类下所有标签的层级结构及详细信息时，可以通过此接口查询完整的标签树数据。使用该接口的前提条件是用户已具备项目访问权限，并已知目标标签的类型名称。平台将根据标签类型从对象存储中查询并返回对应的标签树形结构信息，支持多语言展示。若标签资源不存在或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAssetTagsInfo(showAssetTagsInfoRequest?: ShowAssetTagsInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/assets/tags/{tag_category}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let tagCategory;
+            
+            let xLanguage;
+            
+            let workspaceId;
+
+            if (showAssetTagsInfoRequest !== null && showAssetTagsInfoRequest !== undefined) {
+                if (showAssetTagsInfoRequest instanceof ShowAssetTagsInfoRequest) {
+                    tagCategory = showAssetTagsInfoRequest.tagCategory;
+                    xLanguage = showAssetTagsInfoRequest.xLanguage;
+                    workspaceId = showAssetTagsInfoRequest.workspaceId;
+                } else {
+                    tagCategory = showAssetTagsInfoRequest['tag_category'];
+                    xLanguage = showAssetTagsInfoRequest['X-Language'];
+                    workspaceId = showAssetTagsInfoRequest['workspace_id'];
+                }
+            }
+
+        
+            if (tagCategory === null || tagCategory === undefined) {
+            throw new RequiredError('tagCategory','Required parameter tagCategory was null or undefined when calling showAssetTagsInfo.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'tag_category': tagCategory, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询委托授权状态接口用于查询ModelArts服务的委托授权是否已开通。该接口适用于以下场景：当用户需要确认是否已开通ModelArts委托授权以进行后续操作（如模型训练、部署等）时，可通过此接口查询当前授权状态。使用该接口的前提条件是用户已登录系统且具有相应的查询权限。查询结果将返回委托授权的当前状态（已开通或未开通），若用户无权限查询或服务异常，接口将返回相应的错误信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -18703,6 +19933,61 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'service_id': serviceId,'key_id': keyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新资产接口用于在ModelArts平台上修改指定资产的属性信息，包括资产名称、描述、系列、能力、启用状态、标签及自定义属性等。
+         * 该接口适用于以下场景：当用户需要修改已有资产的元数据信息或调整资产状态时，可以通过此接口进行更新。使用该接口的前提条件是用户已具备项目访问权限，并已知目标资产的ID。平台将在校验资产存在性及归属权限后将更新应用到目标资产及其同组资产上。若资产不存在、为预置资产不可修改或用户无权限操作，接口将返回相应的错误信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAsset(updateAssetRequest?: UpdateAssetRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/assets/{asset_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let body: any;
+            
+            let assetId;
+            
+            let workspaceId;
+
+            if (updateAssetRequest !== null && updateAssetRequest !== undefined) {
+                if (updateAssetRequest instanceof UpdateAssetRequest) {
+                    assetId = updateAssetRequest.assetId;
+                    body = updateAssetRequest.body
+                    workspaceId = updateAssetRequest.workspaceId;
+                } else {
+                    assetId = updateAssetRequest['asset_id'];
+                    body = updateAssetRequest['body'];
+                    workspaceId = updateAssetRequest['workspace_id'];
+                }
+            }
+
+        
+            if (assetId === null || assetId === undefined) {
+            throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling updateAsset.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (workspaceId !== null && workspaceId !== undefined) {
+                localVarQueryParameter['workspace_id'] = workspaceId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'asset_id': assetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

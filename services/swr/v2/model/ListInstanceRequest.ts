@@ -39,5 +39,9 @@ export enum ListInstanceRequestStatusEnum {
     INITIAL = 'Initial',
     CREATING = 'Creating',
     RUNNING = 'Running',
-    UNAVAILABLE = 'Unavailable'
+    UNAVAILABLE = 'Unavailable',
+    FROZEN = 'Frozen',
+    DEPLOYMENTABNORMAL = 'DeploymentAbnormal',
+    PARTIALLYUNAVAILABLE = 'PartiallyUnavailable',
+    COREDIALFAILED = 'CoreDialFailed'
 }

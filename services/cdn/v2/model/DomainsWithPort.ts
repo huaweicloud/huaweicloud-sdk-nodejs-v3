@@ -1,4 +1,5 @@
 import { DomainOriginHost } from './DomainOriginHost';
+import { EpResourceTag } from './EpResourceTag';
 import { SourceWithPort } from './SourceWithPort';
 
 
@@ -24,6 +25,8 @@ export class DomainsWithPort {
     private 'banned_reason'?: string;
     private 'locked_reason'?: string;
     private 'enterprise_project_id'?: string;
+    public cnames?: string;
+    public tags?: Array<EpResourceTag>;
     public constructor() { 
     }
     public withId(id: string): DomainsWithPort {
@@ -205,6 +208,14 @@ export class DomainsWithPort {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withCnames(cnames: string): DomainsWithPort {
+        this['cnames'] = cnames;
+        return this;
+    }
+    public withTags(tags: Array<EpResourceTag>): DomainsWithPort {
+        this['tags'] = tags;
+        return this;
     }
 }
 

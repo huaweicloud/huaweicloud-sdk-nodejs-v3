@@ -1,4 +1,5 @@
 import { ForceRedirect } from './ForceRedirect';
+import { MultiCertificateBatchVo } from './MultiCertificateBatchVo';
 
 
 export class UpdateDomainMultiCertificatesRequestBodyContent {
@@ -13,6 +14,7 @@ export class UpdateDomainMultiCertificatesRequestBodyContent {
     private 'private_key'?: string;
     private 'certificate_type'?: number;
     private 'scm_certificate_id'?: string;
+    public certificates?: Array<MultiCertificateBatchVo>;
     public constructor(domainName?: string, httpsSwitch?: number) { 
         this['domain_name'] = domainName;
         this['https_switch'] = httpsSwitch;
@@ -114,5 +116,9 @@ export class UpdateDomainMultiCertificatesRequestBodyContent {
     }
     public get scmCertificateId(): string | undefined {
         return this['scm_certificate_id'];
+    }
+    public withCertificates(certificates: Array<MultiCertificateBatchVo>): UpdateDomainMultiCertificatesRequestBodyContent {
+        this['certificates'] = certificates;
+        return this;
     }
 }

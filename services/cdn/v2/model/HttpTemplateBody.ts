@@ -1,0 +1,133 @@
+import { CertificatesPutBody } from './CertificatesPutBody';
+
+
+export class HttpTemplateBody {
+    private 'https_status'?: string;
+    private 'certificate_type'?: string;
+    private 'certificate_source'?: number;
+    private 'scm_certificate_id'?: string;
+    private 'certificate_name'?: string;
+    private 'certificate_value'?: string;
+    private 'private_key'?: string;
+    private 'enc_certificate_value'?: string;
+    private 'enc_private_key'?: string;
+    public certificates?: Array<CertificatesPutBody>;
+    private 'http2_status'?: string;
+    private 'ocsp_stapling_status'?: string;
+    public constructor() { 
+    }
+    public withHttpsStatus(httpsStatus: string): HttpTemplateBody {
+        this['https_status'] = httpsStatus;
+        return this;
+    }
+    public set httpsStatus(httpsStatus: string  | undefined) {
+        this['https_status'] = httpsStatus;
+    }
+    public get httpsStatus(): string | undefined {
+        return this['https_status'];
+    }
+    public withCertificateType(certificateType: string): HttpTemplateBody {
+        this['certificate_type'] = certificateType;
+        return this;
+    }
+    public set certificateType(certificateType: string  | undefined) {
+        this['certificate_type'] = certificateType;
+    }
+    public get certificateType(): string | undefined {
+        return this['certificate_type'];
+    }
+    public withCertificateSource(certificateSource: number): HttpTemplateBody {
+        this['certificate_source'] = certificateSource;
+        return this;
+    }
+    public set certificateSource(certificateSource: number  | undefined) {
+        this['certificate_source'] = certificateSource;
+    }
+    public get certificateSource(): number | undefined {
+        return this['certificate_source'];
+    }
+    public withScmCertificateId(scmCertificateId: string): HttpTemplateBody {
+        this['scm_certificate_id'] = scmCertificateId;
+        return this;
+    }
+    public set scmCertificateId(scmCertificateId: string  | undefined) {
+        this['scm_certificate_id'] = scmCertificateId;
+    }
+    public get scmCertificateId(): string | undefined {
+        return this['scm_certificate_id'];
+    }
+    public withCertificateName(certificateName: string): HttpTemplateBody {
+        this['certificate_name'] = certificateName;
+        return this;
+    }
+    public set certificateName(certificateName: string  | undefined) {
+        this['certificate_name'] = certificateName;
+    }
+    public get certificateName(): string | undefined {
+        return this['certificate_name'];
+    }
+    public withCertificateValue(certificateValue: string): HttpTemplateBody {
+        this['certificate_value'] = certificateValue;
+        return this;
+    }
+    public set certificateValue(certificateValue: string  | undefined) {
+        this['certificate_value'] = certificateValue;
+    }
+    public get certificateValue(): string | undefined {
+        return this['certificate_value'];
+    }
+    public withPrivateKey(privateKey: string): HttpTemplateBody {
+        this['private_key'] = privateKey;
+        return this;
+    }
+    public set privateKey(privateKey: string  | undefined) {
+        this['private_key'] = privateKey;
+    }
+    public get privateKey(): string | undefined {
+        return this['private_key'];
+    }
+    public withEncCertificateValue(encCertificateValue: string): HttpTemplateBody {
+        this['enc_certificate_value'] = encCertificateValue;
+        return this;
+    }
+    public set encCertificateValue(encCertificateValue: string  | undefined) {
+        this['enc_certificate_value'] = encCertificateValue;
+    }
+    public get encCertificateValue(): string | undefined {
+        return this['enc_certificate_value'];
+    }
+    public withEncPrivateKey(encPrivateKey: string): HttpTemplateBody {
+        this['enc_private_key'] = encPrivateKey;
+        return this;
+    }
+    public set encPrivateKey(encPrivateKey: string  | undefined) {
+        this['enc_private_key'] = encPrivateKey;
+    }
+    public get encPrivateKey(): string | undefined {
+        return this['enc_private_key'];
+    }
+    public withCertificates(certificates: Array<CertificatesPutBody>): HttpTemplateBody {
+        this['certificates'] = certificates;
+        return this;
+    }
+    public withHttp2Status(http2Status: string): HttpTemplateBody {
+        this['http2_status'] = http2Status;
+        return this;
+    }
+    public set http2Status(http2Status: string  | undefined) {
+        this['http2_status'] = http2Status;
+    }
+    public get http2Status(): string | undefined {
+        return this['http2_status'];
+    }
+    public withOcspStaplingStatus(ocspStaplingStatus: string): HttpTemplateBody {
+        this['ocsp_stapling_status'] = ocspStaplingStatus;
+        return this;
+    }
+    public set ocspStaplingStatus(ocspStaplingStatus: string  | undefined) {
+        this['ocsp_stapling_status'] = ocspStaplingStatus;
+    }
+    public get ocspStaplingStatus(): string | undefined {
+        return this['ocsp_stapling_status'];
+    }
+}

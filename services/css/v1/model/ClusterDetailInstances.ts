@@ -12,6 +12,7 @@ export class ClusterDetailInstances {
     public ip?: string;
     public volume?: ShowClusterVolumeRsp;
     public subnetId?: string;
+    public created?: Date;
     public constructor() { 
     }
     public withStatus(status: string): ClusterDetailInstances {
@@ -52,6 +53,10 @@ export class ClusterDetailInstances {
     }
     public withSubnetId(subnetId: string): ClusterDetailInstances {
         this['subnetId'] = subnetId;
+        return this;
+    }
+    public withCreated(created: Date): ClusterDetailInstances {
+        this['created'] = created;
         return this;
     }
 }

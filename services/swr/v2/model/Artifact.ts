@@ -1,4 +1,5 @@
 import { ArtifactTag } from './ArtifactTag';
+import { Reference } from './Reference';
 
 
 export class Artifact {
@@ -14,6 +15,8 @@ export class Artifact {
     private 'push_time'?: string;
     public size?: number;
     public tags?: Array<ArtifactTag>;
+    private 'extra_attrs'?: { [key: string]: object; };
+    public references?: Array<Reference>;
     public constructor() { 
     }
     public withDigest(digest: string): Artifact {
@@ -104,6 +107,20 @@ export class Artifact {
     }
     public withTags(tags: Array<ArtifactTag>): Artifact {
         this['tags'] = tags;
+        return this;
+    }
+    public withExtraAttrs(extraAttrs: { [key: string]: object; }): Artifact {
+        this['extra_attrs'] = extraAttrs;
+        return this;
+    }
+    public set extraAttrs(extraAttrs: { [key: string]: object; }  | undefined) {
+        this['extra_attrs'] = extraAttrs;
+    }
+    public get extraAttrs(): { [key: string]: object; } | undefined {
+        return this['extra_attrs'];
+    }
+    public withReferences(references: Array<Reference>): Artifact {
+        this['references'] = references;
         return this;
     }
 }

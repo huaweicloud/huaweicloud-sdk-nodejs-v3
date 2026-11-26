@@ -283,6 +283,8 @@ import { ListRepositoryTagResponse } from './model/ListRepositoryTagResponse';
 import { ListRepositoryTagsRequest } from './model/ListRepositoryTagsRequest';
 import { ListRepositoryTagsResponse } from './model/ListRepositoryTagsResponse';
 import { ListResourceInstancesRequestBody } from './model/ListResourceInstancesRequestBody';
+import { ListResourcesTagsByProjectIdRequest } from './model/ListResourcesTagsByProjectIdRequest';
+import { ListResourcesTagsByProjectIdResponse } from './model/ListResourcesTagsByProjectIdResponse';
 import { ListRetentionHistoriesRequest } from './model/ListRetentionHistoriesRequest';
 import { ListRetentionHistoriesResponse } from './model/ListRetentionHistoriesResponse';
 import { ListRetentionsRequest } from './model/ListRetentionsRequest';
@@ -304,7 +306,9 @@ import { NamespaceMetadata } from './model/NamespaceMetadata';
 import { NativeReportSummary } from './model/NativeReportSummary';
 import { PageInfo } from './model/PageInfo';
 import { PermissionItem } from './model/PermissionItem';
+import { Platform } from './model/Platform';
 import { ProjectTag } from './model/ProjectTag';
+import { Reference } from './model/Reference';
 import { RegionInfo } from './model/RegionInfo';
 import { Registry } from './model/Registry';
 import { ReplicationPolicy } from './model/ReplicationPolicy';
@@ -340,6 +344,8 @@ import { ShowGcTaskRequest } from './model/ShowGcTaskRequest';
 import { ShowGcTaskResponse } from './model/ShowGcTaskResponse';
 import { ShowInstanceArtifactAdditionRequest } from './model/ShowInstanceArtifactAdditionRequest';
 import { ShowInstanceArtifactAdditionResponse } from './model/ShowInstanceArtifactAdditionResponse';
+import { ShowInstanceArtifactManifestRequest } from './model/ShowInstanceArtifactManifestRequest';
+import { ShowInstanceArtifactManifestResponse } from './model/ShowInstanceArtifactManifestResponse';
 import { ShowInstanceArtifactRequest } from './model/ShowInstanceArtifactRequest';
 import { ShowInstanceArtifactResponse } from './model/ShowInstanceArtifactResponse';
 import { ShowInstanceConfigurationRequest } from './model/ShowInstanceConfigurationRequest';
@@ -366,6 +372,8 @@ import { ShowInstanceRetentionPolicyRequest } from './model/ShowInstanceRetentio
 import { ShowInstanceRetentionPolicyResponse } from './model/ShowInstanceRetentionPolicyResponse';
 import { ShowInstanceSignPolicyRequest } from './model/ShowInstanceSignPolicyRequest';
 import { ShowInstanceSignPolicyResponse } from './model/ShowInstanceSignPolicyResponse';
+import { ShowInstanceTagRequest } from './model/ShowInstanceTagRequest';
+import { ShowInstanceTagResponse } from './model/ShowInstanceTagResponse';
 import { ShowInstanceWebhookRequest } from './model/ShowInstanceWebhookRequest';
 import { ShowInstanceWebhookResponse } from './model/ShowInstanceWebhookResponse';
 import { ShowNamespace } from './model/ShowNamespace';
@@ -375,6 +383,8 @@ import { ShowNamespaceRequest } from './model/ShowNamespaceRequest';
 import { ShowNamespaceResponse } from './model/ShowNamespaceResponse';
 import { ShowQuota } from './model/ShowQuota';
 import { ShowRepoDomainsResponse } from './model/ShowRepoDomainsResponse';
+import { ShowRepoTagConfigRequest } from './model/ShowRepoTagConfigRequest';
+import { ShowRepoTagConfigResponse } from './model/ShowRepoTagConfigResponse';
 import { ShowRepoTagRequest } from './model/ShowRepoTagRequest';
 import { ShowRepoTagResponse } from './model/ShowRepoTagResponse';
 import { ShowReposResp } from './model/ShowReposResp';
@@ -668,15 +678,15 @@ export class SwrClient {
     }
 
     /**
-     * 创建共享帐号。镜像上传后，您可以共享私有镜像给其他帐号，并授予下载该镜像的权限。
+     * 创建共享账号。镜像上传后，您可以共享私有镜像给其他账号，并授予下载该镜像的权限。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 创建共享帐号
+     * @summary 创建共享账号
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
-     * @param {CreateRepoDomainsRequestBody} createRepoDomainsRequestBody 创建共享帐号需要的信息
+     * @param {CreateRepoDomainsRequestBody} createRepoDomainsRequestBody 创建共享账号需要的信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -882,11 +892,11 @@ export class SwrClient {
     }
 
     /**
-     * 删除共享帐号
+     * 删除共享账号
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除共享帐号
+     * @summary 删除共享账号
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
@@ -1126,11 +1136,11 @@ export class SwrClient {
     }
 
     /**
-     * 获取共享帐号列表
+     * 获取共享账号列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取共享帐号列表
+     * @summary 获取共享账号列表
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
@@ -1368,11 +1378,11 @@ export class SwrClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 判断共享帐号是否存在
+     * @summary 判断共享账号是否存在
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
-     * @param {string} accessDomain 共享帐号
+     * @param {string} accessDomain 共享账号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1480,6 +1490,28 @@ export class SwrClient {
      */
     public showRepoTag(showRepoTagRequest?: ShowRepoTagRequest): Promise<ShowRepoTagResponse> {
         const options = ParamCreater().showRepoTag(showRepoTagRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取镜像的Config信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取镜像的Config信息
+     * @param {'application/json;charset=utf-8' | 'application/json'} contentType **参数解释**： 消息体的类型（格式），用于指定请求体的MIME类型。 **约束限制**： 不涉及。 **取值范围**： - application/json;charset&#x3D;utf-8：使用UTF-8字符集的JSON格式 - application/json：标准JSON格式 **默认取值**： 不涉及。
+     * @param {string} namespace **参数解释**： 组织名称。用于唯一标识一个组织，组织下的所有镜像仓库都属于该组织。  **约束限制**： 不涉及。  **取值范围**： 小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，不同类型分隔符不能直接相连），小写字母或数字结尾，长度1~64个字符。  **默认取值**： 不涉及。
+     * @param {string} repository **参数解释**： 镜像仓库名称过滤关键字，用于模糊匹配镜像仓库列表。  **约束限制**： 不涉及。  **取值范围**： 小写字母或数字开头，后面跟小写字母、数字、小数点、斜杠、下划线或中划线（其中下划线最多允许连续两个，不同类型分隔符不能直接相连），小写字母或数字结尾，长度1~128个字符。  **默认取值**： 不涉及。
+     * @param {string} tag **参数解释**： 镜像版本名称。用于唯一标识镜像仓库下的一个镜像版本。  **约束限制**： 不涉及。  **取值范围**： 小写字母或数字开头，后面跟小写字母、数字、小数点、斜杠、下划线或中划线（其中下划线最多允许连续两个，不同类型分隔符不能直接相连），小写字母或数字结尾，长度1~128个字符。  **默认取值**： 不涉及。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepoTagConfig(showRepoTagConfigRequest?: ShowRepoTagConfigRequest): Promise<ShowRepoTagConfigResponse> {
+        const options = ParamCreater().showRepoTagConfig(showRepoTagConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1657,16 +1689,16 @@ export class SwrClient {
     }
 
     /**
-     * 更新共享帐号
+     * 更新共享账号
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 更新共享帐号
+     * @summary 更新共享账号
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
-     * @param {string} accessDomain 共享帐号
-     * @param {UpdateRepoDomainsRequestBody} updateRepoDomainsRequestBody 更新共享帐号需要的信息
+     * @param {string} accessDomain 共享账号
+     * @param {UpdateRepoDomainsRequestBody} updateRepoDomainsRequestBody 更新共享账号需要的信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2680,7 +2712,7 @@ export class SwrClient {
      * @summary 查询实例列表
      * @param {number} [offset] 起始索引，默认为0。**注意：offset和limit参数需要配套使用。**
      * @param {number} [limit] 返回条数，默认为100，最大值为100。**注意：offset和limit参数需要配套使用。**
-     * @param {'Initial' | 'Creating' | 'Running' | 'Unavailable'} [status] 实例状态, Initial, Creating, Running, Unavailable
+     * @param {'Initial' | 'Creating' | 'Running' | 'Unavailable' | 'Frozen' | 'DeploymentAbnormal' | 'PartiallyUnavailable' | 'CoreDialFailed'} [status] 实例状态 取值范围： - Initial：初始化 - Creating：创建中 - Running：运行中 - Unavailable：不可用 - Frozen：已冻结 - DeploymentAbnormal：部署异常 - PartiallyUnavailable：部分不可用 - CoreDialFailed：核心拨测失败
      * @param {string} [enterpriseProjectId] 企业项目ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3024,6 +3056,10 @@ export class SwrClient {
      * @param {'created_at' | 'updated_at'} [orderColumn] 排序字段，支持created_at、updated_at，默认为created_at
      * @param {'desc' | 'asc'} [orderType] 排序方式，支持desc、asc，默认desc
      * @param {number} [namespaceId] 所属命名空间ID
+     * @param {string} [name] 根据仓库名称或命名空间名称进行模糊查询
+     * @param {boolean} [withTag] 是否返回仓库的标签
+     * @param {string} [tags] 根据标签过滤，多个标签以英文逗号隔开，最多支持20个标签同时过滤查询。格式为key1&#x3D;value1,key2&#x3D;value2。如果标签的key/value值中有特殊字符&#x3D;，请先把 &#x3D; 替换成 %3D 再进行请求。注意：使用curl命令请求，需要把 &#x3D; 替换成 %253D(即 %3D 的 %25 被编码为 %25)再次请求。
+     * @param {string} [namespaceIds] 支持按多个所属命名空间ID过滤，多个ID之间用英文逗号分隔。注意：namespace_id与namespace_ids不支持同时传参。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3450,6 +3486,28 @@ export class SwrClient {
     }
 
     /**
+     * 查询某种资源类型的标签列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询某种资源类型的标签列表
+     * @param {'instances' | 'namespaces' | 'repositories'} resourceType 资源类型 取值范围： - instances：Instance实例 - namespaces：命名空间 - repositories：仓库
+     * @param {number} [offset] 起始索引，默认值为0。**注意：offset和limit参数需要配套使用。**
+     * @param {number} [limit] 返回条数，默认为200，最小值为1，最大值为200。**注意：offset和limit参数需要配套使用。**
+     * @param {string} [instanceId] 当resource_type为repositories或namespaces时，支持通过instance_id进行过滤查询，用于获取指定注册表实例下对应资源类型的标签列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listResourcesTagsByProjectId(listResourcesTagsByProjectIdRequest?: ListResourcesTagsByProjectIdRequest): Promise<ListResourcesTagsByProjectIdResponse> {
+        const options = ParamCreater().listResourcesTagsByProjectId(listResourcesTagsByProjectIdRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 按照标签检索子资源列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -3592,6 +3650,28 @@ export class SwrClient {
      */
     public showInstanceArtifactAddition(showInstanceArtifactAdditionRequest?: ShowInstanceArtifactAdditionRequest): Promise<ShowInstanceArtifactAdditionResponse> {
         const options = ParamCreater().showInstanceArtifactAddition(showInstanceArtifactAdditionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品的Manifest信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品Manifest信息
+     * @param {string} instanceId 注册表实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 制品仓库名称, 如果您的镜像名称repository_name参数中有/，请先把 / 替换成 %2F 再进行请求。注意：使用curl命令请求，需要把 / 替换成 %252F(即 %2F 的 % 被编码为 %25)再次请求。
+     * @param {string} reference 制品摘要
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceArtifactManifest(showInstanceArtifactManifestRequest?: ShowInstanceArtifactManifestRequest): Promise<ShowInstanceArtifactManifestResponse> {
+        const options = ParamCreater().showInstanceArtifactManifest(showInstanceArtifactManifestRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3812,6 +3892,28 @@ export class SwrClient {
      */
     public showInstanceSignPolicy(showInstanceSignPolicyRequest?: ShowInstanceSignPolicyRequest): Promise<ShowInstanceSignPolicyResponse> {
         const options = ParamCreater().showInstanceSignPolicy(showInstanceSignPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取制品的Tag信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取制品的Tag信息
+     * @param {string} instanceId 企业仓库实例ID
+     * @param {string} namespaceName 命名空间名称
+     * @param {string} repositoryName 仓库名称
+     * @param {string} tagName Tag名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showInstanceTag(showInstanceTagRequest?: ShowInstanceTagRequest): Promise<ShowInstanceTagResponse> {
+        const options = ParamCreater().showInstanceTag(showInstanceTagRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4608,7 +4710,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建共享帐号。镜像上传后，您可以共享私有镜像给其他帐号，并授予下载该镜像的权限。
+         * 创建共享账号。镜像上传后，您可以共享私有镜像给其他账号，并授予下载该镜像的权限。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5160,7 +5262,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除共享帐号
+         * 删除共享账号
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -5815,7 +5917,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取共享帐号列表
+         * 获取共享账号列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -6812,6 +6914,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取镜像的Config信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showRepoTagConfig(showRepoTagConfigRequest?: ShowRepoTagConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/manage/namespaces/{namespace}/repos/{repository}/tags/{tag}/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let contentType;
+            
+            let namespace;
+            
+            let repository;
+            
+            let tag;
+
+            if (showRepoTagConfigRequest !== null && showRepoTagConfigRequest !== undefined) {
+                if (showRepoTagConfigRequest instanceof ShowRepoTagConfigRequest) {
+                    contentType = showRepoTagConfigRequest.contentType;
+                    namespace = showRepoTagConfigRequest.namespace;
+                    repository = showRepoTagConfigRequest.repository;
+                    tag = showRepoTagConfigRequest.tag;
+                } else {
+                    contentType = showRepoTagConfigRequest['Content-Type'];
+                    namespace = showRepoTagConfigRequest['namespace'];
+                    repository = showRepoTagConfigRequest['repository'];
+                    tag = showRepoTagConfigRequest['tag'];
+                }
+            }
+
+        
+            if (namespace === null || namespace === undefined) {
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling showRepoTagConfig.');
+            }
+            if (repository === null || repository === undefined) {
+            throw new RequiredError('repository','Required parameter repository was null or undefined when calling showRepoTagConfig.');
+            }
+            if (tag === null || tag === undefined) {
+            throw new RequiredError('tag','Required parameter tag was null or undefined when calling showRepoTagConfig.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'namespace': namespace,'repository': repository,'tag': tag, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询镜像仓库概要信息
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7226,7 +7386,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新共享帐号
+         * 更新共享账号
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -10644,6 +10804,14 @@ export const ParamCreater = function () {
             let orderType;
             
             let namespaceId;
+            
+            let name;
+            
+            let withTag;
+            
+            let tags;
+            
+            let namespaceIds;
 
             if (listInstanceRepositoriesRequest !== null && listInstanceRepositoriesRequest !== undefined) {
                 if (listInstanceRepositoriesRequest instanceof ListInstanceRepositoriesRequest) {
@@ -10653,6 +10821,10 @@ export const ParamCreater = function () {
                     orderColumn = listInstanceRepositoriesRequest.orderColumn;
                     orderType = listInstanceRepositoriesRequest.orderType;
                     namespaceId = listInstanceRepositoriesRequest.namespaceId;
+                    name = listInstanceRepositoriesRequest.name;
+                    withTag = listInstanceRepositoriesRequest.withTag;
+                    tags = listInstanceRepositoriesRequest.tags;
+                    namespaceIds = listInstanceRepositoriesRequest.namespaceIds;
                 } else {
                     instanceId = listInstanceRepositoriesRequest['instance_id'];
                     offset = listInstanceRepositoriesRequest['offset'];
@@ -10660,6 +10832,10 @@ export const ParamCreater = function () {
                     orderColumn = listInstanceRepositoriesRequest['order_column'];
                     orderType = listInstanceRepositoriesRequest['order_type'];
                     namespaceId = listInstanceRepositoriesRequest['namespace_id'];
+                    name = listInstanceRepositoriesRequest['name'];
+                    withTag = listInstanceRepositoriesRequest['with_tag'];
+                    tags = listInstanceRepositoriesRequest['tags'];
+                    namespaceIds = listInstanceRepositoriesRequest['namespace_ids'];
                 }
             }
 
@@ -10681,6 +10857,18 @@ export const ParamCreater = function () {
             }
             if (namespaceId !== null && namespaceId !== undefined) {
                 localVarQueryParameter['namespace_id'] = namespaceId;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (withTag !== null && withTag !== undefined) {
+                localVarQueryParameter['with_tag'] = withTag;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (namespaceIds !== null && namespaceIds !== undefined) {
+                localVarQueryParameter['namespace_ids'] = namespaceIds;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -11870,6 +12058,65 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询某种资源类型的标签列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listResourcesTagsByProjectId(listResourcesTagsByProjectIdRequest?: ListResourcesTagsByProjectIdRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let resourceType;
+            
+            let offset;
+            
+            let limit;
+            
+            let instanceId;
+
+            if (listResourcesTagsByProjectIdRequest !== null && listResourcesTagsByProjectIdRequest !== undefined) {
+                if (listResourcesTagsByProjectIdRequest instanceof ListResourcesTagsByProjectIdRequest) {
+                    resourceType = listResourcesTagsByProjectIdRequest.resourceType;
+                    offset = listResourcesTagsByProjectIdRequest.offset;
+                    limit = listResourcesTagsByProjectIdRequest.limit;
+                    instanceId = listResourcesTagsByProjectIdRequest.instanceId;
+                } else {
+                    resourceType = listResourcesTagsByProjectIdRequest['resource_type'];
+                    offset = listResourcesTagsByProjectIdRequest['offset'];
+                    limit = listResourcesTagsByProjectIdRequest['limit'];
+                    instanceId = listResourcesTagsByProjectIdRequest['instance_id'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listResourcesTagsByProjectId.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 按照标签检索子资源列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -12247,6 +12494,64 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference,'addition': addition, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品的Manifest信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceArtifactManifest(showInstanceArtifactManifestRequest?: ShowInstanceArtifactManifestRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/artifacts/{reference}/manifest",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let reference;
+
+            if (showInstanceArtifactManifestRequest !== null && showInstanceArtifactManifestRequest !== undefined) {
+                if (showInstanceArtifactManifestRequest instanceof ShowInstanceArtifactManifestRequest) {
+                    instanceId = showInstanceArtifactManifestRequest.instanceId;
+                    namespaceName = showInstanceArtifactManifestRequest.namespaceName;
+                    repositoryName = showInstanceArtifactManifestRequest.repositoryName;
+                    reference = showInstanceArtifactManifestRequest.reference;
+                } else {
+                    instanceId = showInstanceArtifactManifestRequest['instance_id'];
+                    namespaceName = showInstanceArtifactManifestRequest['namespace_name'];
+                    repositoryName = showInstanceArtifactManifestRequest['repository_name'];
+                    reference = showInstanceArtifactManifestRequest['reference'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceArtifactManifest.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceArtifactManifest.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showInstanceArtifactManifest.');
+            }
+            if (reference === null || reference === undefined) {
+            throw new RequiredError('reference','Required parameter reference was null or undefined when calling showInstanceArtifactManifest.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'reference': reference, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -12733,6 +13038,64 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'policy_id': policyId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取制品的Tag信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showInstanceTag(showInstanceTagRequest?: ShowInstanceTagRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/instances/{instance_id}/namespaces/{namespace_name}/repositories/{repository_name}/tags/{tag_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let namespaceName;
+            
+            let repositoryName;
+            
+            let tagName;
+
+            if (showInstanceTagRequest !== null && showInstanceTagRequest !== undefined) {
+                if (showInstanceTagRequest instanceof ShowInstanceTagRequest) {
+                    instanceId = showInstanceTagRequest.instanceId;
+                    namespaceName = showInstanceTagRequest.namespaceName;
+                    repositoryName = showInstanceTagRequest.repositoryName;
+                    tagName = showInstanceTagRequest.tagName;
+                } else {
+                    instanceId = showInstanceTagRequest['instance_id'];
+                    namespaceName = showInstanceTagRequest['namespace_name'];
+                    repositoryName = showInstanceTagRequest['repository_name'];
+                    tagName = showInstanceTagRequest['tag_name'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling showInstanceTag.');
+            }
+            if (namespaceName === null || namespaceName === undefined) {
+            throw new RequiredError('namespaceName','Required parameter namespaceName was null or undefined when calling showInstanceTag.');
+            }
+            if (repositoryName === null || repositoryName === undefined) {
+            throw new RequiredError('repositoryName','Required parameter repositoryName was null or undefined when calling showInstanceTag.');
+            }
+            if (tagName === null || tagName === undefined) {
+            throw new RequiredError('tagName','Required parameter tagName was null or undefined when calling showInstanceTag.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'namespace_name': namespaceName,'repository_name': repositoryName,'tag_name': tagName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -1,12 +1,23 @@
 
 
 export class ListAccessControlTaskRequest {
+    private 'task_id'?: string;
     private 'start_time'?: number;
     private 'end_time'?: number;
     public offset?: number;
     public limit?: number;
     public status?: string;
     public constructor() { 
+    }
+    public withTaskId(taskId: string): ListAccessControlTaskRequest {
+        this['task_id'] = taskId;
+        return this;
+    }
+    public set taskId(taskId: string  | undefined) {
+        this['task_id'] = taskId;
+    }
+    public get taskId(): string | undefined {
+        return this['task_id'];
     }
     public withStartTime(startTime: number): ListAccessControlTaskRequest {
         this['start_time'] = startTime;

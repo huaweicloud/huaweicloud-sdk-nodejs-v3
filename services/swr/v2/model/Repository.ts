@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class Repository {
@@ -11,6 +12,7 @@ export class Repository {
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
     }
     public withId(id: number): Repository {
@@ -94,5 +96,9 @@ export class Repository {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withTags(tags: Array<ResourceTag>): Repository {
+        this['tags'] = tags;
+        return this;
     }
 }

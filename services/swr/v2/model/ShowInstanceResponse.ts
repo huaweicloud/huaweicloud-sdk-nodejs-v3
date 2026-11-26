@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -26,6 +27,7 @@ export class ShowInstanceResponse extends SdkResponse {
     private 'subnet_name'?: string;
     private 'subnet_cidr'?: string;
     private 'vpcep_service_id'?: string;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
         super();
     }
@@ -233,6 +235,10 @@ export class ShowInstanceResponse extends SdkResponse {
     public get vpcepServiceId(): string | undefined {
         return this['vpcep_service_id'];
     }
+    public withTags(tags: Array<ResourceTag>): ShowInstanceResponse {
+        this['tags'] = tags;
+        return this;
+    }
 }
 
 /**
@@ -250,5 +256,9 @@ export enum ShowInstanceResponseStatusEnum {
     INITIAL = 'Initial',
     CREATING = 'Creating',
     RUNNING = 'Running',
-    UNAVAILABLE = 'Unavailable'
+    UNAVAILABLE = 'Unavailable',
+    FROZEN = 'Frozen',
+    DEPLOYMENTABNORMAL = 'DeploymentAbnormal',
+    PARTIALLYUNAVAILABLE = 'PartiallyUnavailable',
+    COREDIALFAILED = 'CoreDialFailed'
 }

@@ -7,6 +7,10 @@ export class ListInstanceRepositoriesRequest {
     private 'order_column'?: ListInstanceRepositoriesRequestOrderColumnEnum | string;
     private 'order_type'?: ListInstanceRepositoriesRequestOrderTypeEnum | string;
     private 'namespace_id'?: number;
+    public name?: string;
+    private 'with_tag'?: boolean;
+    public tags?: string;
+    private 'namespace_ids'?: string;
     public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
@@ -57,6 +61,34 @@ export class ListInstanceRepositoriesRequest {
     }
     public get namespaceId(): number | undefined {
         return this['namespace_id'];
+    }
+    public withName(name: string): ListInstanceRepositoriesRequest {
+        this['name'] = name;
+        return this;
+    }
+    public withWithTag(withTag: boolean): ListInstanceRepositoriesRequest {
+        this['with_tag'] = withTag;
+        return this;
+    }
+    public set withTag(withTag: boolean  | undefined) {
+        this['with_tag'] = withTag;
+    }
+    public get withTag(): boolean | undefined {
+        return this['with_tag'];
+    }
+    public withTags(tags: string): ListInstanceRepositoriesRequest {
+        this['tags'] = tags;
+        return this;
+    }
+    public withNamespaceIds(namespaceIds: string): ListInstanceRepositoriesRequest {
+        this['namespace_ids'] = namespaceIds;
+        return this;
+    }
+    public set namespaceIds(namespaceIds: string  | undefined) {
+        this['namespace_ids'] = namespaceIds;
+    }
+    public get namespaceIds(): string | undefined {
+        return this['namespace_ids'];
     }
 }
 

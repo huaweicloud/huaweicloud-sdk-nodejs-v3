@@ -9,11 +9,9 @@ export class CertificatesPutBody {
     private 'private_key'?: string;
     private 'enc_certificate_value'?: string;
     private 'enc_private_key'?: string;
-    public constructor(certificateType?: string, certificateName?: string, certificateValue?: string, privateKey?: string) { 
+    public constructor(certificateType?: string, certificateName?: string) { 
         this['certificate_type'] = certificateType;
         this['certificate_name'] = certificateName;
-        this['certificate_value'] = certificateValue;
-        this['private_key'] = privateKey;
     }
     public withCertificateSource(certificateSource: number): CertificatesPutBody {
         this['certificate_source'] = certificateSource;

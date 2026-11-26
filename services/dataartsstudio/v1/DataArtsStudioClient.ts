@@ -69,6 +69,7 @@ import { ApprovalTypeEnum } from './model/ApprovalTypeEnum';
 import { ApprovalVO } from './model/ApprovalVO';
 import { ApproveResult } from './model/ApproveResult';
 import { Approver } from './model/Approver';
+import { ApproverListApprovers } from './model/ApproverListApprovers';
 import { ApproverParam } from './model/ApproverParam';
 import { ApproverVO } from './model/ApproverVO';
 import { ArchitectureStatistic } from './model/ArchitectureStatistic';
@@ -677,6 +678,8 @@ import { ListConsistencyTaskRequest } from './model/ListConsistencyTaskRequest';
 import { ListConsistencyTaskResponse } from './model/ListConsistencyTaskResponse';
 import { ListDataArtsStudioInstancesRequest } from './model/ListDataArtsStudioInstancesRequest';
 import { ListDataArtsStudioInstancesResponse } from './model/ListDataArtsStudioInstancesResponse';
+import { ListDataServiceApproversRequest } from './model/ListDataServiceApproversRequest';
+import { ListDataServiceApproversResponse } from './model/ListDataServiceApproversResponse';
 import { ListDataServiceInstanceAccesslogsRequest } from './model/ListDataServiceInstanceAccesslogsRequest';
 import { ListDataServiceInstanceAccesslogsResponse } from './model/ListDataServiceInstanceAccesslogsResponse';
 import { ListDataServiceInstancesDetailRequest } from './model/ListDataServiceInstancesDetailRequest';
@@ -3911,7 +3914,7 @@ export class DataArtsStudioClient {
      * @summary 批量删除目录
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {ApiCatalogDeleteParaDTO} deleteServiceCatalogRequestBody 目录id列表。
+     * @param {ApiCatalogDeleteParaDTO} deleteServiceCatalogRequestBody 目录ID列表。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -4452,8 +4455,8 @@ export class DataArtsStudioClient {
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {string} catalogId 目录编号。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
-     * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。
-     * @param {number} [limit] 查询条数, 即查询Y条数据。
+     * @param {number} [offset] 查询起始坐标，即跳过前X条数据。
+     * @param {number} [limit] 查询条数，即查询Y条数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4531,13 +4534,13 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取当前目录下的api列表
+     * @summary 获取当前目录下的API列表
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {string} catalogId 目录编号。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
-     * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。
-     * @param {number} [limit] 查询条数, 即查询Y条数据。
+     * @param {number} [offset] 查询起始坐标，即跳过前X条数据。
+     * @param {number} [limit] 查询条数，即查询Y条数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4555,10 +4558,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询指定api 应用调用topN
+     * @summary 查询指定API应用调用TopN
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {number} startTime 开始时间（13位时间戳）。
      * @param {number} endTime 结束时间（13位时间戳）。
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位。
@@ -4604,11 +4607,11 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 获取网关实例(专享版)。
+     * 获取网关实例（专享版）。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取网关实例(专享版)
+     * @summary 获取网关实例（专享版）
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {'APIGW' | 'ROMA_APIC'} apigType 网关类型。
@@ -4632,7 +4635,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询api 服务调用topN
+     * @summary 查询API服务调用TopN
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {number} startTime 开始时间（13位时间戳）。
@@ -4663,10 +4666,10 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
-     * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
-     * @param {number} [limit] 查询条数, 即查询Y条数据。
-     * @param {string} [apiName] api名称。
-     * @param {number} [queryType] 查询类型, 0:收到的申请(待审核), 1:收到的申请(已审核), 2:发出的申请(开发), 3:发出的申请(调用)。
+     * @param {number} [offset] 查询起始坐标，即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
+     * @param {number} [limit] 查询条数，即查询Y条数据。
+     * @param {string} [apiName] API名称。
+     * @param {number} [queryType] 查询类型，0:收到的申请（待审核），1:收到的申请（已审核），2:发出的申请（开发），3:发出的申请（调用）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4729,11 +4732,11 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 查询app 服务使用topN。
+     * 查询APP服务使用TopN。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询app 服务使用topN
+     * @summary 查询APP服务使用TopN
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {number} startTime 开始时间（13位时间戳）。
@@ -5066,6 +5069,30 @@ export class DataArtsStudioClient {
      */
     public listDataArtsStudioInstances(listDataArtsStudioInstancesRequest?: ListDataArtsStudioInstancesRequest): Promise<ListDataArtsStudioInstancesResponse> {
         const options = ParamCreater().listDataArtsStudioInstances(listDataArtsStudioInstancesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取审批人列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取审批人列表
+     * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
+     * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
+     * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
+     * @param {number} [page] 页码
+     * @param {number} [size] 每页记录数
+     * @param {string} [approverName] 审批人名字
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDataServiceApprovers(listDataServiceApproversRequest?: ListDataServiceApproversRequest): Promise<ListDataServiceApproversResponse> {
+        const options = ParamCreater().listDataServiceApprovers(listDataServiceApproversRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -5858,9 +5885,9 @@ export class DataArtsStudioClient {
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
-     * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
-     * @param {number} [limit] 查询条数, 即查询Y条数据。
-     * @param {string} [apiName] api名称。
+     * @param {number} [offset] 查询起始坐标，即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
+     * @param {number} [limit] 查询条数，即查询Y条数据。
+     * @param {string} [apiName] API名称。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -6953,7 +6980,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量移动api至新目录
+     * @summary 批量移动API至新目录
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {ApiMoveParaDTO} migrateApiRequestBody 移动目录相关参数。
@@ -6972,7 +6999,7 @@ export class DataArtsStudioClient {
 
     /**
      * 移动当前目录至新目录。  
-     * 移动目录的的同时会移动其下的所有子目录与api。
+     * 移动目录的的同时会移动其下的所有子目录与API。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -7281,10 +7308,10 @@ export class DataArtsStudioClient {
      * @summary 查询API已授权的APP
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
-     * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
-     * @param {number} [limit] 查询条数, 即查询Y条数据。
+     * @param {number} [offset] 查询起始坐标，即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
+     * @param {number} [limit] 查询条数，即查询Y条数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7305,10 +7332,10 @@ export class DataArtsStudioClient {
      * @summary 查询APP已拥有授权的API
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} appId app编号。
+     * @param {string} appId APP编号。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
-     * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
-     * @param {number} [limit] 查询条数, 即查询Y条数据。
+     * @param {number} [offset] 查询起始坐标，即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
+     * @param {number} [limit] 查询条数，即查询Y条数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -7526,7 +7553,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 通过路径获取id
+     * @summary 通过路径获取ID
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {string} path 路径。
@@ -7713,10 +7740,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询指定api 仪表板数据详情
+     * @summary 查询指定API仪表板数据详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {number} startTime 开始时间（13位时间戳）。
      * @param {number} endTime 结束时间（13位时间戳）。
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位。
@@ -7739,7 +7766,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询api 仪表板数据详情
+     * @summary 查询API仪表板数据详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {number} startTime 开始时间（13位时间戳）。
@@ -7766,10 +7793,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询api 统计数据详情
+     * @summary 查询API统计数据详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {number} startTime 开始时间（13位时间戳）。
      * @param {number} endTime 结束时间（13位时间戳）。
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位。
@@ -7842,7 +7869,7 @@ export class DataArtsStudioClient {
      * @summary 获取申请详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} applyId 审核信息id。
+     * @param {string} applyId 审核信息ID。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -7861,7 +7888,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询app 仪表板数据详情
+     * @summary 查询APP仪表板数据详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {number} startTime 开始时间（13位时间戳）。
@@ -7887,10 +7914,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询app 统计数据详情
+     * @summary 查询APP统计数据详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} appId app编号。
+     * @param {string} appId APP编号。
      * @param {number} startTime 开始时间（13位时间戳）。
      * @param {number} endTime 结束时间（13位时间戳）。
      * @param {'HOUR' | 'DAY'} timeUnit 时间单位。
@@ -8829,7 +8856,7 @@ export class DataArtsStudioClient {
      * @summary 获取消息详情
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} messageId 消息信息id。
+     * @param {string} messageId 消息信息ID。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -8907,7 +8934,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 通过id获取路径
+     * @summary 通过ID获取路径
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {string} catalogId 目录编号。
@@ -8927,11 +8954,11 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * 通过目录id获取从根目录至当前目录链路上每一层的路径信息。
+     * 通过目录ID获取从根目录至当前目录链路上每一层的路径信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 通过id获取路径对象
+     * @summary 通过目录ID获取路径对象
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {string} catalogId 目录编号。
@@ -10470,7 +10497,7 @@ export class DataArtsStudioClient {
     }
 
     /**
-     * API授权操作(授权/取消授权/申请/续约)。
+     * API授权操作（授权/取消授权/申请/续约）。
      * - API主动授权：  API审核人可发起，API主动授权成功后，在有效期内，APP即可访问该API。API授权包含授权和续约两部分功能。
      *     * 授权：授权会给予APP在有效期内访问API的权利。
      *     * 续约：续约会更新授权有效期，仅支持延长有效期，不能减少。
@@ -10483,7 +10510,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary API授权操作(授权/取消授权/申请/续约)
+     * @summary API授权操作（授权/取消授权/申请/续约）
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {ApiParaForAuthToInstance} authorizeActionApiToInstanceRequestBody 授权相关参数。
@@ -10508,10 +10535,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量授权API(专享版)
+     * @summary 批量授权API（专享版）
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {string} instanceId 集群编号。
      * @param {ApiParaForAuthorizeToInstance} authorizeApiToInstanceRequestBody 授权相关参数。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
@@ -10535,7 +10562,7 @@ export class DataArtsStudioClient {
      * @summary 创建API
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {Api} createApiRequestBody API 信息。
+     * @param {Api} createApiRequestBody API信息。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -10557,7 +10584,7 @@ export class DataArtsStudioClient {
      * @summary 调试API
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {string} instanceId 集群编号。
      * @param {ApiTestDTO} debugApiRequestBody 调试参数。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
@@ -10606,12 +10633,12 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary API操作(下线/停用/恢复)
+     * @summary API操作（下线/停用/恢复）
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {string} instanceId 集群编号。
-     * @param {ApiActionDTO} executeApiToInstanceRequestBody api操作参数。
+     * @param {ApiActionDTO} executeApiToInstanceRequestBody API操作参数。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -10630,9 +10657,9 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 导出包含API信息的excel文件
+     * @summary 导出包含API信息的EXCEL文件
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
-     * @param {Array<string>} exportDataServiceExcelRequestBody 导出excel文件。
+     * @param {Array<string>} exportDataServiceExcelRequestBody 导出EXCEL文件。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -10651,7 +10678,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 下载excel模板
+     * @summary 下载EXCEL模板
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
@@ -10671,7 +10698,7 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 全量导出包含API的excel压缩文件
+     * @summary 全量导出包含API的EXCEL压缩文件
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {ApiParam} exportDataServiceZipRequestBody API筛选实体信息。
@@ -10693,10 +10720,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 导入包含API信息的excel文件
+     * @summary 导入包含API信息的EXCEL文件
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），此处为导入文件，取值为multipart/form-data。
-     * @param {any} file 导入包含api的excel文件，大小必须小于4MB。
+     * @param {any} file 导入包含API的EXCEL文件，大小必须小于4MB。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -10720,8 +10747,8 @@ export class DataArtsStudioClient {
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {string} [xReturnPublishMessages] 是否返回专享版API的发布信息。
-     * @param {number} [offset] 查询起始坐标, 即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
-     * @param {number} [limit] 查询条数, 即查询Y条数据。
+     * @param {number} [offset] 查询起始坐标，即跳过前X条数据。仅支持0或limit的整数倍，不满足则向下取整。
+     * @param {number} [limit] 查询条数，即查询Y条数据。
      * @param {string} [name] 根据API名称模糊查询。
      * @param {string} [description] 根据API描述信息模糊查询。
      * @param {string} [createUser] 根据API创建用户模糊查询。
@@ -10748,16 +10775,16 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看API不同操作对应的实例信息(专享版)
+     * @summary 查看API不同操作对应的实例信息（专享版）
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
-     * @param {'PUBLISH' | 'UNPUBLISH' | 'STOP' | 'RECOVER' | 'WHITELIST' | 'AUTHORIZE'} action api操作。
+     * @param {string} apiId API编号。
+     * @param {'PUBLISH' | 'UNPUBLISH' | 'STOP' | 'RECOVER' | 'WHITELIST' | 'AUTHORIZE'} action API操作。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
-     * @param {boolean} [showAll] 全部展示(包括不可执行当前操作的实例)。
-     * @param {boolean} [checkStatus] 校验api状态。
-     * @param {boolean} [checkDebug] 校验api调试状态。
-     * @param {string} [appId] app编号(用于判断授权操作app可选的实例)。
+     * @param {boolean} [showAll] 全部展示（包括不可执行当前操作的实例）。
+     * @param {boolean} [checkStatus] 校验API状态。
+     * @param {boolean} [checkDebug] 校验API调试状态。
+     * @param {string} [appId] APP编号（用于判断授权操作APP可选的实例）。
      * @param {number} [limit] limit。
      * @param {number} [offset] offset。
      * @param {*} [options] Override http request option.
@@ -10783,7 +10810,7 @@ export class DataArtsStudioClient {
      * @summary 发布API
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {string} instanceId 集群编号。
      * @param {GatewayDTO} publishApiToInstanceRequestBody 网关参数。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
@@ -10804,10 +10831,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看API调试信息(专享版)
+     * @summary 查看API调试信息（专享版）
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {number} [limit] limit。
      * @param {number} [offset] offset。
@@ -10829,10 +10856,10 @@ export class DataArtsStudioClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查看API发布信息(专享版)
+     * @summary 查看API发布信息（专享版）
      * @param {string} workspace 工作空间ID，获取方法请参见[实例ID和工作空间ID](dataartsstudio_02_0350.xml)。
      * @param {string} contentType 消息体的类型（格式），有Body体的情况下必选，没有Body体无需填写。如果请求消息体中含有中文字符，则需要通过charset&#x3D;utf8指定中文字符集，例如取值为：application/json;charset&#x3D;utf8。
-     * @param {string} apiId api编号。
+     * @param {string} apiId API编号。
      * @param {'SHARED' | 'EXCLUSIVE'} [dlmType] 数据服务的版本类型，指定SHARED共享版或EXCLUSIVE专享版。
      * @param {number} [limit] limit。
      * @param {number} [offset] offset。
@@ -19214,7 +19241,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取网关实例(专享版)。
+         * 获取网关实例（专享版）。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -19627,7 +19654,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询app 服务使用topN。
+         * 查询APP服务使用TopN。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -20706,6 +20733,78 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取审批人列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDataServiceApprovers(listDataServiceApproversRequest?: ListDataServiceApproversRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/service/authorizeapply/approver",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let workspace;
+            
+            let contentType;
+            
+            let dlmType;
+            
+            let page;
+            
+            let size;
+            
+            let approverName;
+
+            if (listDataServiceApproversRequest !== null && listDataServiceApproversRequest !== undefined) {
+                if (listDataServiceApproversRequest instanceof ListDataServiceApproversRequest) {
+                    workspace = listDataServiceApproversRequest.workspace;
+                    contentType = listDataServiceApproversRequest.contentType;
+                    dlmType = listDataServiceApproversRequest.dlmType;
+                    page = listDataServiceApproversRequest.page;
+                    size = listDataServiceApproversRequest.size;
+                    approverName = listDataServiceApproversRequest.approverName;
+                } else {
+                    workspace = listDataServiceApproversRequest['workspace'];
+                    contentType = listDataServiceApproversRequest['Content-Type'];
+                    dlmType = listDataServiceApproversRequest['Dlm-Type'];
+                    page = listDataServiceApproversRequest['page'];
+                    size = listDataServiceApproversRequest['size'];
+                    approverName = listDataServiceApproversRequest['approver_name'];
+                }
+            }
+
+        
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (size !== null && size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            if (approverName !== null && approverName !== undefined) {
+                localVarQueryParameter['approver_name'] = approverName;
+            }
+            if (workspace !== undefined && workspace !== null) {
+                localVarHeaderParameter['workspace'] = String(workspace);
+            }
+            if (dlmType !== undefined && dlmType !== null) {
+                localVarHeaderParameter['Dlm-Type'] = String(dlmType);
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -26935,7 +27034,7 @@ export const ParamCreater = function () {
     
         /**
          * 移动当前目录至新目录。  
-         * 移动目录的的同时会移动其下的所有子目录与api。
+         * 移动目录的的同时会移动其下的所有子目录与API。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -32809,7 +32908,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过目录id获取从根目录至当前目录链路上每一层的路径信息。
+         * 通过目录ID获取从根目录至当前目录链路上每一层的路径信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -36767,7 +36866,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * API授权操作(授权/取消授权/申请/续约)。
+         * API授权操作（授权/取消授权/申请/续约）。
          * - API主动授权：  API审核人可发起，API主动授权成功后，在有效期内，APP即可访问该API。API授权包含授权和续约两部分功能。
          *     * 授权：授权会给予APP在有效期内访问API的权利。
          *     * 续约：续约会更新授权有效期，仅支持延长有效期，不能减少。

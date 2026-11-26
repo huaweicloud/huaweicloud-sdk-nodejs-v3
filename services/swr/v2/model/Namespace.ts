@@ -1,5 +1,6 @@
 import { CVEAllowlist } from './CVEAllowlist';
 import { NamespaceMetadata } from './NamespaceMetadata';
+import { ResourceTag } from './ResourceTag';
 
 
 export class Namespace {
@@ -10,6 +11,7 @@ export class Namespace {
     private 'updated_at'?: string;
     private 'repo_count'?: number;
     private 'cve_allowlist'?: CVEAllowlist;
+    public tags?: Array<ResourceTag>;
     public constructor() { 
     }
     public withName(name: string): Namespace {
@@ -69,5 +71,9 @@ export class Namespace {
     }
     public get cveAllowlist(): CVEAllowlist | undefined {
         return this['cve_allowlist'];
+    }
+    public withTags(tags: Array<ResourceTag>): Namespace {
+        this['tags'] = tags;
+        return this;
     }
 }

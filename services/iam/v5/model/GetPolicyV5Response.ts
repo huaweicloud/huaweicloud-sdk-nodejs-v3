@@ -1,13 +1,13 @@
-import { Policy } from './Policy';
+import { PolicyWithTags } from './PolicyWithTags';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class GetPolicyV5Response extends SdkResponse {
-    public policy?: Policy;
+    public policy?: PolicyWithTags;
     public constructor() { 
         super();
     }
-    public withPolicy(policy: Policy): GetPolicyV5Response {
+    public withPolicy(policy: PolicyWithTags): GetPolicyV5Response {
         this['policy'] = policy;
         return this;
     }

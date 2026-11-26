@@ -1,6 +1,7 @@
 import { Artifact } from './Artifact';
 import { ArtifactTag } from './ArtifactTag';
 import { NativeReportSummary } from './NativeReportSummary';
+import { Reference } from './Reference';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -17,6 +18,8 @@ export class ShowInstanceArtifactResponse extends SdkResponse {
     private 'push_time'?: string;
     public size?: number;
     public tags?: Array<ArtifactTag>;
+    private 'extra_attrs'?: { [key: string]: object; };
+    public references?: Array<Reference>;
     private 'scan_overview'?: { [key: string]: NativeReportSummary; };
     public constructor() { 
         super();
@@ -109,6 +112,20 @@ export class ShowInstanceArtifactResponse extends SdkResponse {
     }
     public withTags(tags: Array<ArtifactTag>): ShowInstanceArtifactResponse {
         this['tags'] = tags;
+        return this;
+    }
+    public withExtraAttrs(extraAttrs: { [key: string]: object; }): ShowInstanceArtifactResponse {
+        this['extra_attrs'] = extraAttrs;
+        return this;
+    }
+    public set extraAttrs(extraAttrs: { [key: string]: object; }  | undefined) {
+        this['extra_attrs'] = extraAttrs;
+    }
+    public get extraAttrs(): { [key: string]: object; } | undefined {
+        return this['extra_attrs'];
+    }
+    public withReferences(references: Array<Reference>): ShowInstanceArtifactResponse {
+        this['references'] = references;
         return this;
     }
     public withScanOverview(scanOverview: { [key: string]: NativeReportSummary; }): ShowInstanceArtifactResponse {

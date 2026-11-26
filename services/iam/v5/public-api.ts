@@ -207,6 +207,7 @@ export * from './model/PolicyType';
 export * from './model/PolicyUser';
 export * from './model/PolicyVersion';
 export * from './model/PolicyVersionId';
+export * from './model/PolicyWithTags';
 export * from './model/ProviderDescription';
 export * from './model/Reason';
 export * from './model/RegionName';

@@ -6,6 +6,9 @@ export class ListGlobalFeatureGatesResponse extends SdkResponse {
     public enableEnterprise?: boolean;
     public cerAvailable?: boolean;
     public enableIntranetAccessSwitch?: boolean;
+    public enableConsoleAgency?: boolean;
+    public enableV5CustomAgency?: boolean;
+    public agencyName?: string;
     public constructor() { 
         super();
     }
@@ -23,6 +26,18 @@ export class ListGlobalFeatureGatesResponse extends SdkResponse {
     }
     public withEnableIntranetAccessSwitch(enableIntranetAccessSwitch: boolean): ListGlobalFeatureGatesResponse {
         this['enableIntranetAccessSwitch'] = enableIntranetAccessSwitch;
+        return this;
+    }
+    public withEnableConsoleAgency(enableConsoleAgency: boolean): ListGlobalFeatureGatesResponse {
+        this['enableConsoleAgency'] = enableConsoleAgency;
+        return this;
+    }
+    public withEnableV5CustomAgency(enableV5CustomAgency: boolean): ListGlobalFeatureGatesResponse {
+        this['enableV5CustomAgency'] = enableV5CustomAgency;
+        return this;
+    }
+    public withAgencyName(agencyName: string): ListGlobalFeatureGatesResponse {
+        this['agencyName'] = agencyName;
         return this;
     }
 }

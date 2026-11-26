@@ -6,6 +6,8 @@ export class BackSources {
     private 'obs_bucket_type'?: string;
     private 'http_port'?: number;
     private 'https_port'?: number;
+    private 'origin_protocol'?: string;
+    private 'host_name'?: string;
     public constructor(sourcesType?: string, ipOrDomain?: string) { 
         this['sources_type'] = sourcesType;
         this['ip_or_domain'] = ipOrDomain;
@@ -59,5 +61,25 @@ export class BackSources {
     }
     public get httpsPort(): number | undefined {
         return this['https_port'];
+    }
+    public withOriginProtocol(originProtocol: string): BackSources {
+        this['origin_protocol'] = originProtocol;
+        return this;
+    }
+    public set originProtocol(originProtocol: string  | undefined) {
+        this['origin_protocol'] = originProtocol;
+    }
+    public get originProtocol(): string | undefined {
+        return this['origin_protocol'];
+    }
+    public withHostName(hostName: string): BackSources {
+        this['host_name'] = hostName;
+        return this;
+    }
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
+    }
+    public get hostName(): string | undefined {
+        return this['host_name'];
     }
 }

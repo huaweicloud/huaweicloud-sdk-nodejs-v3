@@ -11,6 +11,7 @@ export class ShowInstanceReplicationPolicyResponse extends SdkResponse {
     private 'src_registry'?: ReplicationRegistry;
     private 'dest_registry'?: ReplicationRegistry;
     private 'dest_namespace'?: string;
+    private 'dest_namespace_replace_count'?: number;
     public filters?: Array<Filter>;
     private 'repo_scope_mode'?: string;
     public trigger?: TriggerConfig;
@@ -62,6 +63,16 @@ export class ShowInstanceReplicationPolicyResponse extends SdkResponse {
     }
     public get destNamespace(): string | undefined {
         return this['dest_namespace'];
+    }
+    public withDestNamespaceReplaceCount(destNamespaceReplaceCount: number): ShowInstanceReplicationPolicyResponse {
+        this['dest_namespace_replace_count'] = destNamespaceReplaceCount;
+        return this;
+    }
+    public set destNamespaceReplaceCount(destNamespaceReplaceCount: number  | undefined) {
+        this['dest_namespace_replace_count'] = destNamespaceReplaceCount;
+    }
+    public get destNamespaceReplaceCount(): number | undefined {
+        return this['dest_namespace_replace_count'];
     }
     public withFilters(filters: Array<Filter>): ShowInstanceReplicationPolicyResponse {
         this['filters'] = filters;

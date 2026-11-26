@@ -1,3 +1,4 @@
+import { CreateDomainConfigs } from './CreateDomainConfigs';
 import { SourcesRequestBody } from './SourcesRequestBody';
 
 
@@ -7,6 +8,8 @@ export class DomainBody {
     public sources?: Array<SourcesRequestBody>;
     private 'service_area'?: DomainBodyServiceAreaEnum | string;
     private 'enterprise_project_id'?: string;
+    private 'origin_protocol'?: string;
+    public configs?: CreateDomainConfigs;
     public constructor(domainName?: string, businessType?: string, sources?: Array<SourcesRequestBody>) { 
         this['domain_name'] = domainName;
         this['business_type'] = businessType;
@@ -55,6 +58,20 @@ export class DomainBody {
     }
     public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
+    }
+    public withOriginProtocol(originProtocol: string): DomainBody {
+        this['origin_protocol'] = originProtocol;
+        return this;
+    }
+    public set originProtocol(originProtocol: string  | undefined) {
+        this['origin_protocol'] = originProtocol;
+    }
+    public get originProtocol(): string | undefined {
+        return this['origin_protocol'];
+    }
+    public withConfigs(configs: CreateDomainConfigs): DomainBody {
+        this['configs'] = configs;
+        return this;
     }
 }
 

@@ -6,13 +6,15 @@ export class SourcesRequestBody {
     private 'origin_type'?: SourcesRequestBodyOriginTypeEnum | string;
     private 'obs_bucket_type'?: string;
     private 'active_standby'?: number;
+    public priority?: number;
+    public weight?: number;
+    private 'host_name'?: string;
     private 'enable_obs_web_hosting'?: number;
     private 'http_port'?: number;
     private 'https_port'?: number;
-    public constructor(ipOrDomain?: string, originType?: string, activeStandby?: number) { 
+    public constructor(ipOrDomain?: string, originType?: string) { 
         this['ip_or_domain'] = ipOrDomain;
         this['origin_type'] = originType;
-        this['active_standby'] = activeStandby;
     }
     public withDomainId(domainId: string): SourcesRequestBody {
         this['domain_id'] = domainId;
@@ -63,6 +65,24 @@ export class SourcesRequestBody {
     }
     public get activeStandby(): number | undefined {
         return this['active_standby'];
+    }
+    public withPriority(priority: number): SourcesRequestBody {
+        this['priority'] = priority;
+        return this;
+    }
+    public withWeight(weight: number): SourcesRequestBody {
+        this['weight'] = weight;
+        return this;
+    }
+    public withHostName(hostName: string): SourcesRequestBody {
+        this['host_name'] = hostName;
+        return this;
+    }
+    public set hostName(hostName: string  | undefined) {
+        this['host_name'] = hostName;
+    }
+    public get hostName(): string | undefined {
+        return this['host_name'];
     }
     public withEnableObsWebHosting(enableObsWebHosting: number): SourcesRequestBody {
         this['enable_obs_web_hosting'] = enableObsWebHosting;

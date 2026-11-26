@@ -1,4 +1,5 @@
 import { Repository } from './Repository';
+import { ResourceTag } from './ResourceTag';
 
 
 export class InstanceRepository {
@@ -12,6 +13,7 @@ export class InstanceRepository {
     public description?: string;
     private 'created_at'?: string;
     private 'updated_at'?: string;
+    public tags?: Array<ResourceTag>;
     private 'instance_id'?: string;
     private 'instance_name'?: string;
     private 'resource_urn'?: string;
@@ -98,6 +100,10 @@ export class InstanceRepository {
     }
     public get updatedAt(): string | undefined {
         return this['updated_at'];
+    }
+    public withTags(tags: Array<ResourceTag>): InstanceRepository {
+        this['tags'] = tags;
+        return this;
     }
     public withInstanceId(instanceId: string): InstanceRepository {
         this['instance_id'] = instanceId;
